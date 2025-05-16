@@ -65,7 +65,7 @@ document.addEventListener("DOMContentLoaded", () => {
 Links.forEach(link => link.onclick = () =>{
     clearSections(Sections, "unselected-section");
     showSection(linkSections[link], "unselected-section", "selected-sectionAnim");
-    window.location.href = `portfolioPage.html#${linkSections[link].id}`;
+    window.location.href = `index.html#${linkSections[link].id}`;
     addLinkClass(Links,link, "selected-link");
 });
 
