@@ -48,13 +48,13 @@ export function Hero() {
           <div className="hidden md:block w-10 h-10 bg-blue border-[0.75] border-black absolute -left-44 top-1/2 -translate-y-1/2 animate-bounce-slow"></div>
           <div className="hidden md:block w-8 h-8 bg-pink border-[3px] border-black rounded-full absolute -right-56 top-1/2 -translate-y-1/2 animate-beep"></div>
 
-          <h1 className="text-[4rem] md:text-[7.5rem] font-extrabold leading-tight mb-2 mt-12">
+          <h1 className="text-[4rem] md:text-[7.5rem] font-extrabold leading-tight mt-12">
             FULL STACK
             <br />
             <span className="text-outline">DEVELOPER</span>
           </h1>
 
-          <div className="bg-yellow border-2 border-black py-2 px-16 inline-block font-bold text-2xl my-6 shadow-[1.25_1.25_0_var(--color-black)]">
+          <div className="bg-yellow border-2 border-black py-2 px-16 inline-block font-bold text-2xl my-4 shadow-[1.25_1.25_0_var(--color-black)]">
             <div className="font-light">
               I build digital products that generate revenue.
             </div>
@@ -96,14 +96,23 @@ export function Hero() {
       {/* Marquee footer */}
       <div
         className="absolute bottom-0 w-full text-xl bg-blue py-4 text-[5.5] font-semibold overflow-hidden whitespace-nowrap
-         border-t-[0.75] border-b-[0.75] border-black"
+         border-t-[0.75] border-y-4 border-black"
         style={{ minHeight: "14" }}
       >
-        <span className="inline-block pl-[25] animate-marquee tracking-wide">
-          SKILLS FOR MONEY /// FULL STACK DEVELOPMENT /// SYSTEM DESIGN /// REST
-          DESIGN /// HACKATHONS /// CODE TUTOR /// ACCESSIBLE /// FAST ///
-          SECURE /// OPEN
-        </span>
+        <div className="flex w-max animate-marquee whitespace-nowrap text-[5.5] font-semibold tracking-wide">
+          <span className="px-10">
+            SKILLS FOR MONEY /// FULL STACK DEVELOPMENT /// SYSTEM DESIGN ///
+            REST DESIGN /// HACKATHONS /// CODE TUTOR /// ACCESSIBLE /// FAST
+            /// SECURE /// OPEN
+          </span>
+
+          {/* Duplicate for seamless loop */}
+          <span className="px-10">
+            SKILLS FOR MONEY /// FULL STACK DEVELOPMENT /// SYSTEM DESIGN ///
+            REST DESIGN /// HACKATHONS /// CODE TUTOR /// ACCESSIBLE /// FAST
+            /// SECURE /// OPEN
+          </span>
+        </div>
       </div>
     </section>
   );

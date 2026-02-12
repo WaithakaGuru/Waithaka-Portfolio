@@ -26,9 +26,15 @@ export function Footer() {
               Waithaka.hack
             </div>
             <p className="text-sm text-gray-400 leading-relaxed">
-              Full Stack Developer crafting digital experiences that refuse to
-              be ignored.
+              Full Stack Developer crafting digital experiences that generate
+              revenue.
             </p>
+            <img
+              src="/WofisTechFull.png"
+              alt="Logo"
+              className="w-60 h-30 object-cover"
+              style={{ display: "block", width: "fit-content" }}
+            />
           </div>
 
           {/* Quick links */}
