@@ -34,47 +34,57 @@ export function Navbar() {
 
   return (
     <nav
-      className={`fixed top-5 left-1/2 -translate-x-1/2 bg-white border-2 border-black py-3 px-5 z-[1000] flex items-center gap-8 box-shadow-neo transition-all duration-300 ${
+      className={`fixed top-5 left-1/2 -translate-x-1/2 z-[1000] w-[90vw] max-w-[1700px] flex flex-row items-stretch justify-between transition-all duration-300 ${
         hidden ? '-translate-y-24 opacity-0 pointer-events-none' : ''
       }`}
+      style={{ background: 'transparent' }}
     >
-      <div className="font-bold text-sm border-2 border-black px-3 py-1 bg-white">
-        ARHAM.exe
+      {/* Name box */}
+      <div className="flex items-center h-[56px]">
+        <div className="bg-white border-2 border-black px-8 h-full flex items-center font-extrabold text-2xl shadow-[4px_4px_0_var(--color-black)]" style={{letterSpacing: '0.01em'}}>
+          ARHAM.exe
+        </div>
       </div>
-      <a
-        href="#home"
-        onClick={(e) => { e.preventDefault(); scrollToSection('home'); }}
-        className="no-underline text-black text-[13px] font-medium hover:text-gray-500 transition-colors"
-      >
-        HOME
-      </a>
-      <a
-        href="#projects"
-        onClick={(e) => { e.preventDefault(); scrollToSection('projects'); }}
-        className="no-underline text-black text-[13px] font-medium hover:text-gray-500 transition-colors"
-      >
-        PROJECTS
-      </a>
-      <a
-        href="#stack"
-        onClick={(e) => { e.preventDefault(); scrollToSection('stack'); }}
-        className="no-underline text-black text-[13px] font-medium hover:text-gray-500 transition-colors"
-      >
-        STACK
-      </a>
-      <a
-        href="#about"
-        onClick={(e) => { e.preventDefault(); scrollToSection('about'); }}
-        className="no-underline text-black text-[13px] font-medium hover:text-gray-500 transition-colors"
-      >
-        ABOUT
-      </a>
-      <button 
-        onClick={() => scrollToSection('contact')}
-        className="bg-yellow border-2 border-black px-4 py-1.5 font-bold text-sm cursor-pointer hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-[2px_2px_0_var(--color-black)] transition-all"
-      >
-        HIRE
-      </button>
+      {/* Nav box */}
+      <div className="flex items-center h-[56px]">
+        <div className="flex items-center bg-white border-2 border-black px-8 h-full shadow-[4px_4px_0_var(--color-black)] gap-8">
+          <a
+            href="#about"
+            onClick={(e) => { e.preventDefault(); scrollToSection('about'); }}
+            className="no-underline text-black text-lg font-semibold tracking-wide hover:text-gray-500 transition-colors"
+          >
+            /ABOUT
+          </a>
+          <a
+            href="#stack"
+            onClick={(e) => { e.preventDefault(); scrollToSection('stack'); }}
+            className="no-underline text-black text-lg font-semibold tracking-wide hover:text-gray-500 transition-colors"
+          >
+            /SKILLS
+          </a>
+          <a
+            href="#about"
+            onClick={(e) => { e.preventDefault(); scrollToSection('about'); }}
+            className="no-underline text-black text-lg font-semibold tracking-wide hover:text-gray-500 transition-colors"
+          >
+            /LOGS
+          </a>
+          <a
+            href="#projects"
+            onClick={(e) => { e.preventDefault(); scrollToSection('projects'); }}
+            className="no-underline text-black text-lg font-semibold tracking-wide hover:text-gray-500 transition-colors"
+          >
+            /WORK
+          </a>
+          <button
+            onClick={() => scrollToSection('contact')}
+            className="bg-yellow border-2 border-black px-6 py-1.5 font-bold text-lg ml-4 shadow-[2px_2px_0_var(--color-black)] hover:-translate-x-0.5 hover:-translate-y-0.5 transition-all"
+            style={{letterSpacing: '0.05em'}}
+          >
+            HIRE ME
+          </button>
+        </div>
+      </div>
     </nav>
   );
 }

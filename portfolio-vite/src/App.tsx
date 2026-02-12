@@ -8,6 +8,7 @@ import {
   AboutMe,
   Contact,
   Footer,
+  UserReports,
 } from './components';
 
 function App() {
@@ -15,11 +16,12 @@ function App() {
     <>
       <Navbar />
       <Hero />
+      <AboutMe />
       <TechStack />
       <ExperienceSection />
       <CodingStats />
       <SelectedWorks />
-      <AboutMe />
+      <UserReports />
       <Contact />
       <Footer />
     </>

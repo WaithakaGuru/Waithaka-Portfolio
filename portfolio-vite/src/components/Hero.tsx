@@ -45,7 +45,7 @@ export function Hero() {
       </div>
 
       {/* Marquee footer */}
-      <div className="absolute bottom-0 w-full bg-blue text-white py-4 text-[15px] font-semibold overflow-hidden whitespace-nowrap" style={{ minHeight: '56px' }}>
+      <div className="absolute bottom-0 w-full bg-blue text-white py-4 text-[22px] font-semibold overflow-hidden whitespace-nowrap border-t-[3px] border-b-[3px] border-black" style={{ minHeight: '56px' }}>
         <span className="inline-block pl-[100%] animate-marquee">
           SKILLS FOR MONEY /// FULL STACK DEVELOPMENT /// SYSTEM DESIGN /// REST DESIGN /// ACCESSIBLE /// FAST /// SECURE /// OPEN
         </span>
