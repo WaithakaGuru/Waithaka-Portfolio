@@ -1,5 +1,5 @@
-import { useEffect } from 'react';
-import type { Experience } from '../data';
+import { useEffect } from "react";
+import type { Experience } from "../data";
 
 interface ExperienceModalProps {
   isOpen: boolean;
@@ -18,17 +18,17 @@ export function ExperienceModal({
 }: ExperienceModalProps) {
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') onClose();
+      if (e.key === "Escape") onClose();
     };
 
     if (isOpen) {
-      document.body.style.overflow = 'hidden';
-      document.addEventListener('keydown', handleKeyDown);
+      document.body.style.overflow = "hidden";
+      document.addEventListener("keydown", handleKeyDown);
     }
 
     return () => {
-      document.body.style.overflow = 'auto';
-      document.removeEventListener('keydown', handleKeyDown);
+      document.body.style.overflow = "auto";
+      document.removeEventListener("keydown", handleKeyDown);
     };
   }, [isOpen, onClose]);
 
@@ -36,12 +36,12 @@ export function ExperienceModal({
 
   return (
     <div
-      className="fixed inset-0 bg-black/80 z-[2000] flex items-center justify-center p-5"
+      className="fixed inset-0 bg-black/80 z-1000 flex items-center justify-center p-5"
       onClick={(e) => {
         if (e.target === e.currentTarget) onClose();
       }}
     >
-      <div className="bg-white border-4 border-black max-w-[700px] w-full max-h-[90vh] overflow-y-auto shadow-[10px_10px_0_var(--color-black)]">
+      <div className="bg-white border-4 border-black max-w-175 w-full max-h-[90vh] overflow-y-auto shadow-[10px_10px_0_var(--color-black)]">
         {/* Modal header */}
         <div className="flex justify-between items-center px-5 py-4 border-b-[3px] border-black bg-light-gray">
           <button
@@ -66,13 +66,15 @@ export function ExperienceModal({
 
         {/* Modal body */}
         <div className="p-8">
-          <div className="w-[50px] h-[50px] bg-blue border-2 border-black flex items-center justify-center text-white font-bold text-xl mb-4">
+          <div className="w-12.5 h-12.5 bg-blue border-2 border-black flex items-center justify-center text-white font-bold text-xl mb-4">
             {experience.logo}
           </div>
           <div className="text-[28px] font-extrabold mb-2.5">
             {experience.title}
           </div>
-          <div className="text-[13px] text-gray-500 mb-5">{experience.date}</div>
+          <div className="text-[13px] text-gray-500 mb-5">
+            {experience.date}
+          </div>
           <div className="text-[15px] leading-relaxed text-gray-700 mb-6">
             {experience.description}
           </div>

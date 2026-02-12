@@ -1,6 +1,6 @@
-import { useState } from 'react';
-import { projects, type Project } from '../data';
-import { ProjectModal } from './ProjectModal';
+import { useState } from "react";
+import { projects, type Project } from "../data";
+import { ProjectModal } from "./ProjectModal";
 
 export function SelectedWorks() {
   const [modalOpen, setModalOpen] = useState(false);
@@ -24,7 +24,7 @@ export function SelectedWorks() {
         SELECTED WORKS
       </h2>
 
-      <div className="max-w-[1400px] mx-auto mt-10 overflow-x-auto pb-5">
+      <div className="max-w-350 mx-auto mt-10 overflow-auto h-110 pb-5">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 min-w-min">
           {projects.map((project, index) => (
             <ProjectCard
@@ -57,10 +57,10 @@ function ProjectCard({
   return (
     <div
       onClick={onClick}
-      className="bg-white border-4 border-black shadow-[8px_8px_0_var(--color-black)] transition-all cursor-pointer min-w-[350px] hover:-translate-x-1 hover:-translate-y-1 hover:shadow-[12px_12px_0_var(--color-black)]"
+      className="bg-white border-4 border-black shadow-[8px_8px_0_var(--color-black)] transition-all cursor-pointer min-w-87.5 hover:-translate-x-1 hover:-translate-y-1 hover:shadow-[12px_12px_0_var(--color-black)]"
     >
       {/* Project image placeholder */}
-      <div className="w-full h-[250px] bg-[#2a2a2a] border-b-4 border-black flex items-center justify-center text-white text-sm">
+      <div className="w-full h-62.5 bg-[#2a2a2a] border-b-4 border-black flex items-center justify-center text-white text-sm">
         [{project.title} Preview]
       </div>
 
@@ -68,7 +68,7 @@ function ProjectCard({
       <div className="p-6">
         <div className="text-xl font-extrabold mb-2.5 flex justify-between items-center">
           {project.title}
-          <div className="w-3 h-3 bg-green border-2 border-black rounded-full flex-shrink-0"></div>
+          <div className="w-3 h-3 bg-green border-2 border-black rounded-full shrink-0"></div>
         </div>
         <div className="text-[13px] leading-relaxed text-gray-600 mb-4">
           {project.shortDesc}

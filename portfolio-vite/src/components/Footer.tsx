@@ -9,10 +9,11 @@ export function Footer() {
           {/* Logo & tagline */}
           <div>
             <div className="font-bold text-xl border-2 border-white inline-block px-4 py-2 mb-4">
-              ARHAM.exe
+              Waithaka.hack
             </div>
             <p className="text-sm text-gray-400 leading-relaxed">
-              Full Stack Developer crafting digital experiences that refuse to be ignored.
+              Full Stack Developer crafting digital experiences that refuse to
+              be ignored.
             </p>
           </div>
 
@@ -21,27 +22,42 @@ export function Footer() {
             <h4 className="font-bold text-sm text-yellow mb-4">QUICK LINKS</h4>
             <ul className="space-y-2">
               <li>
-                <a href="#home" className="text-sm text-gray-400 hover:text-white transition-colors">
+                <a
+                  href="#home"
+                  className="text-sm text-gray-400 hover:text-white transition-colors"
+                >
                   Home
                 </a>
               </li>
               <li>
-                <a href="#projects" className="text-sm text-gray-400 hover:text-white transition-colors">
+                <a
+                  href="#projects"
+                  className="text-sm text-gray-400 hover:text-white transition-colors"
+                >
                   Projects
                 </a>
               </li>
               <li>
-                <a href="#stack" className="text-sm text-gray-400 hover:text-white transition-colors">
+                <a
+                  href="#stack"
+                  className="text-sm text-gray-400 hover:text-white transition-colors"
+                >
                   Tech Stack
                 </a>
               </li>
               <li>
-                <a href="#about" className="text-sm text-gray-400 hover:text-white transition-colors">
+                <a
+                  href="#about"
+                  className="text-sm text-gray-400 hover:text-white transition-colors"
+                >
                   Experience
                 </a>
               </li>
               <li>
-                <a href="#contact" className="text-sm text-gray-400 hover:text-white transition-colors">
+                <a
+                  href="#contact"
+                  className="text-sm text-gray-400 hover:text-white transition-colors"
+                >
                   Contact
                 </a>
               </li>
@@ -90,12 +106,11 @@ export function Footer() {
         <div className="border-t border-gray-700 pt-6">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="text-xs text-gray-500">
-              © {currentYear} ARHAM.exe — All rights reserved.
+              © {currentYear} Waithaka.hack — All rights reserved.
             </p>
             <p className="text-xs text-gray-500">
-              Built with{' '}
-              <span className="text-yellow">React</span> +{' '}
-              <span className="text-blue">TypeScript</span> +{' '}
+              Built with <span className="text-yellow">React</span> +{" "}
+              <span className="text-blue">TypeScript</span> +{" "}
               <span className="text-green">Tailwind</span>
             </p>
           </div>

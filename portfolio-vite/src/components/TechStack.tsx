@@ -1,4 +1,4 @@
-import { techStack } from '../data';
+import { techStack } from "../data";
 
 export function TechStack() {
   return (
@@ -7,7 +7,7 @@ export function TechStack() {
         TECH_<span className="text-green">STACK</span>
       </h2>
 
-      <div className="max-w-[1200px] mx-auto grid grid-cols-1 md:grid-cols-2 gap-10">
+      <div className="max-w-300 mx-auto grid grid-cols-1 md:grid-cols-2 gap-10">
         <TechCategory title="FRONTEND" items={techStack.frontend} />
         <TechCategory title="BACKEND" items={techStack.backend} />
         <TechCategory title="DATABASE" items={techStack.database} />

@@ -9,7 +9,7 @@ import {
   Contact,
   Footer,
   UserReports,
-} from './components';
+} from "./components";
 
 function App() {
   return (

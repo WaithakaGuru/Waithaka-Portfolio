@@ -1,24 +1,24 @@
-import { useState } from 'react';
+import { useState } from "react";
 
 export function Contact() {
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    message: '',
+    name: "",
+    email: "",
+    message: "",
   });
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     // Handle form submission
-    console.log('Form submitted:', formData);
+    console.log("Form submitted:", formData);
   };
 
   return (
     <section id="contact" className="py-20 px-10 bg-transparent">
-      <h2 className="text-4xl md:text-5xl font-extrabold text-left mb-4">
+      <h2 className="text-4xl md:text-5xl font-extrabold text-left mb-4 ml-10">
         GET_IN_<span className="text-green">TOUCH</span>
       </h2>
-      <p className="text-center text-gray-600 mb-12 max-w-[600px] mx-auto">
+      <p className="text-left text-xl text-gray-600 mb-12 w-max ml-10">
         Have a project in mind? Let's work together to create something amazing.
       </p>
 
@@ -27,7 +27,7 @@ export function Contact() {
         <div className="space-y-6">
           <div className="bg-white border-3 border-black p-6 shadow-[5px_5px_0_var(--color-black)]">
             <h3 className="font-bold text-lg mb-4">CONTACT INFO</h3>
-            
+
             <div className="space-y-4">
               <div className="flex items-center gap-4">
                 <div className="w-10 h-10 bg-yellow border-2 border-black flex items-center justify-center font-bold">
@@ -64,14 +64,17 @@ export function Contact() {
           <div className="bg-yellow border-3 border-black p-6 shadow-[5px_5px_0_var(--color-black)]">
             <div className="text-sm font-bold mb-2">💡 FUN FACT</div>
             <p className="text-sm">
-              I've written over 100,000 lines of code and consumed approximately 
+              I've written over 100,000 lines of code and consumed approximately
               2,847 cups of coffee in the process.
             </p>
           </div>
         </div>
 
         {/* Contact form */}
-        <form onSubmit={handleSubmit} className="bg-white border-3 border-black p-6 shadow-[5px_5px_0_var(--color-black)]">
+        <form
+          onSubmit={handleSubmit}
+          className="bg-white border-3 border-black p-6 shadow-[5px_5px_0_var(--color-black)]"
+        >
           <h3 className="font-bold text-lg mb-6">SEND A MESSAGE</h3>
 
           <div className="space-y-4">
@@ -80,7 +83,9 @@ export function Contact() {
               <input
                 type="text"
                 value={formData.name}
-                onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                onChange={(e) =>
+                  setFormData({ ...formData, name: e.target.value })
+                }
                 className="w-full border-2 border-black p-3 text-sm focus:outline-none focus:ring-2 focus:ring-yellow"
                 placeholder="Your name"
                 required
@@ -92,7 +97,9 @@ export function Contact() {
               <input
                 type="email"
                 value={formData.email}
-                onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                onChange={(e) =>
+                  setFormData({ ...formData, email: e.target.value })
+                }
                 className="w-full border-2 border-black p-3 text-sm focus:outline-none focus:ring-2 focus:ring-yellow"
                 placeholder="your@email.com"
                 required
@@ -103,7 +110,9 @@ export function Contact() {
               <label className="block text-xs font-bold mb-2">MESSAGE</label>
               <textarea
                 value={formData.message}
-                onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                onChange={(e) =>
+                  setFormData({ ...formData, message: e.target.value })
+                }
                 className="w-full border-2 border-black p-3 text-sm h-32 resize-none focus:outline-none focus:ring-2 focus:ring-yellow"
                 placeholder="Tell me about your project..."
                 required
