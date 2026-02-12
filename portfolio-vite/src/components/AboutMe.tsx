@@ -22,19 +22,33 @@ export function AboutMe() {
 
           <div className="bg-white border-3 border-black p-6 shadow-[5px_5px_0_var(--color-black)] mb-6">
             <p className="text-base leading-relaxed text-gray-700 mb-4">
-              I'm a passionate Full Stack Developer with 4+ years of experience
-              building digital products that make an impact. I specialize in
-              creating performant, accessible, and beautiful web applications.
+              I am Waithaka Ndung'u, Certified Software Developer with 4+ years
+              of experience building digital products that make an impact. I
+              specialize in creating performant, scalable and optimal web/mobile
+              applications.
             </p>
-            <p className="text-base leading-relaxed text-gray-700 mb-4">
-              When I'm not coding, you'll find me exploring new technologies,
-              contributing to open source projects, or sharing knowledge through
-              blog posts and talks.
-            </p>
-            <p className="text-base leading-relaxed text-gray-700">
-              I believe in clean code, user-centric design, and continuous
-              learning. Let's build something amazing together!
-            </p>
+            <div className="bg-[#181818] border-2 border-black p-6 shadow-[5px_5px_0_var(--color-black)] mb-6 font-mono text-[17px] text-white">
+              <div className="pl-4 border-l-4 border-purple-500 mb-4">
+                <div>&gt; Specialized in Designing and Web Development.</div>
+                <div>
+                  &gt; Obsessed with{" "}
+                  <span className="inline-block w-6 h-6 bg-black rounded-full align-middle mx-1"></span>
+                  Perfection and AI.
+                </div>
+                <div>&gt; 3+ years of shipping code that works.</div>
+              </div>
+              <div className="flex gap-4 mt-6">
+                <div className="bg-black text-white px-4 py-2 rounded font-bold flex items-center text-sm">
+                  <span className="mr-2">📍</span>LOCATION: WORLDWIDE
+                </div>
+                <div className="bg-[#39d353] text-black px-4 py-2 rounded font-bold flex items-center text-sm">
+                  <span className="mr-2">
+                    <span className="inline-block w-3 h-3 bg-green-400 rounded-full mr-1"></span>
+                  </span>
+                  STATUS: AVAILABLE
+                </div>
+              </div>
+            </div>
           </div>
 
           {/* Quick stats */}

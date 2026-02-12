@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { CSSProperties, useState } from "react";
 import { projects, type Project } from "../data";
 import { ProjectModal } from "./ProjectModal";
 
@@ -20,20 +20,41 @@ export function SelectedWorks() {
 
   return (
     <section id="projects" className="bg-yellow py-20 px-10">
-      <h2 className="text-4xl md:text-5xl font-extrabold text-left mb-10 text-black">
+      <h2
+        className="text-4xl md:text-8xl font-extrabold text-left
+       mb-10 text-light-gray text-shadow-lg text-shadow-black"
+      >
         SELECTED WORKS
       </h2>
 
-      <div className="max-w-350 mx-auto mt-10 overflow-auto h-110 pb-5">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 min-w-min">
+      <div className="max-w-350 mx-auto mt-10 overflow-x-auto h-110 pb-5">
+        <div
+          className="flex gap-10 min-w-min"
+          style={{ minWidth: "100%", maxWidth: "100%", overflowX: "auto" }}
+        >
           {projects.map((project, index) => (
             <ProjectCard
               key={index}
               project={project}
               onClick={() => openModal(index)}
+              // Only show first 3 fully, rest overflow
+              style={
+                index < 3
+                  ? { flex: "0 0 33%" }
+                  : { flex: "0 0 33%", opacity: 0.7 }
+              }
             />
           ))}
         </div>
+      </div>
+
+      <div className="flex justify-center mt-8">
+        <a
+          href="#all-projects"
+          className="bg-black text-white font-bold py-3 px-8 rounded shadow-[4px_4px_0_var(--color-black)] border-2 border-black text-lg hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-[6px_6px_0_var(--color-black)] transition-all"
+        >
+          View All Projects
+        </a>
       </div>
 
       <ProjectModal
@@ -50,9 +71,11 @@ export function SelectedWorks() {
 function ProjectCard({
   project,
   onClick,
+  // style,
 }: {
   project: Project;
   onClick: () => void;
+  style: CSSProperties;
 }) {
   return (
     <div

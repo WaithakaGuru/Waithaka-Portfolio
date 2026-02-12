@@ -20,6 +20,14 @@ export function Hero() {
       id="home"
       className="h-screen flex flex-col justify-between bg-transparent relative px-5 overflow-hidden"
     >
+      {/* Faint background text */}
+      <span
+        aria-hidden="true"
+        className="pointer-events-none select-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-[10vw] font-extrabold text-zinc-700 opacity-10 whitespace-nowrap z-0"
+        style={{ userSelect: "none", letterSpacing: "0.2em" }}
+      >
+        CODER
+      </span>
       {/* Scroll progress bar */}
       <div
         style={{
