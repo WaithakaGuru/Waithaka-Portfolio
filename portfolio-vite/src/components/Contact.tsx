@@ -15,14 +15,14 @@ export function Contact() {
 
   return (
     <section id="contact" className="py-20 px-10 bg-transparent">
-      <h2 className="text-4xl md:text-5xl font-extrabold text-center mb-4">
+      <h2 className="text-4xl md:text-5xl font-extrabold text-left mb-4">
         GET_IN_<span className="text-green">TOUCH</span>
       </h2>
       <p className="text-center text-gray-600 mb-12 max-w-[600px] mx-auto">
         Have a project in mind? Let's work together to create something amazing.
       </p>
 
-      <div className="max-w-[800px] mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
+      <div className="max-w-[1200px] mx-auto w-[1200px] grid grid-cols-1 md:grid-cols-2 gap-8">
         {/* Contact info */}
         <div className="space-y-6">
           <div className="bg-white border-3 border-black p-6 shadow-[5px_5px_0_var(--color-black)]">

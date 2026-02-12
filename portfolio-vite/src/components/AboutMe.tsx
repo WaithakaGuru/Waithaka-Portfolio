@@ -16,7 +16,7 @@ export function AboutMe() {
 
         {/* Content */}
         <div>
-          <h2 className="text-4xl md:text-5xl font-extrabold mb-6">
+          <h2 className="text-4xl md:text-5xl font-extrabold text-left mb-6">
             WHO_<span className="text-blue">AM_I</span>
           </h2>
 

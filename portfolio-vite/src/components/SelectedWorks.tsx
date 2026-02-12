@@ -20,7 +20,7 @@ export function SelectedWorks() {
 
   return (
     <section id="projects" className="bg-yellow py-20 px-10">
-      <h2 className="text-4xl md:text-5xl font-extrabold text-center mb-10 text-black">
+      <h2 className="text-4xl md:text-5xl font-extrabold text-left mb-10 text-black">
         SELECTED WORKS
       </h2>
 

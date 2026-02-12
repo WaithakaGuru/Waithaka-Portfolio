@@ -2,7 +2,7 @@ export { Navbar } from './Navbar';
 export { Hero } from './Hero';
 export { TechStack } from './TechStack';
 export { ExperienceSection } from './Experience';
-export { ExperienceModal } from './ExperienceModal';
+// export { ExperienceModal } from './ExperienceModal';
 export { CodingStats } from './CodingStats';
 export { SelectedWorks } from './SelectedWorks';
 export { ProjectModal } from './ProjectModal';

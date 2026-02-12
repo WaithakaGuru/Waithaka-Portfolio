@@ -3,7 +3,7 @@ import { techStack } from '../data';
 export function TechStack() {
   return (
     <section id="stack" className="bg-black text-white py-20 px-10">
-      <h2 className="text-4xl md:text-5xl font-extrabold text-center mb-16">
+      <h2 className="text-4xl md:text-5xl font-extrabold text-left mb-16">
         TECH_<span className="text-green">STACK</span>
       </h2>
 

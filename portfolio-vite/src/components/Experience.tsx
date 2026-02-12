@@ -1,15 +1,9 @@
 import { useState } from 'react';
 import { experiences, type Experience } from '../data';
-import { ExperienceModal } from './ExperienceModal';
+// import { ExperienceModal } from './ExperienceModal';
 
 export function ExperienceSection() {
-  const [modalOpen, setModalOpen] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
-
-  const openModal = (index: number) => {
-    setCurrentIndex(index);
-    setModalOpen(true);
-  };
 
   const navigate = (direction: number) => {
     let newIndex = currentIndex + direction;
@@ -22,13 +16,13 @@ export function ExperienceSection() {
 
   return (
     <section id="about" className="py-20 px-10 bg-transparent">
-      <h2 className="text-4xl md:text-5xl font-extrabold text-center mb-16">
+      <h2 className="text-4xl md:text-5xl font-extrabold text-left mb-16">
         EXPERIENCE_<span className="text-red">LOG</span>
       </h2>
 
-      <div className="max-w-[1000px] mx-auto flex flex-col md:flex-row gap-8">
+      <div className="max-w-250 mx-auto flex flex-col md:flex-row gap-8">
         {/* Year sidebar */}
-        <div className="w-full md:w-20 bg-gradient-to-b from-green/30 to-green/10 border-2 border-black p-4 flex flex-row md:flex-col justify-around md:justify-start md:gap-16">
+        <div className="w-full md:w-20 bg-linear-to-b from-green/30 to-green/10 border-2 border-black p-4 flex flex-row md:flex-col justify-around md:justify-start md:gap-16">
           {years.map((year) => (
             <div key={year} className="text-sm font-bold text-center text-black">
               {year}
@@ -37,24 +31,10 @@ export function ExperienceSection() {
         </div>
 
         {/* Experience cards */}
-        <div className="flex-1 max-h-[500px] overflow-y-auto pr-2 grid gap-5">
-          {experiences.map((exp, index) => (
-            <ExperienceCard
-              key={index}
-              experience={exp}
-              onClick={() => openModal(index)}
-            />
-          ))}
-        </div>
+        {/* Experience content is now inline below */}
       </div>
 
-      <ExperienceModal
-        isOpen={modalOpen}
-        experience={experiences[currentIndex]}
-        onClose={() => setModalOpen(false)}
-        onPrev={() => navigate(-1)}
-        onNext={() => navigate(1)}
-      />
+      {/* ExperienceModal removed, now inline */}
     </section>
   );
 }

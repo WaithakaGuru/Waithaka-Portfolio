@@ -18,7 +18,7 @@ export function CodingStats() {
 
   return (
     <section className="bg-black text-white py-20 px-10">
-      <h2 className="text-4xl md:text-5xl font-extrabold text-center mb-10">
+      <h2 className="text-4xl md:text-5xl font-extrabold text-left mb-10">
         CODING_<span className="text-green">STATS</span>
       </h2>
 
