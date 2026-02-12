@@ -5,6 +5,9 @@ import {
   ExperienceSection,
   CodingStats,
   SelectedWorks,
+  AboutMe,
+  Contact,
+  Footer,
 } from './components';
 
 function App() {
@@ -16,6 +19,9 @@ function App() {
       <ExperienceSection />
       <CodingStats />
       <SelectedWorks />
+      <AboutMe />
+      <Contact />
+      <Footer />
     </>
   );
 }

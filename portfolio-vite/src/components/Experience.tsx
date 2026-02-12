@@ -21,7 +21,7 @@ export function ExperienceSection() {
   const years = ['2024', '2023', '2022', '2021', '2020'];
 
   return (
-    <section id="about" className="py-20 px-10 bg-light-gray">
+    <section id="about" className="py-20 px-10 bg-transparent">
       <h2 className="text-4xl md:text-5xl font-extrabold text-center mb-16">
         EXPERIENCE_<span className="text-red">LOG</span>
       </h2>

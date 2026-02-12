@@ -2,7 +2,7 @@ export function Hero() {
   return (
     <section
       id="home"
-      className="min-h-screen flex items-center justify-center flex-col bg-light-gray relative py-24 px-5"
+      className="min-h-screen flex items-center justify-center flex-col bg-transparent relative py-24 px-5"
     >
       {/* Scroll indicator */}
       <div className="absolute top-16 right-5 text-[11px] font-medium flex items-center gap-2">
@@ -45,7 +45,7 @@ export function Hero() {
       </div>
 
       {/* Marquee footer */}
-      <div className="absolute bottom-5 w-full bg-blue text-white py-2 text-[11px] font-medium overflow-hidden whitespace-nowrap">
+      <div className="absolute bottom-0 w-full bg-blue text-white py-4 text-[15px] font-semibold overflow-hidden whitespace-nowrap" style={{ minHeight: '56px' }}>
         <span className="inline-block pl-[100%] animate-marquee">
           SKILLS FOR MONEY /// FULL STACK DEVELOPMENT /// SYSTEM DESIGN /// REST DESIGN /// ACCESSIBLE /// FAST /// SECURE /// OPEN
         </span>

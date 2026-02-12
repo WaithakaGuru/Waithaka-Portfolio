@@ -69,7 +69,10 @@ export function Navbar() {
       >
         ABOUT
       </a>
-      <button className="bg-yellow border-2 border-black px-4 py-1.5 font-bold text-sm cursor-pointer hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-[2px_2px_0_var(--color-black)] transition-all">
+      <button 
+        onClick={() => scrollToSection('contact')}
+        className="bg-yellow border-2 border-black px-4 py-1.5 font-bold text-sm cursor-pointer hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-[2px_2px_0_var(--color-black)] transition-all"
+      >
         HIRE
       </button>
     </nav>

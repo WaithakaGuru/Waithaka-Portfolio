@@ -24,7 +24,9 @@
 
   body {
     font-family: var(--font-primary);
-    background: var(--color-white);
+    background-color: var(--color-light-gray);
+    background-image: radial-gradient(circle, var(--color-black) 1px, transparent 1px);
+    background-size: 20px 20px;
     color: var(--color-black);
     overflow-x: hidden;
   }

@@ -6,3 +6,6 @@ export { ExperienceModal } from './ExperienceModal';
 export { CodingStats } from './CodingStats';
 export { SelectedWorks } from './SelectedWorks';
 export { ProjectModal } from './ProjectModal';
+export { AboutMe } from './AboutMe';
+export { Contact } from './Contact';
+export { Footer } from './Footer';
