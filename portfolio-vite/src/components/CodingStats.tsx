@@ -91,8 +91,8 @@ export function CodingStats() {
         {/* WakaTime card */}
         <StatCard
           icon
-          title="arham45.exe"
-          subtitle="WAKATIME"
+          title="waithaka.hack"
+          subtitle="wai.the_hacker"
           value={`${stats.wakatimeHours} hrs`}
           details={[
             { label: "Daily", value: stats.dailyAverage },

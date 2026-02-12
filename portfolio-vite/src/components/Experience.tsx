@@ -25,14 +25,31 @@ export function ExperienceSection() {
       </h2>
 
       <div className="max-w-250 mx-auto flex flex-col md:flex-row gap-8">
-        {/* Year sidebar */}
-        <div className="w-full md:w-20 bg-linear-to-b from-green/30 to-green/10 border-2 border-black p-4 flex flex-row md:flex-col justify-around md:justify-start md:gap-16">
-          {years.map((year) => (
+        {/* Year sidebar with horizontal bars and scroll */}
+        <div
+          className="w-full md:w-20 bg-linear-to-b from-green/30 to-green/10 border-2 border-black p-4 flex flex-row md:flex-col justify-around md:justify-start md:gap-16 relative overflow-x-auto md:overflow-y-auto max-h-40 md:max-h-none"
+          style={{ scrollbarWidth: "thin" }}
+        >
+          {years.map((year, idx) => (
             <div
               key={year}
-              className="text-sm font-bold text-center text-black"
+              className="relative flex flex-col items-center md:mb-8 mb-0"
             >
-              {year}
+              {/* Horizontal bar for year start */}
+              <div
+                className="absolute -left-4 md:left-0 md:-top-2 md:-translate-y-full w-8 md:w-16 h-1 bg-black rounded-full"
+                style={{
+                  top: 0,
+                  left: "-2.5rem",
+                  width: "2.5rem",
+                  display: "block",
+                }}
+              ></div>
+              <span className="text-sm font-bold text-center text-black z-10 bg-green/10 px-2 rounded">
+                {year}
+              </span>
+              {/* Experience bar for the year (visual, not dynamic) */}
+              <div className="hidden md:block w-1 h-12 bg-green-400/60 mt-1 mb-1 rounded-full"></div>
             </div>
           ))}
         </div>
@@ -158,24 +175,3 @@ export function ExperienceSection() {
     </section>
   );
 }
-
-// function ExperienceCard({
-//   experience,
-//   onClick,
-// }: {
-//   experience: Experience;
-//   onClick: () => void;
-// }) {
-//   return (
-//     <div
-//       onClick={onClick}
-//       className="bg-white border-[3px] border-black p-5 cursor-pointer transition-all shadow-[3px_3px_0_var(--color-black)] hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-[5px_5px_0_var(--color-black)]"
-//     >
-//       <div className="bg-black text-white py-1 px-3 text-[11px] font-bold inline-block mb-2.5">
-//         {experience.dateShort}
-//       </div>
-//       <div className="text-lg font-bold mb-2">{experience.title}</div>
-//       <div className="text-[13px] text-gray-500">{experience.company}</div>
-//     </div>
-//   );
-// }
