@@ -37,7 +37,6 @@ export function SelectedWorks() {
               key={index}
               project={project}
               onClick={() => openModal(index)}
-              // Only show first 3 fully, rest overflow
               style={
                 index < 3
                   ? { flex: "0 0 33%" }
@@ -80,7 +79,9 @@ function ProjectCard({
   return (
     <div
       onClick={onClick}
-      className="bg-white border-4 border-black shadow-[8px_8px_0_var(--color-black)] transition-all cursor-pointer min-w-87.5 hover:-translate-x-1 hover:-translate-y-1 hover:shadow-[12px_12px_0_var(--color-black)]"
+      className="bg-white border-4 border-black shadow-[8px_8px_0_var(--color-black)] 
+      transition-all cursor-pointer min-w-87.5 hover:-translate-x-1 hover:-translate-y-1
+       hover:shadow-[12px_12px_0_var(--color-black)] mb-4"
     >
       {/* Project image placeholder */}
       <div className="w-full h-62.5 bg-[#2a2a2a] border-b-4 border-black flex items-center justify-center text-white text-sm">

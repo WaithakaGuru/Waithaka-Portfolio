@@ -30,7 +30,7 @@ export function TechStack() {
             {stack.map((item, index) => (
               <div
                 key={index}
-                className="border border-white/10 px-6 py-10 flex flex-col justify-center"
+                className="border border-white/10 px-6 py-10 flex flex-col justify-center transition-all duration-200 transform hover:scale-105 hover:border-green-500 hover:bg-white/10 cursor-pointer"
               >
                 <span className="text-green-500 text-xs tracking-widest font-mono mb-4">
                   {`>_ ${item.label}`}
