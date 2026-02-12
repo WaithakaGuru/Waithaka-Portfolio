@@ -1,9 +1,23 @@
+import { useEffect, useState } from "react";
+
 export function Footer() {
   const currentYear = new Date().getFullYear();
+  const [clock, setClock] = useState("");
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      const now = new Date();
+      setClock(
+        `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, "0")}-${String(now.getDate()).padStart(2, "0")}` +
+          ` ${String(now.getHours()).padStart(2, "0")}:${String(now.getMinutes()).padStart(2, "0")}:${String(now.getSeconds()).padStart(2, "0")}`,
+      );
+    }, 1000);
+    return () => clearInterval(interval);
+  }, []);
 
   return (
-    <footer className="bg-black text-white py-12 px-10">
-      <div className="max-w-[1200px] mx-auto">
+    <footer className="bg-black text-white py-12 px-10 relative border-t-6 border-[#39d353]">
+      <div className="max-w-300 mx-auto">
         {/* Top section */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-10">
           {/* Logo & tagline */}
@@ -99,6 +113,13 @@ export function Footer() {
                 @
               </a>
             </div>
+            {/* Digital clock below CONNECT */}
+            <div
+              className="mt-4 text-green font-mono text-lg"
+              style={{ color: "#39d353" }}
+            >
+              {clock}
+            </div>
           </div>
         </div>
 
@@ -109,9 +130,7 @@ export function Footer() {
               © {currentYear} Waithaka.hack — All rights reserved.
             </p>
             <p className="text-xs text-gray-500">
-              Built with <span className="text-yellow">React</span> +{" "}
-              <span className="text-blue">TypeScript</span> +{" "}
-              <span className="text-green">Tailwind</span>
+              Built with <span style={{ color: "#ff4b4b" }}>❤️</span> for Devs
             </p>
           </div>
         </div>

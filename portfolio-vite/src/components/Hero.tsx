@@ -1,11 +1,40 @@
+import { useEffect, useState } from "react";
+
 export function Hero() {
+  const [scroll, setScroll] = useState(0);
+
+  useEffect(() => {
+    const onScroll = () => {
+      const scrollTop = window.scrollY;
+      const docHeight =
+        document.documentElement.scrollHeight - window.innerHeight;
+      setScroll(docHeight > 0 ? scrollTop / docHeight : 0);
+    };
+    window.addEventListener("scroll", onScroll);
+    onScroll();
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
   return (
     <section
       id="home"
       className="min-h-screen flex items-center justify-center flex-col bg-transparent relative py-24 px-5"
     >
+      {/* Scroll progress bar */}
+      <div
+        style={{
+          width: `${scroll * 100}%`,
+          height: "6px",
+          background: "#39d353",
+          position: "fixed",
+          top: 0,
+          left: 0,
+          zIndex: 1000,
+          transition: "width 0.2s",
+        }}
+      ></div>
       {/* Scroll indicator */}
-      <div className="absolute top-32 right-5 text-[2.75] font-medium flex items-center gap-2">
+      <div className="absolute top-26 right-5 text-[2.75] font-medium flex items-center gap-2">
         SCROLL DOWN
         <div className="w-5 h-7.5 border-2 border-black rounded-full relative">
           <span className="absolute top-1.5 left-1/2 -translate-x-1/2 w-1 h-2 bg-black rounded-sm animate-scroll-indicator"></span>
