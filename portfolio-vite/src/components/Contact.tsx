@@ -23,7 +23,7 @@ export function Contact() {
       </p>
 
       <div
-        className="max-w-fit mx-auto w-300 
+        className="max-w-fit mx-auto w-300
       grid grid-cols-1 md:grid-cols-3 gap-8"
       >
         {/* Contact info */}
