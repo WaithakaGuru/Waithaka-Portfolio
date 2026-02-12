@@ -1,5 +1,6 @@
 import { useState } from "react";
-import { experiences, type Experience } from "../data";
+import { experiences } from "../data";
+// import { type Experience } from "../data";
 // import { ExperienceModal } from './ExperienceModal';
 
 export function ExperienceSection() {
@@ -158,23 +159,23 @@ export function ExperienceSection() {
   );
 }
 
-function ExperienceCard({
-  experience,
-  onClick,
-}: {
-  experience: Experience;
-  onClick: () => void;
-}) {
-  return (
-    <div
-      onClick={onClick}
-      className="bg-white border-[3px] border-black p-5 cursor-pointer transition-all shadow-[3px_3px_0_var(--color-black)] hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-[5px_5px_0_var(--color-black)]"
-    >
-      <div className="bg-black text-white py-1 px-3 text-[11px] font-bold inline-block mb-2.5">
-        {experience.dateShort}
-      </div>
-      <div className="text-lg font-bold mb-2">{experience.title}</div>
-      <div className="text-[13px] text-gray-500">{experience.company}</div>
-    </div>
-  );
-}
+// function ExperienceCard({
+//   experience,
+//   onClick,
+// }: {
+//   experience: Experience;
+//   onClick: () => void;
+// }) {
+//   return (
+//     <div
+//       onClick={onClick}
+//       className="bg-white border-[3px] border-black p-5 cursor-pointer transition-all shadow-[3px_3px_0_var(--color-black)] hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-[5px_5px_0_var(--color-black)]"
+//     >
+//       <div className="bg-black text-white py-1 px-3 text-[11px] font-bold inline-block mb-2.5">
+//         {experience.dateShort}
+//       </div>
+//       <div className="text-lg font-bold mb-2">{experience.title}</div>
+//       <div className="text-[13px] text-gray-500">{experience.company}</div>
+//     </div>
+//   );
+// }

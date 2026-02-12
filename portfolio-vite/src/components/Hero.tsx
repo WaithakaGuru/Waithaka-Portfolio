@@ -18,7 +18,7 @@ export function Hero() {
   return (
     <section
       id="home"
-      className="min-h-screen flex items-center justify-center flex-col bg-transparent relative py-24 px-5"
+      className="h-screen flex flex-col justify-between bg-transparent relative px-5 overflow-hidden"
     >
       {/* Scroll progress bar */}
       <div
@@ -42,34 +42,42 @@ export function Hero() {
       </div>
 
       {/* Hero content */}
-      <div className="relative text-left">
-        {/* Decorative shapes */}
-        <div className="hidden md:block w-10 h-10 bg-blue border-[0.75] border-black absolute -left-44 top-1/2 -translate-y-1/2 animate-bounce-slow"></div>
-        <div className="hidden md:block w-16 h-16 bg-pink border-[3px] border-black rounded-full absolute -right-56 top-1/2 -translate-y-1/2 animate-beep"></div>
+      <div className="flex-1 flex items-center justify-center">
+        <div className="relative text-left">
+          {/* Decorative shapes */}
+          <div className="hidden md:block w-10 h-10 bg-blue border-[0.75] border-black absolute -left-44 top-1/2 -translate-y-1/2 animate-bounce-slow"></div>
+          <div className="hidden md:block w-8 h-8 bg-pink border-[3px] border-black rounded-full absolute -right-56 top-1/2 -translate-y-1/2 animate-beep"></div>
 
-        <h1 className="text-[4rem] md:text-[7.5rem] font-extrabold leading-tight mb-8">
-          FULL STACK
-          <br />
-          <span className="text-outline">DEVELOPER</span>
-        </h1>
+          <h1 className="text-[4rem] md:text-[7.5rem] font-extrabold leading-tight mb-2 mt-12">
+            FULL STACK
+            <br />
+            <span className="text-outline">DEVELOPER</span>
+          </h1>
 
-        <div className="bg-yellow border-2 border-black py-8 px-16 inline-block font-bold text-2xl my-12 shadow-[1.25_1.25_0_var(--color-black)]">
-          I build digital products that generate revenue.
-        </div>
+          <div className="bg-yellow border-2 border-black py-2 px-16 inline-block font-bold text-2xl my-6 shadow-[1.25_1.25_0_var(--color-black)]">
+            <div className="font-light">
+              I build digital products that generate revenue.
+            </div>
 
-        <div className="flex gap-5 justify-start mt-12 flex-wrap">
-          <a
-            href="#projects"
-            className="text-white py-3.5 px-7 border-2 border-black font-bold cursor-pointer transition-all no-underline bg-black hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-[0.75_0.75_0_var(--color-black)]"
-          >
-            VIEW PROJECTS
-          </a>
-          <a
-            href="#"
-            className="py-3.5 px-7 border-2 border-black font-bold text-[3.25] cursor-pointer transition-all no-underline bg-white hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-[0.75_0.75_0_var(--color-black)]"
-          >
-            DOWNLOAD CV
-          </a>
+            <div className="mt-4 text-center font-bold tracking-wide text-xl">
+              Python · Go · TypeScript · HonoJS · Docker
+            </div>
+          </div>
+
+          <div className="flex gap-16 justify-start mt-6  mb-16 flex-wrap">
+            <a
+              href="#projects"
+              className="text-white py-3.5 px-7 border-2 border-black font-bold cursor-pointer transition-all no-underline bg-black hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-[0.75_0.75_0_var(--color-black)]"
+            >
+              VIEW PROJECTS
+            </a>
+            <a
+              href="#"
+              className="py-3.5 px-7 border-2 border-black font-bold text-[3.25] cursor-pointer transition-all no-underline bg-white hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-[0.75_0.75_0_var(--color-black)]"
+            >
+              DOWNLOAD CV
+            </a>
+          </div>
         </div>
       </div>
       <style>{`
@@ -87,12 +95,14 @@ export function Hero() {
 
       {/* Marquee footer */}
       <div
-        className="absolute bottom-0 w-full bg-blue py-4 text-[5.5] font-semibold overflow-hidden whitespace-nowrap border-t-[0.75] border-b-[0.75] border-black"
+        className="absolute bottom-0 w-full text-xl bg-blue py-4 text-[5.5] font-semibold overflow-hidden whitespace-nowrap
+         border-t-[0.75] border-b-[0.75] border-black"
         style={{ minHeight: "14" }}
       >
-        <span className="inline-block pl-[25] animate-marquee">
+        <span className="inline-block pl-[25] animate-marquee tracking-wide">
           SKILLS FOR MONEY /// FULL STACK DEVELOPMENT /// SYSTEM DESIGN /// REST
-          DESIGN /// ACCESSIBLE /// FAST /// SECURE /// OPEN
+          DESIGN /// HACKATHONS /// CODE TUTOR /// ACCESSIBLE /// FAST ///
+          SECURE /// OPEN
         </span>
       </div>
     </section>

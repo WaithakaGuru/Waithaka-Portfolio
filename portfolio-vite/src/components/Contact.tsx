@@ -22,7 +22,10 @@ export function Contact() {
         Have a project in mind? Let's work together to create something amazing.
       </p>
 
-      <div className="max-w-[1200px] mx-auto w-[1200px] grid grid-cols-1 md:grid-cols-2 gap-8">
+      <div
+        className="max-w-fit mx-auto w-300 
+      grid grid-cols-1 md:grid-cols-3 gap-8"
+      >
         {/* Contact info */}
         <div className="space-y-6">
           <div className="bg-white border-3 border-black p-6 shadow-[5px_5px_0_var(--color-black)]">
@@ -73,7 +76,8 @@ export function Contact() {
         {/* Contact form */}
         <form
           onSubmit={handleSubmit}
-          className="bg-white border-3 border-black p-6 shadow-[5px_5px_0_var(--color-black)]"
+          className="bg-white border-3 border-black p-6 
+          shadow-[5px_5px_0_var(--color-black)] md:col-span-2"
         >
           <h3 className="font-bold text-lg mb-6">SEND A MESSAGE</h3>
 

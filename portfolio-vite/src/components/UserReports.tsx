@@ -56,10 +56,10 @@ export function UserReports() {
   };
 
   return (
-    <section className="py-0 px-0 bg-[#18191c] flex flex-col items-center min-h-[600px] w-full">
+    <section className="py-0 px-0 bg-[#18191c] flex flex-col items-center min-h-150 w-full">
       {/* Window bar */}
       <div className="w-full flex justify-left pt-16 pb-10 ml-20">
-        <div className="relative bg-[#23242a] border-b-4 border-blue-700 rounded-md shadow-lg px-8 py-4 flex items-center min-w-[420px] max-w-[520px]">
+        <div className="relative bg-[#23242a] border-b-4 border-blue-700 rounded-md shadow-lg px-8 py-4 flex items-center min-w-105 max-w-130">
           {/* Dots */}
           <div className="flex gap-2 absolute left-4 top-1/2 -translate-y-1/2">
             <span className="w-3 h-3 rounded-full bg-red-500 inline-block border border-black"></span>
@@ -86,7 +86,7 @@ export function UserReports() {
               key={idx}
               onMouseEnter={handleMouseEnter}
               onMouseLeave={handleMouseLeave}
-              className={`relative flex flex-col justify-between bg-[#18191c] border-2 border-black min-w-[370px] max-w-[370px] h-[270px] shadow-[4px_4px_0_var(--color-black)] transition-transform duration-200 cursor-pointer hover:scale-107 group`}
+              className={`relative flex flex-col justify-between bg-[#18191c] border-2 border-black min-w-92.5 max-w-92.5 h-67.5 shadow-[4px_4px_0_var(--color-black)] transition-transform duration-200 cursor-pointer hover:scale-107 group`}
               style={{
                 transition: "transform 0.2s",
                 borderTop: `4px solid var(--tw-${report.color}-500, ${report.color})`,

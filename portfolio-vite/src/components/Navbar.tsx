@@ -34,30 +34,35 @@ export function Navbar() {
 
   return (
     <nav
-      className={`fixed top-5 left-1/2 -translate-x-1/2 z-[1000] w-[90vw] max-w-[1700px] flex flex-row items-stretch justify-between transition-all duration-300 ${
+      className={`fixed top-2 left-1/2 -translate-x-1/2 z-1000 w-[90vw] max-w-420 flex flex-row items-stretch justify-between transition-all duration-300 ${
         hidden ? "-translate-y-24 opacity-0 pointer-events-none" : ""
       }`}
       style={{ background: "transparent" }}
     >
       {/* Name box */}
-      <div className="flex items-center h-[56px]">
+      <div className="flex items-center h-12">
         <div
-          className="bg-white border-2 border-black px-8 h-full flex items-center font-extrabold text-2xl shadow-[4px_4px_0_var(--color-black)]"
+          className="bg-white border-2 border-black px-8 h-full flex items-center 
+          font-extrabold text-xl shadow-[4px_4px_0_var(--color-black)]"
           style={{ letterSpacing: "0.01em" }}
         >
           Waithaka.hack
         </div>
       </div>
       {/* Nav box */}
-      <div className="flex items-center h-[56px]">
-        <div className="flex items-center bg-white border-2 border-black px-8 h-full shadow-[4px_4px_0_var(--color-black)] gap-8">
+      <div className="flex items-center h-12">
+        <div
+          className="flex items-center bg-white border-2 border-black px-8 
+        h-full shadow-[4px_4px_0_var(--color-black)] gap-8"
+        >
           <a
             href="#about"
             onClick={(e) => {
               e.preventDefault();
               scrollToSection("about");
             }}
-            className="no-underline text-black text-lg font-semibold tracking-wide hover:text-gray-500 transition-colors"
+            className="no-underline text-black text-sm
+            font-semibold tracking-wide hover:text-gray-500 transition-colors"
           >
             /ABOUT
           </a>
@@ -67,7 +72,8 @@ export function Navbar() {
               e.preventDefault();
               scrollToSection("stack");
             }}
-            className="no-underline text-black text-lg font-semibold tracking-wide hover:text-gray-500 transition-colors"
+            className="no-underline text-black text-sm font-semibold tracking-wide
+             hover:text-gray-500 transition-colors"
           >
             /SKILLS
           </a>
@@ -77,7 +83,8 @@ export function Navbar() {
               e.preventDefault();
               scrollToSection("about");
             }}
-            className="no-underline text-black text-lg font-semibold tracking-wide hover:text-gray-500 transition-colors"
+            className="no-underline text-black text-sm font-semibold tracking-wide
+             hover:text-gray-500 transition-colors"
           >
             /LOGS
           </a>
@@ -87,13 +94,15 @@ export function Navbar() {
               e.preventDefault();
               scrollToSection("projects");
             }}
-            className="no-underline text-black text-lg font-semibold tracking-wide hover:text-gray-500 transition-colors"
+            className="no-underline text-black text-sm font-semibold tracking-wide
+             hover:text-gray-500 transition-colors"
           >
             /WORK
           </a>
           <button
             onClick={() => scrollToSection("contact")}
-            className="bg-yellow border-2 border-black px-6 py-1.5 font-bold text-lg ml-4 shadow-[2px_2px_0_var(--color-black)] hover:-translate-x-0.5 hover:-translate-y-0.5 transition-all"
+            className="bg-yellow border-2 border-black px-4 py-1 font-bold text-lg ml-4 shadow-[2px_2px_0_var(--color-black)] 
+            hover:-translate-x-0.5 hover:-translate-y-0.5 hover:cursor-pointer transition-all"
             style={{ letterSpacing: "0.05em" }}
           >
             HIRE ME
