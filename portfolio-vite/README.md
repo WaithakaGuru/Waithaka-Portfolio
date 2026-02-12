@@ -1,50 +1,92 @@
-# React + TypeScript + Vite
+# Waithaka.hack Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Welcome to the Waithaka.hack Portfolio! This project showcases the work, skills, and experience of a passionate Full Stack Developer, built with ❤️ for Devs.
 
-Currently, two official plugins are available:
+## 🚀 Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Modern, responsive design
+- Hero section with scroll progress indicator
+- Digital clock in the footer
+- Animated decorative shapes
+- Project showcase with modal details
+- Tech stack and coding stats
+- Contact form and social links
 
-## Expanding the ESLint configuration
+## 🛠️ Built With
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+- [React](https://react.dev/) — UI library
+- [TypeScript](https://www.typescriptlang.org/) — Type safety
+- [Tailwind CSS](https://tailwindcss.com/) — Utility-first styling
+- [Vite](https://vitejs.dev/) — Fast build tool
 
-- Configure the top-level `parserOptions` property like this:
+## 📁 Folder Structure
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ["./tsconfig.node.json", "./tsconfig.app.json"],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-});
+```
+portfolio-vite/
+├── public/
+│   └── WofisTechFull.png (logo)
+├── src/
+│   ├── components/ (UI components)
+│   ├── data/ (data sources)
+│   ├── assets/ (images, icons)
+│   ├── App.tsx
+│   ├── main.tsx
+│   └── ...
+├── index.html
+├── package.json
+├── README.md
+└── ...
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+## ✨ Getting Started
 
-```js
-// eslint.config.js
-import react from "eslint-plugin-react";
+1. Clone the repo:
+   ```bash
+   git clone https://github.com/waithakahack/portfolio-vite.git
+   ```
+2. Install dependencies:
+   ```bash
+   bun install
+   ```
+3. Start the development server:
+   ```bash
+   bun run dev
+   ```
+4. Open [http://localhost:5173](http://localhost:5173) in your browser.
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: "18.3" } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs["jsx-runtime"].rules,
-  },
+## 📦 Deployment
+
+Build for production:
+
+```bash
+bun run build
+```
+
+## 👤 Author
+
+**Waithaka.hack**
+
+- [GitHub](https://github.com/waithakahack)
+- [LinkedIn](https://linkedin.com)
+- [Twitter](https://twitter.com)
+
+## 📝 License
+
+This project is open source and available under the MIT License.
+
+---
+
+Crafted with passion, creativity, and a love for code. Enjoy exploring!
+react,
+},
+rules: {
+// other rules...
+// Enable its recommended rules
+...react.configs.recommended.rules,
+...react.configs["jsx-runtime"].rules,
+},
 });
+
+```
+
 ```
