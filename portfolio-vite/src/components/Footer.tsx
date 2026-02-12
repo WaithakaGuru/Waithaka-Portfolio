@@ -1,4 +1,6 @@
 import { useEffect, useState } from "react";
+import { FaGithub, FaLinkedin, FaXTwitter } from "react-icons/fa6";
+import { MdEmail } from "react-icons/md";
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
@@ -17,9 +19,17 @@ export function Footer() {
 
   return (
     <footer className="bg-black text-white py-12 px-10 relative border-t-6 border-[#39d353]">
+      {/* Faint background text */}
+      <span
+        aria-hidden="true"
+        className="pointer-events-none select-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-[10vw] font-bold text-[#666] opacity-10 whitespace-nowrap z-0"
+        style={{ userSelect: "none", letterSpacing: "0.2em" }}
+      >
+        COMPETENT
+      </span>
       <div className="max-w-300 mx-auto">
         {/* Top section */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-10">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 mb-10">
           {/* Logo & tagline */}
           <div>
             <div className="font-bold text-xl border-2 border-white inline-block px-4 py-2 mb-4">
@@ -39,12 +49,14 @@ export function Footer() {
 
           {/* Quick links */}
           <div>
-            <h4 className="font-bold text-sm text-yellow mb-4">QUICK LINKS</h4>
+            <h4 className="font-bold text-[1rem] text-green mb-4 border-b border-gray-500 pb-4">
+              SITEMAP
+            </h4>
             <ul className="space-y-2">
               <li>
                 <a
                   href="#home"
-                  className="text-sm text-gray-400 hover:text-white transition-colors"
+                  className="text-[1rem] text-gray-400 hover:text-white transition-colors"
                 >
                   Home
                 </a>
@@ -52,7 +64,7 @@ export function Footer() {
               <li>
                 <a
                   href="#projects"
-                  className="text-sm text-gray-400 hover:text-white transition-colors"
+                  className="text-[1rem] text-gray-400 hover:text-white transition-colors"
                 >
                   Projects
                 </a>
@@ -60,7 +72,7 @@ export function Footer() {
               <li>
                 <a
                   href="#stack"
-                  className="text-sm text-gray-400 hover:text-white transition-colors"
+                  className="text-[1rem] text-gray-400 hover:text-white transition-colors"
                 >
                   Tech Stack
                 </a>
@@ -68,7 +80,7 @@ export function Footer() {
               <li>
                 <a
                   href="#about"
-                  className="text-sm text-gray-400 hover:text-white transition-colors"
+                  className="text-[1rem] text-gray-400 hover:text-white transition-colors"
                 >
                   Experience
                 </a>
@@ -76,7 +88,7 @@ export function Footer() {
               <li>
                 <a
                   href="#contact"
-                  className="text-sm text-gray-400 hover:text-white transition-colors"
+                  className="text-[1rem] text-gray-400 hover:text-white transition-colors"
                 >
                   Contact
                 </a>
@@ -86,37 +98,43 @@ export function Footer() {
 
           {/* Social links */}
           <div>
-            <h4 className="font-bold text-sm text-yellow mb-4">CONNECT</h4>
+            <h4 className="font-bold text-[1rem] text-green mb-4 pb-4 border-b border-gray-500">
+              CONNECT
+            </h4>
             <div className="flex gap-3">
               <a
                 href="https://github.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-10 h-10 border-2 border-white flex items-center justify-center font-bold text-sm hover:bg-white hover:text-black transition-all"
+                className="w-10 h-10 flex items-center justify-center text-2xl hover:bg-white hover:text-black transition-all"
+                aria-label="GitHub"
               >
-                GH
+                <FaGithub />
               </a>
               <a
                 href="https://linkedin.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-10 h-10 border-2 border-white flex items-center justify-center font-bold text-sm hover:bg-blue hover:border-blue transition-all"
+                className="w-10 h-10 flex items-center justify-center text-2xl hover:bg-blue-600 hover:border-blue-600 hover:text-white transition-all"
+                aria-label="LinkedIn"
               >
-                IN
+                <FaLinkedin />
               </a>
               <a
                 href="https://twitter.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-10 h-10 border-2 border-white flex items-center justify-center font-bold text-sm hover:bg-white hover:text-black transition-all"
+                className="w-10 h-10 flex items-center justify-center text-2xl hover:bg-white hover:text-black transition-all"
+                aria-label="Twitter (X)"
               >
-                X
+                <FaXTwitter />
               </a>
               <a
-                href="mailto:arham@example.com"
-                className="w-10 h-10 border-2 border-white flex items-center justify-center font-bold text-sm hover:bg-yellow hover:border-yellow hover:text-black transition-all"
+                href="mailto:waithakaoffices@gmail.com"
+                className="w-10 h-10 flex items-center justify-center text-2xl hover:bg-yellow-400 hover:border-yellow-400 hover:text-black transition-all"
+                aria-label="Email"
               >
-                @
+                <MdEmail />
               </a>
             </div>
             {/* Digital clock below CONNECT */}

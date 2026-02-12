@@ -43,10 +43,10 @@ export function Navbar() {
       <div className="flex items-center h-12">
         <div
           className="bg-white border-2 border-black px-8 h-full flex items-center 
-          font-extrabold text-xl shadow-[4px_4px_0_var(--color-black)]"
+          font-extrabold text-2xl shadow-[4px_4px_0_var(--color-black)]"
           style={{ letterSpacing: "0.01em" }}
         >
-          Waithaka.hack
+          WAITHAKA.hack
         </div>
       </div>
       {/* Nav box */}
@@ -61,7 +61,7 @@ export function Navbar() {
               e.preventDefault();
               scrollToSection("about");
             }}
-            className="no-underline text-black text-sm
+            className="no-underline text-black text-lg
             font-semibold tracking-wide hover:text-gray-500 transition-colors"
           >
             /ABOUT
@@ -72,7 +72,7 @@ export function Navbar() {
               e.preventDefault();
               scrollToSection("stack");
             }}
-            className="no-underline text-black text-sm font-semibold tracking-wide
+            className="no-underline text-black text-lg font-semibold tracking-wide
              hover:text-gray-500 transition-colors"
           >
             /SKILLS
@@ -83,7 +83,7 @@ export function Navbar() {
               e.preventDefault();
               scrollToSection("about");
             }}
-            className="no-underline text-black text-sm font-semibold tracking-wide
+            className="no-underline text-black text-lg font-semibold tracking-wide
              hover:text-gray-500 transition-colors"
           >
             /LOGS
@@ -94,15 +94,15 @@ export function Navbar() {
               e.preventDefault();
               scrollToSection("projects");
             }}
-            className="no-underline text-black text-sm font-semibold tracking-wide
+            className="no-underline text-black text-lg font-semibold tracking-wide
              hover:text-gray-500 transition-colors"
           >
             /WORK
           </a>
           <button
             onClick={() => scrollToSection("contact")}
-            className="bg-yellow border-2 border-black px-4 py-1 font-bold text-lg ml-4 shadow-[2px_2px_0_var(--color-black)] 
-            hover:-translate-x-0.5 hover:-translate-y-0.5 hover:cursor-pointer transition-all"
+            className="bg-yellow border-2 border-black px-4 py-1 font-semibold text-[1rem] ml-4 shadow-[2px_2px_0_var(--color-black)] 
+            hover:-translate-x-0.5 hover:-translate-y-0.5 hover:cursor-pointer hover:bg-pink-400 transition-all"
             style={{ letterSpacing: "0.05em" }}
           >
             HIRE ME

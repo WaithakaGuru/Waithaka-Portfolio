@@ -11,7 +11,7 @@
   --color-pink: #ffb6d9;
   --color-red: #ff4444;
 
-  --font-primary: "Inter", sans-serif;
+  --font-primary: "consolas", "Inter", sans-serif;
   --font-mono: "Space Mono", monospace;
 }
 

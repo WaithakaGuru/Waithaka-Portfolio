@@ -24,12 +24,13 @@ export function Hero() {
       <div
         style={{
           width: `${scroll * 100}%`,
-          height: "6px",
+          height: "8px",
           background: "#39d353",
           position: "fixed",
+          borderBottom: "2px solid black",
           top: 0,
           left: 0,
-          zIndex: 1000,
+          zIndex: 3000,
           transition: "width 0.2s",
         }}
       ></div>
@@ -49,9 +50,9 @@ export function Hero() {
           <div className="hidden md:block w-8 h-8 bg-pink border-[3px] border-black rounded-full absolute -right-56 top-1/2 -translate-y-1/2 animate-beep"></div>
 
           <h1 className="text-[4rem] md:text-[7.5rem] font-extrabold leading-tight mt-12">
-            FULL STACK
+            SOFTWARE
             <br />
-            <span className="text-outline">DEVELOPER</span>
+            <span className="text-outline">ENGINEER</span>
           </h1>
 
           <div className="bg-yellow border-2 border-black py-2 px-16 inline-block font-bold text-2xl my-4 shadow-[1.25_1.25_0_var(--color-black)]">
@@ -67,13 +68,15 @@ export function Hero() {
           <div className="flex gap-16 justify-start mt-6  mb-16 flex-wrap">
             <a
               href="#projects"
-              className="text-white py-3.5 px-7 border-2 border-black font-bold cursor-pointer transition-all no-underline bg-black hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-[0.75_0.75_0_var(--color-black)]"
+              className="text-white py-3.5 px-7 border-2 border-black font-bold cursor-pointer transition-all no-underline
+               bg-black hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-[0.75_0.75_0_var(--color-black)] text-3xl"
             >
               VIEW PROJECTS
             </a>
             <a
               href="#"
-              className="py-3.5 px-7 border-2 border-black font-bold text-[3.25] cursor-pointer transition-all no-underline bg-white hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-[0.75_0.75_0_var(--color-black)]"
+              className="py-3.5 px-7 border-2 border-black font-bold text-[3.25] cursor-pointer transition-all text-3xl
+               no-underline bg-white hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-[0.75_0.75_0_var(--color-black)]"
             >
               DOWNLOAD CV
             </a>

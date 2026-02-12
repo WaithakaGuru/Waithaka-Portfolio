@@ -177,12 +177,25 @@ export const projects: Project[] = [
   },
 ];
 
-export const techStack = {
-  frontend: ["REACT", "NEXT.JS", "TAILWIND", "HTML5", "THREEJS"],
-  backend: ["NODE.JS", "PYTHON", "DJANGO", "PHP", "LARAVEL", "GRAPHQL"],
-  database: ["MYSQL", "POSTGRESQL", "MONGODB"],
-  devops: ["GIT", "GITHUB", "JEST", "DOCKER"],
-};
+export const techStack = [
+  { label: "LIBRARY", name: "REACT" },
+  { label: "FRAMEWORK", name: "NEXT.JS" },
+  { label: "LANGUAGE", name: "PYTHON" },
+  { label: "BACKEND", name: "NODE.JS" },
+  { label: "STYLING", name: "TAILWIND" },
+  { label: "DATA", name: "MYSQL" },
+  { label: "CORE", name: "HTML5" },
+  { label: "VERSION", name: "GIT" },
+
+  { label: "QUERY", name: "GRAPHQL" },
+  { label: "OPS", name: "GITHUB" },
+  { label: "LANGUAGE", name: "JAVA" },
+  { label: "FRAMEWORK", name: "DJANGO" },
+  { label: "LANGUAGE", name: "PHP" },
+  { label: "FRAMEWORK", name: "LARAVEL" },
+  { label: "3D", name: "THREE.JS" },
+  { label: "LANGUAGE", name: "C++" },
+];
 
 export const stats = {
   contributions: 2847,

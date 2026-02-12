@@ -20,7 +20,7 @@ export function ExperienceSection() {
 
   return (
     <section id="about" className="py-20 px-10 bg-transparent">
-      <h2 className="text-4xl md:text-5xl font-extrabold text-left mb-16">
+      <h2 className="text-4xl md:text-8xl font-extrabold text-center mb-16">
         EXPERIENCE_<span className="text-red">LOG</span>
       </h2>
 
