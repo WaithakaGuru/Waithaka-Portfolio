@@ -166,93 +166,6 @@ export interface Project {
   image?: string;
 }
 
-// export const experiences: Experience[] = [
-//   {
-//     logo: "TC",
-//     title: "DATA ENTRY MANAGER",
-//     company: "TechCorp Solutions",
-//     date: "FULL-TIME • AUG 23 - MAY 24",
-//     dateShort: "AUGUST 2023 - MAY 2024",
-//     description:
-//       "Led a team of data specialists in maintaining accurate and compliant database systems. Implemented quality control processes that reduced errors by 35%. Coordinated cross-functional teams to ensure timely project delivery.",
-//     worked: [
-//       "Supervised teams of 12+ data specialists across multiple projects",
-//       "Ensured consistent database and document operational norms",
-//       "Reviewed documentation to confirm accuracy and compliance",
-//       "Implemented automated validation systems reducing manual review time by 50%",
-//     ],
-//     learned: [
-//       "Advanced team management and delegation strategies",
-//       "Database optimization and performance tuning",
-//       "Quality assurance methodologies and best practices",
-//     ],
-//   },
-//   {
-//     logo: "WF",
-//     title: "JUNIOR FULL STACK DEVELOPER",
-//     company: "WebFlow Studios",
-//     date: "FULL-TIME • JUN 22 - JUL 23",
-//     dateShort: "JUNE 2022 - JULY 2023",
-//     description:
-//       "Developed responsive web applications using modern JavaScript frameworks. Collaborated with designers to implement pixel-perfect UIs. Optimized database queries and API endpoints for improved performance.",
-//     worked: [
-//       "Developed responsive web applications using React and Node.js",
-//       "Collaborated with design team to implement pixel-perfect UIs",
-//       "Optimized database queries reducing load times by 40%",
-//       "Implemented RESTful APIs and integrated third-party services",
-//       "Participated in code reviews and agile ceremonies",
-//     ],
-//     learned: [
-//       "Full stack development best practices",
-//       "Database optimization and query performance",
-//       "API design and RESTful architecture",
-//       "Team collaboration in agile environments",
-//     ],
-//   },
-//   {
-//     logo: "SI",
-//     title: "FRONTEND DEVELOPER INTERN",
-//     company: "StartUp Inc",
-//     date: "INTERNSHIP • JAN 21 - MAY 22",
-//     dateShort: "JANUARY 2021 - MAY 2022",
-//     description:
-//       "Built interactive components with vanilla JavaScript and React. Maintained and updated company website with modern features. Learned version control and agile development practices in a fast-paced startup environment.",
-//     worked: [
-//       "Built interactive components with vanilla JavaScript and React",
-//       "Maintained and updated company website with modern features",
-//       "Learned version control and agile development practices",
-//       "Collaborated with senior developers on feature implementation",
-//     ],
-//     learned: [
-//       "Modern JavaScript and React fundamentals",
-//       "Git workflow and version control",
-//       "Responsive design principles",
-//       "Working in fast-paced startup environments",
-//     ],
-//   },
-//   {
-//     logo: "FL",
-//     title: "FREELANCE WEB DEVELOPER",
-//     company: "Self-Employed",
-//     date: "FREELANCE • MAR 20 - DEC 20",
-//     dateShort: "MARCH 2020 - DECEMBER 2020",
-//     description:
-//       "Worked with multiple clients to deliver custom web solutions. Built e-commerce sites, portfolios, and business websites. Managed client relationships and project timelines independently.",
-//     worked: [
-//       "Delivered 15+ client projects on time and within budget",
-//       "Built e-commerce platforms with payment integration",
-//       "Created responsive websites using HTML, CSS, and JavaScript",
-//       "Managed all aspects of client communication and project delivery",
-//     ],
-//     learned: [
-//       "Client management and communication skills",
-//       "Time management and project planning",
-//       "Business fundamentals and invoicing",
-//       "Full project lifecycle from conception to deployment",
-//     ],
-//   },
-// ];
-
 export const projects: Project[] = [
   {
     title: "STOCKEASY",
@@ -345,6 +258,47 @@ export const techStack = [
   { label: "FRAMEWORK", name: "LARAVEL" },
   { label: "3D", name: "THREE.JS" },
   { label: "LANGUAGE", name: "C++" },
+];
+
+export const userReports = [
+  {
+    id: "003",
+    file: "2025.txt",
+    log: "REPORT_003.LOG",
+    from: "STUDENT @ L J UNIVERSITY",
+    report:
+      "Cleanest code I’ve seen in years. He knows how to handle complex state management.",
+    rating: 3,
+    color: "pink",
+  },
+  {
+    id: "004",
+    file: "2025.txt",
+    log: "REPORT_004.LOG",
+    from: "DEV @ CREATIVECHAOS",
+    report: "Creative designing idea and provided a Unique UI experience.",
+    rating: 5,
+    color: "purple",
+  },
+  {
+    id: "005",
+    file: "2025.txt",
+    log: "REPORT_005.LOG",
+    from: "UX DESIGNER @ TECHFLOW",
+    report:
+      "Highly intuitive UX. Delivered exactly what we needed before we even knew we needed it.",
+    rating: 5,
+    color: "orange",
+  },
+  {
+    id: "006",
+    file: "2025.txt",
+    log: "REPORT_006.LOG",
+    from: "STUDENT @ TRIPLECODE",
+    report: "Arham built our dashboard and tripled our productivity.",
+    rating: 3,
+    color: "green",
+  },
 ];
 
 export const stats = {

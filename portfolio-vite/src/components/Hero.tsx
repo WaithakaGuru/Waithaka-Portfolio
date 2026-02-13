@@ -43,7 +43,7 @@ export function Hero() {
         }}
       ></div>
       {/* Scroll indicator */}
-      <div className="absolute top-26 right-5 text-[2.75] font-medium flex items-center gap-2">
+      <div className="absolute hidden top-26 right-5 text-[2.75] font-medium sm:flex items-center gap-2">
         SCROLL DOWN
         <div className="w-5 h-7.5 border-2 border-black rounded-full relative">
           <span className="absolute top-1.5 left-1/2 -translate-x-1/2 w-1 h-2 bg-black rounded-sm animate-scroll-indicator"></span>
@@ -52,39 +52,42 @@ export function Hero() {
 
       {/* Hero content */}
       <div className="flex-1 flex items-center justify-center">
-        <div className="relative text-left">
+        <div className="relative md:text-left text-center">
           {/* Decorative shapes */}
           <div className="hidden md:block w-10 h-10 bg-blue border-[0.75] border-black absolute -left-44 top-1/2 -translate-y-1/2 animate-bounce-slow"></div>
           <div className="hidden md:block w-8 h-8 bg-pink border-[3px] border-black rounded-full absolute -right-56 top-1/2 -translate-y-1/2 animate-beep"></div>
 
-          <h1 className="text-[4rem] md:text-[7.5rem] font-extrabold leading-tight mt-12">
+          <h1 className="text-6xl md:text-[7.5rem] font-extrabold sm:leading-tight leading-10 mt-12">
             SOFTWARE
             <br />
             <span className="text-outline">ENGINEER</span>
           </h1>
 
-          <div className="bg-yellow border-2 border-black py-2 px-16 inline-block font-bold text-2xl my-4 shadow-[1.25_1.25_0_var(--color-black)]">
+          <div
+            className="bg-yellow border-2 border-black py-2 md:px-16 sm:px-10 px-4 inline-block 
+          font-bold sm:text-2xl  text-xl my-4 shadow-[5px_5px_0_var(--color-black)]"
+          >
             <div className="font-light">
               I build digital products that generate revenue.
             </div>
 
-            <div className="mt-4 text-center font-bold tracking-wide text-xl">
+            <div className="text-center font-bold md:tracking-wide tracking-tight text-xl">
               Python · Go · TypeScript · HonoJS · Docker
             </div>
           </div>
 
-          <div className="flex gap-16 justify-start mt-6  mb-16 flex-wrap">
+          <div className="flex md:gap-16 md:justify-start justify-center mt-6 gap-6 mb-16 flex-wrap">
             <a
               href="#projects"
               className="text-white py-3.5 px-7 border-2 border-black font-bold cursor-pointer transition-all no-underline
-               bg-black hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-[0.75_0.75_0_var(--color-black)] text-3xl"
+               bg-black hover:-translate-x-0.5 hover:-translate-y-0.5 w-90 hover:shadow-[0.75_0.75_0_var(--color-black)] text-3xl"
             >
               VIEW PROJECTS
             </a>
             <a
               href="#"
               className="py-3.5 px-7 border-2 border-black font-bold text-[3.25] cursor-pointer transition-all text-3xl
-               no-underline bg-white hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-[0.75_0.75_0_var(--color-black)]"
+               no-underline bg-white hover:-translate-x-0.5 w-90 hover:-translate-y-0.5 hover:shadow-[0.75_0.75_0_var(--color-black)]"
             >
               DOWNLOAD CV
             </a>
@@ -107,7 +110,7 @@ export function Hero() {
       {/* Marquee footer */}
       <div
         className="absolute bottom-0 w-full text-xl bg-blue py-4 text-[5.5] font-semibold overflow-hidden whitespace-nowrap
-         border-t-[0.75] border-y-4 border-black"
+          border-y-4 border-black left-0 right-0"
         style={{ minHeight: "14" }}
       >
         <div className="flex w-max animate-marquee whitespace-nowrap text-[5.5] font-semibold tracking-wide">
