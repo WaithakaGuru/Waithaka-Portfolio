@@ -23,10 +23,19 @@ export function Hero() {
       {/* Faint background text */}
       <span
         aria-hidden="true"
-        className="pointer-events-none select-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-[10vw] font-extrabold text-zinc-700 opacity-10 whitespace-nowrap z-0"
+        className="pointer-events-none select-none absolute left-1/2 sm:top-1/2 top-5/7 -translate-x-1/2 -translate-y-1/2 text-[10vw] 
+        font-extrabold text-zinc-700 opacity-20 whitespace-nowrap z-0"
         style={{ userSelect: "none", letterSpacing: "0.2em" }}
       >
         CODER
+      </span>
+      <span
+        aria-hidden="true"
+        className="pointer-events-none select-none absolute left-1/2 sm:top-1/6 top-1/4 -translate-x-1/2 -translate-y-1/2 text-[10vw] 
+        font-extrabold text-zinc-700 opacity-15 whitespace-nowrap z-0"
+        style={{ userSelect: "none", letterSpacing: "0.2em" }}
+      >
+        DEVELOPER
       </span>
       {/* Scroll progress bar */}
       <div

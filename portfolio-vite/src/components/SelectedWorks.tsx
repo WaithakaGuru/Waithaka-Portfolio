@@ -84,8 +84,8 @@ function ProjectCard({
   return (
     <div
       onClick={onClick}
-      className="bg-white border-4 border-black shadow-[8px_8px_0_var(--color-black)] transition-all cursor-pointer min-w-80
-       sm:min-w-87.5 hover:-translate-x-1 hover:-translate-y-1 hover:shadow-[12px_12px_0_var(--color-black)] mb-4 max-w-full overflow-hidden"
+      className="bg-white border-4 border-black shadow-[8px_8px_0_var(--color-black)] transition-all cursor-pointer min-w-84
+       sm:min-w-96 hover:-translate-x-1 hover:-translate-y-1 hover:shadow-[12px_12px_0_var(--color-black)] mb-4 max-w-full overflow-hidden"
     >
       {/* Project image placeholder */}
       <div

@@ -41,31 +41,9 @@ export function ExperienceModal({
         if (e.target === e.currentTarget) onClose();
       }}
     >
-      <div className="bg-white border-4 border-black max-w-175 w-full max-h-[90vh] overflow-y-auto shadow-[10px_10px_0_var(--color-black)]">
-        {/* Modal header */}
-        <div className="flex justify-between items-center px-5 py-4 border-b-[3px] border-black bg-light-gray">
-          <button
-            onClick={onPrev}
-            className="w-10 h-10 border-2 border-black bg-white font-bold text-lg transition-all hover:bg-yellow"
-          >
-            &lt;
-          </button>
-          <button
-            onClick={onClose}
-            className="px-5 py-2.5 border-2 border-black bg-black text-white font-bold text-xs transition-all hover:bg-white hover:text-black"
-          >
-            CLOSE
-          </button>
-          <button
-            onClick={onNext}
-            className="w-10 h-10 border-2 border-black bg-white font-bold text-lg transition-all hover:bg-yellow"
-          >
-            &gt;
-          </button>
-        </div>
-
+      <div className="bg-white border-4 border-black max-w-175 w-full shadow-[10px_10px_0_var(--color-black)]">
         {/* Modal body */}
-        <div className="p-8">
+        <div className="p-8 max-h-[80vh] overflow-y-auto">
           <div className="w-12.5 h-12.5 bg-blue border-2 border-black flex items-center justify-center text-white font-bold text-xl mb-4">
             {experience.logo}
           </div>
@@ -106,6 +84,26 @@ export function ExperienceModal({
               </li>
             ))}
           </ul>
+        </div>
+        <div className="flex justify-between items-center px-5 py-4 border-b-[3px] border-black bg-light-gray">
+          <button
+            onClick={onPrev}
+            className="w-10 h-10 border-2 border-black bg-white font-bold text-lg transition-all hover:bg-yellow"
+          >
+            &lt;
+          </button>
+          <button
+            onClick={onClose}
+            className="px-5 py-2.5 border-2 border-black bg-black text-white font-bold text-xs transition-all hover:bg-white hover:text-black"
+          >
+            CLOSE
+          </button>
+          <button
+            onClick={onNext}
+            className="w-10 h-10 border-2 border-black bg-white font-bold text-lg transition-all hover:bg-yellow"
+          >
+            &gt;
+          </button>
         </div>
       </div>
     </div>

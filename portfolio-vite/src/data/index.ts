@@ -63,6 +63,29 @@ export const experiences: Experience[] = [
     ],
   },
   {
+    logo: "BK",
+    title: "Product Tester",
+    company: "Large Corp",
+    date: "MAY 1 — SEPT 30",
+    dateShort: "MAY 1 — SEPT 30",
+    startYear: 2026,
+    startMonth: 1,
+    endYear: 2026,
+    endMonth: 2, // Current month
+    description:
+      "Leading product design initiatives for enterprise software solutions, focusing on user experience and interface design.",
+    worked: [
+      "Redesigned the main dashboard interface",
+      "Created design system components",
+      "Conducted user research and testing",
+    ],
+    learned: [
+      "Advanced prototyping techniques",
+      "Enterprise design patterns",
+      "Cross-functional collaboration",
+    ],
+  },
+  {
     logo: "A",
     title: "Design Engineer",
     company: "Anthropic",
