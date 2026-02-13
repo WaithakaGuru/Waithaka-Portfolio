@@ -39,10 +39,10 @@ export function ExperienceSection() {
   return (
     <section
       id="about"
-      className="pb-10 pt-4 px-4 md:px-20 h-[120dvh] relative"
+      className="pb-10 pt-4 px-4 md:px-10 h-[110dvh] relative"
     >
       <h2
-        className="text-3xl sm:text-5xl md:text-7xl lg:text-8xl font-extrabold text-center mb-8 wrap-break-word leading-tight max-w-full mx-auto"
+        className="text-3xl md:text-5xl font-extrabold text-center mb-2 wrap-break-word leading-tight max-w-full mx-auto"
         style={{ wordBreak: "break-word" }}
       >
         EXPERIENCE_<span className="text-orange">LOG</span>
@@ -90,7 +90,7 @@ export function ExperienceSection() {
 
                         {/* card */}
                         <div
-                          className="bg-white border-2 border-gray-900 p-4 shadow-[4px_4px_0_rgba(0,0,0,1)] max-w-100
+                          className="bg-white border-2 border-gray-900 p-4 shadow-[4px_4px_0_rgba(0,0,0,1)] max-w-full
                       hover:shadow-[6px_6px_0_rgba(0,0,0,1)] hover:-translate-x-1 hover:-translate-y-1 transition-all duration-200"
                         >
                           <div className="flex items-start gap-4">
