@@ -1,3 +1,36 @@
+// Education and Certification types
+export interface Education {
+  logo: string;
+  title: string;
+  institution: string;
+  date: string;
+  description?: string;
+}
+
+export const education: Education[] = [
+  {
+    logo: "🎓",
+    title: "BSc. Computer Science",
+    institution: "University of Nairobi",
+    date: "2017 - 2021",
+    description:
+      "Graduated with First Class Honors. Specialized in Software Engineering.",
+  },
+  {
+    logo: "📜",
+    title: "Certified Cloud Practitioner",
+    institution: "AWS",
+    date: "2023",
+    description: "Amazon Web Services Cloud Practitioner Certification.",
+  },
+  {
+    logo: "💻",
+    title: "Frontend Developer Nanodegree",
+    institution: "Udacity",
+    date: "2022",
+    description: "Completed Udacity's Frontend Developer Nanodegree program.",
+  },
+];
 export interface Experience {
   logo: string;
   title: string;

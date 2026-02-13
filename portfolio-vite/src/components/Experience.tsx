@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { type Experience, experiences } from "../data";
-import { ExperienceModal } from "./ExperienceModal";
 
 export function ExperienceSection() {
   const [expanded, setExpanded] = useState<number | null>(null);
@@ -129,7 +128,8 @@ export function ExperienceSection() {
             })}
           </div>
         ) : (
-          <div className="max-w-4xl mx-auto animate-fade-in">
+          // Detailed experience view
+          <div className="max-w-xl mx-4 animate-fade-in">
             <div className="bg-white border-2 border-gray-900 p-6 shadow-[6px_6px_0_rgba(0,0,0,1)]">
               <div className="flex items-start gap-4 mb-6">
                 <div className="w-16 h-16 bg-orange border-2 border-gray-900 flex items-center justify-center text-white font-bold text-xl">
@@ -209,14 +209,6 @@ export function ExperienceSection() {
               </div>
             </div>
           </div>
-          // <ExperienceModal
-          //   isOpen={true}
-          //   experience={experiences[expanded]}
-          //   onClose={() => setExpanded(null)}
-          //   onPrev={handlePrevious}
-          //   onNext={handleNext}
-          // />
-          // // )}
         )}
       </div>
     </section>

@@ -3,6 +3,7 @@ import {
   Hero,
   TechStack,
   ExperienceSection,
+  EducationSection,
   CodingStats,
   SelectedWorks,
   AboutMe,
@@ -18,7 +19,15 @@ function App() {
       <Hero />
       <AboutMe />
       <TechStack />
-      <ExperienceSection />
+      {/* Experience and Education side by side */}
+      <div className="flex flex-col md:flex-row gap-8 w-full">
+        <div className="flex-1">
+          <ExperienceSection />
+        </div>
+        <div className="flex-1">
+          <EducationSection />
+        </div>
+      </div>
       <CodingStats />
       <SelectedWorks />
       <UserReports />
