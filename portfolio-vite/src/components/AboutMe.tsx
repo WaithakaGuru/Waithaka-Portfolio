@@ -1,13 +1,10 @@
 export function AboutMe() {
   return (
     <section id="about-me" className="py-20 px-10">
-      <div
-        className="max-w-300 mx-auto grid grid-cols-1 border-x-3 border-b-3 border-zinc-700
-       lg:grid-cols-2 gap-4 items-center bg-light-gray"
-      >
+      <div className="max-w-full md:max-w-300 mx-auto grid grid-cols-1 sm:grid-cols-2 border-x-3 border-b-3 border-zinc-700 gap-2 sm:gap-4 items-center bg-light-gray px-2 sm:px-4">
         {/* Image placeholder */}
         <div className="relative">
-          <div className="w-full aspect-square max-w-100 mx-auto bg-white border-4 border-black shadow-[8px_8px_0_var(--color-black)] flex items-center justify-center">
+          <div className="w-full aspect-square max-w-60 sm:max-w-100 mx-auto bg-white border-4 border-black shadow-[8px_8px_0_var(--color-black)] flex items-center justify-center rounded-lg overflow-hidden">
             <img src="./me.jpg" alt="Profile Image" className="object-fill" />
           </div>
           {/* Decorative elements */}
@@ -29,7 +26,7 @@ export function AboutMe() {
               impact. I specialize in creating performant, scalable and optimal
               web/mobile applications.
             </p>
-            <div className="bg-[#181818] border-2 border-black p-6 shadow-[5px_5px_0_var(--color-black)] mb-4 font-mono text-[17px] text-white">
+            <div className="bg-[#181818] border-2 border-black p-4 sm:p-6 shadow-[5px_5px_0_var(--color-black)] mb-4 font-mono text-base sm:text-[17px] text-white rounded-lg max-w-full overflow-hidden">
               <div className="pl-4 border-l-4 border-purple-500 mb-4">
                 <div>
                   &gt; Specialized in Web Development and AI integration

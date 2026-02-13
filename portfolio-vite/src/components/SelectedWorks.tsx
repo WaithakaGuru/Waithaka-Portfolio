@@ -21,15 +21,15 @@ export function SelectedWorks() {
   return (
     <section id="projects" className="bg-yellow py-20 px-10">
       <h2
-        className="text-4xl md:text-8xl font-extrabold text-left
-       mb-10 text-light-gray text-shadow-lg text-shadow-black"
+        className="text-3xl sm:text-5xl md:text-7xl lg:text-8xl font-extrabold text-left mb-6 text-light-gray text-shadow-lg text-shadow-black break-words leading-tight max-w-full"
+        style={{ wordBreak: "break-word" }}
       >
         SELECTED WORKS
       </h2>
 
-      <div className="max-w-350 mx-auto mt-10 overflow-x-auto h-110 pb-5">
+      <div className="max-w-full md:max-w-350 mx-auto mt-6 overflow-x-auto h-110 pb-5 px-2 sm:px-4">
         <div
-          className="flex gap-10 min-w-min"
+          className="flex gap-4 sm:gap-10 min-w-min"
           style={{ minWidth: "100%", maxWidth: "100%", overflowX: "auto" }}
         >
           {projects.map((project, index) => (
@@ -47,10 +47,10 @@ export function SelectedWorks() {
         </div>
       </div>
 
-      <div className="flex justify-center mt-8">
+      <div className="flex justify-center mt-6">
         <a
           href="#all-projects"
-          className="bg-black text-white font-bold py-3 px-8 rounded shadow-[4px_4px_0_var(--color-black)] border-2 border-black text-lg hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-[6px_6px_0_var(--color-black)] transition-all"
+          className="bg-black text-white font-bold py-2 sm:py-3 px-4 sm:px-8 rounded shadow-[4px_4px_0_var(--color-black)] border-2 border-black text-base sm:text-lg hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-[6px_6px_0_var(--color-black)] transition-all"
         >
           View All Projects
         </a>
@@ -79,18 +79,19 @@ function ProjectCard({
   return (
     <div
       onClick={onClick}
-      className="bg-white border-4 border-black shadow-[8px_8px_0_var(--color-black)] 
-      transition-all cursor-pointer min-w-87.5 hover:-translate-x-1 hover:-translate-y-1
-       hover:shadow-[12px_12px_0_var(--color-black)] mb-4"
+      className="bg-white border-4 border-black shadow-[8px_8px_0_var(--color-black)] transition-all cursor-pointer min-w-60 sm:min-w-87.5 hover:-translate-x-1 hover:-translate-y-1 hover:shadow-[12px_12px_0_var(--color-black)] mb-4 rounded-lg max-w-full overflow-hidden"
     >
       {/* Project image placeholder */}
-      <div className="w-full h-62.5 bg-[#2a2a2a] border-b-4 border-black flex items-center justify-center text-white text-sm">
+      <div className="w-full h-36 sm:h-62.5 bg-[#2a2a2a] border-b-4 border-black flex items-center justify-center text-white text-xs sm:text-sm">
         [{project.title} Preview]
       </div>
 
       {/* Project content */}
       <div className="p-6">
-        <div className="text-xl font-extrabold mb-2.5 flex justify-between items-center">
+        <div
+          className="text-base sm:text-xl font-extrabold mb-2 flex justify-between items-center break-words max-w-full"
+          style={{ wordBreak: "break-word" }}
+        >
           {project.title}
           <div className="w-3 h-3 bg-green border-2 border-black rounded-full shrink-0"></div>
         </div>

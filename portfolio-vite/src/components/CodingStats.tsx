@@ -22,11 +22,11 @@ export function CodingStats() {
         CODING_<span className="text-green">STATS</span>
       </h2>
 
-      <div className="max-w-300 mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 mt-10">
+      <div className="max-w-full md:max-w-300 mx-auto grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-8 mt-6 px-2 sm:px-4">
         {/* Contribution graph - full width */}
         <div className="col-span-1 md:col-span-2 bg-[#1a1a1a] border-2 border-gray-700 p-6">
           <div className="flex justify-between items-center mb-5">
-            <div className="flex items-center gap-2 text-[13px] font-semibold">
+            <div className="flex items-center gap-1 sm:gap-2 text-xs sm:text-[13px] font-semibold">
               <div className="w-4 h-4 bg-yellow"></div>
               GITHUB CONTRIBUTIONS
             </div>
@@ -37,7 +37,7 @@ export function CodingStats() {
           </div>
 
           {/* Month labels */}
-          <div className="flex justify-between text-[10px] text-gray-500 mb-1.5">
+          <div className="flex justify-between text-[8px] sm:text-[10px] text-gray-500 mb-1.5">
             {[
               "Jan",
               "Feb",
@@ -64,7 +64,7 @@ export function CodingStats() {
           ></div>
 
           {/* Legend */}
-          <div className="flex items-center gap-1.5 text-[10px] text-gray-400 mt-2.5">
+          <div className="flex items-center gap-1 sm:gap-1.5 text-[8px] sm:text-[10px] text-gray-400 mt-2.5">
             <span className="mr-1">Less</span>
             <div className={`w-2.5 h-2.5 rounded-xs ${getLevelColor(0)}`}></div>
             <div className={`w-2.5 h-2.5 rounded-xs ${getLevelColor(1)}`}></div>

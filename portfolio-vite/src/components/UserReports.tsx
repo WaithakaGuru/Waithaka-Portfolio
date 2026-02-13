@@ -56,10 +56,10 @@ export function UserReports() {
   };
 
   return (
-    <section className="py-0 px-0 bg-[#18191c] flex flex-col items-center min-h-150 w-full">
+    <section className="py-0 px-0 bg-[#18191c] flex flex-col items-center min-h-150 w-full px-2 sm:px-4">
       {/* Window bar */}
-      <div className="flex justify-start pt-16 pb-10 ml-20 w-[94%]">
-        <div className="relative bg-[#23242a] border-b-4 border-blue-700 rounded-md shadow-lg px-8 py-4 flex items-center min-w-90 max-w-130">
+      <div className="flex justify-start pt-8 sm:pt-16 pb-6 sm:pb-10 ml-4 sm:ml-20 w-full sm:w-[94%]">
+        <div className="relative bg-[#23242a] border-b-4 border-blue-700 rounded-md shadow-lg px-4 sm:px-8 py-2 sm:py-4 flex items-center min-w-40 sm:min-w-90 max-w-full sm:max-w-130 rounded-lg overflow-hidden">
           {/* Dots */}
           <div className="flex gap-2 absolute left-4 top-1/2 -translate-y-1/2">
             <span className="w-3 h-3 rounded-full bg-red-500 inline-block border border-black"></span>
@@ -86,7 +86,7 @@ export function UserReports() {
               key={idx}
               onMouseEnter={handleMouseEnter}
               onMouseLeave={handleMouseLeave}
-              className={`relative flex flex-col justify-between bg-[#18191c] border-2 border-black min-w-92.5 max-w-92.5 h-67.5 shadow-[4px_4px_0_var(--color-black)] transition-transform duration-200 cursor-pointer hover:scale-107 group`}
+              className={`relative flex flex-col justify-between bg-[#18191c] border-2 border-black min-w-60 sm:min-w-92.5 max-w-full sm:max-w-92.5 h-40 sm:h-67.5 shadow-[4px_4px_0_var(--color-black)] transition-transform duration-200 cursor-pointer hover:scale-107 group rounded-lg overflow-hidden`}
               style={{
                 transition: "transform 0.2s",
                 borderTop: `4px solid var(--tw-${report.color}-500, ${report.color})`,
@@ -106,7 +106,10 @@ export function UserReports() {
               <div className="px-5 text-xs text-gray-400 font-mono mb-1">
                 FROM: {report.from}
               </div>
-              <div className="px-5 text-xl font-extrabold text-white leading-snug mb-2">
+              <div
+                className="px-2 sm:px-5 text-base sm:text-xl font-extrabold text-white leading-snug mb-2 break-words max-w-full"
+                style={{ wordBreak: "break-word" }}
+              >
                 ”{report.report}”
               </div>
               <div className="flex items-center px-5 pb-3">

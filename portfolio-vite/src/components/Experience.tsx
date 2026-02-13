@@ -3,24 +3,30 @@ import { type Experience, experiences } from "../data";
 
 export function ExperienceSection() {
   const [expanded, setExpanded] = useState<number | null>(null);
-  console.log(experiences);
   // Calculate year range from experiences
   const currentYear = new Date().getFullYear();
   const minYear = Math.min(
     ...experiences.map((exp: any) => exp.startYear || 2017),
   );
+  const experiencesByYear: { [year: number]: Experience[] } = {};
   const maxYear = currentYear;
   const years = Array.from(
     { length: maxYear - minYear + 1 },
     (_, i) => maxYear - i,
   );
-
-  // Calculate position on timeline (percentage from top)
-  const getTimelinePosition = (year: number, month: number = 6) => {
-    const totalMonths = (maxYear - minYear + 1) * 12;
-    const monthsFromTop = (maxYear - year) * 12 + (12 - month);
-    return (monthsFromTop / totalMonths) * 100;
-  };
+  const maxExperiencesInYear = Math.max(
+    ...years.map((year) => experiencesByYear[year]?.length || 0),
+  );
+  // Group experiences by startYear
+  experiences.forEach((exp) => {
+    if (!experiencesByYear[exp.startYear])
+      experiencesByYear[exp.startYear] = [];
+    experiencesByYear[exp.startYear].push(exp);
+  });
+  // Sort each year's experiences by startMonth descending (youngest to oldest)
+  Object.keys(experiencesByYear).forEach((year) => {
+    experiencesByYear[Number(year)].sort((a, b) => b.startMonth - a.startMonth);
+  });
 
   const handlePrevious = () => {
     setExpanded((prev) => (prev !== null && prev > 0 ? prev - 1 : prev));
@@ -34,15 +40,18 @@ export function ExperienceSection() {
 
   return (
     <section id="about" className="py-20 px-4 md:px-10 bg-gray-50">
-      <h2 className="text-4xl md:text-8xl font-extrabold text-center mb-16">
+      <h2
+        className="text-3xl sm:text-5xl md:text-7xl lg:text-8xl font-extrabold text-center mb-8 break-words leading-tight max-w-full mx-auto"
+        style={{ wordBreak: "break-word" }}
+      >
         EXPERIENCE_<span className="text-red-600">LOG</span>
       </h2>
 
-      <div className="max-w-7xl mx-auto">
+      <div className="max-w-full md:max-w-7xl mx-auto px-2 sm:px-4">
         {/* Timeline Container */}
-        <div className="relative flex gap-8">
+        <div className="relative flex flex-col md:flex-row gap-4 md:gap-8">
           {/* Year Timeline Sidebar */}
-          <div className="relative w-24 shrink-0">
+          <div className="relative w-16 md:w-24 shrink-0">
             {/* Main vertical line */}
             <div className="absolute left-6 top-0 bottom-0 w-1 bg-linear-to-b from-green-300 via-green-400 to-green-200">
               {/* Pattern overlay */}
@@ -61,35 +70,27 @@ export function ExperienceSection() {
             </div>
 
             {/* Year markers */}
-            <div className="relative space-y-0">
+            <div className="relative">
               {years.map((year) => {
-                const yearHeight = 100 / years.length;
+                const yearExperiences = experiencesByYear[year] || [];
+                if (yearExperiences.length === 0) return null;
+
+                // Each experience contributes height
+                const baseUnit = 12; // height per experience (vh)
+                const dynamicHeight = Math.max(
+                  yearExperiences.length * baseUnit,
+                  baseUnit,
+                );
+
                 return (
                   <div
                     key={year}
-                    className="relative"
-                    style={{ height: `${yearHeight}vh`, minHeight: "120px" }}
+                    className="relative flex items-start"
+                    style={{ minHeight: `${dynamicHeight}vh` }}
                   >
-                    {/* Year label and connector */}
-                    <div className="absolute top-0 left-0 flex items-center gap-2">
-                      {/* Horizontal tick mark */}
-                      <div className="w-6 h-0.5 bg-gray-800"></div>
-
-                      {/* Year badge */}
-                      <div className="bg-white border-2 border-gray-800 px-3 py-1 font-bold text-sm shadow-sm">
-                        {year}
-                      </div>
-                    </div>
-
-                    {/* Grid lines for months (subtle) */}
-                    <div className="absolute left-6 top-0 bottom-0 w-px">
-                      {Array.from({ length: 11 }).map((_, monthIdx) => (
-                        <div
-                          key={monthIdx}
-                          className="absolute w-3 h-px bg-gray-300 left-0"
-                          style={{ top: `${((monthIdx + 1) / 12) * 100}%` }}
-                        ></div>
-                      ))}
+                    {/* Year Marker */}
+                    <div className="absolute -left-12 sm:-left-16 top-0 bg-white border-2 border-gray-800 px-2 sm:px-3 py-1 font-bold text-xs sm:text-sm shadow-sm rounded">
+                      {year}
                     </div>
                   </div>
                 );
@@ -98,73 +99,71 @@ export function ExperienceSection() {
           </div>
 
           {/* Experience Cards */}
-          <div className="flex-1 relative min-h-screen">
+          <div className="flex-1 relative min-h-screen min-w-0">
             {expanded === null ? (
               <div className="relative">
-                {experiences.map((exp: Experience, idx) => {
-                  const startPos = getTimelinePosition(
-                    exp.startYear,
-                    exp.startMonth,
-                  );
-                  const endPos = getTimelinePosition(exp.endYear, exp.endMonth);
-                  const height = endPos - startPos;
-
+                {years.map((year) => {
+                  const yearExperiences = experiencesByYear[year] || [];
+                  if (yearExperiences.length === 0) return null;
+                  // Dynamically set the height for the year block
+                  const yearBlockHeight =
+                    (100 / years.length) * Math.max(1, yearExperiences.length);
                   return (
                     <div
-                      key={idx}
-                      className="absolute left-0 right-0 group cursor-pointer"
-                      style={{
-                        top: `${startPos}%`,
-                        minHeight: "80px",
-                      }}
-                      onClick={() => setExpanded(idx)}
+                      key={year}
+                      className="relative"
+                      style={{ minHeight: `${yearBlockHeight}vh` }}
                     >
-                      {/* Connecting line from timeline */}
-                      <div className="absolute -left-8 top-4 w-8 h-0.5 bg-gray-400 group-hover:bg-blue-500 transition-colors"></div>
-
-                      {/* Vertical span indicator (for multi-year positions) */}
-                      {height > 5 && (
+                      {yearExperiences.map((exp, idx) => (
                         <div
-                          className="absolute -left-8 top-4 w-0.5 bg-gray-300 group-hover:bg-blue-400 transition-colors"
-                          style={{ height: `${height}%` }}
-                        ></div>
-                      )}
-
-                      {/* Experience Card */}
-                      <div className="bg-white border-2 border-gray-900 p-4 shadow-[4px_4px_0_rgba(0,0,0,1)] hover:shadow-[6px_6px_0_rgba(0,0,0,1)] hover:translate-x-[-2px] hover:translate-y-[-2px] transition-all duration-200 mb-4">
-                        <div className="flex items-start gap-4">
-                          {/* Logo */}
-                          <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-600 border-2 border-gray-900 flex items-center justify-center text-white font-bold text-lg flex-shrink-0">
-                            {exp.logo}
-                          </div>
-
-                          {/* Content */}
-                          <div className="flex-1 min-w-0">
-                            <div className="font-bold text-lg mb-1 truncate">
-                              {exp.title}
-                            </div>
-                            <div className="text-sm text-gray-600">
-                              {exp.company}
-                            </div>
-                            <div className="text-xs text-gray-400 mt-1">
-                              {exp.dateShort || exp.date}
+                          key={exp.title + exp.company}
+                          className="relative group cursor-pointer mb-4"
+                          style={{ zIndex: 10 + idx }}
+                          onClick={() =>
+                            setExpanded(experiences.findIndex((e) => e === exp))
+                          }
+                        >
+                          {/* Connecting line from timeline */}
+                          <div className="absolute -left-8 top-4 w-8 h-0.5 bg-gray-400 group-hover:bg-blue-500 transition-colors"></div>
+                          {/* Experience Card */}
+                          <div className="bg-white border-2 border-gray-900 p-4 shadow-[4px_4px_0_rgba(0,0,0,1)] hover:shadow-[6px_6px_0_rgba(0,0,0,1)] hover:translate-x-[-2px] hover:translate-y-[-2px] transition-all duration-200">
+                            <div className="flex items-start gap-4">
+                              {/* Logo */}
+                              <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-600 border-2 border-gray-900 flex items-center justify-center text-white font-bold text-lg flex-shrink-0">
+                                {exp.logo}
+                              </div>
+                              {/* Content */}
+                              <div className="flex-1 min-w-0">
+                                <div className="font-bold text-lg mb-1 truncate">
+                                  {exp.title}
+                                </div>
+                                <div className="text-sm text-gray-600">
+                                  {exp.company}
+                                </div>
+                                <div className="text-xs text-gray-400 mt-1">
+                                  {exp.dateShort || exp.date}
+                                </div>
+                              </div>
                             </div>
                           </div>
                         </div>
-                      </div>
+                      ))}
                     </div>
                   );
                 })}
               </div>
             ) : (
               // Expanded view
-              <div className="sticky top-20 w-full animate-slide-in bg-white border-2 border-gray-900 p-6 md:p-8 shadow-[6px_6px_0_rgba(0,0,0,1)]">
-                <div className="flex items-start gap-4 mb-6">
-                  <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-purple-600 border-2 border-gray-900 flex items-center justify-center text-white font-bold text-2xl flex-shrink-0">
+              <div className="sticky top-20 w-full animate-slide-in bg-white border-2 border-gray-900 p-4 sm:p-6 md:p-8 shadow-[6px_6px_0_rgba(0,0,0,1)] rounded-lg max-w-full overflow-hidden">
+                <div className="flex flex-col sm:flex-row items-start gap-2 sm:gap-4 mb-6">
+                  <div className="w-12 h-12 sm:w-16 sm:h-16 bg-gradient-to-br from-blue-500 to-purple-600 border-2 border-gray-900 flex items-center justify-center text-white font-bold text-xl sm:text-2xl flex-shrink-0">
                     {experiences[expanded].logo}
                   </div>
-                  <div className="flex-1">
-                    <h3 className="text-2xl md:text-3xl font-extrabold mb-2">
+                  <div className="flex-1 max-w-full">
+                    <h3
+                      className="text-xl sm:text-2xl md:text-3xl font-extrabold mb-2 break-words max-w-full"
+                      style={{ wordBreak: "break-word" }}
+                    >
                       {experiences[expanded].title}
                     </h3>
                     <p className="text-gray-600 mb-1">
@@ -266,4 +265,69 @@ export function ExperienceSection() {
       `}</style>
     </section>
   );
+}
+
+{
+  /**
+   *  <div className="relative space-y-0">
+              {years.map((year) => {
+                const yearExperiences = experiencesByYear[year] || [];
+                if (yearExperiences.length === 0) return null;
+                // Proportional height: block is at least 1 unit, but grows with more experiences
+                const yearBlockHeight =
+                  (100 / years.length) *
+                  (yearExperiences.length / (maxExperiencesInYear || 1));
+                return (
+                  <div
+                    key={year}
+                    className="relative"
+                    style={{
+                      minHeight: `${yearBlockHeight * (maxExperiencesInYear || 1)}vh`,
+                    }}
+                  >
+                    {/* Year label }
+                    <div className="absolute -left-16 top-0 flex items-center gap-2 z-20">
+                      <div className="bg-white border-2 border-gray-800 px-2 sm:px-3 py-1 font-bold text-xs sm:text-sm shadow-sm rounded">
+                        {year}
+                      </div>
+                    </div>
+                    {yearExperiences.map((exp, idx) => (
+                      <div
+                        key={exp.title + exp.company + exp.startMonth}
+                        className="relative group cursor-pointer mb-4"
+                        style={{ zIndex: 10 + idx }}
+                        onClick={() =>
+                          setExpanded(experiences.findIndex((e) => e === exp))
+                        }
+                      >
+                        {/* Connecting line from timeline }
+                        <div className="absolute -left-8 top-4 w-8 h-0.5 bg-gray-400 group-hover:bg-blue-500 transition-colors"></div>
+                        {/* Experience Card }
+                          <div className="bg-white border-2 border-gray-900 p-2 sm:p-4 shadow-[4px_4px_0_rgba(0,0,0,1)] hover:shadow-[6px_6px_0_rgba(0,0,0,1)] hover:translate-x-[-2px] hover:translate-y-[-2px] transition-all duration-200 rounded-lg max-w-full overflow-hidden">
+                            <div className="flex flex-col sm:flex-row items-start gap-2 sm:gap-4">
+                            {/* Logo}
+                              <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-blue-500 to-purple-600 border-2 border-gray-900 flex items-center justify-center text-white font-bold text-base sm:text-lg flex-shrink-0">
+                              {exp.logo}
+                            </div>
+                            {/* Content }
+                              <div className="flex-1 min-w-0 max-w-full">
+                                <div className="font-bold text-base sm:text-lg mb-1 truncate max-w-full" style={{wordBreak:'break-word'}}>
+                                {exp.title}
+                              </div>
+                              <div className="text-sm text-gray-600">
+                                {exp.company}
+                              </div>
+                              <div className="text-xs text-gray-400 mt-1">
+                                {exp.dateShort || exp.date}
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                );
+              })}
+            </div>
+   */
 }
