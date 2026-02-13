@@ -38,8 +38,9 @@ export function Hero() {
           borderBottom: "2px solid black",
           top: 0,
           left: 0,
-          zIndex: 3000,
+          zIndex: 4000, // ensure above nav and dropdown
           transition: "width 0.2s",
+          pointerEvents: "none", // never block interaction
         }}
       ></div>
       {/* Scroll indicator */}
@@ -57,7 +58,7 @@ export function Hero() {
           <div className="hidden md:block w-10 h-10 bg-blue border-[0.75] border-black absolute -left-44 top-1/2 -translate-y-1/2 animate-bounce-slow"></div>
           <div className="hidden md:block w-8 h-8 bg-pink border-[3px] border-black rounded-full absolute -right-56 top-1/2 -translate-y-1/2 animate-beep"></div>
 
-          <h1 className="text-6xl md:text-[7.5rem] font-extrabold sm:leading-tight leading-10 mt-12">
+          <h1 className="text-6xl md:text-[7.5rem] font-extrabold sm:leading-tight leading-12 mt-12">
             SOFTWARE
             <br />
             <span className="text-outline">ENGINEER</span>

@@ -19,7 +19,7 @@ export function UserReports() {
       {/* Window bar */}
       <div className="flex justify-start pt-8 sm:pt-16 pb-6 sm:pb-10 ml-4 sm:ml-20 w-full sm:w-[94%]">
         <div
-          className="relative bg-[#23242a] border-b-4 border-blue-700 shadow-lg px-2 sm:px-8 rounded-md 
+          className="relative bg-[#23242a] border-b-4 border-blue shadow-lg px-2 sm:px-8 rounded-md 
         py-2 sm:py-4 flex items-center justify-between min-w-80 sm:min-w-90 max-w-full sm:max-w-130 overflow-hidden"
         >
           {/* Dots */}
@@ -31,7 +31,7 @@ export function UserReports() {
           <span className="sm:ml-16 ml-6 font-mono sm:text-2xl text-lg text-white font-extrabold sm:tracking-wider">
             USER_REPORTS.txt
           </span>
-          <span className="ml-6 px-3 py-1 bg-blue-600 text-xs font-bold text-white rounded shadow border border-blue-800">
+          <span className="ml-6 px-3 py-1 bg-blue text-xs font-bold text-white rounded shadow border border-blue-300">
             LIVE_FEED
           </span>
         </div>

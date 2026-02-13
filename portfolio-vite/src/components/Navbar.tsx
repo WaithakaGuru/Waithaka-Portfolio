@@ -42,14 +42,14 @@ export function Navbar() {
       {/* Name box */}
       <div className="flex items-center h-12">
         <div
-          className="bg-white border-2 border-black px-8 h-full flex items-center font-extrabold text-2xl shadow-[4px_4px_0_var(--color-black)]"
+          className="bg-light-gray border-2 border-black px-8 h-full flex items-center font-extrabold text-2xl shadow-[4px_4px_0_var(--color-black)]"
           style={{ letterSpacing: "0.01em" }}
         >
           WAITHAKA.hack
         </div>
       </div>
       {/* Hamburger menu for small screens */}
-      <div className="flex items-center h-12 md:hidden">
+      <div className="flex items-center h-12 md:hidden bg-light-gray hover:bg-yellow border border-black shadow-[2px_2px_0_var(--color-black)]">
         <button
           className="flex flex-col justify-center items-center w-10 h-10 focus:outline-none"
           aria-label="Open menu"
@@ -120,8 +120,11 @@ export function Navbar() {
       </div>
       {/* Dropdown menu for small screens */}
       {menuOpen && (
-        <div className="fixed inset-0 top-[calc(100%+0.5rem)] left-0 w-full flex flex-col items-center md:hidden z-[2000] animate-fade-in bg-black/40" style={{paddingTop:0}}>
-          <div className="flex flex-col w-full bg-white border-2 border-black shadow-[4px_4px_0_var(--color-black)] max-w-[420px] mx-auto">
+        <div
+          className="fixed inset-0 top-[calc(100%+0.5rem)] left-0 w-full flex flex-col items-center md:hidden z-2000 animate-fade-in bg-black/40"
+          style={{ paddingTop: 0 }}
+        >
+          <div className="flex flex-col w-full bg-white border-2 border-black shadow-[4px_4px_0_var(--color-black)] max-w-105 mx-auto">
             <a
               href="#about"
               onClick={(e) => {

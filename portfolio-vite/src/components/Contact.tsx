@@ -18,7 +18,7 @@ export function Contact() {
       <h2 className="text-4xl md:text-5xl font-extrabold text-left mb-4 ml-10">
         GET_IN_<span className="text-green">TOUCH</span>
       </h2>
-      <p className="text-left text-xl text-gray-600 mb-12 w-full ml-10 wrap-break-word">
+      <p className="text-left text-xl text-gray-600 mb-12 w-10/11 ml-10 wrap-break-word">
         Have a project in mind? Let's work together to create something amazing.
       </p>
 
@@ -84,7 +84,7 @@ export function Contact() {
         <form
           onSubmit={handleSubmit}
           className="border-2 border-black sm:p-6 p-2 
-          md:col-span-3 mx-auto min-w-92"
+          md:col-span-3 mx-auto w-full min-w-110"
         >
           <h3 className="font-bold text-xl mb-6">CHAT ME UP</h3>
 
