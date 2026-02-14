@@ -40,10 +40,10 @@ export function Hero() {
 
       {/* A Floating image of the developer */}
       <div
-        className="hidden sm:absolute h-40 w-75 sm:h-30 sm:w-40 z-100 border-black border-4 overflow-clip
-      md:top-1/4 md:right-1/4  shadow-[5px_5px_0_var(--color-yellow)]"
+        className="hidden sm:absolute md:flex h-40 w-60 z-100 border-black border-4 overflow-clip
+      md:top-1/4 md:right-1/10 lg:right-1/5  shadow-[5px_5px_0_var(--color-yellow)]"
       >
-        <img src="./me.jpg" className="object-cover object-top" h-full w-full />
+        <img src="./me.jpg" className="object-cover object-top h-full w-full" />
       </div>
 
       {/* Scroll progress bar */}
