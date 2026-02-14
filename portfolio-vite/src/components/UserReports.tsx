@@ -17,10 +17,13 @@ export function UserReports() {
   return (
     <section className="py-0 bg-[#18191c] flex flex-col items-center min-h-150 w-full px-2 sm:px-4">
       {/* Window bar */}
-      <div className="flex justify-start pt-8 sm:pt-16 pb-6 sm:pb-10 ml-4 sm:ml-20 w-full sm:w-[94%]">
+      <div
+        className="flex justify-start pt-8 sm:pt-16 pb-6 sm:pb-10 ml-4 sm:ml-20 w-full sm:w-[94%] 
+        sticky top-0 z-1000 backdrop-blur-xs"
+      >
         <div
-          className="relative bg-[#23242a] border-b-4 border-blue shadow-lg px-2 sm:px-8 rounded-md 
-        py-2 sm:py-4 flex items-center justify-between min-w-80 sm:min-w-90 max-w-full sm:max-w-130 overflow-hidden"
+          className="bg-[#23242a] border-b-4 border-blue shadow-lg px-2 sm:px-8 rounded-md 
+        py-2 sm:py-4 flex items-center justify-between min-w-80 sm:min-w-90 max-w-full sm:w-120"
         >
           {/* Dots */}
           <div className="flex gap-2 md:absolute left-4 top-1/2 md:-translate-y-1/2">

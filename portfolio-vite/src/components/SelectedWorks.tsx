@@ -22,7 +22,7 @@ export function SelectedWorks() {
     <section id="projects" className="bg-yellow py-16 md:px-10 px-4">
       <h2
         className="text-3xl sm:text-5xl md:text-7xl lg:text-8xl font-extrabold text-left text-light-gray text-shadow-lg
-         text-shadow-black wrap-break-word leading-tight max-w-full"
+         text-shadow-black wrap-break-word leading-tight max-w-full sticky top-0 w-full bg-yellow z-1000"
         style={{ wordBreak: "break-word" }}
       >
         SELECTED WORKS

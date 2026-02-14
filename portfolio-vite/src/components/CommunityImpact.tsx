@@ -8,7 +8,7 @@ import {
 export function CommunityImpact() {
   return (
     <section
-      className="py-20 px-10 relative overflow-hidden"
+      className="py-20 px-10 relative"
       style={{
         backgroundColor: "var(--bg-primary)",
         color: "var(--text-primary)",
@@ -24,12 +24,10 @@ export function CommunityImpact() {
 
       <div className="relative">
         <h2
-          className="text-4xl md:text-5xl font-extrabold text-left mb-10 z-10 py-4 -mx-10 px-10"
+          className="text-4xl md:text-5xl font-extrabold text-left mb-10 z-10 py-4 -mx-10 px-10 sticky top-0"
           style={{
             backgroundColor: "var(--bg-primary)",
             backdropFilter: "blur(4px)",
-            position: "sticky",
-            top: "0",
           }}
         >
           COMMUNITY_IMPACT &{" "}

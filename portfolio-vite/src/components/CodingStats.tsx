@@ -18,7 +18,7 @@ export function CodingStats() {
 
   return (
     <section
-      className="py-20 px-10 relative overflow-hidden"
+      className="py-20 px-10 relative"
       style={{
         backgroundColor: "var(--bg-primary)",
         color: "var(--text-primary)",

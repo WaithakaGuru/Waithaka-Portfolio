@@ -4,15 +4,24 @@ export function TechStack() {
   return (
     <section
       id="stack"
-      className="relative bg-black/95 text-white py-24 px-6 md:px-10 overflow-hidden mt-4"
+      className="relative bg-black/95 text-white py-24 px-6 md:px-10 mt-4"
     >
       {/* Subtle grid background */}
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#333_1px,transparent_1px),linear-gradient(to_bottom,#2a2a2a_1px,transparent_1px)] bg-size-[40px_40px] opacity-30 pointer-events-none" />
 
       <div className="relative max-w-full md:max-w-350 mx-auto px-2 sm:px-4">
         {/* Header */}
-        <div className="flex items-center justify-between mb-10 w-full">
-          <h2 className="text-2xl sm:text-5xl md:text-7xl lg:text-8xl font-extrabold tracking-tight wrap-break-word leading-tight max-w-full">
+        <div
+          className="flex items-center justify-between mb-10 w-full sticky top-0"
+          style={{
+            backgroundColor: "var(--bg-primary)",
+            backdropFilter: "blur(4px)",
+          }}
+        >
+          <h2
+            className="text-2xl sm:text-5xl md:text-7xl lg:text-8xl font-extrabold tracking-tight 
+          wrap-break-word leading-tight max-w-full"
+          >
             TECH_<span className="text-green-500">STACK</span>
           </h2>
 
