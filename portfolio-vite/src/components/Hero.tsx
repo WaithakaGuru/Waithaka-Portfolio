@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { motion } from "framer-motion";
 
 export function Hero() {
   const [scroll, setScroll] = useState(0);
@@ -15,36 +16,55 @@ export function Hero() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: { opacity: 1 },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: { opacity: 1, y: 0 },
+  };
+
   return (
     <section
       id="home"
       className="h-screen flex flex-col justify-between bg-transparent relative px-5 overflow-hidden"
     >
       {/* Faint background text */}
-      <span
+      <motion.span
         aria-hidden="true"
         className="pointer-events-none select-none absolute left-1/2 sm:top-1/2 top-5/7 -translate-x-1/2 -translate-y-1/2 text-[10vw] 
         font-extrabold text-zinc-700 opacity-20 whitespace-nowrap z-0"
         style={{ userSelect: "none", letterSpacing: "0.2em" }}
+        initial={{ opacity: 0, scale: 0.8 }}
+        animate={{ opacity: 0.2, scale: 1 }}
+        transition={{ duration: 1, delay: 0.5 }}
       >
         CODER
-      </span>
-      <span
+      </motion.span>
+      <motion.span
         aria-hidden="true"
         className="pointer-events-none select-none absolute left-1/2 sm:top-1/6 top-1/4 -translate-x-1/2 -translate-y-1/2 text-[10vw] 
         font-extrabold text-zinc-700 opacity-15 whitespace-nowrap z-0"
         style={{ userSelect: "none", letterSpacing: "0.2em" }}
+        initial={{ opacity: 0, scale: 0.8 }}
+        animate={{ opacity: 0.15, scale: 1 }}
+        transition={{ duration: 1, delay: 0.7 }}
       >
         DEVELOPER
-      </span>
+      </motion.span>
 
       {/* A Floating image of the developer */}
-      <div
+      <motion.div
         className="hidden sm:absolute md:flex h-40 w-60 z-100 border-black border-4 overflow-clip
       md:top-1/4 md:right-1/10 lg:right-1/5  shadow-[5px_5px_0_var(--color-yellow)]"
+        initial={{ opacity: 0, x: 50 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.8, delay: 1 }}
       >
         <img src="./me.jpg" className="object-cover object-top h-full w-full" />
-      </div>
+      </motion.div>
 
       {/* Scroll progress bar */}
       <div
@@ -62,29 +82,57 @@ export function Hero() {
         }}
       ></div>
       {/* Scroll indicator */}
-      <div className="absolute hidden top-26 right-5 text-[2.75] font-medium sm:flex items-center gap-2">
+      <motion.div
+        className="absolute hidden top-26 right-5 text-[2.75] font-medium sm:flex items-center gap-2"
+        initial={{ opacity: 0, x: 20 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.6, delay: 1.2 }}
+      >
         SCROLL DOWN
         <div className="w-5 h-7.5 border-2 border-black rounded-full relative">
           <span className="absolute top-1.5 left-1/2 -translate-x-1/2 w-1 h-2 bg-black rounded-sm animate-scroll-indicator"></span>
         </div>
-      </div>
+      </motion.div>
 
       {/* Hero content */}
-      <div className="flex-1 flex items-center justify-center">
+      <motion.div
+        className="flex-1 flex items-center justify-center"
+        variants={containerVariants}
+        initial="hidden"
+        animate="visible"
+        transition={{
+          staggerChildren: 0.2,
+          delayChildren: 0.1,
+        }}
+      >
         <div className="relative md:text-left text-center">
           {/* Decorative shapes */}
-          <div className="hidden md:block w-10 h-10 bg-blue border-[0.75] border-black absolute -left-44 top-1/2 -translate-y-1/2 animate-bounce-slow"></div>
-          <div className="hidden md:block w-8 h-8 bg-pink border-[3px] border-black rounded-full absolute -right-56 top-1/2 -translate-y-1/2 animate-beep"></div>
+          <motion.div
+            className="hidden md:block w-10 h-10 bg-blue border-[0.75] border-black absolute -left-44 top-1/2 -translate-y-1/2 animate-bounce-slow"
+            variants={itemVariants}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+          ></motion.div>
+          <motion.div
+            className="hidden md:block w-8 h-8 bg-pink border-[3px] border-black rounded-full absolute -right-56 top-1/2 -translate-y-1/2 animate-beep"
+            variants={itemVariants}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+          ></motion.div>
 
-          <h1 className="text-6xl md:text-[7.5rem] font-extrabold sm:leading-tight leading-12 mt-12">
+          <motion.h1
+            className="text-6xl md:text-[7.5rem] font-extrabold sm:leading-tight leading-12 mt-12"
+            variants={itemVariants}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+          >
             SOFTWARE
             <br />
             <span className="text-outline">ENGINEER</span>
-          </h1>
+          </motion.h1>
 
-          <div
+          <motion.div
             className="bg-yellow border-2 border-black py-2 md:px-16 sm:px-10 px-4 inline-block 
           font-bold sm:text-2xl  text-xl my-4 shadow-[5px_5px_0_var(--color-black)]"
+            variants={itemVariants}
+            transition={{ duration: 0.6, ease: "easeOut" }}
           >
             <div className="font-light">
               I build digital products that generate revenue.
@@ -93,9 +141,13 @@ export function Hero() {
             <div className="text-center font-bold md:tracking-wide tracking-tight text-xl">
               Python · Go · TypeScript · HonoJS · Docker
             </div>
-          </div>
+          </motion.div>
 
-          <div className="flex md:gap-8 md:justify-start justify-center mt-6 gap-6 mb-16 flex-wrap">
+          <motion.div
+            className="flex md:gap-8 md:justify-start justify-center mt-6 gap-6 mb-16 flex-wrap"
+            variants={itemVariants}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+          >
             <a
               href="#projects"
               className="text-white py-3.5 px-7 border-2 border-black font-bold cursor-pointer transition-all no-underline
@@ -110,9 +162,9 @@ export function Hero() {
             >
               DOWNLOAD CV
             </a>
-          </div>
+          </motion.div>
         </div>
-      </div>
+      </motion.div>
       <style>{`
         @keyframes bounce-slow {
           0%, 100% { transform: translateY(-50%) scale(1); }
