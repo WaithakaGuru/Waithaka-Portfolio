@@ -1,5 +1,6 @@
 export { Navbar } from "./Navbar";
 export { Hero } from "./Hero";
+export { CommunityImpact } from "./CommunityImpact";
 export { TechStack } from "./TechStack";
 export { ExperienceSection } from "./Experience";
 export { EducationSection } from "./Education";

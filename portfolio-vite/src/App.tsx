@@ -1,6 +1,7 @@
 import {
   Navbar,
   Hero,
+  CommunityImpact,
   TechStack,
   ExperienceSection,
   EducationSection,
@@ -18,7 +19,6 @@ function App() {
       <Navbar />
       <Hero />
       <AboutMe />
-      <TechStack />
       {/* Experience and Education side by side */}
       <div className="flex flex-col md:flex-row gap-8 w-full">
         <div className="flex-1">
@@ -28,6 +28,8 @@ function App() {
           <EducationSection />
         </div>
       </div>
+      <CommunityImpact />
+      <TechStack />
       <CodingStats />
       <SelectedWorks />
       <UserReports />

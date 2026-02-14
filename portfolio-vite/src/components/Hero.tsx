@@ -37,6 +37,12 @@ export function Hero() {
       >
         DEVELOPER
       </span>
+
+      {/* A Floating image of the developer */}
+      <div className="absolute h-30 w-40 z-100 border-black border-4 overflow-clip top-1/4 right-1/4 shadow-[5px_5px_0_var(--color-yellow)]">
+        <img src="./me.jpg" className="object-cover object-top" h-full w-full />
+      </div>
+
       {/* Scroll progress bar */}
       <div
         style={{
@@ -86,7 +92,7 @@ export function Hero() {
             </div>
           </div>
 
-          <div className="flex md:gap-16 md:justify-start justify-center mt-6 gap-6 mb-16 flex-wrap">
+          <div className="flex md:gap-8 md:justify-start justify-center mt-6 gap-6 mb-16 flex-wrap">
             <a
               href="#projects"
               className="text-white py-3.5 px-7 border-2 border-black font-bold cursor-pointer transition-all no-underline

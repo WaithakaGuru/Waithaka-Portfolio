@@ -1,92 +1,151 @@
 export function AboutMe() {
   return (
-    <section id="about-me" className="py-20 md:px-10 px-4 min-h-dvh w-full">
-      <div
-        className="
-          w-full md:w-11/12 mx-auto
-          flex flex-col md:flex-row
-          border-x-4 border-b-4
-          gap-8
-          items-center
-          bg-light-gray
-          px-4 py-6
-          border-zinc-700
-        "
-      >
-        {/* IMAGE SECTION (35%) */}
-        <div className="relative w-full md:w-[35%] flex justify-center">
-          <div
-            className="
-              w-full max-w-xs
-              aspect-square
-              bg-white
-              border-4 border-black
-              shadow-[4px_4px_0_var(--color-black)]
-              overflow-hidden
-            "
-          >
-            <img
-              src="./me.jpg"
-              alt="Profile Image"
-              className="w-full h-full object-cover"
-            />
-          </div>
+    <section
+      id="about-me"
+      className="bg-black text-white py-20 px-10 relative overflow-hidden"
+    >
+      {/* Subtle grid background */}
+      <div className="absolute inset-0 bg-[linear-gradient(to_right,#ccc_1px,transparent_1px),linear-gradient(to_bottom,#ddd_1px,transparent_1px)] bg-size-[40px_40px] opacity-20 pointer-events-none" />
 
-          {/* Decorative elements */}
-          <div className="absolute top-4 -left-9 w-8 h-8 bg-yellow border-2 border-black"></div>
-          <div className="absolute -bottom-24 right-0 w-12 h-12 bg-blue border-2 border-black rounded-full"></div>
-        </div>
+      <div className="relative">
+        <h2 className="text-4xl md:text-5xl font-extrabold text-left mb-10">
+          ABOUT_<span className="text-green">ME</span>
+        </h2>
 
-        {/* CONTENT SECTION (65%) */}
-        <div className="w-full md:w-[65%]">
-          <h2 className="text-4xl md:text-6xl font-extrabold text-left mb-4">
-            WHO_<span className="text-blue">AM_I ?</span>
-          </h2>
-
-          <div className="bg-white p-4 mb-6">
-            <p className="text-lg leading-relaxed text-gray-700 mb-4">
-              I am Waithaka Ndung'u,{" "}
-              <span className="bg-green">Certified Software Developer</span>{" "}
-              with 4+ years of experience building digital products that make an
-              impact. I specialize in creating performant, scalable and optimal
-              web/mobile applications.
-            </p>
-
-            <div className="bg-[#181818] border-2 border-black p-4 sm:p-6 shadow-[5px_5px_0_var(--color-black)] mb-4 font-mono text-white rounded-lg">
-              <div className="pl-4 border-l-4 border-purple-500 mb-4">
-                <div>
-                  &gt; Specialized in Web Development and AI integration
-                </div>
-                <div>&gt; Obsessed with Data Structures and Optimization</div>
-                <div>
-                  &gt; Over 3 years of shipping Apps that sell and scale
-                </div>
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+          {/* Profile Card */}
+          <div className="lg:col-span-1">
+            <div className="bg-[#1a1a1a] border-2 border-gray-700 rounded-lg overflow-hidden hover:border-green-500 transition-all duration-300">
+              <div className="h-64 bg-linear-to-br from-green-600 to-green-800 flex items-center justify-center">
+                <img
+                  src="./me.jpg"
+                  alt="Waithaka Ndung'u"
+                  className="w-full h-full object-cover object-top"
+                  onError={(e) => {
+                    e.currentTarget.style.display = "none";
+                    e.currentTarget.nextElementSibling!.className =
+                      e.currentTarget.nextElementSibling!.className.replace(
+                        "hidden",
+                        "",
+                      );
+                  }}
+                />
+                <div className="hidden text-8xl">👨‍💻</div>
               </div>
-
-              <div className="flex flex-col sm:flex-row gap-4 mt-2">
-                <div className="bg-black text-white px-4 py-2 rounded font-bold text-sm">
-                  📍 LOCATION: WORLDWIDE | REMOTE
-                </div>
-                <div className="bg-[#39d353] text-black px-4 py-2 rounded font-bold text-sm">
-                  ● STATUS: AVAILABLE
+              <div className="p-6 text-center">
+                <h3 className="text-2xl font-bold mb-2 text-green-400">
+                  Waithaka Ndung'u
+                </h3>
+                <p className="text-gray-300 mb-4">
+                  Certified Software Developer
+                </p>
+                <div className="flex flex-col gap-2 text-sm">
+                  <div className="flex items-center justify-center gap-2">
+                    <span className="text-green-400">📍</span>
+                    <span>Worldwide | Remote</span>
+                  </div>
+                  <div className="flex items-center justify-center gap-2">
+                    <span className="text-green-400">●</span>
+                    <span>Available for Projects</span>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
 
-          {/* Quick stats */}
-          <div className="grid grid-cols-3 gap-4">
-            <div className="bg-yellow border-2 border-black p-4 text-center shadow-[3px_3px_0_var(--color-black)]">
-              <div className="text-2xl font-extrabold">4+</div>
-              <div className="text-xs font-semibold">YEARS EXP</div>
+          {/* About Content */}
+          <div className="lg:col-span-2 space-y-6">
+            {/* Introduction Card */}
+            <div className="bg-[#1a1a1a] border-2 border-gray-700 rounded-lg p-6 hover:border-green-500 transition-all duration-300">
+              <h3 className="text-xl font-bold mb-4 text-green-400">
+                Introduction
+              </h3>
+              <p className="text-gray-300 leading-relaxed mb-4">
+                I am Waithaka Ndung'u, a{" "}
+                <span className="text-green-400 font-semibold">
+                  Certified Software Developer
+                </span>{" "}
+                with 4+ years of experience building digital products that make
+                an impact. I specialize in creating performant, scalable, and
+                optimal web/mobile applications.
+              </p>
+              <div className="bg-[#2a2a2a] border border-gray-600 rounded p-4">
+                <div className="space-y-2 text-sm text-gray-300">
+                  <div className="flex items-center gap-2">
+                    <span className="text-green-400">▸</span>
+                    <span>
+                      Specialized in Web Development and AI integration
+                    </span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <span className="text-green-400">▸</span>
+                    <span>Obsessed with Data Structures and Optimization</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <span className="text-green-400">▸</span>
+                    <span>
+                      Over 3 years of shipping Apps that sell and scale
+                    </span>
+                  </div>
+                </div>
+              </div>
             </div>
-            <div className="bg-white border-2 border-black p-4 text-center shadow-[3px_3px_0_var(--color-black)]">
-              <div className="text-2xl font-extrabold">50+</div>
-              <div className="text-xs font-semibold">PROJECTS</div>
+
+            {/* Stats Card */}
+            <div className="bg-[#1a1a1a] border-2 border-gray-700 rounded-lg p-6 hover:border-green-500 transition-all duration-300">
+              <h3 className="text-xl font-bold mb-4 text-green-400">
+                Key Stats
+              </h3>
+              <div className="grid grid-cols-3 gap-4">
+                <div className="bg-[#2a2a2a] border border-gray-600 rounded-lg p-4 text-center">
+                  <div className="text-3xl font-extrabold text-green-400 mb-1">
+                    4+
+                  </div>
+                  <div className="text-xs text-gray-400 font-semibold">
+                    YEARS EXPERIENCE
+                  </div>
+                </div>
+                <div className="bg-[#2a2a2a] border border-gray-600 rounded-lg p-4 text-center">
+                  <div className="text-3xl font-extrabold text-green-400 mb-1">
+                    50+
+                  </div>
+                  <div className="text-xs text-gray-400 font-semibold">
+                    PROJECTS COMPLETED
+                  </div>
+                </div>
+                <div className="bg-[#2a2a2a] border border-gray-600 rounded-lg p-4 text-center">
+                  <div className="text-3xl font-extrabold text-green-400 mb-1">
+                    15+
+                  </div>
+                  <div className="text-xs text-gray-400 font-semibold">
+                    SATISFIED CLIENTS
+                  </div>
+                </div>
+              </div>
             </div>
-            <div className="bg-green border-2 border-black p-4 text-center shadow-[3px_3px_0_var(--color-black)]">
-              <div className="text-2xl font-extrabold">15+</div>
-              <div className="text-xs font-semibold">CLIENTS</div>
+
+            {/* Expertise Card */}
+            <div className="bg-[#1a1a1a] border-2 border-gray-700 rounded-lg p-6 hover:border-green-500 transition-all duration-300">
+              <h3 className="text-xl font-bold mb-4 text-green-400">
+                Core Expertise
+              </h3>
+              <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
+                {[
+                  "Full-Stack Development",
+                  "AI/ML Integration",
+                  "System Optimization",
+                  "Cloud Architecture",
+                  "UI/UX Design",
+                  "Agile Development",
+                ].map((skill, index) => (
+                  <div
+                    key={index}
+                    className="bg-[#2a2a2a] border border-gray-600 rounded px-3 py-2 text-center text-sm text-gray-300 hover:bg-green-900 hover:text-white transition-colors"
+                  >
+                    {skill}
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </div>

@@ -365,3 +365,104 @@ export const stats = {
   dailyAverage: "5h 42m",
   topLanguage: "JavaScript",
 };
+
+// Community Impact types
+export interface CommunityInitiative {
+  id: string;
+  title: string;
+  description: string;
+  image: string;
+  impact: string;
+  date: string;
+}
+
+export interface Event {
+  id: string;
+  title: string;
+  description: string;
+  image: string;
+  role: string;
+  date: string;
+  location?: string;
+}
+
+export const communityInitiatives: CommunityInitiative[] = [
+  {
+    id: "1",
+    title: "Open Source Contributions",
+    description:
+      "Contributed to 20+ open-source projects, focusing on JavaScript frameworks and developer tools.",
+    image: "/images/open-source.jpg",
+    impact: "Helped 1000+ developers worldwide",
+    date: "2020 - Present",
+  },
+  {
+    id: "2",
+    title: "Mentorship Program",
+    description:
+      "Mentored 50+ aspiring developers through one-on-one sessions and group workshops.",
+    image: "/images/mentorship.jpg",
+    impact: "50 mentees successfully launched careers",
+    date: "2021 - Present",
+  },
+  {
+    id: "3",
+    title: "Coding Workshops",
+    description:
+      "Organized 10+ coding workshops teaching web development, algorithms, and best practices.",
+    image: "/images/workshop.jpg",
+    impact: "Trained 200+ participants",
+    date: "2022 - Present",
+  },
+  {
+    id: "4",
+    title: "Tech Community Speaking",
+    description:
+      "Spoke at 5 tech conferences and meetups about modern web development and career growth.",
+    image: "/images/speaking.jpg",
+    impact: "Reached 500+ audience members",
+    date: "2023 - Present",
+  },
+];
+
+export const events: Event[] = [
+  {
+    id: "1",
+    title: "CodeFest 2025",
+    description:
+      "Won first place in the hackathon for building an innovative developer productivity tool.",
+    image: "/images/codefest.jpg",
+    role: "Winner",
+    date: "March 2025",
+    location: "Nairobi, Kenya",
+  },
+  {
+    id: "2",
+    title: "DevCon Africa 2025",
+    description:
+      "Panel discussion on the future of web development and emerging technologies.",
+    image: "/images/devcon.jpg",
+    role: "Panelist",
+    date: "April 2025",
+    location: "Cape Town, South Africa",
+  },
+  {
+    id: "3",
+    title: "JS Bootcamp 2026",
+    description: "Led a 3-day intensive JavaScript workshop for beginners.",
+    image: "/images/js-bootcamp.jpg",
+    role: "Workshop Host",
+    date: "January 2026",
+    location: "Online",
+  },
+  {
+    id: "4",
+    title: "Python Summit 2026",
+    description:
+      "Guest speaker on Python in modern web development and AI integration.",
+    image: "/images/python-summit.jpg",
+    role: "Guest Speaker",
+    date: "February 2026",
+    location: "San Francisco, USA",
+  },
+];
