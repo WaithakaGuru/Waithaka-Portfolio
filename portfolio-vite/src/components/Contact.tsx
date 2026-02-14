@@ -83,8 +83,7 @@ export function Contact() {
         {/* Contact form */}
         <form
           onSubmit={handleSubmit}
-          className="border-2 border-black sm:p-6 p-2 
-          md:col-span-3 mx-auto w-full min-w-110"
+          className="border-2 border-black p-2 sm:p-6 md:col-span-3 w-[110%] sm:max-w-full "
         >
           <h3 className="font-bold text-xl mb-6">CHAT ME UP</h3>
 

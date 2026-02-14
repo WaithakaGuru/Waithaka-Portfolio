@@ -39,7 +39,10 @@ export function Hero() {
       </span>
 
       {/* A Floating image of the developer */}
-      <div className="absolute h-30 w-40 z-100 border-black border-4 overflow-clip top-1/4 right-1/4 shadow-[5px_5px_0_var(--color-yellow)]">
+      <div
+        className="hidden sm:absolute h-40 w-75 sm:h-30 sm:w-40 z-100 border-black border-4 overflow-clip
+      md:top-1/4 md:right-1/4  shadow-[5px_5px_0_var(--color-yellow)]"
+      >
         <img src="./me.jpg" className="object-cover object-top" h-full w-full />
       </div>
 
