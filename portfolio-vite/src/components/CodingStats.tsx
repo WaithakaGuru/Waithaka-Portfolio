@@ -17,9 +17,34 @@ export function CodingStats() {
   }, []);
 
   return (
-    <section className="bg-black text-white py-20 px-10">
-      <h2 className="text-4xl md:text-5xl font-extrabold text-left mb-10">
-        CODING_<span className="text-green">STATS</span>
+    <section
+      className="py-20 px-10 relative overflow-hidden"
+      style={{
+        backgroundColor: "var(--bg-primary)",
+        color: "var(--text-primary)",
+      }}
+    >
+      {/* Subtle grid background */}
+      <div
+        className="absolute inset-0 opacity-20 pointer-events-none"
+        style={{
+          background:
+            "linear-gradient(to_right,var(--grid-color)_1px,transparent_1px),linear-gradient(to_bottom,var(--grid-color)_1px,transparent_1px)",
+          backgroundSize: "40px 40px",
+        }}
+      />
+
+      {/* <div className="relative"> */}
+      <h2
+        className="text-4xl md:text-5xl font-extrabold text-left mb-10 z-10 py-4 -mx-10 px-10"
+        style={{
+          backgroundColor: "var(--bg-primary)",
+          backdropFilter: "blur(4px)",
+          position: "sticky",
+          top: "0",
+        }}
+      >
+        CODING_<span style={{ color: "var(--accent-green)" }}>STATS</span>
       </h2>
 
       <div className="max-w-full md:max-w-300 mx-auto grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-8 mt-6 px-2 sm:px-4">

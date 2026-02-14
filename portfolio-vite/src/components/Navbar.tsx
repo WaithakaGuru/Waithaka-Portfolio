@@ -1,9 +1,11 @@
 import { useState, useEffect } from "react";
+import { useTheme } from "../contexts/ThemeContext";
 
 export function Navbar() {
   const [hidden, setHidden] = useState(false);
   const [lastScrollY, setLastScrollY] = useState(0);
   const [menuOpen, setMenuOpen] = useState(false);
+  const { theme, setTheme, actualTheme } = useTheme();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -116,6 +118,22 @@ export function Navbar() {
           >
             HIRE ME
           </button>
+          <button
+            onClick={() => {
+              const themes: ("dark" | "light" | "system")[] = [
+                "light",
+                "dark",
+                "system",
+              ];
+              const currentIndex = themes.indexOf(theme);
+              const nextTheme = themes[(currentIndex + 1) % themes.length];
+              setTheme(nextTheme);
+            }}
+            className="bg-gray-200 border-2 border-black px-3 py-1 font-semibold text-[1rem] ml-2 shadow-[2px_2px_0_var(--color-black)] hover:-translate-x-0.5 hover:-translate-y-0.5 hover:cursor-pointer transition-all"
+            title={`Current: ${theme} (${actualTheme}) - Click to cycle themes`}
+          >
+            {theme === "dark" ? "🌙" : theme === "light" ? "☀️" : "🖥️"}
+          </button>
         </div>
       </div>
       {/* Dropdown menu for small screens */}
@@ -171,6 +189,26 @@ export function Navbar() {
               style={{ letterSpacing: "0.05em" }}
             >
               HIRE ME
+            </button>
+            <button
+              onClick={() => {
+                const themes: ("dark" | "light" | "system")[] = [
+                  "light",
+                  "dark",
+                  "system",
+                ];
+                const currentIndex = themes.indexOf(theme);
+                const nextTheme = themes[(currentIndex + 1) % themes.length];
+                setTheme(nextTheme);
+              }}
+              className="block bg-gray-200 border-2 border-black px-4 py-3 font-semibold text-[1rem] w-full shadow-[2px_2px_0_var(--color-black)] hover:bg-gray-300 transition-all"
+              title={`Current: ${theme} (${actualTheme}) - Click to cycle themes`}
+            >
+              {theme === "dark"
+                ? "🌙 Dark"
+                : theme === "light"
+                  ? "☀️ Light"
+                  : "🖥️ System"}
             </button>
           </div>
         </div>

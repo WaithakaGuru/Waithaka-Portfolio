@@ -2,14 +2,29 @@ export function AboutMe() {
   return (
     <section
       id="about-me"
-      className="bg-black text-white py-20 px-10 relative overflow-hidden"
+      className="py-20 px-10 relative border-y-2 border-[#333]"
+      style={{
+        backgroundColor: "var(--bg-primary)",
+        color: "var(--text-primary)",
+      }}
     >
       {/* Subtle grid background */}
-      <div className="absolute inset-0 bg-[linear-gradient(to_right,#ccc_1px,transparent_1px),linear-gradient(to_bottom,#ddd_1px,transparent_1px)] bg-size-[40px_40px] opacity-20 pointer-events-none" />
+      <div
+        className="
+        absolute inset-0 opacity-20 pointer-events-none
+        bg-[linear-gradient(to_right,var(--grid-color)_1px,transparent_1px),linear-gradient(to_bottom,var(--grid-color)_1px,transparent_1px)]
+        bg-size-[40px_40px]"
+      />
 
       <div className="relative">
-        <h2 className="text-4xl md:text-5xl font-extrabold text-left mb-10">
-          ABOUT_<span className="text-green">ME</span>
+        <h2
+          className="text-4xl md:text-5xl font-extrabold text-left mb-10 z-10 py-4 -mx-10 px-10 sticky! top-0!"
+          style={{
+            backgroundColor: "var(--bg-primary)",
+            backdropFilter: "blur(4px)",
+          }}
+        >
+          ABOUT_<span style={{ color: "var(--accent-green)" }}>ME</span>
         </h2>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
@@ -42,7 +57,7 @@ export function AboutMe() {
                 <div className="flex flex-col gap-2 text-sm">
                   <div className="flex items-center justify-center gap-2">
                     <span className="text-green-400">📍</span>
-                    <span>Worldwide | Remote</span>
+                    <span>Kenya | Worldwide | Remote</span>
                   </div>
                   <div className="flex items-center justify-center gap-2">
                     <span className="text-green-400">●</span>
@@ -65,9 +80,9 @@ export function AboutMe() {
                 <span className="text-green-400 font-semibold">
                   Certified Software Developer
                 </span>{" "}
-                with 4+ years of experience building digital products that make
-                an impact. I specialize in creating performant, scalable, and
-                optimal web/mobile applications.
+                from Kenya with 4+ years of experience building digital products
+                that make an impact. I specialize in creating performant,
+                scalable, and optimal web/mobile applications.
               </p>
               <div className="bg-[#2a2a2a] border border-gray-600 rounded p-4">
                 <div className="space-y-2 text-sm text-gray-300">
