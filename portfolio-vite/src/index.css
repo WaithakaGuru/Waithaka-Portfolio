@@ -1,42 +1,61 @@
-@import "tailwindcss";
 @import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,500;0,700;0,800;1,400&family=Bebas+Neue&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,700;1,6..72,400&display=swap");
+@import "tailwindcss";
 
 /* ── TAILWIND THEME TOKENS ── */
 @theme {
-  --color-accent:  #F97316;
-  --color-yellow:  #F5E642;
-  --color-green:   #10B981;
-  --color-blue:    #3B82F6;
-  --color-black:   #1A1A1A;
-  --color-white:   #FDFAF4;
+  --color-accent: #f97316;
+  --color-yellow: #f5e642;
+  --color-green: #10b981;
+  --color-blue: #3b82f6;
+  --color-black: #1a1a1a;
+  --color-white: #fdfaf4;
 }
 
 /* ── BASE ── */
 @layer base {
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
 
-  html { scroll-behavior: smooth; }
+  html {
+    scroll-behavior: smooth;
+  }
 
-  ::-webkit-scrollbar { width: 4px; }
-  ::-webkit-scrollbar-thumb { background: var(--accent, #F97316); }
-  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar {
+    width: 4px;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: var(--accent, #f97316);
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
 
   body {
-    font-family: 'JetBrains Mono', monospace;
-    background-color: var(--bg, #F4EFE6);
-    color: var(--text, #1A1A1A);
-    transition: background-color 0.35s ease, color 0.35s ease;
+    font-family: "JetBrains Mono", monospace;
+    background-color: var(--bg, #f4efe6);
+    color: var(--text, #1a1a1a);
+    transition:
+      background-color 0.35s ease,
+      color 0.35s ease;
     overflow-x: hidden;
   }
 
   /* Fixed dot-grid background that reacts to theme */
   body::before {
-    content: '';
+    content: "";
     position: fixed;
     inset: 0;
     pointer-events: none;
     z-index: 0;
-    background-image: radial-gradient(var(--dot, rgba(0,0,0,0.16)) 1px, transparent 1px);
+    background-image: radial-gradient(
+      var(--dot, rgba(0, 0, 0, 0.16)) 1px,
+      transparent 1px
+    );
     background-size: 22px 22px;
     transition: opacity 0.35s ease;
   }
@@ -51,31 +70,47 @@
 /* ── UTILITIES ── */
 @layer utilities {
   /* Neo-brutalist shadows */
-  .shadow-neo     { box-shadow: var(--shadow,   4px 4px 0 #1A1A1A); }
-  .shadow-neo-h   { box-shadow: var(--shadow-h, 7px 7px 0 #1A1A1A); }
+  .shadow-neo {
+    box-shadow: var(--shadow, 4px 4px 0 #1a1a1a);
+  }
+  .shadow-neo-h {
+    box-shadow: var(--shadow-h, 7px 7px 0 #1a1a1a);
+  }
 
   /* Bebas headline helpers */
-  .font-bebas     { font-family: 'Bebas Neue', sans-serif; }
-  .font-newsreader{ font-family: 'Newsreader', Georgia, serif; }
-  .font-mono-brand{ font-family: 'JetBrains Mono', monospace; }
+  .font-bebas {
+    font-family: "Bebas Neue", sans-serif;
+  }
+  .font-newsreader {
+    font-family: "Newsreader", Georgia, serif;
+  }
+  .font-mono-brand {
+    font-family: "JetBrains Mono", monospace;
+  }
 
   /* Text outline (Bebas engineer style) */
   .text-outline {
     color: transparent;
-    -webkit-text-stroke: 2px var(--text, #1A1A1A);
+    -webkit-text-stroke: 2px var(--text, #1a1a1a);
   }
 
   /* Blink cursor */
-  .blink { animation: blink 1.1s step-end infinite; }
+  .blink {
+    animation: blink 1.1s step-end infinite;
+  }
 
   /* Ticker tape */
-  .animate-ticker { animation: ticker 28s linear infinite; }
+  .animate-ticker {
+    animation: ticker 28s linear infinite;
+  }
 
   /* Scroll-reveal — class-based so theme re-renders never reset visibility */
   .sr-hidden {
     opacity: 0;
     transform: translateY(18px) scale(0.98);
-    transition: opacity 0.55s ease, transform 0.55s ease;
+    transition:
+      opacity 0.55s ease,
+      transform 0.55s ease;
   }
   .sr-visible {
     opacity: 1 !important;
@@ -83,15 +118,66 @@
   }
 
   /* Pulse dot */
-  .animate-pulse-dot { animation: pulse-dot 2s ease-in-out infinite; }
+  .animate-pulse-dot {
+    animation: pulse-dot 2s ease-in-out infinite;
+  }
 
   /* Scroll indicator */
-  .animate-scroll-dot { animation: scroll-dot 1.6s ease-in-out infinite; }
+  .animate-scroll-dot {
+    animation: scroll-dot 1.6s ease-in-out infinite;
+  }
 }
 
 /* ── KEYFRAMES ── */
-@keyframes blink      { 0%,100%{opacity:1} 50%{opacity:0} }
-@keyframes ticker     { from{transform:translateX(0)} to{transform:translateX(-50%)} }
-@keyframes pulse-dot  { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.4;transform:scale(.7)} }
-@keyframes scroll-dot { 0%{top:4px;opacity:1} 80%{top:14px;opacity:0} 100%{top:4px;opacity:0} }
-@keyframes hero-in    { from{opacity:0;transform:translateY(30px)} to{opacity:1;transform:translateY(0)} }
+@keyframes blink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+@keyframes ticker {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+@keyframes pulse-dot {
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.4;
+    transform: scale(0.7);
+  }
+}
+@keyframes scroll-dot {
+  0% {
+    top: 4px;
+    opacity: 1;
+  }
+  80% {
+    top: 14px;
+    opacity: 0;
+  }
+  100% {
+    top: 4px;
+    opacity: 0;
+  }
+}
+@keyframes hero-in {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

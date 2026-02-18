@@ -228,14 +228,13 @@ function ScrollProgress() {
   return (
     <div
       className="fixed top-0 left-0 right-0 z-[9999] pointer-events-none"
-      style={{ height: "0.8rem" }}
+      style={{ height: "0.4rem" }}
     >
       <div
         className="h-full transition-all duration-150 ease-out"
         style={{
           width: `${progress}%`,
           background: "var(--accent)",
-          boxShadow: "0 0 8px var(--accent)",
         }}
       />
     </div>
