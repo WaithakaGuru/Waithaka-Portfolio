@@ -275,7 +275,7 @@ export function Hero() {
                   className="font-bebas text-[28px] leading-none"
                   style={{ color: "var(--accent)" }}
                 >
-                  {num}
+                  a{num}
                 </span>
                 <span
                   className="text-[10px] tracking-[0.12em] mt-0.5"
