@@ -1,170 +1,221 @@
+import { useScrollReveal } from "../hooks/useScrollReveal";
+
 export function AboutMe() {
+  const reveal = useScrollReveal();
+
   return (
     <section
-      id="about-me"
-      className="py-20 px-10 relative border-y-2 border-[#333]"
-      style={{
-        backgroundColor: "var(--bg-primary)",
-        color: "var(--text-primary)",
-      }}
+      id="about"
+      className="relative z-[1] px-8 py-20"
+      style={{ background: "var(--bg)" }}
     >
-      {/* Subtle grid background */}
-      <div
-        className="
-        absolute inset-0 opacity-20 pointer-events-none
-        bg-[linear-gradient(to_right,var(--grid-color)_1px,transparent_1px),linear-gradient(to_bottom,var(--grid-color)_1px,transparent_1px)]
-        bg-size-[40px_40px]"
-      />
-
-      <div className="relative">
-        <h2
-          className="text-4xl md:text-5xl font-extrabold text-left mb-10 z-10 py-4 -mx-10 px-10 sticky! top-0!"
-          style={{
-            backgroundColor: "var(--bg-primary)",
-            backdropFilter: "blur(4px)",
-          }}
-        >
-          ABOUT_<span style={{ color: "var(--accent-green)" }}>ME</span>
+      <div className="max-w-[1440px] mx-auto">
+        <h2 className="font-bebas text-[clamp(36px,5vw,64px)] leading-none tracking-[0.04em] mb-12">
+          <span style={{ color: "var(--text)" }}>ABOUT</span>
+          <span style={{ color: "var(--accent)" }}>_ME</span>
         </h2>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-          {/* Profile Card */}
-          <div className="lg:col-span-1">
-            <div className="bg-[#1a1a1a] border-2 border-gray-700 rounded-lg overflow-hidden hover:border-green-500 transition-all duration-300">
-              <div className="h-64 bg-linear-to-br from-green-600 to-green-800 flex items-center justify-center">
-                <img
-                  src="./me.jpg"
-                  alt="Waithaka Ndung'u"
-                  className="w-full h-full object-cover object-top"
-                  onError={(e) => {
-                    e.currentTarget.style.display = "none";
-                    e.currentTarget.nextElementSibling!.className =
-                      e.currentTarget.nextElementSibling!.className.replace(
-                        "hidden",
-                        "",
-                      );
-                  }}
-                />
-                <div className="hidden text-8xl">👨‍💻</div>
+        <div
+          className="grid gap-8 items-start"
+          style={{ gridTemplateColumns: "280px 1fr" }}
+        >
+          {/* ── Profile Card ── */}
+          <div
+            className="overflow-hidden transition-all duration-200 hover:-translate-x-0.5 hover:-translate-y-0.5"
+            style={{
+              background: "var(--surface)",
+              border: "2px solid var(--border)",
+              boxShadow: "var(--shadow)",
+            }}
+          >
+            <img
+              src="/me.jpg"
+              alt="Waithaka Ndung'u"
+              className="w-full object-cover object-top block"
+              style={{
+                aspectRatio: "3/4",
+                filter: "contrast(1.05) saturate(0.9)",
+                borderBottom: "2px solid var(--border)",
+              }}
+              onError={(e) => {
+                (e.target as HTMLImageElement).style.display = "none";
+              }}
+            />
+            <div className="p-5">
+              <div
+                className="font-['JetBrains_Mono'] font-extrabold text-[16px] mb-1"
+                style={{ color: "var(--accent)" }}
+              >
+                Waithaka Ndung'u
               </div>
-              <div className="p-6 text-center">
-                <h3 className="text-2xl font-bold mb-2 text-green-400">
-                  Waithaka Ndung'u
-                </h3>
-                <p className="text-gray-300 mb-4">
-                  Certified Software Developer
-                </p>
-                <div className="flex flex-col gap-2 text-sm">
-                  <div className="flex items-center justify-center gap-2">
-                    <span className="text-green-400">📍</span>
-                    <span>Kenya | Worldwide | Remote</span>
-                  </div>
-                  <div className="flex items-center justify-center gap-2">
-                    <span className="text-green-400">●</span>
-                    <span>Available for Projects</span>
-                  </div>
+              <div
+                className="font-['JetBrains_Mono'] text-[11px] tracking-[0.05em] mb-4"
+                style={{ color: "var(--text-sub)" }}
+              >
+                Certified Software Developer
+              </div>
+              <div
+                className="flex flex-col gap-2 pt-3.5"
+                style={{ borderTop: "1px solid var(--border-lt)" }}
+              >
+                <div
+                  className="flex items-center gap-2 text-[11px]"
+                  style={{ color: "var(--text-muted)" }}
+                >
+                  <span className="text-[13px]">📍</span>Kenya &nbsp;|&nbsp;
+                  Worldwide &nbsp;|&nbsp; Remote
+                </div>
+                <div
+                  className="flex items-center gap-2 text-[11px]"
+                  style={{ color: "var(--text-muted)" }}
+                >
+                  <span
+                    className="w-[7px] h-[7px] rounded-full flex-shrink-0 animate-pulse-dot"
+                    style={{ background: "var(--green)" }}
+                  />
+                  Available for Projects
                 </div>
               </div>
             </div>
           </div>
 
-          {/* About Content */}
-          <div className="lg:col-span-2 space-y-6">
-            {/* Introduction Card */}
-            <div className="bg-[#1a1a1a] border-2 border-gray-700 rounded-lg p-6 hover:border-green-500 transition-all duration-300">
-              <h3 className="text-xl font-bold mb-4 text-green-400">
+          {/* ── Right panel ── */}
+          <div className="flex flex-col gap-6">
+            {/* Introduction */}
+            <div
+              ref={reveal(0)}
+              className="px-8 py-7 transition-all duration-200 hover:-translate-x-0.5 hover:-translate-y-0.5"
+              style={{
+                background: "var(--surface)",
+                border: "2px solid var(--border)",
+                boxShadow: "var(--shadow)",
+              }}
+            >
+              <div
+                className="font-['JetBrains_Mono'] font-bold text-[11px] tracking-[0.14em] uppercase mb-4 flex items-center gap-2.5"
+                style={{ color: "var(--accent)" }}
+              >
+                <span
+                  className="block w-5 h-0.5"
+                  style={{ background: "var(--accent)" }}
+                />
                 Introduction
-              </h3>
-              <p className="text-gray-300 leading-relaxed mb-4">
+              </div>
+              <p
+                className="font-newsreader text-[16px] leading-[1.75]"
+                style={{ color: "var(--text-sub)" }}
+              >
                 I am Waithaka Ndung'u, a{" "}
-                <span className="text-green-400 font-semibold">
+                <span
+                  className="italic font-bold"
+                  style={{ color: "var(--accent)" }}
+                >
                   Certified Software Developer
                 </span>{" "}
                 from Kenya with 4+ years of experience building digital products
                 that make an impact. I specialize in creating performant,
-                scalable, and optimal web/mobile applications.
+                scalable, and optimal web&nbsp;/&nbsp;mobile applications.
               </p>
-              <div className="bg-[#2a2a2a] border border-gray-600 rounded p-4">
-                <div className="space-y-2 text-sm text-gray-300">
-                  <div className="flex items-center gap-2">
-                    <span className="text-green-400">▸</span>
-                    <span>
-                      Specialized in Web Development and AI integration
-                    </span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <span className="text-green-400">▸</span>
-                    <span>Obsessed with Data Structures and Optimization</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <span className="text-green-400">▸</span>
-                    <span>
-                      Over 3 years of shipping Apps that sell and scale
-                    </span>
-                  </div>
-                </div>
-              </div>
             </div>
 
-            {/* Stats Card */}
-            <div className="bg-[#1a1a1a] border-2 border-gray-700 rounded-lg p-6 hover:border-green-500 transition-all duration-300">
-              <h3 className="text-xl font-bold mb-4 text-green-400">
-                Key Stats
-              </h3>
-              <div className="grid grid-cols-3 gap-4">
-                <div className="bg-[#2a2a2a] border border-gray-600 rounded-lg p-4 text-center">
-                  <div className="text-3xl font-extrabold text-green-400 mb-1">
-                    4+
-                  </div>
-                  <div className="text-xs text-gray-400 font-semibold">
-                    YEARS EXPERIENCE
-                  </div>
-                </div>
-                <div className="bg-[#2a2a2a] border border-gray-600 rounded-lg p-4 text-center">
-                  <div className="text-3xl font-extrabold text-green-400 mb-1">
-                    50+
-                  </div>
-                  <div className="text-xs text-gray-400 font-semibold">
-                    PROJECTS COMPLETED
-                  </div>
-                </div>
-                <div className="bg-[#2a2a2a] border border-gray-600 rounded-lg p-4 text-center">
-                  <div className="text-3xl font-extrabold text-green-400 mb-1">
-                    15+
-                  </div>
-                  <div className="text-xs text-gray-400 font-semibold">
-                    SATISFIED CLIENTS
-                  </div>
-                </div>
+            {/* What I Bring */}
+            <div
+              ref={reveal(1)}
+              className="px-8 py-6 transition-all duration-200 hover:-translate-x-0.5 hover:-translate-y-0.5"
+              style={{
+                background: "var(--surface)",
+                border: "2px solid var(--border)",
+                boxShadow: "var(--shadow)",
+              }}
+            >
+              <div
+                className="font-['JetBrains_Mono'] font-bold text-[11px] tracking-[0.14em] uppercase mb-4 flex items-center gap-2.5"
+                style={{ color: "var(--accent)" }}
+              >
+                <span
+                  className="block w-5 h-0.5"
+                  style={{ background: "var(--accent)" }}
+                />
+                What I Bring
               </div>
-            </div>
-
-            {/* Expertise Card */}
-            <div className="bg-[#1a1a1a] border-2 border-gray-700 rounded-lg p-6 hover:border-green-500 transition-all duration-300">
-              <h3 className="text-xl font-bold mb-4 text-green-400">
-                Core Expertise
-              </h3>
-              <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
+              <div className="flex flex-col gap-3">
                 {[
-                  "Full-Stack Development",
-                  "AI/ML Integration",
-                  "System Optimization",
-                  "Cloud Architecture",
-                  "UI/UX Design",
-                  "Agile Development",
-                ].map((skill, index) => (
+                  "Specialized in Web Development and AI integration",
+                  "Obsessed with Data Structures and Optimization",
+                  "Over 3 years of shipping Apps that sell and scale",
+                ].map((item) => (
                   <div
-                    key={index}
-                    className="bg-[#2a2a2a] border border-gray-600 rounded px-3 py-2 text-center text-sm text-gray-300 hover:bg-green-900 hover:text-white transition-colors"
+                    key={item}
+                    className="flex items-start gap-3 font-['JetBrains_Mono'] text-[13px] leading-[1.5]"
+                    style={{ color: "var(--text-sub)" }}
                   >
-                    {skill}
+                    <span
+                      className="font-extrabold text-[14px] flex-shrink-0 mt-0.5"
+                      style={{ color: "var(--accent)" }}
+                    >
+                      ▸
+                    </span>
+                    {item}
                   </div>
                 ))}
               </div>
             </div>
+
+            {/* Key Stats */}
+            <div
+              ref={reveal(2)}
+              className="grid gap-4"
+              style={{ gridTemplateColumns: "repeat(3,1fr)" }}
+            >
+              {[
+                { num: "4+", label: "Years Experience" },
+                { num: "50+", label: "Projects Completed" },
+                { num: "15+", label: "Satisfied Clients" },
+              ].map(({ num, label }) => (
+                <div
+                  key={label}
+                  className="relative text-center py-5 px-4 overflow-hidden transition-all duration-200 hover:-translate-x-0.5 hover:-translate-y-0.5"
+                  style={{
+                    background: "var(--surface)",
+                    border: "2px solid var(--border)",
+                    boxShadow: "var(--shadow)",
+                  }}
+                >
+                  <span
+                    className="absolute top-0 left-0 right-0 h-[3px]"
+                    style={{ background: "var(--accent)" }}
+                  />
+                  <span
+                    className="font-bebas text-[48px] leading-none block"
+                    style={{ color: "var(--accent)" }}
+                  >
+                    {num}
+                  </span>
+                  <span
+                    className="text-[9px] tracking-[0.14em] uppercase mt-1 block"
+                    style={{ color: "var(--text-muted)" }}
+                  >
+                    {label}
+                  </span>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </div>
+
+      <style>{`
+        @media(max-width:860px){
+          #about .grid{grid-template-columns:1fr!important}
+          #about .grid>div:first-child{display:grid;grid-template-columns:140px 1fr}
+          #about .grid>div:first-child img{aspect-ratio:3/4;border-right:2px solid var(--border);border-bottom:none}
+        }
+        @media(max-width:520px){
+          #about{padding-left:1rem;padding-right:1rem}
+          #about .grid>div:first-child{grid-template-columns:1fr}
+          #about .grid>div:first-child img{aspect-ratio:16/9;border-right:none;border-bottom:2px solid var(--border)}
+        }
+      `}</style>
     </section>
   );
 }

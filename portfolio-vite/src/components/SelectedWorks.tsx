@@ -1,123 +1,111 @@
-import { CSSProperties, useState } from "react";
-import { projects, type Project } from "../data";
-import { ProjectModal } from "./ProjectModal";
+import { useState } from "react";
+import { useScrollReveal } from "../hooks/useScrollReveal";
+import { projects } from "../data";
+
+const ACCENTS = ["#F97316","#3B82F6","#10B981","#8B5CF6","#EC4899","#F5E642"];
 
 export function SelectedWorks() {
-  const [modalOpen, setModalOpen] = useState(false);
-  const [currentIndex, setCurrentIndex] = useState(0);
-
-  const openModal = (index: number) => {
-    setCurrentIndex(index);
-    setModalOpen(true);
-  };
-
-  const navigate = (direction: number) => {
-    let newIndex = currentIndex + direction;
-    if (newIndex < 0) newIndex = projects.length - 1;
-    if (newIndex >= projects.length) newIndex = 0;
-    setCurrentIndex(newIndex);
-  };
+  const reveal = useScrollReveal();
+  const [activeIdx, setActiveIdx] = useState<number | null>(null);
 
   return (
-    <section id="projects" className="bg-yellow py-16 md:px-10 px-4">
-      <h2
-        className="text-3xl sm:text-5xl md:text-7xl lg:text-8xl font-extrabold text-left text-light-gray text-shadow-lg
-         text-shadow-black wrap-break-word leading-tight max-w-full sticky top-0 w-full bg-yellow z-1000"
-        style={{ wordBreak: "break-word" }}
-      >
-        SELECTED WORKS
-      </h2>
+    <section id="projects" className="relative z-[1] px-8 py-20" style={{ background: "var(--bg2)" }}>
+      <div className="max-w-[1440px] mx-auto">
 
-      <div
-        className="max-w-full md:max-w-350 mx-auto mt-2 overflow-x-auto
-       h-120 px-4 sm:px-4 flex flex-col justify-center"
-      >
-        <div
-          className="flex gap-4 sm:gap-10 min-w-min h-[98%] p-2"
-          style={{ minWidth: "100%", maxWidth: "100%", overflowX: "auto" }}
-        >
-          {projects.map((project, index) => (
-            <ProjectCard
-              key={index}
-              project={project}
-              onClick={() => openModal(index)}
-              style={
-                index < 3
-                  ? { flex: "0 0 33%" }
-                  : { flex: "0 0 33%", opacity: 0.7 }
-              }
-            />
-          ))}
+        <div className="flex items-center gap-4 mb-14">
+          <h2 className="font-bebas text-[clamp(36px,5vw,64px)] leading-none tracking-[0.04em] whitespace-nowrap">
+            <span style={{ color: "var(--text)" }}>SELECTED</span>
+            <span style={{ color: "var(--accent)" }}>_WORKS</span>
+          </h2>
+          <div className="flex-1 h-0.5" style={{ background: "var(--border)" }} />
+          <span className="font-['JetBrains_Mono'] text-[10px] tracking-[0.08em] px-3 py-1 whitespace-nowrap"
+            style={{ color: "var(--text-muted)", border: "1px solid var(--border-lt)" }}>
+            {projects.length} PROJECTS
+          </span>
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 mb-8">
+          {projects.map((project, i) => {
+            const accent   = ACCENTS[i % ACCENTS.length];
+            const isActive = activeIdx === i;
+            return (
+              <div
+                key={project.title}
+                ref={reveal(i)}
+                className="flex flex-col overflow-hidden cursor-pointer transition-all duration-200 hover:-translate-x-[3px] hover:-translate-y-[3px]"
+                style={{ background: "var(--surface)", border: "2px solid var(--border)", boxShadow: "var(--shadow)" }}
+                onClick={() => setActiveIdx(isActive ? null : i)}
+              >
+                {/* Image placeholder */}
+                <div className="w-full flex items-center justify-center font-['JetBrains_Mono'] text-[11px] tracking-[0.08em] relative"
+                  style={{ height: 180, background: "var(--surface-alt)", borderBottom: "2px solid var(--border)", color: "var(--text-muted)" }}>
+                  <span className="absolute top-0 left-0 right-0 h-[3px]" style={{ background: accent }} />
+                  <span className="absolute top-3 right-3 w-2 h-2 rounded-full" style={{ background: "#10B981", border: "1px solid var(--border)" }} />
+                  <span className="opacity-40">[{project.title} PREVIEW]</span>
+                </div>
+
+                <div className="p-6 flex flex-col flex-1">
+                  <div className="flex items-start justify-between gap-2 mb-2">
+                    <h3 className="font-['JetBrains_Mono'] font-extrabold text-[15px] leading-[1.25]" style={{ color: "var(--text)" }}>
+                      {project.title}
+                    </h3>
+                    <span className="flex-shrink-0 font-['JetBrains_Mono'] text-[10px] tracking-[0.06em] px-2 py-0.5"
+                      style={{ border: "1px solid var(--border-lt)", color: "var(--text-muted)" }}>
+                      {isActive ? "▲ LESS" : "▼ MORE"}
+                    </span>
+                  </div>
+                  <p className="font-newsreader text-[13.5px] leading-[1.65] flex-1" style={{ color: "var(--text-sub)" }}>
+                    {project.shortDesc}
+                  </p>
+                  <div className="flex flex-wrap gap-1.5 mt-4">
+                    {project.tags.slice(0, 3).map(tag => (
+                      <span key={tag} className="font-['JetBrains_Mono'] font-bold text-[10px] tracking-[0.05em] px-2.5 py-[3px]"
+                        style={{ background: accent + "22", color: accent, border: `1px solid ${accent}44` }}>
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+
+                  {/* Expanded */}
+                  <div className="overflow-hidden transition-all duration-500" style={{ maxHeight: isActive ? "300px" : "0" }}>
+                    <div className="mt-5 pt-4" style={{ borderTop: "1px solid var(--border-lt)" }}>
+                      <div className="font-['JetBrains_Mono'] text-[10px] tracking-[0.12em] mb-3" style={{ color: "var(--text-muted)" }}>KEY FEATURES</div>
+                      <ul className="flex flex-col gap-1.5">
+                        {project.features.slice(0, 3).map(f => (
+                          <li key={f} className="flex items-start gap-2 font-['JetBrains_Mono'] text-[12px]" style={{ color: "var(--text-sub)" }}>
+                            <span style={{ color: accent, flexShrink: 0 }}>▸</span>{f}
+                          </li>
+                        ))}
+                      </ul>
+                      <div className="flex gap-2.5 mt-4">
+                        <a href={project.github} target="_blank" rel="noopener noreferrer"
+                          onClick={e => e.stopPropagation()}
+                          className="font-['JetBrains_Mono'] font-bold text-[11px] tracking-[0.08em] uppercase px-4 py-2 no-underline transition-all duration-150"
+                          style={{ background: "var(--text)", color: "var(--bg)", border: "2px solid var(--border)", boxShadow: "var(--shadow)" }}>
+                          GITHUB ↗
+                        </a>
+                        <a href={project.live} target="_blank" rel="noopener noreferrer"
+                          onClick={e => e.stopPropagation()}
+                          className="font-['JetBrains_Mono'] font-bold text-[11px] tracking-[0.08em] uppercase px-4 py-2 no-underline transition-all duration-150"
+                          style={{ background: accent, color: "#fff", border: `2px solid ${accent}`, boxShadow: "var(--shadow)" }}>
+                          LIVE DEMO ↗
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+
+        <div className="flex justify-center">
+          <a href="#" className="font-['JetBrains_Mono'] font-extrabold text-[13px] tracking-[0.1em] uppercase px-10 py-4 no-underline transition-all duration-150 hover:-translate-x-[3px] hover:-translate-y-[3px]"
+            style={{ background: "var(--text)", color: "var(--bg)", border: "2px solid var(--border)", boxShadow: "var(--shadow)" }}>
+            VIEW ALL PROJECTS →
+          </a>
         </div>
       </div>
-
-      <div className="flex justify-center mt-2">
-        <a
-          href="#all-projects"
-          className="bg-black text-white font-bold py-2 sm:py-4 px-6 sm:px-10 rounded shadow-[4px_4px_0_var(--color-black)] 
-          border-2 border-black text-lg sm:text-xl hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-[6px_6px_0_var(--color-black)] transition-all"
-        >
-          View All Projects
-        </a>
-      </div>
-
-      <ProjectModal
-        isOpen={modalOpen}
-        project={projects[currentIndex]}
-        onClose={() => setModalOpen(false)}
-        onPrev={() => navigate(-1)}
-        onNext={() => navigate(1)}
-      />
     </section>
-  );
-}
-
-function ProjectCard({
-  project,
-  onClick,
-  // style,
-}: {
-  project: Project;
-  onClick: () => void;
-  style: CSSProperties;
-}) {
-  return (
-    <div
-      onClick={onClick}
-      className="bg-white border-4 border-black shadow-[8px_8px_0_var(--color-black)] transition-all cursor-pointer min-w-84
-       sm:min-w-96 hover:-translate-x-1 hover:-translate-y-1 hover:shadow-[12px_12px_0_var(--color-black)] mb-4 max-w-full overflow-hidden"
-    >
-      {/* Project image placeholder */}
-      <div
-        className="w-full h-44 sm:h-52.5 bg-[#2a2a2a] border-b-4 border-black flex items-center justify-center
-       text-white text-xs sm:text-sm"
-      >
-        [{project.title} Preview]
-      </div>
-
-      {/* Project content */}
-      <div className="p-6">
-        <div
-          className="text-base sm:text-xl font-extrabold mb-2 flex justify-between items-center wrap-break-word max-w-full"
-          style={{ wordBreak: "break-word" }}
-        >
-          {project.title}
-          <div className="w-3 h-3 bg-green border-2 border-black rounded-full shrink-0"></div>
-        </div>
-        <div className="text-[13px] leading-relaxed text-gray-600 mb-4">
-          {project.shortDesc}
-        </div>
-        <div className="flex flex-wrap gap-2">
-          {project.tags.slice(0, 3).map((tag) => (
-            <span
-              key={tag}
-              className="bg-black text-white py-1 px-2.5 text-[11px] font-semibold"
-            >
-              {tag}
-            </span>
-          ))}
-        </div>
-      </div>
-    </div>
   );
 }
