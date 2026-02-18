@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { useScrollReveal } from "../hooks/useScrollReveal";
 import { projects } from "../data";
+import { useScrollReveal } from "../hooks/useScrollReveal";
 
 const ACCENTS = [
   "#F97316",

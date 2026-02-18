@@ -11,15 +11,18 @@ export function AboutMe() {
     >
       <div className="max-w-360 mx-auto">
         <h2
-          className="font-bebas text-[clamp(36px,5vw,64px)] leading-none 
-        tracking-[0.04em] mb-8 bg-(--bg) w-[99dvw] sticky top-0 z-100 pt-4"
+          className="font-bebas text-[clamp(22px,3.5vw,40px)] leading-none 
+        tracking-[0.04em] mb-8 bg-(--bg) w-[101dvw] sticky top-0 z-100 pt-4"
+          style={{
+            borderBottom: "2px solid var(--border)",
+          }}
         >
           <span style={{ color: "var(--text)" }}>ABOUT</span>
           <span style={{ color: "var(--accent)" }}>_ME</span>
         </h2>
 
         <div
-          className="grid gap-8 items-start"
+          className="grid gap-8 items-start px-4"
           style={{ gridTemplateColumns: "280px 1fr" }}
         >
           {/* ── Profile Card ── */}
