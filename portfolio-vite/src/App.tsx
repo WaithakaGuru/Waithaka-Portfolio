@@ -202,7 +202,6 @@ export default function App() {
       {/* ── Sections ── */}
       <Hero />
       <AboutMe />
-      <TechStack />
       <CareerLedger />
       <SelectedWorks />
       <CommunityImpact />

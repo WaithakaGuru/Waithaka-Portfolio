@@ -10,6 +10,8 @@ export function AboutMe() {
       style={{ background: "var(--bg)" }}
     >
       <div className="max-w-360">
+        {/* Subtle grid background */}
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,#999_1px,transparent_1px),linear-gradient(to_bottom,#888_1px,transparent_1px)] bg-size-[40px_40px] opacity-30 pointer-events-none" />
         <h2
           className="font-bebas text-[clamp(22px,3.5vw,40px)] leading-none font-bold
         tracking-[0.04em] mb-8 bg-(--bg) w-[101dvw] sticky top-0 z-100 py-4 px-8"
@@ -76,7 +78,7 @@ export function AboutMe() {
                   style={{ color: "var(--text-muted)" }}
                 >
                   <span
-                    className="w-[7px] h-[7px] rounded-full flex-shrink-0 animate-pulse-dot"
+                    className="w-1.75 h-1.75 rounded-full shrink-0 animate-pulse-dot"
                     style={{ background: "var(--green)" }}
                   />
                   Available for Projects
@@ -152,11 +154,11 @@ export function AboutMe() {
                 ].map((item) => (
                   <div
                     key={item}
-                    className="flex items-start gap-3 font-['JetBrains_Mono'] text-[13px] leading-[1.5]"
+                    className="flex items-start gap-3 font-['JetBrains_Mono'] text-[13px] leading-1.5"
                     style={{ color: "var(--text-sub)" }}
                   >
                     <span
-                      className="font-extrabold text-[14px] flex-shrink-0 mt-0.5"
+                      className="font-extrabold text-[14px] shrink-0 mt-0.5"
                       style={{ color: "var(--accent)" }}
                     >
                       ▸
@@ -188,7 +190,7 @@ export function AboutMe() {
                   }}
                 >
                   <span
-                    className="absolute top-0 left-0 right-0 h-[3px]"
+                    className="absolute top-0 left-0 right-0 h-0.75"
                     style={{ background: "var(--accent)" }}
                   />
                   <span

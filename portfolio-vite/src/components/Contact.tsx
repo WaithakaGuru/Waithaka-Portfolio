@@ -14,7 +14,7 @@ const SOCIAL_LINKS = [
     icon: "in",
     label: "LINKEDIN",
     value: "linkedin.com/in/waithaka",
-    href: "https://linkedin.com/in/waithaka",
+    href: "https://www.linkedin.com/in/waithaka-ndung-u-b2b80a255",
     bg: "var(--blue)",
     color: "#fff",
   },
@@ -22,6 +22,14 @@ const SOCIAL_LINKS = [
     icon: "GH",
     label: "GITHUB",
     value: "github.com/WaithakaGuru",
+    href: "https://github.com/WaithakaGuru",
+    bg: "var(--text)",
+    color: "var(--bg)",
+  },
+  {
+    icon: "PH",
+    label: "PHONE",
+    value: "0725676491",
     href: "https://github.com/WaithakaGuru",
     bg: "var(--text)",
     color: "var(--bg)",
@@ -57,12 +65,14 @@ export function Contact() {
   return (
     <section
       id="contact"
-      className="relative z-[1] px-8 py-20"
+      className="relative z-10 pt-10 pb-20"
       style={{ background: "var(--bg)" }}
     >
-      <div className="max-w-[1440px] mx-auto">
-        <div className="flex items-center gap-4 mb-14">
-          <h2 className="font-bebas text-[clamp(36px,5vw,64px)] leading-none tracking-[0.04em] whitespace-nowrap">
+      <div className="max-w-360">
+        {/* Subtle grid background */}
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,#999_1px,transparent_1px),linear-gradient(to_bottom,#888_1px,transparent_1px)] bg-size-[40px_40px] opacity-30 pointer-events-none" />
+        <div className="flex items-center gap-4 mb-14 bg-(--bg) w-dvw px-8 z-1000 sticky top-0 border-b-2 border-(--border) py-4">
+          <h2 className="font-bebas text-[clamp(30px,4vw,44px)] leading-none tracking-[0.04em] whitespace-nowrap">
             <span style={{ color: "var(--text)" }}>GET_IN</span>
             <span style={{ color: "var(--accent)" }}>_TOUCH</span>
           </h2>
@@ -71,7 +81,7 @@ export function Contact() {
             style={{ background: "var(--border)" }}
           />
           <span
-            className="font-['JetBrains_Mono'] text-[10px] tracking-[0.1em] px-3 py-1 whitespace-nowrap"
+            className="font-['JetBrains_Mono'] text-[10px] tracking-widest px-3 py-1 whitespace-nowrap"
             style={{
               color: "var(--text-muted)",
               border: "1px solid var(--border-lt)",
@@ -82,7 +92,7 @@ export function Contact() {
         </div>
 
         {/* Main card */}
-        <div ref={reveal(0)} className="relative">
+        <div ref={reveal(0)} className="relative px-10">
           {/* Floating banner */}
           <div
             className="absolute -top-5 -left-4 z-10 font-['JetBrains_Mono'] font-extrabold text-[13px] tracking-[0.08em] uppercase px-5 py-2 -rotate-2 whitespace-nowrap"
@@ -137,7 +147,7 @@ export function Contact() {
                     className="flex items-center gap-3 no-underline group transition-all duration-150"
                   >
                     <div
-                      className="w-10 h-10 flex-shrink-0 flex items-center justify-center font-['JetBrains_Mono'] font-extrabold text-[12px] transition-all duration-150 group-hover:-translate-x-0.5 group-hover:-translate-y-0.5"
+                      className="w-10 h-10 shrink-0 flex items-center justify-center font-['JetBrains_Mono'] font-extrabold text-[12px] transition-all duration-150 group-hover:-translate-x-0.5 group-hover:-translate-y-0.5"
                       style={{
                         background: link.bg,
                         border: "2px solid var(--border)",
@@ -253,7 +263,8 @@ export function Contact() {
 
               <button
                 type="submit"
-                className="w-full font-['JetBrains_Mono'] font-extrabold text-[13px] tracking-[0.1em] uppercase py-4 cursor-pointer transition-all duration-150 hover:-translate-x-[3px] hover:-translate-y-[3px]"
+                className="w-full font-['JetBrains_Mono'] font-extrabold text-[13px] tracking-widest uppercase
+                 py-4 cursor-pointer transition-all duration-150 hover:-translate-x-0.75 hover:-translate-y-0.75"
                 style={{
                   background: submitted ? "var(--green)" : "var(--text)",
                   color: submitted ? "#fff" : "var(--bg)",

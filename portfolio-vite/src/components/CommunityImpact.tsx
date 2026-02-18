@@ -41,12 +41,15 @@ export function CommunityImpact() {
   return (
     <section
       id="community"
-      className="relative z-[1] px-8 py-20"
+      className="relative z-1 py-20"
       style={{ background: "var(--bg2)" }}
     >
-      <div className="max-w-[1440px] mx-auto">
-        <div className="flex items-center gap-4 mb-14 bg-(--bg2) sticky top-0 z-100 border-b border-(--text-sub) py-4">
-          <h2 className="font-bebas text-[clamp(36px,5vw,64px)] leading-none tracking-[0.04em] whitespace-nowrap">
+      <div className="max-w-360 ">
+        <div
+          className="flex items-center gap-4 mb-14 bg-(--bg2) sticky top-0 
+        z-100 border-b-2 border-(--border) p-4 w-dvw"
+        >
+          <h2 className="font-bebas text-[clamp(24px,3.5vw,44px)] leading-none tracking-[0.04em] whitespace-nowrap font-bold">
             <span style={{ color: "var(--text)" }}>COMMUNITY</span>
             <span style={{ color: "var(--accent)" }}>_IMPACT</span>
           </h2>
@@ -66,12 +69,12 @@ export function CommunityImpact() {
           </span>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 px-8 mx-auto">
           {impacts.map((item, i) => (
             <div
               key={item.title}
               ref={reveal(i)}
-              className="relative overflow-hidden flex flex-col transition-all duration-200 hover:-translate-x-[3px] hover:-translate-y-[3px]"
+              className="relative overflow-hidden flex flex-col transition-all duration-200 hover:-translate-x-0.75 hover:-translate-y-0.75"
               style={{
                 background: "var(--surface)",
                 border: "2px solid var(--border)",
@@ -80,7 +83,7 @@ export function CommunityImpact() {
               }}
             >
               <span
-                className="absolute top-0 left-0 right-0 h-[3px]"
+                className="absolute top-0 left-0 right-0 h-0.75"
                 style={{ background: item.accentColor }}
               />
               <div

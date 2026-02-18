@@ -22,6 +22,8 @@ export function SelectedWorks() {
       style={{ background: "var(--bg2)" }}
     >
       <div className="max-w-360">
+        {/* Subtle grid background */}
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,#999_1px,transparent_1px),linear-gradient(to_bottom,#888_1px,transparent_1px)] bg-size-[40px_40px] opacity-30 pointer-events-none" />
         <div
           className="flex items-center gap-4 mb-14 py-4 bg-(--bg2) sticky top-0 z-100
          border-b-2 border-(--border) w-dvw"
