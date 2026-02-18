@@ -69,6 +69,14 @@
 
 /* ── UTILITIES ── */
 @layer utilities {
+  /* border for nav links */
+  .border-hover {
+    border: 1px solid transparent;
+  }
+  .border-hover:hover {
+    border: 1px solid var(--text-sub);
+  }
+
   /* Neo-brutalist shadows */
   .shadow-neo {
     box-shadow: var(--shadow, 4px 4px 0 #1a1a1a);
