@@ -1,4 +1,3 @@
-// import { useEffect, useRef } from "react";
 import { useEffect, useRef } from "react";
 import { TICKER_ITEMS } from "../data";
 import { useTheme } from "../contexts/ThemeContext";
@@ -34,8 +33,7 @@ export function Hero() {
       {/* ── HERO ── */}
       <section
         id="hero"
-        className="relative z-[1] min-h-[100svh] pt-[60px] flex flex-col overflow-hidden"
-        // style={{ background: "var(--bg)" }}
+        className="relative z-10 min-h-svh pt-6 flex flex-col overflow-hidden"
       >
         {/* Ghost watermark */}
         <div
@@ -58,7 +56,7 @@ export function Hero() {
 
         {/* Hero grid body */}
         <div
-          className="relative z-[2] flex-1 max-w-[1440px] mx-auto w-full px-8 py-[60px] pb-[40px]
+          className="relative z-2 flex-1 max-w-360 mx-auto w-full px-8 py-15 pb-10
             grid gap-0 items-start"
           style={{
             gridTemplateColumns: "auto 1fr",
@@ -73,7 +71,7 @@ export function Hero() {
           >
             {/* Corner accent */}
             <span
-              className="absolute top-[-12px] left-[-12px] w-6 h-6 border-t-[3px] border-l-[3px]"
+              className="absolute -top-3 -left-3 w-6 h-6 border-t-[3px] border-l-[3px]"
               style={{ borderColor: "var(--accent)" }}
             />
             <div
@@ -97,7 +95,7 @@ export function Hero() {
               />
             </div>
             <div
-              className="absolute bottom-[-2px] right-[-2px] font-['JetBrains_Mono'] font-extrabold text-[10px] tracking-[0.08em] px-3 py-1.5"
+              className="absolute -bottom-[.5] -right-[.5] font-['JetBrains_Mono'] font-extrabold text-[12px] tracking-[0.08em] px-3 py-1.5"
               style={{
                 background: "var(--yellow)",
                 border: "2px solid var(--border)",
@@ -119,7 +117,7 @@ export function Hero() {
             }}
           >
             <div
-              className="text-[11px] tracking-[0.18em] mb-4 flex items-center gap-2.5"
+              className="text-[12px] tracking-[0.18em] mb-4 flex items-center gap-2.5"
               style={{ color: "var(--text-muted)" }}
             >
               <span
@@ -171,7 +169,7 @@ export function Hero() {
                 background: "var(--yellow)",
               }}
             >
-              <div className="px-7 py-3.5 max-w-[680px]">
+              <div className="px-7 py-3.5 max-w-170">
                 <div
                   className="font-['JetBrains_Mono'] font-bold text-[clamp(13px,1.5vw,16px)] leading-[1.4]"
                   style={{ color: "#1A1A1A" }}
@@ -206,7 +204,8 @@ export function Hero() {
                   .getElementById("projects")
                   ?.scrollIntoView({ behavior: "smooth" });
               }}
-              className="font-['JetBrains_Mono'] font-extrabold text-[13px] tracking-[0.1em] uppercase px-8 py-3.5 inline-flex items-center gap-2.5 no-underline transition-all duration-150 hover:-translate-x-[3px] hover:-translate-y-[3px]"
+              className="font-['JetBrains_Mono'] font-extrabold text-[13px] tracking-widest uppercase px-8 py-3.5 inline-flex items-center gap-2.5 no-underline transition-all duration-150
+               hover:-translate-x-0.75 hover:-translate-y-0.75"
               style={{
                 background: "var(--text)",
                 color: "var(--bg)",
@@ -219,7 +218,8 @@ export function Hero() {
             <a
               href="/cv.pdf"
               download
-              className="font-['JetBrains_Mono'] font-bold text-[13px] tracking-[0.08em] uppercase px-8 py-3.5 inline-flex items-center gap-2.5 no-underline transition-all duration-150 hover:-translate-x-[3px] hover:-translate-y-[3px]"
+              className="font-['JetBrains_Mono'] font-bold text-[13px] tracking-[0.08em] uppercase px-8 py-3.5 
+              inline-flex items-center gap-2.5 no-underline transition-all duration-150 hover:-translate-x-0.75 hover:-translate-y-0.75"
               style={{
                 background: "transparent",
                 color: "var(--text)",
@@ -234,11 +234,11 @@ export function Hero() {
               style={{ color: "var(--text-muted)" }}
             >
               <div
-                className="w-[18px] h-7 border-2 rounded-[9px] relative flex-shrink-0"
+                className="w-4.5 h-7 border-2 rounded-[9px] relative shrink-0"
                 style={{ borderColor: "var(--border-lt)" }}
               >
                 <span
-                  className="absolute left-1/2 -translate-x-1/2 w-[3px] h-[6px] rounded-full animate-scroll-dot"
+                  className="absolute left-1/2 -translate-x-1/2 w-0.75 h-1.5 rounded-full animate-scroll-dot"
                   style={{ top: 4, background: "var(--accent)" }}
                 />
               </div>
@@ -258,13 +258,13 @@ export function Hero() {
             }}
           >
             {[
-              { num: "5+", label: "YRS EXPERIENCE" },
-              { num: "12", label: "PROJECTS SHIPPED" },
-              { num: "3", label: "CERTIFICATIONS" },
+              { num: "4+", label: "YRS EXPERIENCE" },
+              { num: "11", label: "PROJECTS SHIPPED" },
+              { num: "5", label: "CERTIFICATIONS" },
             ].map(({ num, label }) => (
               <div
                 key={label}
-                className="flex flex-col flex-1 min-w-[100px] max-w-[160px] px-5 py-2.5"
+                className="flex flex-col flex-1 min-w-25 max-w-40 px-5 py-2.5"
                 style={{
                   background: "var(--surface)",
                   border: "2px solid var(--border)",
@@ -278,7 +278,7 @@ export function Hero() {
                   {num}
                 </span>
                 <span
-                  className="text-[9px] tracking-[0.12em] mt-0.5"
+                  className="text-[10px] tracking-[0.12em] mt-0.5"
                   style={{ color: "var(--text-muted)" }}
                 >
                   {label}
@@ -294,19 +294,18 @@ export function Hero() {
 
       {/* ── TICKER TAPE ── */}
       <div
-        className="relative z-[2] overflow-hidden py-3"
+        className="relative z-2 overflow-hidden pt-3 border-y-4"
         style={{
           background: "var(--ticker-bg)",
-          borderTop: "2px solid var(--border)",
-          borderBottom: "2px solid var(--border)",
+          borderBlockColor: isDark ? "var(--border)" : "var(--accent)",
         }}
         aria-hidden="true"
       >
-        <div className="flex w-max animate-ticker">
+        <div className="flex w-max animate-ticker pb-4">
           {TICKER_ITEMS.map((item, i) => (
             <span
               key={i}
-              className="font-['JetBrains_Mono'] font-bold text-[12px] tracking-[0.1em] uppercase whitespace-nowrap px-6"
+              className="font-['JetBrains_Mono'] font-bold text-[1.1rem] tracking-widest uppercase whitespace-nowrap px-6"
               style={{ color: "var(--ticker-text)" }}
             >
               {item}{" "}

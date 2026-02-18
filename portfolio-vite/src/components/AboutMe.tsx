@@ -6,11 +6,14 @@ export function AboutMe() {
   return (
     <section
       id="about"
-      className="relative z-[1] px-8 py-20"
+      className="relative z-10 px-8 py-10"
       style={{ background: "var(--bg)" }}
     >
-      <div className="max-w-[1440px] mx-auto">
-        <h2 className="font-bebas text-[clamp(36px,5vw,64px)] leading-none tracking-[0.04em] mb-12">
+      <div className="max-w-360 mx-auto">
+        <h2
+          className="font-bebas text-[clamp(36px,5vw,64px)] leading-none 
+        tracking-[0.04em] mb-8 bg-(--bg) w-[99dvw] sticky top-0 z-100 pt-4"
+        >
           <span style={{ color: "var(--text)" }}>ABOUT</span>
           <span style={{ color: "var(--accent)" }}>_ME</span>
         </h2>

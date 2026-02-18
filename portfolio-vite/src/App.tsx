@@ -128,6 +128,7 @@ import {
   Contact,
   Footer,
   UserReports,
+  TechStack,
 } from "./components";
 import { ExperienceSection } from "./components/Experience";
 import { EducationSection } from "./components/Education";
@@ -260,6 +261,7 @@ export default function App() {
       {/* ── Sections ── */}
       <Hero />
       <AboutMe />
+      <TechStack />
       <CareerLedger />
       <SelectedWorks />
       <CommunityImpact />
