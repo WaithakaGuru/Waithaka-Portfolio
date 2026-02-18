@@ -4,7 +4,7 @@ export function TechStack() {
   return (
     <section
       id="stack"
-      className="relative bg-black/95 text-white py-24 px-6 md:px-10 mt-4"
+      className="relative bg-black/99 text-white py-24 px-6 md:px-10 mt-4"
     >
       {/* Subtle grid background */}
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#333_1px,transparent_1px),linear-gradient(to_bottom,#2a2a2a_1px,transparent_1px)] bg-size-[40px_40px] opacity-30 pointer-events-none" />

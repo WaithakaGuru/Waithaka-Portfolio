@@ -1,174 +1,341 @@
-import { useEffect, useRef } from "react";
-import { stats } from "../data";
+import { useRef, useEffect } from "react";
+import { techStack, stats } from "../data";
+import { useScrollReveal } from "../hooks/useScrollReveal";
 
-export function CodingStats() {
-  const gridRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    if (gridRef.current && gridRef.current.children.length === 0) {
-      const totalCells = 52 * 7; // 52 weeks * 7 days
-      for (let i = 0; i < totalCells; i++) {
-        const cell = document.createElement("div");
-        const level = Math.floor(Math.random() * 5);
-        cell.className = `aspect-square rounded-[2px] border border-[#1a1f2e] ${getLevelColor(level)}`;
-        gridRef.current.appendChild(cell);
-      }
-    }
-  }, []);
-
+function cellColor(level: number, isDark: boolean): string {
+  if (isDark)
+    return (
+      ["#1C1C1C", "#431407", "#9A3412", "#EA580C", "#F97316"][level] ??
+      "#1C1C1C"
+    );
   return (
-    <section
-      className="py-20 px-10 relative"
-      style={{
-        backgroundColor: "var(--bg-primary)",
-        color: "var(--text-primary)",
-      }}
-    >
-      {/* Subtle grid background */}
-      <div
-        className="absolute inset-0 opacity-20 pointer-events-none"
-        style={{
-          background:
-            "linear-gradient(to_right,var(--grid-color)_1px,transparent_1px),linear-gradient(to_bottom,var(--grid-color)_1px,transparent_1px)",
-          backgroundSize: "40px 40px",
-        }}
-      />
-
-      {/* <div className="relative"> */}
-      <h2
-        className="text-4xl md:text-5xl font-extrabold text-left mb-10 z-10 py-4 -mx-10 px-10"
-        style={{
-          backgroundColor: "var(--bg-primary)",
-          backdropFilter: "blur(4px)",
-          position: "sticky",
-          top: "0",
-        }}
-      >
-        CODING_<span style={{ color: "var(--accent-green)" }}>STATS</span>
-      </h2>
-
-      <div className="max-w-full md:max-w-300 mx-auto grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-8 mt-6 px-2 sm:px-4">
-        {/* Contribution graph - full width */}
-        <div className="col-span-1 md:col-span-2 bg-[#1a1a1a] border-2 border-gray-700 p-6">
-          <div className="flex justify-between items-center mb-5">
-            <div className="flex items-center gap-1 sm:gap-2 text-xs sm:text-[13px] font-semibold">
-              <div className="w-4 h-4 bg-yellow"></div>
-              GITHUB CONTRIBUTIONS
-            </div>
-            <div className="text-[11px] text-gray-400">
-              {stats.contributions.toLocaleString()} contributions in the last
-              year
-            </div>
-          </div>
-
-          {/* Month labels */}
-          <div className="flex justify-between text-[8px] sm:text-[10px] text-gray-500 mb-1.5">
-            {[
-              "Jan",
-              "Feb",
-              "Mar",
-              "Apr",
-              "May",
-              "Jun",
-              "Jul",
-              "Aug",
-              "Sep",
-              "Oct",
-              "Nov",
-              "Dec",
-            ].map((month) => (
-              <span key={month}>{month}</span>
-            ))}
-          </div>
-
-          {/* Contribution grid */}
-          <div
-            ref={gridRef}
-            className="grid gap-0.75"
-            style={{ gridTemplateColumns: "repeat(52, 1fr)" }}
-          ></div>
-
-          {/* Legend */}
-          <div className="flex items-center gap-1 sm:gap-1.5 text-[8px] sm:text-[10px] text-gray-400 mt-2.5">
-            <span className="mr-1">Less</span>
-            <div className={`w-2.5 h-2.5 rounded-xs ${getLevelColor(0)}`}></div>
-            <div className={`w-2.5 h-2.5 rounded-xs ${getLevelColor(1)}`}></div>
-            <div className={`w-2.5 h-2.5 rounded-xs ${getLevelColor(2)}`}></div>
-            <div className={`w-2.5 h-2.5 rounded-xs ${getLevelColor(3)}`}></div>
-            <div className={`w-2.5 h-2.5 rounded-xs ${getLevelColor(4)}`}></div>
-            <span>More</span>
-          </div>
-        </div>
-
-        {/* GitHub stats card */}
-        <StatCard
-          icon
-          title="GITHUB"
-          subtitle="LAST COMMIT"
-          value={stats.contributions.toLocaleString()}
-          details={[
-            { label: "Contributions", value: "+247" },
-            { label: "Repositories", value: stats.repositories.toString() },
-            { label: "Streak", value: `${stats.streak} days` },
-          ]}
-        />
-
-        {/* WakaTime card */}
-        <StatCard
-          icon
-          title="waithaka.hack"
-          subtitle="wai.the_hacker"
-          value={`${stats.wakatimeHours} hrs`}
-          details={[
-            { label: "Daily", value: stats.dailyAverage },
-            { label: "Lang", value: stats.topLanguage },
-            { label: "Total", value: `${stats.wakatimeHours} hours` },
-          ]}
-        />
-      </div>
-    </section>
+    ["#EDE7DB", "#FED7AA", "#FB923C", "#F97316", "#C2410C"][level] ?? "#EDE7DB"
   );
 }
 
-function getLevelColor(level: number): string {
-  const colors: Record<number, string> = {
-    0: "bg-[#0e1117]",
-    1: "bg-[#0e4429]",
-    2: "bg-[#006d32]",
-    3: "bg-[#26a641]",
-    4: "bg-[#39d353]",
-  };
-  return colors[level] || colors[0];
-}
+export function CodingStats() {
+  const reveal = useScrollReveal(0.06);
+  const gridRef = useRef<HTMLDivElement>(null);
 
-interface StatCardProps {
-  icon?: boolean;
-  title: string;
-  subtitle: string;
-  value: string;
-  details: { label: string; value: string }[];
-}
+  // Seed the contribution grid once on mount
+  useEffect(() => {
+    const wrap = gridRef.current;
+    if (!wrap || wrap.childElementCount > 0) return;
+    const isDark = document.documentElement.classList.contains("dark");
+    const frag = document.createDocumentFragment();
+    for (let i = 0; i < 52 * 7; i++) {
+      const level = Math.floor(Math.random() * 5);
+      const cell = document.createElement("div");
+      cell.style.cssText = `aspect-ratio:1;border-radius:2px;background:${cellColor(level, isDark)};border:1px solid var(--border-lt);`;
+      frag.appendChild(cell);
+    }
+    wrap.appendChild(frag);
+  }, []);
 
-function StatCard({ icon, title, subtitle, value, details }: StatCardProps) {
+  const isDark = () => document.documentElement.classList.contains("dark");
+
   return (
-    <div className="bg-[#1a1a1a] border-2 border-gray-700 p-6">
-      <div className="flex justify-between items-center mb-5">
-        <div className="flex items-center gap-2 text-[13px] font-semibold">
-          {icon && <div className="w-4 h-4 bg-yellow"></div>}
-          {title}
+    <section
+      id="stack"
+      className="relative z-10 px-8 py-20"
+      style={{ background: "var(--bg)" }}
+    >
+      <div className="max-w-360 mx-auto">
+        {/* Subtle grid background */}
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,#999_1px,transparent_1px),linear-gradient(to_bottom,#888_1px,transparent_1px)] bg-size-[40px_40px] opacity-30 pointer-events-none" />
+        {/* ── TECH STACK HEADER ── */}
+        <div className="flex items-center gap-4 mb-14">
+          <h2 className="font-bebas text-[clamp(36px,5vw,64px)] leading-none tracking-[0.04em] whitespace-nowrap">
+            <span style={{ color: "var(--text)" }}>TECH</span>
+            <span style={{ color: "var(--accent)" }}>_STACK</span>
+          </h2>
+          <div
+            className="flex-1 h-0.5"
+            style={{ background: "var(--border)" }}
+          />
+          <div
+            className="flex items-center gap-2 font-['JetBrains_Mono'] tracking-wider"
+            style={{ color: "var(--text-muted)", fontSize: "var(--sm)" }}
+          >
+            <span
+              className="w-2 h-2 rounded-full animate-pulse-dot"
+              style={{ background: "var(--accent)" }}
+            />
+            OPTIMAL STRUCTURED CODE
+          </div>
         </div>
-        <div className="text-[11px] text-gray-400">{subtitle}</div>
-      </div>
-      <div className="text-[32px] font-extrabold mb-4">{value}</div>
-      {details.map((detail, index) => (
+
+        {/* ── TECH STACK GRID ── */}
         <div
-          key={index}
-          className="flex justify-between items-center text-xs text-gray-400 mb-2"
+          className="grid mb-3"
+          style={{
+            gridTemplateColumns: "repeat(auto-fill,minmax(120px,1fr))",
+            border: "2px solid var(--border)",
+            boxShadow: "var(--shadow)",
+          }}
         >
-          <span className="text-gray-300">{detail.label}</span>
-          <span>{detail.value}</span>
+          {techStack.map((item, i) => (
+            <div
+              key={i}
+              ref={reveal(i)}
+              className="flex flex-col justify-center px-4 py-6 cursor-pointer transition-all duration-150"
+              style={{
+                border: "1px solid var(--border-lt)",
+                background: "var(--surface)",
+              }}
+              onMouseEnter={(e) => {
+                const el = e.currentTarget;
+                el.style.background = "var(--accent)";
+                el.style.borderColor = "var(--accent)";
+                el.style.transform = "translate(-2px,-2px)";
+                el.querySelectorAll<HTMLElement>(
+                  "[data-lbl],[data-nm]",
+                ).forEach((s) => (s.style.color = "#fff"));
+              }}
+              onMouseLeave={(e) => {
+                const el = e.currentTarget;
+                el.style.background = "var(--surface)";
+                el.style.borderColor = "var(--border-lt)";
+                el.style.transform = "";
+                el.querySelectorAll<HTMLElement>("[data-lbl]").forEach(
+                  (s) => (s.style.color = "var(--accent)"),
+                );
+                el.querySelectorAll<HTMLElement>("[data-nm]").forEach(
+                  (s) => (s.style.color = "var(--text)"),
+                );
+              }}
+            >
+              <span
+                data-lbl
+                className="font-['JetBrains_Mono'] text-[9px] tracking-[0.14em] uppercase mb-2.5 block"
+                style={{ color: "var(--accent)", transition: "color 0.15s" }}
+              >{`>_ ${item.label}`}</span>
+              <span
+                data-nm
+                className="font-['JetBrains_Mono'] font-extrabold text-[13px] tracking-[0.04em] wrap-break-word"
+                style={{ color: "var(--text)", transition: "color 0.15s" }}
+              >
+                {item.name}
+              </span>
+            </div>
+          ))}
         </div>
-      ))}
-    </div>
+
+        <div
+          className="flex justify-between mb-20 font-['JetBrains_Mono'] text-[10px] tracking-[0.08em]"
+          style={{ color: "var(--text-muted)" }}
+        >
+          <span>TOTAL_VERTICES: {techStack.length}</span>
+          <span>MEMORY_USAGE: {techStack.length * 6 + 2}KB</span>
+        </div>
+
+        {/* ── CODING STATS HEADER ── */}
+        <div className="flex items-center gap-4 mb-10">
+          <h2 className="font-bebas text-[clamp(28px,4vw,48px)] leading-none tracking-[0.04em] whitespace-nowrap">
+            <span style={{ color: "var(--text)" }}>CODING</span>
+            <span style={{ color: "var(--accent)" }}>_STATS</span>
+          </h2>
+          <div
+            className="flex-1 h-0.5"
+            style={{ background: "var(--border)" }}
+          />
+          <span
+            className="font-['JetBrains_Mono'] text-[10px] tracking-[0.08em] px-3 py-1"
+            style={{
+              color: "var(--text-muted)",
+              border: "1px solid var(--border-lt)",
+            }}
+          >
+            LIVE DATA
+          </span>
+        </div>
+
+        {/* ── CONTRIBUTION GRID ── */}
+        <div
+          ref={reveal(0)}
+          className="p-6 mb-6 overflow-x-auto"
+          style={{
+            background: "var(--surface)",
+            border: "2px solid var(--border)",
+            boxShadow: "var(--shadow)",
+          }}
+        >
+          <div className="flex items-center justify-between mb-4">
+            <div
+              className="font-['JetBrains_Mono'] font-bold text-[12px] tracking-[0.08em]"
+              style={{ color: "var(--text)" }}
+            >
+              <span style={{ color: "var(--accent)" }}>■</span> CONTRIBUTION
+              ACTIVITY
+            </div>
+            <div
+              className="font-['JetBrains_Mono'] text-[10px] tracking-[0.06em]"
+              style={{ color: "var(--text-muted)" }}
+            >
+              {stats.contributions.toLocaleString()} CONTRIBUTIONS THIS YEAR
+            </div>
+          </div>
+          <div
+            ref={gridRef}
+            style={{
+              display: "grid",
+              gridTemplateColumns: "repeat(52,1fr)",
+              gridTemplateRows: "repeat(7,1fr)",
+              gridAutoFlow: "column",
+              gap: "3px",
+              minWidth: "600px",
+            }}
+          />
+          <div className="flex items-center gap-1.5 mt-4 justify-end">
+            <span
+              className="font-['JetBrains_Mono'] text-[9px] mr-1"
+              style={{ color: "var(--text-muted)" }}
+            >
+              Less
+            </span>
+            {[0, 1, 2, 3, 4].map((lvl) => (
+              <div
+                key={lvl}
+                className="w-2.5 h-2.5 rounded-xs"
+                style={{
+                  background: cellColor(lvl, isDark()),
+                  border: "1px solid var(--border-lt)",
+                }}
+              />
+            ))}
+            <span
+              className="font-['JetBrains_Mono'] text-[9px] ml-1"
+              style={{ color: "var(--text-muted)" }}
+            >
+              More
+            </span>
+          </div>
+        </div>
+
+        {/* ── GITHUB + WAKATIME CARDS ── */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+          {/* GitHub */}
+          <div
+            ref={reveal(1)}
+            className="p-6 transition-all duration-200 hover:-translate-x-0.75 hover:-translate-y-0.75"
+            style={{
+              background: "var(--surface)",
+              border: "2px solid var(--border)",
+              boxShadow: "var(--shadow)",
+            }}
+          >
+            <div className="flex items-center justify-between mb-5">
+              <div
+                className="flex items-center gap-2 font-['JetBrains_Mono'] font-bold text-[13px]"
+                style={{ color: "var(--text)" }}
+              >
+                <div
+                  className="w-4 h-4"
+                  style={{
+                    background: "var(--yellow)",
+                    border: "1px solid var(--border)",
+                  }}
+                />
+                GITHUB
+              </div>
+              <span
+                className="font-['JetBrains_Mono'] text-[10px]"
+                style={{ color: "var(--text-muted)" }}
+              >
+                LAST COMMIT
+              </span>
+            </div>
+            <div
+              className="font-bebas text-[52px] leading-none mb-5"
+              style={{ color: "var(--accent)" }}
+            >
+              {stats.contributions.toLocaleString()}
+            </div>
+            <div
+              className="flex flex-col gap-2.5 pt-4"
+              style={{ borderTop: "1px solid var(--border-lt)" }}
+            >
+              {[
+                { label: "Contributions", value: `+${stats.contributions}` },
+                { label: "Repositories", value: stats.repositories.toString() },
+                { label: "Streak", value: `${stats.streak} days` },
+              ].map(({ label, value }) => (
+                <div
+                  key={label}
+                  className="flex justify-between font-['JetBrains_Mono'] text-[12px]"
+                >
+                  <span style={{ color: "var(--text-sub)" }}>{label}</span>
+                  <span
+                    className="font-bold"
+                    style={{ color: "var(--accent)" }}
+                  >
+                    {value}
+                  </span>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* WakaTime */}
+          <div
+            ref={reveal(2)}
+            className="p-6 transition-all duration-200 hover:-translate-x-0.75 hover:-translate-y-0.75"
+            style={{
+              background: "var(--surface)",
+              border: "2px solid var(--border)",
+              boxShadow: "var(--shadow)",
+            }}
+          >
+            <div className="flex items-center justify-between mb-5">
+              <div
+                className="flex items-center gap-2 font-['JetBrains_Mono'] font-bold text-[13px]"
+                style={{ color: "var(--text)" }}
+              >
+                <div
+                  className="w-4 h-4"
+                  style={{
+                    background: "var(--blue)",
+                    border: "1px solid var(--border)",
+                  }}
+                />
+                WAKATIME
+              </div>
+              <span
+                className="font-['JetBrains_Mono'] text-[10px]"
+                style={{ color: "var(--text-muted)" }}
+              >
+                wai.the_hacker
+              </span>
+            </div>
+            <div
+              className="font-bebas text-[52px] leading-none mb-5"
+              style={{ color: "var(--blue)" }}
+            >
+              {stats.wakatimeHours} hrs
+            </div>
+            <div
+              className="flex flex-col gap-2.5 pt-4"
+              style={{ borderTop: "1px solid var(--border-lt)" }}
+            >
+              {[
+                { label: "Daily Average", value: stats.dailyAverage },
+                { label: "Top Language", value: stats.topLanguage },
+                { label: "Total", value: `${stats.wakatimeHours} hours` },
+              ].map(({ label, value }) => (
+                <div
+                  key={label}
+                  className="flex justify-between font-['JetBrains_Mono'] text-[12px]"
+                >
+                  <span style={{ color: "var(--text-sub)" }}>{label}</span>
+                  <span className="font-bold" style={{ color: "var(--blue)" }}>
+                    {value}
+                  </span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
   );
 }

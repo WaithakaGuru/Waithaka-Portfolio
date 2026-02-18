@@ -1,204 +1,335 @@
-import { useEffect, useState } from "react";
-import { motion } from "framer-motion";
+import { useEffect, useRef } from "react";
+import { TICKER_ITEMS } from "../data";
+import { useTheme } from "../contexts/ThemeContext";
 
 export function Hero() {
-  const [scroll, setScroll] = useState(0);
+  const { isDark } = useTheme();
+  const animRefs = useRef<(HTMLDivElement | null)[]>([]);
 
   useEffect(() => {
-    const onScroll = () => {
-      const scrollTop = window.scrollY;
-      const docHeight =
-        document.documentElement.scrollHeight - window.innerHeight;
-      setScroll(docHeight > 0 ? scrollTop / docHeight : 0);
-    };
-    window.addEventListener("scroll", onScroll);
-    onScroll();
-    return () => window.removeEventListener("scroll", onScroll);
+    animRefs.current.forEach((el, i) => {
+      if (!el) return;
+      el.style.opacity = "0";
+      el.style.transform = "translateY(30px)";
+      setTimeout(
+        () => {
+          if (el) {
+            el.style.transition = "opacity 0.6s ease, transform 0.6s ease";
+            el.style.opacity = "1";
+            el.style.transform = "translateY(0)";
+          }
+        },
+        100 + i * 120,
+      );
+    });
   }, []);
 
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: { opacity: 1 },
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 30 },
-    visible: { opacity: 1, y: 0 },
+  const setRef = (i: number) => (el: HTMLDivElement | null) => {
+    animRefs.current[i] = el;
   };
 
   return (
-    <section
-      id="home"
-      className="h-screen flex flex-col justify-between bg-transparent relative px-5 overflow-hidden"
-    >
-      {/* Faint background text */}
-      <motion.span
-        aria-hidden="true"
-        className="pointer-events-none select-none absolute left-1/2 sm:top-1/2 top-5/7 -translate-x-1/2 -translate-y-1/2 text-[10vw] 
-        font-extrabold text-zinc-700 opacity-20 whitespace-nowrap z-0"
-        style={{ userSelect: "none", letterSpacing: "0.2em" }}
-        initial={{ opacity: 0, scale: 0.8 }}
-        animate={{ opacity: 0.2, scale: 1 }}
-        transition={{ duration: 1, delay: 0.5 }}
+    <>
+      {/* ── HERO ── */}
+      <section
+        id="hero"
+        className="relative z-10 min-h-svh pt-6 flex flex-col overflow-hidden"
       >
-        CODER
-      </motion.span>
-      <motion.span
-        aria-hidden="true"
-        className="pointer-events-none select-none absolute left-1/2 sm:top-1/6 top-1/4 -translate-x-1/2 -translate-y-1/2 text-[10vw] 
-        font-extrabold text-zinc-700 opacity-15 whitespace-nowrap z-0"
-        style={{ userSelect: "none", letterSpacing: "0.2em" }}
-        initial={{ opacity: 0, scale: 0.8 }}
-        animate={{ opacity: 0.15, scale: 1 }}
-        transition={{ duration: 1, delay: 0.7 }}
-      >
-        DEVELOPER
-      </motion.span>
-
-      {/* A Floating image of the developer */}
-      <motion.div
-        className="hidden sm:absolute md:flex h-40 w-60 z-100 border-black border-4 overflow-clip
-      md:top-1/4 md:right-1/10 lg:right-1/5  shadow-[5px_5px_0_var(--color-yellow)]"
-        initial={{ opacity: 0, x: 50 }}
-        animate={{ opacity: 1, x: 0 }}
-        transition={{ duration: 0.8, delay: 1 }}
-      >
-        <img src="./me.jpg" className="object-cover object-top h-full w-full" />
-      </motion.div>
-
-      {/* Scroll progress bar */}
-      <div
-        style={{
-          width: `${scroll * 100}%`,
-          height: "8px",
-          background: "#39d353",
-          position: "fixed",
-          borderBottom: "2px solid black",
-          top: 0,
-          left: 0,
-          zIndex: 4000, // ensure above nav and dropdown
-          transition: "width 0.2s",
-          pointerEvents: "none", // never block interaction
-        }}
-      ></div>
-      {/* Scroll indicator */}
-      <motion.div
-        className="absolute hidden top-26 right-5 text-[2.75] font-medium sm:flex items-center gap-2"
-        initial={{ opacity: 0, x: 20 }}
-        animate={{ opacity: 1, x: 0 }}
-        transition={{ duration: 0.6, delay: 1.2 }}
-      >
-        SCROLL DOWN
-        <div className="w-5 h-7.5 border-2 border-black rounded-full relative">
-          <span className="absolute top-1.5 left-1/2 -translate-x-1/2 w-1 h-2 bg-black rounded-sm animate-scroll-indicator"></span>
+        {/* Ghost watermark */}
+        <div
+          aria-hidden="true"
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center pointer-events-none select-none whitespace-nowrap z-0"
+        >
+          <span
+            className="font-bebas text-[clamp(80px,14vw,210px)] leading-[0.88] tracking-[0.06em]"
+            style={{ color: "var(--hero-ghost)" }}
+          >
+            DEVELOPER
+          </span>
+          <span
+            className="font-bebas text-[clamp(80px,14vw,210px)] leading-[0.88] tracking-[0.06em]"
+            style={{ color: "var(--hero-ghost)" }}
+          >
+            CODER
+          </span>
         </div>
-      </motion.div>
 
-      {/* Hero content */}
-      <motion.div
-        className="flex-1 flex items-center justify-center"
-        variants={containerVariants}
-        initial="hidden"
-        animate="visible"
-        transition={{
-          staggerChildren: 0.2,
-          delayChildren: 0.1,
-        }}
-      >
-        <div className="relative md:text-left text-center">
-          {/* Decorative shapes */}
-          <motion.div
-            className="hidden md:block w-10 h-10 bg-blue border-[0.75] border-black absolute -left-44 top-1/2 -translate-y-1/2 animate-bounce-slow"
-            variants={itemVariants}
-            transition={{ duration: 0.6, ease: "easeOut" }}
-          ></motion.div>
-          <motion.div
-            className="hidden md:block w-8 h-8 bg-pink border-[3px] border-black rounded-full absolute -right-56 top-1/2 -translate-y-1/2 animate-beep"
-            variants={itemVariants}
-            transition={{ duration: 0.6, ease: "easeOut" }}
-          ></motion.div>
-
-          <motion.h1
-            className="text-6xl md:text-[7.5rem] font-extrabold sm:leading-tight leading-12 mt-12"
-            variants={itemVariants}
-            transition={{ duration: 0.6, ease: "easeOut" }}
+        {/* Hero grid body */}
+        <div
+          className="relative z-2 flex-1 max-w-360 mx-auto w-full px-8 py-15 pb-10
+            grid gap-0 items-start"
+          style={{
+            gridTemplateColumns: "auto 1fr",
+            gridTemplateRows: "auto auto auto auto",
+          }}
+        >
+          {/* ── Photo — col 1, all rows ── */}
+          <div
+            ref={setRef(0)}
+            className="relative mt-6"
+            style={{ gridColumn: 1, gridRow: "1 / 5", alignSelf: "center" }}
           >
-            SOFTWARE
-            <br />
-            <span className="text-outline">ENGINEER</span>
-          </motion.h1>
+            {/* Corner accent */}
+            <span
+              className="absolute -top-3 -left-3 w-6 h-6 border-t-[3px] border-l-[3px]"
+              style={{ borderColor: "var(--accent)" }}
+            />
+            <div
+              className="relative overflow-hidden"
+              style={{
+                width: "clamp(200px, 18vw, 280px)",
+                aspectRatio: "3/4",
+                border: "3px solid var(--border)",
+                boxShadow: "var(--shadow-h)",
+                background: "var(--surface-alt)",
+              }}
+            >
+              <img
+                src="/me.jpg"
+                alt="Waithaka Ndung'u"
+                className="w-full h-full object-cover object-top"
+                style={{ filter: "contrast(1.05) saturate(0.9)" }}
+                onError={(e) => {
+                  (e.target as HTMLImageElement).style.display = "none";
+                }}
+              />
+            </div>
+            <div
+              className="absolute -bottom-[.5] -right-[.5] font-['JetBrains_Mono'] font-extrabold text-[12px] tracking-[0.08em] px-3 py-1.5"
+              style={{
+                background: "var(--yellow)",
+                border: "2px solid var(--border)",
+                color: "#1A1A1A",
+              }}
+            >
+              OPEN TO WORK ↗
+            </div>
+          </div>
 
-          <motion.div
-            className="bg-yellow border-2 border-black py-2 md:px-16 sm:px-10 px-4 inline-block 
-          font-bold sm:text-2xl  text-xl my-4 shadow-[5px_5px_0_var(--color-black)]"
-            variants={itemVariants}
-            transition={{ duration: 0.6, ease: "easeOut" }}
+          {/* ── Headline — col 2, row 1 ── */}
+          <div
+            ref={setRef(1)}
+            style={{
+              gridColumn: 2,
+              gridRow: 1,
+              paddingLeft: "clamp(32px, 8vw, 120px)",
+              paddingTop: 20,
+            }}
           >
-            <div className="font-light">
-              I build digital products that generate revenue.
+            <div
+              className="text-[12px] tracking-[0.18em] mb-4 flex items-center gap-2.5"
+              style={{ color: "var(--text-muted)" }}
+            >
+              <span
+                className="block w-8 h-0.5"
+                style={{ background: "var(--accent)" }}
+              />
+              SOFTWARE ENGINEER · NAIROBI, KE
             </div>
-
-            <div className="text-center font-bold md:tracking-wide tracking-tight text-xl">
-              Python · Go · TypeScript · HonoJS · Docker
+            <div
+              className="font-bebas text-[clamp(72px,11vw,160px)] leading-[0.9] tracking-[0.01em]"
+              style={{ color: "var(--text)" }}
+            >
+              SOFTWARE
             </div>
-          </motion.div>
+            <span
+              className="font-bebas text-[clamp(72px,11vw,160px)] leading-[0.9] tracking-[0.01em] block"
+              style={{
+                WebkitTextStroke: "2px var(--text)",
+                color: "transparent",
+              }}
+            >
+              ENGINEER
+              <span
+                style={{
+                  color: "var(--accent)",
+                  WebkitTextStroke: 0 as unknown as string,
+                }}
+              >
+                _
+              </span>
+            </span>
+          </div>
 
-          <motion.div
-            className="flex md:gap-8 md:justify-start justify-center mt-6 gap-6 mb-16 flex-wrap"
-            variants={itemVariants}
-            transition={{ duration: 0.6, ease: "easeOut" }}
+          {/* ── Tagline — col 2, row 2 ── */}
+          <div
+            ref={setRef(2)}
+            style={{
+              gridColumn: 2,
+              gridRow: 2,
+              paddingLeft: "clamp(32px, 8vw, 120px)",
+              marginTop: 28,
+            }}
+          >
+            <div
+              className="inline-flex"
+              style={{
+                border: "2px solid var(--border)",
+                boxShadow: "var(--shadow)",
+                background: "var(--yellow)",
+              }}
+            >
+              <div className="px-7 py-3.5 max-w-170">
+                <div
+                  className="font-['JetBrains_Mono'] font-bold text-[clamp(13px,1.5vw,16px)] leading-[1.4]"
+                  style={{ color: "#1A1A1A" }}
+                >
+                  I build digital products that generate revenue.
+                </div>
+                <div
+                  className="text-[12px] font-medium mt-1.5 tracking-[0.03em]"
+                  style={{ color: "rgba(26,26,26,0.65)" }}
+                >
+                  Python · Go · TypeScript · HonoJS · Docker · React
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* ── CTAs — col 2, row 3 ── */}
+          <div
+            ref={setRef(3)}
+            className="flex gap-3.5 flex-wrap items-center mt-7"
+            style={{
+              gridColumn: 2,
+              gridRow: 3,
+              paddingLeft: "clamp(32px, 8vw, 120px)",
+            }}
           >
             <a
               href="#projects"
-              className="text-white py-3.5 px-7 border-2 border-black font-bold cursor-pointer transition-all no-underline
-               bg-black hover:-translate-x-0.5 hover:-translate-y-0.5 w-90 hover:shadow-[0.75_0.75_0_var(--color-black)] text-3xl"
+              onClick={(e) => {
+                e.preventDefault();
+                document
+                  .getElementById("projects")
+                  ?.scrollIntoView({ behavior: "smooth" });
+              }}
+              className="font-['JetBrains_Mono'] font-extrabold text-[13px] tracking-widest uppercase px-8 py-3.5 inline-flex items-center gap-2.5 no-underline transition-all duration-150
+               hover:-translate-x-0.75 hover:-translate-y-0.75"
+              style={{
+                background: "var(--text)",
+                color: "var(--bg)",
+                border: "2px solid var(--border)",
+                boxShadow: "var(--shadow)",
+              }}
             >
-              VIEW PROJECTS
+              VIEW PROJECTS <span>→</span>
             </a>
             <a
-              href="#"
-              className="py-3.5 px-7 border-2 border-black font-bold text-[3.25] cursor-pointer transition-all text-3xl
-               no-underline bg-white hover:-translate-x-0.5 w-90 hover:-translate-y-0.5 hover:shadow-[0.75_0.75_0_var(--color-black)]"
+              href="/cv.pdf"
+              download
+              className="font-['JetBrains_Mono'] font-bold text-[13px] tracking-[0.08em] uppercase px-8 py-3.5 
+              inline-flex items-center gap-2.5 no-underline transition-all duration-150 hover:-translate-x-0.75 hover:-translate-y-0.75"
+              style={{
+                background: "transparent",
+                color: "var(--text)",
+                border: "2px solid var(--border)",
+                boxShadow: "var(--shadow)",
+              }}
             >
-              DOWNLOAD CV
+              DOWNLOAD CV <span>↓</span>
             </a>
-          </motion.div>
+            <div
+              className="flex items-center gap-2.5 text-[10px] tracking-[0.14em] ml-2"
+              style={{ color: "var(--text-muted)" }}
+            >
+              <div
+                className="w-4.5 h-7 border-2 rounded-[9px] relative shrink-0"
+                style={{ borderColor: "var(--border-lt)" }}
+              >
+                <span
+                  className="absolute left-1/2 -translate-x-1/2 w-0.75 h-1.5 rounded-full animate-scroll-dot"
+                  style={{ top: 4, background: "var(--accent)" }}
+                />
+              </div>
+              SCROLL DOWN
+            </div>
+          </div>
+
+          {/* ── Stats chips — col 2, row 4, horizontal ── */}
+          <div
+            ref={setRef(4)}
+            className="flex flex-row flex-wrap gap-3 mt-6 pb-2"
+            style={{
+              gridColumn: 2,
+              gridRow: 4,
+              paddingLeft: "clamp(32px, 8vw, 120px)",
+              alignSelf: "end",
+            }}
+          >
+            {[
+              { num: "4+", label: "YRS EXPERIENCE" },
+              { num: "11", label: "PROJECTS SHIPPED" },
+              { num: "5", label: "CERTIFICATIONS" },
+            ].map(({ num, label }) => (
+              <div
+                key={label}
+                className="flex flex-col flex-1 min-w-25 max-w-40 px-5 py-2.5"
+                style={{
+                  background: "var(--surface)",
+                  border: "2px solid var(--border)",
+                  boxShadow: "3px 3px 0 var(--border)",
+                }}
+              >
+                <span
+                  className="font-bebas text-[28px] leading-none"
+                  style={{ color: "var(--accent)" }}
+                >
+                  {num}
+                </span>
+                <span
+                  className="text-[10px] tracking-[0.12em] mt-0.5"
+                  style={{ color: "var(--text-muted)" }}
+                >
+                  {label}
+                </span>
+              </div>
+            ))}
+          </div>
+
+          {/* ── Mobile: full-width single col ── */}
+          {/* (handled by the @media rule in index.css via the grid layout) */}
         </div>
-      </motion.div>
-      <style>{`
-        @keyframes bounce-slow {
-          0%, 100% { transform: translateY(-50%) scale(1); }
-          50% { transform: translateY(-60%) scale(1.08); }
-        }
-        .animate-bounce-slow { animation: bounce-slow 5s infinite; }
-        @keyframes beep {
-          0%, 100% { filter: brightness(1); }
-          50% { filter: brightness(1.5) drop-shadow(0 0 12px #FFB6D9); }
-        }
-        .animate-beep { animation: beep 2.4s infinite; }
-      `}</style>
+      </section>
 
-      {/* Marquee footer */}
+      {/* ── TICKER TAPE ── */}
       <div
-        className="absolute bottom-0 w-full text-xl bg-blue py-4 text-[5.5] font-semibold overflow-hidden whitespace-nowrap
-          border-y-4 border-black left-0 right-0"
-        style={{ minHeight: "14" }}
+        className="relative z-2 overflow-hidden pt-3 border-y-4"
+        style={{
+          background: "var(--ticker-bg)",
+          borderBlockColor: isDark ? "var(--border)" : "var(--accent)",
+        }}
+        aria-hidden="true"
       >
-        <div className="flex w-max animate-marquee whitespace-nowrap text-[5.5] font-semibold tracking-wide">
-          <span className="px-10">
-            SKILLS FOR MONEY /// FULL STACK DEVELOPMENT /// SYSTEM DESIGN ///
-            REST DESIGN /// HACKATHONS /// CODE TUTOR /// ACCESSIBLE /// FAST
-            /// SECURE /// OPEN
-          </span>
-
-          {/* Duplicate for seamless loop */}
-          <span className="px-10">
-            SKILLS FOR MONEY /// FULL STACK DEVELOPMENT /// SYSTEM DESIGN ///
-            REST DESIGN /// HACKATHONS /// CODE TUTOR /// ACCESSIBLE /// FAST
-            /// SECURE /// OPEN
-          </span>
+        <div className="flex w-max animate-ticker pb-4">
+          {TICKER_ITEMS.map((item, i) => (
+            <span
+              key={i}
+              className="font-['JetBrains_Mono'] font-bold text-[1.1rem] tracking-widest uppercase whitespace-nowrap px-6"
+              style={{ color: "var(--ticker-text)" }}
+            >
+              {item}{" "}
+              <span
+                style={{
+                  color: isDark ? "#0B0B0B" : "var(--accent)",
+                  opacity: 0.7,
+                }}
+              >
+                ///
+              </span>
+            </span>
+          ))}
         </div>
       </div>
-    </section>
+
+      {/* ── Mobile hero layout override ── */}
+      <style>{`
+        @media (max-width: 900px) {
+          #hero .hero-grid {
+            grid-template-columns: 1fr !important;
+          }
+        }
+      `}</style>
+    </>
   );
 }

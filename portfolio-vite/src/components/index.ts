@@ -11,3 +11,4 @@ export { AboutMe } from "./AboutMe";
 export { Contact } from "./Contact";
 export { Footer } from "./Footer";
 export { UserReports } from "./UserReports";
+export { CareerLedger } from "./CareerLedger";

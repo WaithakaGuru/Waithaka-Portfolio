@@ -18,7 +18,7 @@ export function Footer() {
   }, []);
 
   return (
-    <footer className="bg-black text-white py-12 px-10 relative border-t-6 border-[#39d353]">
+    <footer className="bg-black text-white py-12 px-10 relative border-t-6 border-(--accent)">
       {/* Faint background text */}
       <span
         aria-hidden="true"
@@ -49,7 +49,7 @@ export function Footer() {
 
           {/* Quick links */}
           <div>
-            <h4 className="font-bold text-[1rem] text-green mb-4 border-b border-gray-500 pb-4">
+            <h4 className="font-bold text-[1rem] text-(--accent) mb-4 border-b border-gray-500 pb-4">
               SITEMAP
             </h4>
             <ul className="space-y-2">
@@ -98,7 +98,7 @@ export function Footer() {
 
           {/* Social links */}
           <div>
-            <h4 className="font-bold text-[1rem] text-green mb-4 pb-4 border-b border-gray-500">
+            <h4 className="font-bold text-[1rem] text-(--accent) mb-4 pb-4 border-b border-gray-500">
               CONNECT
             </h4>
             <div className="flex gap-3">

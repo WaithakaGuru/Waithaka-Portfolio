@@ -1,3 +1,22 @@
+export const TICKER_ITEMS = [
+  "FULL STACK DEVELOPMENT",
+  "HACKATHONS",
+  "CODE TUTOR",
+  "ACCESSIBLE",
+  "FAST",
+  "SECURE",
+  "OPEN SOURCE",
+  "SKILLS FOR MONEY",
+  "FULL STACK DEVELOPMENT",
+  "HACKATHONS",
+  "CODE TUTOR",
+  "ACCESSIBLE",
+  "FAST",
+  "SECURE",
+  "OPEN SOURCE",
+  "SKILLS FOR MONEY",
+];
+
 // Education and Certification types
 export interface Education {
   logo: string;
@@ -31,6 +50,7 @@ export const education: Education[] = [
     description: "Completed Udacity's Frontend Developer Nanodegree program.",
   },
 ];
+
 export interface Experience {
   logo: string;
   title: string;
