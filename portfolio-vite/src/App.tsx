@@ -128,7 +128,6 @@ import {
   Contact,
   Footer,
   UserReports,
-  TechStack,
   CareerLedger,
 } from "./components";
 import { useTheme } from "./contexts/ThemeContext";
@@ -169,8 +168,8 @@ function ScrollProgress() {
 
   return (
     <div
-      className="fixed top-0 left-0 right-0 z-[9999] pointer-events-none"
-      style={{ height: "0.4rem" }}
+      className="fixed top-0 left-0 right-0 pointer-events-none"
+      style={{ height: "0.4rem", zIndex: 1000000 }}
     >
       <div
         className="h-full transition-all duration-150 ease-out"

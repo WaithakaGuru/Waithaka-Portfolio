@@ -3,7 +3,7 @@ import { ExperienceSection } from "./Experience";
 
 export function CareerLedger() {
   return (
-    <div id="logs" style={{ background: "var(--bg)" }}>
+    <div id="logs" style={{ background: "var(--bg)" }} className="pt-10">
       {/* ── Sticky section header ── */}
       <div
         className="sticky z-50 px-8"
@@ -25,7 +25,7 @@ export function CareerLedger() {
           >
             CAREER <span style={{ color: "var(--accent)" }}>LEDGER</span>
             <span
-              className="inline-block w-0.5 align-middle ml-1 blink"
+              className="inline-block w-0.5 align-middle ml-6 blink"
               style={{ height: "1em", background: "var(--accent)" }}
             />
           </div>
