@@ -37,10 +37,12 @@ export function CodingStats() {
   return (
     <section
       id="stack"
-      className="relative z-[1] px-8 py-20"
+      className="relative z-10 px-8 py-20"
       style={{ background: "var(--bg)" }}
     >
-      <div className="max-w-[1440px] mx-auto">
+      <div className="max-w-360 mx-auto">
+        {/* Subtle grid background */}
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,#999_1px,transparent_1px),linear-gradient(to_bottom,#888_1px,transparent_1px)] bg-size-[40px_40px] opacity-30 pointer-events-none" />
         {/* ── TECH STACK HEADER ── */}
         <div className="flex items-center gap-4 mb-14">
           <h2 className="font-bebas text-[clamp(36px,5vw,64px)] leading-none tracking-[0.04em] whitespace-nowrap">
@@ -110,7 +112,7 @@ export function CodingStats() {
               >{`>_ ${item.label}`}</span>
               <span
                 data-nm
-                className="font-['JetBrains_Mono'] font-extrabold text-[13px] tracking-[0.04em] break-words"
+                className="font-['JetBrains_Mono'] font-extrabold text-[13px] tracking-[0.04em] wrap-break-word"
                 style={{ color: "var(--text)", transition: "color 0.15s" }}
               >
                 {item.name}
@@ -194,7 +196,7 @@ export function CodingStats() {
             {[0, 1, 2, 3, 4].map((lvl) => (
               <div
                 key={lvl}
-                className="w-2.5 h-2.5 rounded-[2px]"
+                className="w-2.5 h-2.5 rounded-xs"
                 style={{
                   background: cellColor(lvl, isDark()),
                   border: "1px solid var(--border-lt)",
@@ -215,7 +217,7 @@ export function CodingStats() {
           {/* GitHub */}
           <div
             ref={reveal(1)}
-            className="p-6 transition-all duration-200 hover:-translate-x-[3px] hover:-translate-y-[3px]"
+            className="p-6 transition-all duration-200 hover:-translate-x-0.75 hover:-translate-y-0.75"
             style={{
               background: "var(--surface)",
               border: "2px solid var(--border)",
@@ -277,7 +279,7 @@ export function CodingStats() {
           {/* WakaTime */}
           <div
             ref={reveal(2)}
-            className="p-6 transition-all duration-200 hover:-translate-x-[3px] hover:-translate-y-[3px]"
+            className="p-6 transition-all duration-200 hover:-translate-x-0.75 hover:-translate-y-0.75"
             style={{
               background: "var(--surface)",
               border: "2px solid var(--border)",
