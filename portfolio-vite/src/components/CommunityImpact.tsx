@@ -45,7 +45,7 @@ export function CommunityImpact() {
       style={{ background: "var(--bg2)" }}
     >
       <div className="max-w-[1440px] mx-auto">
-        <div className="flex items-center gap-4 mb-14">
+        <div className="flex items-center gap-4 mb-14 bg-(--bg2) sticky top-0 z-100 border-b border-(--text-sub) py-4">
           <h2 className="font-bebas text-[clamp(36px,5vw,64px)] leading-none tracking-[0.04em] whitespace-nowrap">
             <span style={{ color: "var(--text)" }}>COMMUNITY</span>
             <span style={{ color: "var(--accent)" }}>_IMPACT</span>

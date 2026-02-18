@@ -17,7 +17,7 @@ export function CareerLedger() {
       >
         <div className="max-w-360 mx-auto h-17 flex items-center justify-between">
           <div
-            className="font-['JetBrains_Mono'] font-extrabold tracking-[0.04em] leading-none"
+            className="font-bebas font-bold tracking-[0.04em] leading-none"
             style={{
               fontSize: "clamp(22px, 3.5vw, 40px)",
               color: "var(--text)",

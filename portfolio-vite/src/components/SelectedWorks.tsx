@@ -18,12 +18,18 @@ export function SelectedWorks() {
   return (
     <section
       id="projects"
-      className="relative z-[1] px-8 py-20"
+      className="relative z-1 pt-10"
       style={{ background: "var(--bg2)" }}
     >
-      <div className="max-w-[1440px] mx-auto">
-        <div className="flex items-center gap-4 mb-14">
-          <h2 className="font-bebas text-[clamp(36px,5vw,64px)] leading-none tracking-[0.04em] whitespace-nowrap">
+      <div className="max-w-360">
+        <div
+          className="flex items-center gap-4 mb-14 py-4 bg-(--bg2) sticky top-0 z-100
+         border-b-2 border-(--border) w-dvw"
+        >
+          <h2
+            className="font-bebas text-[clamp(24px,3.5vw,40px)] leading-none 
+          tracking-[0.04em] whitespace-nowrap font-bold px-4"
+          >
             <span style={{ color: "var(--text)" }}>SELECTED</span>
             <span style={{ color: "var(--accent)" }}>_WORKS</span>
           </h2>
@@ -43,7 +49,7 @@ export function SelectedWorks() {
           </span>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 mb-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 mb-8 px-8  mx-auto">
           {projects.map((project, i) => {
             const accent = ACCENTS[i % ACCENTS.length];
             const isActive = activeIdx === i;
@@ -51,7 +57,7 @@ export function SelectedWorks() {
               <div
                 key={project.title}
                 ref={reveal(i)}
-                className="flex flex-col overflow-hidden cursor-pointer transition-all duration-200 hover:-translate-x-[3px] hover:-translate-y-[3px]"
+                className="flex flex-col overflow-hidden cursor-pointer transition-all duration-200 hover:-translate-x-0.75 hover:-translate-y-0.75"
                 style={{
                   background: "var(--surface)",
                   border: "2px solid var(--border)",
@@ -70,7 +76,7 @@ export function SelectedWorks() {
                   }}
                 >
                   <span
-                    className="absolute top-0 left-0 right-0 h-[3px]"
+                    className="absolute top-0 left-0 right-0 h-0.75"
                     style={{ background: accent }}
                   />
                   <span
@@ -86,13 +92,13 @@ export function SelectedWorks() {
                 <div className="p-6 flex flex-col flex-1">
                   <div className="flex items-start justify-between gap-2 mb-2">
                     <h3
-                      className="font-['JetBrains_Mono'] font-extrabold text-[15px] leading-[1.25]"
+                      className="font-['JetBrains_Mono'] font-extrabold text-[15px] leading-1.25"
                       style={{ color: "var(--text)" }}
                     >
                       {project.title}
                     </h3>
                     <span
-                      className="flex-shrink-0 font-['JetBrains_Mono'] text-[10px] tracking-[0.06em] px-2 py-0.5"
+                      className="shrink-0 font-['JetBrains_Mono'] text-[10px] tracking-[0.06em] px-2 py-0.5"
                       style={{
                         border: "1px solid var(--border-lt)",
                         color: "var(--text-muted)",
@@ -111,7 +117,7 @@ export function SelectedWorks() {
                     {project.tags.slice(0, 3).map((tag) => (
                       <span
                         key={tag}
-                        className="font-['JetBrains_Mono'] font-bold text-[10px] tracking-[0.05em] px-2.5 py-[3px]"
+                        className="font-['JetBrains_Mono'] font-bold text-[10px] tracking-[0.05em] px-2.5 py-0.75"
                         style={{
                           background: accent + "22",
                           color: accent,
@@ -195,7 +201,7 @@ export function SelectedWorks() {
         <div className="flex justify-center">
           <a
             href="#"
-            className="font-['JetBrains_Mono'] font-extrabold text-[13px] tracking-[0.1em] uppercase px-10 py-4 no-underline transition-all duration-150 hover:-translate-x-[3px] hover:-translate-y-[3px]"
+            className="font-['JetBrains_Mono'] font-extrabold text-[13px] tracking-widest uppercase px-10 py-4 no-underline transition-all duration-150 hover:-translate-x-0.75 hover:-translate-y-0.75"
             style={{
               background: "var(--text)",
               color: "var(--bg)",

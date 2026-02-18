@@ -6,13 +6,13 @@ export function AboutMe() {
   return (
     <section
       id="about"
-      className="relative z-10 px-8 py-10"
+      className="relative z-10 py-10"
       style={{ background: "var(--bg)" }}
     >
-      <div className="max-w-360 mx-auto">
+      <div className="max-w-360">
         <h2
-          className="font-bebas text-[clamp(22px,3.5vw,40px)] leading-none 
-        tracking-[0.04em] mb-8 bg-(--bg) w-[101dvw] sticky top-0 z-100 pt-4"
+          className="font-bebas text-[clamp(22px,3.5vw,40px)] leading-none font-bold
+        tracking-[0.04em] mb-8 bg-(--bg) w-[101dvw] sticky top-0 z-100 py-4 px-8"
           style={{
             borderBottom: "2px solid var(--border)",
           }}
@@ -22,7 +22,7 @@ export function AboutMe() {
         </h2>
 
         <div
-          className="grid gap-8 items-start px-4"
+          className="grid gap-8 items-start px-8 mx-auto"
           style={{ gridTemplateColumns: "280px 1fr" }}
         >
           {/* ── Profile Card ── */}
