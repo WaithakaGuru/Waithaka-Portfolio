@@ -57,7 +57,7 @@ export function Hero() {
         {/* Hero grid body */}
         <div
           className="relative z-2 flex-1 max-w-360 mx-auto w-full px-8 py-15 pb-10
-            grid gap-0 items-start"
+            hero-grid grid gap-0 items-start"
           style={{
             gridTemplateColumns: "auto 1fr",
             gridTemplateRows: "auto auto auto auto",
@@ -324,9 +324,14 @@ export function Hero() {
 
       {/* ── Mobile hero layout override ── */}
       <style>{`
-        @media (max-width: 900px) {
+        @media (max-width: 768px) {
           #hero .hero-grid {
-            grid-template-columns: 1fr !important;
+            display: flex !important;
+            flex-direction: column !important;
+          }
+          #hero .hero-grid > div:not(:first-child) {
+            padding-left: 0 !important;
+            align-self: unset !important;
           }
         }
       `}</style>
