@@ -10,7 +10,6 @@ import {
   UserReports,
   CareerLedger,
 } from "./components";
-import { TechStack } from "./components/TechStack";
 import { useTheme } from "./contexts/ThemeContext";
 import { useEffect, useState } from "react";
 
