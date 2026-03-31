@@ -9,7 +9,9 @@ import {
   Footer,
   UserReports,
   CareerLedger,
+  ViewSelector,
 } from "./components";
+import { ProfessionalView } from "./components/ProfessionalView";
 import { useTheme } from "./contexts/ThemeContext";
 import { useEffect, useState } from "react";
 
@@ -64,7 +66,60 @@ function ScrollProgress() {
 
 export default function App() {
   const { isDark: _isDark } = useTheme();
+  const [selectedView, setSelectedView] = useState<
+    "professional" | "artist" | null
+  >(null);
+  const [showApp, setShowApp] = useState(false);
 
+  // Check localStorage on mount
+  useEffect(() => {
+    const saved = localStorage.getItem("portfolioView") as
+      | "professional"
+      | "artist"
+      | null;
+    if (saved) {
+      setSelectedView(saved);
+      if (saved === "artist") {
+        setShowApp(true);
+      } else if (saved === "professional") {
+        // Redirect to professional HTML
+        window.location.href = "/waithaka-portfolio.html";
+      }
+    }
+  }, []);
+
+  // Handle view selection
+  const handleSelectView = (view: "professional" | "artist") => {
+    localStorage.setItem("portfolioView", view);
+    setSelectedView(view);
+
+    if (view === "professional") {
+      // Redirect to professional HTML file
+      window.location.href = "/waithaka-portfolio.html";
+    } else if (view === "artist") {
+      setShowApp(true);
+    }
+  };
+
+  // Show view selector if no view selected
+  if (!selectedView) {
+    return <ViewSelector onSelectView={handleSelectView} />;
+  }
+
+  // Show loading state while transitioning to professional view
+  if (selectedView === "professional" && !showApp) {
+    return (
+      <div className="fixed inset-0 flex items-center justify-center bg-white">
+        <div className="text-center">
+          <p className="font-mono-brand text-text">
+            Redirecting to Professional View...
+          </p>
+        </div>
+      </div>
+    );
+  }
+
+  // Show artist portfolio
   return (
     <div
       style={{
@@ -75,7 +130,13 @@ export default function App() {
     >
       <ScrollProgress />
       <DotGrid />
-      <Navbar />
+      <Navbar
+        onSwitchView={() => {
+          localStorage.removeItem("portfolioView");
+          setSelectedView(null);
+          setShowApp(false);
+        }}
+      />
 
       {/* ── Sections ── */}
       <Hero />

@@ -12,3 +12,4 @@ export { Contact } from "./Contact";
 export { Footer } from "./Footer";
 export { UserReports } from "./UserReports";
 export { CareerLedger } from "./CareerLedger";
+export { ViewSelector } from "./ViewSelector";

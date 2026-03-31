@@ -8,7 +8,11 @@ const NAV_LINKS = [
   { label: "/WORK", id: "projects" },
 ];
 
-export function Navbar() {
+interface NavbarProps {
+  onSwitchView?: () => void;
+}
+
+export function Navbar({ onSwitchView }: NavbarProps) {
   const { isDark, toggleTheme } = useTheme();
   const [hidden, setHidden] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
@@ -115,6 +119,24 @@ export function Navbar() {
               HIRE ME
             </a>
 
+            {/* Switch View */}
+            {onSwitchView && (
+              <button
+                onClick={onSwitchView}
+                style={{
+                  background: "var(--surface)",
+                  border: "2px solid var(--border)",
+                  boxShadow: "var(--shadow)",
+                  color: "var(--text)",
+                }}
+                className={`hidden md:flex items-center gap-1.5 h-9.5 px-3.5 font-['JetBrains_Mono'] font-bold text-[11px] tracking-[0.08em] transition-all duration-150 ${shadowH} whitespace-nowrap cursor-pointer`}
+                title="Switch to view selector"
+              >
+                <span className="text-[15px]">🎨</span>
+                <span>SWITCH_VIEW</span>
+              </button>
+            )}
+
             {/* Theme toggle */}
             <button
               onClick={toggleTheme}
@@ -189,6 +211,25 @@ export function Navbar() {
               {label}
             </button>
           ))}
+          {/* Switch View in mobile menu */}
+          {onSwitchView && (
+            <button
+              onClick={() => {
+                onSwitchView();
+                setMenuOpen(false);
+              }}
+              style={{
+                background: "var(--surface)",
+                border: "2px solid var(--border)",
+                boxShadow: "var(--shadow)",
+                color: "var(--text)",
+              }}
+              className="font-['JetBrains_Mono'] font-bold text-[12px] tracking-[0.08em] px-4 py-3 mt-2 text-left flex items-center gap-2 cursor-pointer w-full transition-all duration-150"
+            >
+              <span>🎨</span>
+              <span>SWITCH_VIEW</span>
+            </button>
+          )}
           {/* Theme toggle in mobile menu */}
           <button
             onClick={toggleTheme}

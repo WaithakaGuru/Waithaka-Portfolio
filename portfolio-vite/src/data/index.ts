@@ -1,236 +1,236 @@
-export const TICKER_ITEMS = [
-  "FULL STACK DEVELOPMENT",
-  "HACKATHONS",
-  "CODE TUTOR",
-  "ACCESSIBLE",
-  "FAST",
-  "SECURE",
-  "OPEN SOURCE",
-  "SKILLS FOR MONEY",
-  "FULL STACK DEVELOPMENT",
-  "HACKATHONS",
-  "CODE TUTOR",
-  "ACCESSIBLE",
-  "FAST",
-  "SECURE",
-  "OPEN SOURCE",
-  "SKILLS FOR MONEY",
-];
+// export const TICKER_ITEMS = [
+//   "FULL STACK DEVELOPMENT",
+//   "HACKATHONS",
+//   "CODE TUTOR",
+//   "ACCESSIBLE",
+//   "FAST",
+//   "SECURE",
+//   "OPEN SOURCE",
+//   "SKILLS FOR MONEY",
+//   "FULL STACK DEVELOPMENT",
+//   "HACKATHONS",
+//   "CODE TUTOR",
+//   "ACCESSIBLE",
+//   "FAST",
+//   "SECURE",
+//   "OPEN SOURCE",
+//   "SKILLS FOR MONEY",
+// ];
 
-// Education and Certification types
-export interface Education {
-  logo: string;
-  title: string;
-  institution: string;
-  date: string;
-  description?: string;
-}
+// // Education and Certification types
+// export interface Education {
+//   logo: string;
+//   title: string;
+//   institution: string;
+//   date: string;
+//   description?: string;
+// }
 
-export const education: Education[] = [
-  {
-    logo: "🎓",
-    title: "BSc. Computer Science",
-    institution: "University of Nairobi",
-    date: "2017 - 2021",
-    description:
-      "Graduated with First Class Honors. Specialized in Software Engineering.",
-  },
-  {
-    logo: "📜",
-    title: "Certified Cloud Practitioner",
-    institution: "AWS",
-    date: "2023",
-    description: "Amazon Web Services Cloud Practitioner Certification.",
-  },
-  {
-    logo: "💻",
-    title: "Frontend Developer Nanodegree",
-    institution: "Udacity",
-    date: "2022",
-    description: "Completed Udacity's Frontend Developer Nanodegree program.",
-  },
-];
+// export const education: Education[] = [
+//   {
+//     logo: "🎓",
+//     title: "BSc. Computer Science",
+//     institution: "University of Nairobi",
+//     date: "2017 - 2021",
+//     description:
+//       "Graduated with First Class Honors. Specialized in Software Engineering.",
+//   },
+//   {
+//     logo: "📜",
+//     title: "Certified Cloud Practitioner",
+//     institution: "AWS",
+//     date: "2023",
+//     description: "Amazon Web Services Cloud Practitioner Certification.",
+//   },
+//   {
+//     logo: "💻",
+//     title: "Frontend Developer Nanodegree",
+//     institution: "Udacity",
+//     date: "2022",
+//     description: "Completed Udacity's Frontend Developer Nanodegree program.",
+//   },
+// ];
 
-export interface Experience {
-  logo: string;
-  title: string;
-  company: string;
-  date: string;
-  dateShort?: string;
-  description: string;
-  worked: string[];
-  learned: string[];
-  // New fields for timeline positioning
-  startYear: number;
-  startMonth: number; // 1-12
-  endYear: number;
-  endMonth: number; // 1-12
-}
+// export interface Experience {
+//   logo: string;
+//   title: string;
+//   company: string;
+//   date: string;
+//   dateShort?: string;
+//   description: string;
+//   worked: string[];
+//   learned: string[];
+//   // New fields for timeline positioning
+//   startYear: number;
+//   startMonth: number; // 1-12
+//   endYear: number;
+//   endMonth: number; // 1-12
+// }
 
-// Example experiences array
-export const experiences: Experience[] = [
-  {
-    logo: "L",
-    title: "Product Designer",
-    company: "Large Corp",
-    date: "JAN 26 — Present",
-    dateShort: "JAN 26 — Present",
-    startYear: 2026,
-    startMonth: 1,
-    endYear: 2026,
-    endMonth: 2, // Current month
-    description:
-      "Leading product design initiatives for enterprise software solutions, focusing on user experience and interface design.",
-    worked: [
-      "Redesigned the main dashboard interface",
-      "Created design system components",
-      "Conducted user research and testing",
-    ],
-    learned: [
-      "Advanced prototyping techniques",
-      "Enterprise design patterns",
-      "Cross-functional collaboration",
-    ],
-  },
-  {
-    logo: "L",
-    title: "Product Designerg",
-    company: "Large Corp",
-    date: "JAN 2 — JAN 29",
-    dateShort: "JAN 2 — JAN 29",
-    startYear: 2026,
-    startMonth: 1,
-    endYear: 2026,
-    endMonth: 2, // Current month
-    description:
-      "Leading product design initiatives for enterprise software solutions, focusing on user experience and interface design.",
-    worked: [
-      "Redesigned the main dashboard interface",
-      "Created design system components",
-      "Conducted user research and testing",
-    ],
-    learned: [
-      "Advanced prototyping techniques",
-      "Enterprise design patterns",
-      "Cross-functional collaboration",
-    ],
-  },
-  {
-    logo: "BK",
-    title: "Product Tester",
-    company: "Large Corp",
-    date: "MAY 1 — SEPT 30",
-    dateShort: "MAY 1 — SEPT 30",
-    startYear: 2026,
-    startMonth: 1,
-    endYear: 2026,
-    endMonth: 2, // Current month
-    description:
-      "Leading product design initiatives for enterprise software solutions, focusing on user experience and interface design.",
-    worked: [
-      "Redesigned the main dashboard interface",
-      "Created design system components",
-      "Conducted user research and testing",
-    ],
-    learned: [
-      "Advanced prototyping techniques",
-      "Enterprise design patterns",
-      "Cross-functional collaboration",
-    ],
-  },
-  {
-    logo: "A",
-    title: "Design Engineer",
-    company: "Anthropic",
-    date: "MAR 25 — DEC 25",
-    dateShort: "MAR 25 — DEC 25",
-    startYear: 2025,
-    startMonth: 3,
-    endYear: 2025,
-    endMonth: 12,
-    description:
-      "Built and designed user-facing features for Claude AI, bridging design and engineering.",
-    worked: [
-      "Implemented new conversation features",
-      "Designed and coded UI components",
-      "Optimized frontend performance",
-    ],
-    learned: [
-      "React and TypeScript best practices",
-      "AI/ML product design",
-      "Rapid prototyping and iteration",
-    ],
-  },
-  {
-    logo: "W",
-    title: "Senior Staff Designer",
-    company: "Webflow",
-    date: "DEC 21 — DEC 24",
-    dateShort: "DEC 21 — DEC 24",
-    startYear: 2021,
-    startMonth: 12,
-    endYear: 2024,
-    endMonth: 12,
-    description:
-      "Led design for core product features, mentored junior designers, and established design standards.",
-    worked: [
-      "Redesigned the visual editor",
-      "Created the Webflow design system",
-      "Led design for enterprise features",
-    ],
-    learned: [
-      "Design leadership and mentorship",
-      "Complex system design",
-      "Stakeholder management",
-    ],
-  },
-  {
-    logo: "G",
-    title: "Product Designer",
-    company: "Gumroad",
-    date: "AUG 20 — DEC 21",
-    dateShort: "AUG 20 — DEC 21",
-    startYear: 2020,
-    startMonth: 8,
-    endYear: 2021,
-    endMonth: 12,
-    description:
-      "Designed creator-focused features for the Gumroad platform, improving the seller experience.",
-    worked: [
-      "Redesigned product pages",
-      "Created email campaign builder",
-      "Improved checkout flow",
-    ],
-    learned: [
-      "Creator economy insights",
-      "Payment flow design",
-      "Mobile-first design",
-    ],
-  },
-  {
-    logo: "P",
-    title: "Founding Designer",
-    company: "Podla",
-    date: "NOV 16 — NOV 19",
-    dateShort: "NOV 16 — NOV 19",
-    startYear: 2016,
-    startMonth: 11,
-    endYear: 2019,
-    endMonth: 11,
-    description:
-      "First design hire at early-stage startup, established design culture and created initial product.",
-    worked: [
-      "Built the entire design system from scratch",
-      "Designed mobile and web applications",
-      "Created brand identity and marketing materials",
-    ],
-    learned: [
-      "Startup operations and strategy",
-      "0-1 product design",
-      "Cross-functional ownership",
-    ],
-  },
-];
+// // Example experiences array
+// export const experiences: Experience[] = [
+//   {
+//     logo: "L",
+//     title: "Product Designer",
+//     company: "Large Corp",
+//     date: "JAN 26 — Present",
+//     dateShort: "JAN 26 — Present",
+//     startYear: 2026,
+//     startMonth: 1,
+//     endYear: 2026,
+//     endMonth: 2, // Current month
+//     description:
+//       "Leading product design initiatives for enterprise software solutions, focusing on user experience and interface design.",
+//     worked: [
+//       "Redesigned the main dashboard interface",
+//       "Created design system components",
+//       "Conducted user research and testing",
+//     ],
+//     learned: [
+//       "Advanced prototyping techniques",
+//       "Enterprise design patterns",
+//       "Cross-functional collaboration",
+//     ],
+//   },
+//   {
+//     logo: "L",
+//     title: "Product Designerg",
+//     company: "Large Corp",
+//     date: "JAN 2 — JAN 29",
+//     dateShort: "JAN 2 — JAN 29",
+//     startYear: 2026,
+//     startMonth: 1,
+//     endYear: 2026,
+//     endMonth: 2, // Current month
+//     description:
+//       "Leading product design initiatives for enterprise software solutions, focusing on user experience and interface design.",
+//     worked: [
+//       "Redesigned the main dashboard interface",
+//       "Created design system components",
+//       "Conducted user research and testing",
+//     ],
+//     learned: [
+//       "Advanced prototyping techniques",
+//       "Enterprise design patterns",
+//       "Cross-functional collaboration",
+//     ],
+//   },
+//   {
+//     logo: "BK",
+//     title: "Product Tester",
+//     company: "Large Corp",
+//     date: "MAY 1 — SEPT 30",
+//     dateShort: "MAY 1 — SEPT 30",
+//     startYear: 2026,
+//     startMonth: 1,
+//     endYear: 2026,
+//     endMonth: 2, // Current month
+//     description:
+//       "Leading product design initiatives for enterprise software solutions, focusing on user experience and interface design.",
+//     worked: [
+//       "Redesigned the main dashboard interface",
+//       "Created design system components",
+//       "Conducted user research and testing",
+//     ],
+//     learned: [
+//       "Advanced prototyping techniques",
+//       "Enterprise design patterns",
+//       "Cross-functional collaboration",
+//     ],
+//   },
+//   {
+//     logo: "A",
+//     title: "Design Engineer",
+//     company: "Anthropic",
+//     date: "MAR 25 — DEC 25",
+//     dateShort: "MAR 25 — DEC 25",
+//     startYear: 2025,
+//     startMonth: 3,
+//     endYear: 2025,
+//     endMonth: 12,
+//     description:
+//       "Built and designed user-facing features for Claude AI, bridging design and engineering.",
+//     worked: [
+//       "Implemented new conversation features",
+//       "Designed and coded UI components",
+//       "Optimized frontend performance",
+//     ],
+//     learned: [
+//       "React and TypeScript best practices",
+//       "AI/ML product design",
+//       "Rapid prototyping and iteration",
+//     ],
+//   },
+//   {
+//     logo: "W",
+//     title: "Senior Staff Designer",
+//     company: "Webflow",
+//     date: "DEC 21 — DEC 24",
+//     dateShort: "DEC 21 — DEC 24",
+//     startYear: 2021,
+//     startMonth: 12,
+//     endYear: 2024,
+//     endMonth: 12,
+//     description:
+//       "Led design for core product features, mentored junior designers, and established design standards.",
+//     worked: [
+//       "Redesigned the visual editor",
+//       "Created the Webflow design system",
+//       "Led design for enterprise features",
+//     ],
+//     learned: [
+//       "Design leadership and mentorship",
+//       "Complex system design",
+//       "Stakeholder management",
+//     ],
+//   },
+//   {
+//     logo: "G",
+//     title: "Product Designer",
+//     company: "Gumroad",
+//     date: "AUG 20 — DEC 21",
+//     dateShort: "AUG 20 — DEC 21",
+//     startYear: 2020,
+//     startMonth: 8,
+//     endYear: 2021,
+//     endMonth: 12,
+//     description:
+//       "Designed creator-focused features for the Gumroad platform, improving the seller experience.",
+//     worked: [
+//       "Redesigned product pages",
+//       "Created email campaign builder",
+//       "Improved checkout flow",
+//     ],
+//     learned: [
+//       "Creator economy insights",
+//       "Payment flow design",
+//       "Mobile-first design",
+//     ],
+//   },
+//   {
+//     logo: "P",
+//     title: "Founding Designer",
+//     company: "Podla",
+//     date: "NOV 16 — NOV 19",
+//     dateShort: "NOV 16 — NOV 19",
+//     startYear: 2016,
+//     startMonth: 11,
+//     endYear: 2019,
+//     endMonth: 11,
+//     description:
+//       "First design hire at early-stage startup, established design culture and created initial product.",
+//     worked: [
+//       "Built the entire design system from scratch",
+//       "Designed mobile and web applications",
+//       "Created brand identity and marketing materials",
+//     ],
+//     learned: [
+//       "Startup operations and strategy",
+//       "0-1 product design",
+//       "Cross-functional ownership",
+//     ],
+//   },
+// ];
 export interface Project {
   title: string;
   description: string;
@@ -386,103 +386,282 @@ export const stats = {
   topLanguage: "JavaScript",
 };
 
-// Community Impact types
-export interface CommunityInitiative {
-  id: string;
+// // Community Impact types
+// export interface CommunityInitiative {
+//   id: string;
+//   title: string;
+//   description: string;
+//   image: string;
+//   impact: string;
+//   date: string;
+// }
+
+// export interface Event {
+//   id: string;
+//   title: string;
+//   description: string;
+//   image: string;
+//   role: string;
+//   date: string;
+//   location?: string;
+// }
+
+// export const communityInitiatives: CommunityInitiative[] = [
+//   {
+//     id: "1",
+//     title: "Open Source Contributions",
+//     description:
+//       "Contributed to 20+ open-source projects, focusing on JavaScript frameworks and developer tools.",
+//     image: "/images/open-source.jpg",
+//     impact: "Helped 1000+ developers worldwide",
+//     date: "2020 - Present",
+//   },
+//   {
+//     id: "2",
+//     title: "Mentorship Program",
+//     description:
+//       "Mentored 50+ aspiring developers through one-on-one sessions and group workshops.",
+//     image: "/images/mentorship.jpg",
+//     impact: "50 mentees successfully launched careers",
+//     date: "2021 - Present",
+//   },
+//   {
+//     id: "3",
+//     title: "Coding Workshops",
+//     description:
+//       "Organized 10+ coding workshops teaching web development, algorithms, and best practices.",
+//     image: "/images/workshop.jpg",
+//     impact: "Trained 200+ participants",
+//     date: "2022 - Present",
+//   },
+//   {
+//     id: "4",
+//     title: "Tech Community Speaking",
+//     description:
+//       "Spoke at 5 tech conferences and meetups about modern web development and career growth.",
+//     image: "/images/speaking.jpg",
+//     impact: "Reached 500+ audience members",
+//     date: "2023 - Present",
+//   },
+// ];
+
+// export const events: Event[] = [
+//   {
+//     id: "1",
+//     title: "CodeFest 2025",
+//     description:
+//       "Won first place in the hackathon for building an innovative developer productivity tool.",
+//     image: "/images/codefest.jpg",
+//     role: "Winner",
+//     date: "March 2025",
+//     location: "Nairobi, Kenya",
+//   },
+//   {
+//     id: "2",
+//     title: "DevCon Africa 2025",
+//     description:
+//       "Panel discussion on the future of web development and emerging technologies.",
+//     image: "/images/devcon.jpg",
+//     role: "Panelist",
+//     date: "April 2025",
+//     location: "Cape Town, South Africa",
+//   },
+//   {
+//     id: "3",
+//     title: "JS Bootcamp 2026",
+//     description: "Led a 3-day intensive JavaScript workshop for beginners.",
+//     image: "/images/js-bootcamp.jpg",
+//     role: "Workshop Host",
+//     date: "January 2026",
+//     location: "Online",
+//   },
+//   {
+//     id: "4",
+//     title: "Python Summit 2026",
+//     description:
+//       "Guest speaker on Python in modern web development and AI integration.",
+//     image: "/images/python-summit.jpg",
+//     role: "Guest Speaker",
+//     date: "February 2026",
+//     location: "San Francisco, USA",
+//   },
+// ];
+export const TICKER_ITEMS = [
+  "FULL STACK DEVELOPMENT",
+  "HACKATHONS",
+  "CODE TUTOR",
+  "ACCESSIBLE",
+  "FAST",
+  "SECURE",
+  "OPEN SOURCE",
+  "SKILLS FOR MONEY",
+  "FULL STACK DEVELOPMENT",
+  "HACKATHONS",
+  "CODE TUTOR",
+  "ACCESSIBLE",
+  "FAST",
+  "SECURE",
+  "OPEN SOURCE",
+  "SKILLS FOR MONEY",
+];
+
+// Education and Certification types
+export interface Education {
+  logo: string;
   title: string;
-  description: string;
-  image: string;
-  impact: string;
+  institution: string;
   date: string;
+  description?: string;
 }
 
-export interface Event {
-  id: string;
-  title: string;
-  description: string;
-  image: string;
-  role: string;
-  date: string;
-  location?: string;
-}
-
-export const communityInitiatives: CommunityInitiative[] = [
+export const education: Education[] = [
   {
-    id: "1",
-    title: "Open Source Contributions",
+    logo: "🎓",
+    title: "Bachelor of Science in Software Engineering",
+    institution: "Murang’a University of Technology",
+    date: "September 2022 – April 2026 (Graduation: August 2026)",
     description:
-      "Contributed to 20+ open-source projects, focusing on JavaScript frameworks and developer tools.",
-    image: "/images/open-source.jpg",
-    impact: "Helped 1000+ developers worldwide",
-    date: "2020 - Present",
+      "Comprehensive training in software engineering principles, systems design, and fullstack development.",
   },
   {
-    id: "2",
-    title: "Mentorship Program",
+    logo: "💻",
+    title: "Fullstack Software Development",
+    institution: "Teach2Give, The Jitu",
+    date: "May 2025 – August 2025",
     description:
-      "Mentored 50+ aspiring developers through one-on-one sessions and group workshops.",
-    image: "/images/mentorship.jpg",
-    impact: "50 mentees successfully launched careers",
-    date: "2021 - Present",
+      "Intensive hands-on training in modern web development using React, Node.js, PostgreSQL, and cloud deployment tools.",
   },
   {
-    id: "3",
-    title: "Coding Workshops",
-    description:
-      "Organized 10+ coding workshops teaching web development, algorithms, and best practices.",
-    image: "/images/workshop.jpg",
-    impact: "Trained 200+ participants",
-    date: "2022 - Present",
+    logo: "📜",
+    title: "Kenya Certificate of Secondary Education (KCSE)",
+    institution: "Njiiri School",
+    date: "January 2018 – April 2022",
+    description: "Achieved grade B+ in national examinations.",
   },
   {
-    id: "4",
-    title: "Tech Community Speaking",
+    logo: "🤖",
+    title: "A Quick Introduction to Machine Learning",
+    institution: "Cognitive Class",
+    date: "Issued March 2026",
     description:
-      "Spoke at 5 tech conferences and meetups about modern web development and career growth.",
-    image: "/images/speaking.jpg",
-    impact: "Reached 500+ audience members",
-    date: "2023 - Present",
+      "Credential ID: 05e9d2b8dfba4e949d619791c58b106f | Proof: /certs/ml-intro.png",
+  },
+  {
+    logo: "🌐",
+    title: "Cisco Network Support and Security",
+    institution: "Cisco Networking Academy",
+    date: "Issued April 2025",
+    description:
+      "Credential ID: 7509fe1b-0162-4000-97e2-2ec6f54da76d | Proof: /certs/network-support-security.png",
+  },
+  {
+    logo: "🛠️",
+    title: "Cisco Certified Networking Devices and Initial Configurations",
+    institution: "Cisco Networking Academy",
+    date: "Issued January 2025",
+    description: "Proof: /certs/network-devices-config.png",
+  },
+  {
+    logo: "🏆",
+    title: "Teach2Give Certified Software Developer",
+    institution: "Teach2Give",
+    date: "Issued August 2025",
+    description:
+      "Certificate of Achievement in Software Development | Proof: /certs/t2g-fullstack.png",
   },
 ];
 
-export const events: Event[] = [
+export interface Experience {
+  logo: string;
+  title: string;
+  company: string;
+  date: string;
+  dateShort?: string;
+  description: string;
+  worked: string[];
+  learned: string[];
+  startYear: number;
+  startMonth: number;
+  endYear: number;
+  endMonth: number;
+}
+
+export const experiences: Experience[] = [
   {
-    id: "1",
-    title: "CodeFest 2025",
+    logo: "TJ",
+    title: "Software Development Apprentice",
+    company: "Teach2Give, The Jitu",
+    date: "May 2025 — August 2025",
+    dateShort: "May — Aug 2025",
+    startYear: 2025,
+    startMonth: 5,
+    endYear: 2025,
+    endMonth: 8,
     description:
-      "Won first place in the hackathon for building an innovative developer productivity tool.",
-    image: "/images/codefest.jpg",
-    role: "Winner",
-    date: "March 2025",
-    location: "Nairobi, Kenya",
+      "Worked on fullstack applications focusing on performance, scalability, and rapid prototyping in collaborative teams.",
+    worked: [
+      "Developed web apps using React and Node.js with dynamic content generation",
+      "Improved data persistence using PostgreSQL, Prisma ORM, and Neon cloud database",
+      "Co-engineered backend APIs with Express.js and Bun runtime",
+      "Built and maintained blogging and note-taking applications in large teams",
+      "Mentored peers on UX design, data structures, and code optimization",
+    ],
+    learned: [
+      "Fullstack architecture and API design",
+      "Cloud deployment using Vercel",
+      "Database optimization and ORM usage",
+      "Team collaboration and agile workflows",
+      "Performance tuning and maintainability practices",
+    ],
   },
   {
-    id: "2",
-    title: "DevCon Africa 2025",
+    logo: "AI",
+    title: "Team Leader — PastLens (JKUAT AI Hackathon)",
+    company: "Murang’a University",
+    date: "July 2025 — November 2025",
+    dateShort: "Jul — Nov 2025",
+    startYear: 2025,
+    startMonth: 7,
+    endYear: 2025,
+    endMonth: 11,
     description:
-      "Panel discussion on the future of web development and emerging technologies.",
-    image: "/images/devcon.jpg",
-    role: "Panelist",
-    date: "April 2025",
-    location: "Cape Town, South Africa",
+      "Led development of an AI-powered cultural preservation system for language translation and artifact analysis.",
+    worked: [
+      "Led a team of 5 in building AI-based image scanning and clustering system",
+      "Designed task allocation across engineering, documentation, and product roles",
+      "Trained AI models using labeled datasets for language and image processing",
+      "Developed prototype within 21 days under hackathon constraints",
+    ],
+    learned: [
+      "Leadership and team coordination",
+      "AI model training and dataset preparation",
+      "Rapid prototyping under time constraints",
+      "Cross-functional collaboration",
+    ],
   },
   {
-    id: "3",
-    title: "JS Bootcamp 2026",
-    description: "Led a 3-day intensive JavaScript workshop for beginners.",
-    image: "/images/js-bootcamp.jpg",
-    role: "Workshop Host",
-    date: "January 2026",
-    location: "Online",
-  },
-  {
-    id: "4",
-    title: "Python Summit 2026",
+    logo: "GD",
+    title: "Volunteer Developer",
+    company: "Google Developer Students Club",
+    date: "January 2023 — September 2024",
+    dateShort: "Jan 2023 — Sep 2024",
+    startYear: 2023,
+    startMonth: 1,
+    endYear: 2024,
+    endMonth: 9,
     description:
-      "Guest speaker on Python in modern web development and AI integration.",
-    image: "/images/python-summit.jpg",
-    role: "Guest Speaker",
-    date: "February 2026",
-    location: "San Francisco, USA",
+      "Actively contributed to developer community through mentorship and technical workshops.",
+    worked: [
+      "Conducted coding workshops in Python and JavaScript",
+      "Led hands-on development sessions for practical learning",
+      "Taught data structures and object-oriented programming principles",
+      "Improved code quality practices among peers",
+    ],
+    learned: [
+      "Public speaking and technical training",
+      "Mentorship and peer learning strategies",
+      "Deep understanding of core programming concepts",
+      "Community building and developer engagement",
+    ],
   },
 ];
