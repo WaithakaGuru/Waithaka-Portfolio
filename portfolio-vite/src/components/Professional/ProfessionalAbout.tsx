@@ -41,6 +41,7 @@ export function ProfessionalAbout() {
 
   return (
     <section
+      id="about"
       className="py-20 px-6 sm:px-8 lg:px-12 border-b border-gray-200"
       style={{ backgroundColor: "#f5f5f5" }}
     >

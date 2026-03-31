@@ -10,7 +10,7 @@ export function ProfessionalHero() {
       style={{ backgroundColor: "#ffffff" }}
     >
       <div className="max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 items-center">
           {/* Left Column - Text Content */}
           <div ref={scrollRef()}>
             {/* Eyebrow with pulse dot */}
@@ -120,10 +120,9 @@ export function ProfessionalHero() {
                   className="w-full h-full object-cover"
                 />
               </div>
-
               {/* Decorative background accent */}
-              <div className="absolute -bottom-4 -right-4 w-24 h-24 bg-orange-500 opacity-10 rounded-lg -z-10"></div>
-            </div>
+              <div className="absolute -bottom-4 -right-4 w-24 h-24 bg-orange-500 opacity-10 rounded-lg -z-10"></div>{" "}
+            </div>{" "}
           </div>
         </div>
       </div>

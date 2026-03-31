@@ -66,24 +66,22 @@ export function ProfessionalContact() {
         </div>
 
         {/* Contact Grid */}
-        <div
-          ref={scrollRef()}
-          className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16"
-        >
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16">
           {/* Left Side - Contact Links */}
-          <div>
-            <h3 className="font-['Playfair_Display'] text-2xl sm:text-3xl font-bold text-gray-900 mb-8">
+          <div ref={scrollRef(0)}>
+            <h3 className="font-['Playfair_Display'] text-2xl sm:text-3xl font-bold text-gray-900 mb-8 animate-fade-in-left">
               Let's connect and create something awesome.
             </h3>
 
             <div className="space-y-4">
-              {contactLinks.map((link) => (
+              {contactLinks.map((link, i) => (
                 <a
                   key={link.label}
+                  ref={scrollRef(i)}
                   href={link.href}
-                  className="flex items-center gap-3 py-3 border-b border-gray-200 hover:border-orange-500 hover:text-orange-500 transition-colors group"
+                  className="flex items-center gap-3 py-3 border-b border-gray-200 hover:border-orange-500 hover:text-orange-500 transition-all duration-300 group hover-lift"
                 >
-                  <span className="text-lg text-gray-500 hover:text-orange-500">
+                  <span className="text-lg text-gray-500 group-hover:text-orange-500 animate-bounce-in">
                     {link.icon}
                   </span>
                   <div className="flex-1">
@@ -103,7 +101,7 @@ export function ProfessionalContact() {
           <form
             ref={formRef}
             onSubmit={handleSubmit}
-            className="bg-white p-8 rounded-xl border border-gray-200"
+            className="bg-white p-8 rounded-xl border border-gray-200 animate-fade-in-right hover:border-orange-500 transition-all duration-300"
           >
             <h3 className="text-base font-bold mb-6 text-gray-900">
               Send me a message
@@ -119,7 +117,7 @@ export function ProfessionalContact() {
                   type="text"
                   placeholder="Your name"
                   required
-                  className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:border-orange-500 text-sm"
+                  className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:border-orange-500 text-sm text-gray-500"
                 />
               </div>
               <div>
@@ -130,7 +128,7 @@ export function ProfessionalContact() {
                   type="email"
                   placeholder="you@example.com"
                   required
-                  className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:border-orange-500 text-sm"
+                  className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:border-orange-500 text-sm text-gray-500"
                 />
               </div>
             </div>
@@ -144,7 +142,7 @@ export function ProfessionalContact() {
                 type="text"
                 placeholder="What's this about?"
                 required
-                className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:border-orange-500 text-sm"
+                className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:border-orange-500 text-sm text-gray-500"
               />
             </div>
 
@@ -157,7 +155,7 @@ export function ProfessionalContact() {
                 placeholder="Tell me more..."
                 required
                 rows={5}
-                className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:border-orange-500 text-sm resize-none"
+                className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:border-orange-500 text-sm resize-none text-gray-500"
               />
             </div>
 

@@ -6,6 +6,7 @@ export function ProfessionalProjects() {
 
   return (
     <section
+      id="projects"
       className="py-20 px-6 sm:px-8 lg:px-12 border-b border-gray-200"
       style={{ backgroundColor: "#ffffff" }}
     >

@@ -25,7 +25,7 @@ export function ProfessionalTestimonials() {
 
         {/* Testimonials */}
         <div ref={scrollRef()} className="space-y-6">
-          {userReports.map((testimonial, i) => (
+          {userReports.map((testimonial) => (
             <div
               key={testimonial.id}
               className="p-8 bg-white border border-gray-200 rounded-xl hover:border-orange-500 hover:shadow-lg transition-all"

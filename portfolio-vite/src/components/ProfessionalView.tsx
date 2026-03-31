@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { Navbar } from "./Navbar";
 import { Footer } from "./Footer";
+import { ScrollToTop } from "./ScrollToTop";
 import {
   ProfessionalHero,
   ProfessionalAbout,
@@ -38,6 +39,7 @@ export function ProfessionalView({ onSwitchView }: ProfessionalViewProps) {
         }}
       />
       <Navbar onSwitchView={onSwitchView} />
+      <ScrollToTop />
       <main className="relative z-1">
         <ProfessionalHero />
         <ProfessionalAbout />

@@ -27,15 +27,16 @@ export function ProfessionalEducation() {
         </div>
 
         {/* Education Timeline */}
-        <div ref={scrollRef()} className="space-y-6">
+        <div className="space-y-6">
           {education.map((edu, i) => (
             <div
               key={i}
-              className="p-8 rounded-xl border border-gray-200 bg-white hover:border-orange-500 hover:shadow-lg transition-all"
+              ref={scrollRef(i)}
+              className="p-8 rounded-xl border border-gray-200 bg-white hover:border-orange-500 transition-all hover-lift"
             >
               {/* Header with logo and dates */}
               <div className="flex items-start gap-4 mb-4">
-                <div className="text-4xl">{edu.logo}</div>
+                <div className="text-4xl animate-bounce-in">{edu.logo}</div>
                 <div className="flex-1">
                   <h3 className="font-['Playfair_Display'] text-2xl sm:text-3xl font-bold text-gray-900 mb-1">
                     {edu.title}

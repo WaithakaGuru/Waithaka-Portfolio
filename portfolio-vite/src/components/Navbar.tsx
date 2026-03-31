@@ -6,6 +6,7 @@ const NAV_LINKS = [
   { label: "/SKILLS", id: "stack" },
   { label: "/LOGS", id: "logs" },
   { label: "/WORK", id: "projects" },
+  { label: "/CONTACT", id: "contact" },
 ];
 
 interface NavbarProps {

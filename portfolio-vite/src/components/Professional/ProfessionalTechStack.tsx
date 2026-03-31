@@ -6,6 +6,7 @@ export function ProfessionalTechStack() {
 
   return (
     <section
+      id="stack"
       className="py-16 px-6 sm:px-8 lg:px-12 border-b border-gray-200 overflow-hidden"
       style={{ backgroundColor: "#ffffff" }}
     >

@@ -101,8 +101,8 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
 
   const [systemTheme, setSystemTheme] = useState<Theme>(getSystemTheme);
 
-  // Resolved theme: user's explicit choice wins; otherwise follow system
-  const theme: Theme = userPicked ?? systemTheme;
+  // Resolved theme: user's explicit choice wins; otherwise default to dark
+  const theme: Theme = userPicked ?? "dark";
 
   // Listen for OS-level theme changes — only matters when user hasn't picked
   useEffect(() => {
