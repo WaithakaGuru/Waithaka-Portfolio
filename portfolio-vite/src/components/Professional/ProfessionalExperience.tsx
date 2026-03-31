@@ -29,10 +29,8 @@ export function ProfessionalExperience() {
           {experiences.map((exp, i) => (
             <div
               key={i}
-              className={`p-8 rounded-xl border transition-all ${
-                i === 0
-                  ? "border-orange-500 bg-white shadow-md"
-                  : "border-gray-200 bg-white hover:border-orange-500 hover:shadow-lg"
+              className={`p-8 rounded-xl border transition-all
+                border-gray-200 bg-white hover:border-orange-500 hover:shadow-lg"
               }`}
             >
               <div className="flex gap-6 mb-4">

@@ -81,9 +81,11 @@ export function ProfessionalContact() {
                 <a
                   key={link.label}
                   href={link.href}
-                  className="flex items-center gap-3 py-3 border-b border-gray-200 hover:text-orange-500 transition-colors group"
+                  className="flex items-center gap-3 py-3 border-b border-gray-200 hover:border-orange-500 hover:text-orange-500 transition-colors group"
                 >
-                  <span className="text-lg">{link.icon}</span>
+                  <span className="text-lg text-gray-500 hover:text-orange-500">
+                    {link.icon}
+                  </span>
                   <div className="flex-1">
                     <div className="text-xs font-bold text-gray-500 uppercase tracking-wide group-hover:text-orange-500">
                       {link.label}
