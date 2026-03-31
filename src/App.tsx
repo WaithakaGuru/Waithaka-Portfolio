@@ -54,7 +54,7 @@ function ScrollProgress() {
       style={{ height: "0.4rem", zIndex: 1000000 }}
     >
       <div
-        className="h-full transition-all duration-150 ease-out"
+        className="h-full  transition-all duration-150 ease-out"
         style={{
           width: `${progress}%`,
           background: "var(--accent)",
