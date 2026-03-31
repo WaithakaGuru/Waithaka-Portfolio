@@ -48,7 +48,8 @@ export function ProfessionalContact() {
   return (
     <section
       id="contact"
-      className="py-20 px-6 sm:px-8 lg:px-12 bg-gray-50 border-b border-gray-200"
+      className="py-20 px-6 sm:px-8 lg:px-12 border-b border-gray-200"
+      style={{ backgroundColor: "#ffffff" }}
     >
       <div className="max-w-6xl mx-auto">
         {/* Section Header */}

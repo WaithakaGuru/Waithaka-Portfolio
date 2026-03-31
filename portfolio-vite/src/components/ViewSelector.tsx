@@ -5,183 +5,141 @@ interface ViewSelectorProps {
 }
 
 export function ViewSelector({ onSelectView }: ViewSelectorProps) {
-  const [hoveredView, setHoveredView] = useState<
-    "professional" | "artist" | null
-  >(null);
+  const [hovered, setHovered] = useState<"professional" | "artist" | null>(
+    null,
+  );
 
   return (
-    <div className="fixed inset-0 flex items-center justify-center bg-gradient-to-br from-slate-50 to-slate-100 z-50">
-      <div className="relative z-10 w-full h-full flex flex-col items-center justify-center px-6 py-12">
-        {/* Header */}
-        <div className="mb-24 text-center max-w-2xl">
-          <h1
-            className="text-5xl md:text-6xl font-serif font-bold mb-6 text-slate-900"
-            style={{ fontFamily: "'Georgia', serif", letterSpacing: "-0.02em" }}
-          >
-            Choose Your Portfolio
-          </h1>
-          <p className="text-lg text-slate-600 leading-relaxed">
-            Select the experience that best represents your professional
-            identity
-          </p>
-        </div>
+    <div
+      className="fixed inset-0 flex flex-col items-center justify-center bg-white px-6 py-12"
+      style={{ fontFamily: "'DM Sans', sans-serif" }}
+    >
+      <p className="text-xs tracking-widest uppercase text-slate-400 font-medium mb-3">
+        Portfolio
+      </p>
+      <h1
+        className="text-4xl text-slate-900 text-center mb-2"
+        style={{ fontFamily: "'DM Serif Display', serif", fontWeight: 400 }}
+      >
+        How do you want to view me?
+      </h1>
+      <p className="text-sm text-slate-400 font-light text-center mb-10">
+        Pick a presentation that fits your identity
+      </p>
 
-        {/* View Options Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 max-w-5xl w-full mx-auto">
-          {/* Professional View - Clean & Minimal */}
-          <div
-            className="group cursor-pointer"
-            onMouseEnter={() => setHoveredView("professional")}
-            onMouseLeave={() => setHoveredView(null)}
-            onClick={() => onSelectView("professional")}
-          >
-            <div
-              className={`relative h-full bg-white rounded-lg p-12 transition-all duration-500 border-2 ${
-                hoveredView === "professional"
-                  ? "border-slate-900 shadow-xl scale-105"
-                  : "border-slate-200 shadow-lg hover:shadow-2xl"
-              }`}
-            >
-              {/* Top accent line */}
-              <div
-                className={`absolute top-0 left-0 right-0 h-1 ${
-                  hoveredView === "professional"
-                    ? "bg-slate-900"
-                    : "bg-slate-300"
-                } transition-colors duration-300`}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-3.5 w-full max-w-xl">
+        {/* Professional */}
+        <div
+          className={`relative bg-white rounded-2xl p-8 cursor-pointer border transition-all duration-300 ${
+            hovered === "professional"
+              ? "border-slate-900 -translate-y-1"
+              : "border-slate-400"
+          }`}
+          onMouseEnter={() => setHovered("professional")}
+          onMouseLeave={() => setHovered(null)}
+          onClick={() => onSelectView("professional")}
+        >
+          <span className="absolute top-5 right-5 text-[10px] tracking-widest uppercase font-medium text-slate-600 bg-slate-100 px-2.5 py-1 rounded-full">
+            Clean
+          </span>
+          <div className="w-10 h-10 rounded-xl border border-slate-200 flex items-center justify-center mb-5">
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+              <rect x="2" y="3" width="14" height="2" rx="1" fill="#1e293b" />
+              <rect
+                x="2"
+                y="7.5"
+                width="9"
+                height="1.5"
+                rx=".75"
+                fill="#94a3b8"
               />
-
-              {/* Icon */}
-              <div className="mb-8">
-                <div className="text-5xl">💼</div>
-              </div>
-
-              {/* Content */}
-              <h2
-                className="text-3xl font-serif font-bold mb-4 text-slate-900"
-                style={{ fontFamily: "'Georgia', serif" }}
-              >
-                Professional
-              </h2>
-              <p className="text-slate-600 text-base leading-relaxed mb-6">
-                A clean, elegant, and polished presentation. Perfect for
-                recruiters, clients, and formal professional settings.
-              </p>
-
-              {/* Features */}
-              <ul className="space-y-3 mb-8">
-                <li className="flex items-start gap-3 text-slate-700">
-                  <span className="text-slate-400 mt-1">→</span>
-                  <span>Refined typography and spacing</span>
-                </li>
-                <li className="flex items-start gap-3 text-slate-700">
-                  <span className="text-slate-400 mt-1">→</span>
-                  <span>Focus on credentials and experience</span>
-                </li>
-                <li className="flex items-start gap-3 text-slate-700">
-                  <span className="text-slate-400 mt-1">→</span>
-                  <span>Minimal, distraction-free design</span>
-                </li>
-              </ul>
-
-              {/* CTA */}
-              <div
-                className={`pt-6 border-t transition-all duration-300 ${
-                  hoveredView === "professional"
-                    ? "border-slate-900"
-                    : "border-slate-200"
-                }`}
-              >
-                <p className="text-sm font-medium text-slate-900 tracking-wide">
-                  EXPLORE PROFESSIONAL →
-                </p>
-              </div>
-            </div>
+              <rect
+                x="2"
+                y="11"
+                width="11"
+                height="1.5"
+                rx=".75"
+                fill="#94a3b8"
+              />
+              <rect
+                x="2"
+                y="14"
+                width="7"
+                height="1.5"
+                rx=".75"
+                fill="#94a3b8"
+              />
+            </svg>
           </div>
-
-          {/* Artist View - Bold & Expressive */}
-          <div
-            className="group cursor-pointer"
-            onMouseEnter={() => setHoveredView("artist")}
-            onMouseLeave={() => setHoveredView(null)}
-            onClick={() => onSelectView("artist")}
+          <h2
+            className="text-xl text-slate-900 mb-2"
+            style={{ fontFamily: "'DM Serif Display', serif", fontWeight: 400 }}
           >
-            <div
-              className={`relative h-full bg-gradient-to-br from-slate-900 to-slate-800 rounded-lg p-12 transition-all duration-500 border-2 ${
-                hoveredView === "artist"
-                  ? "border-orange-400 shadow-2xl scale-105"
-                  : "border-slate-700 shadow-lg hover:shadow-2xl"
+            Professional
+          </h2>
+          <p className="text-xs font-light text-slate-600 leading-relaxed mb-5">
+            Refined and distraction-free. Built for recruiters, clients, and
+            formal settings where clarity counts.
+          </p>
+          <div className="border-t border-slate-100 pt-4">
+            <span
+              className={`text-xs font-medium tracking-widest uppercase flex items-center gap-1.5 transition-all duration-200 ${
+                hovered === "professional"
+                  ? "text-slate-900 gap-2.5"
+                  : "text-slate-500"
               }`}
             >
-              {/* Animated accent line */}
-              <div
-                className={`absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-orange-400 via-orange-500 to-red-500 transition-all duration-300 ${
-                  hoveredView === "artist" ? "opacity-100" : "opacity-60"
-                }`}
-              />
-
-              {/* Icon */}
-              <div className="mb-8">
-                <div className="text-5xl">🎨</div>
-              </div>
-
-              {/* Content */}
-              <h2
-                className="text-3xl font-serif font-bold mb-4 text-white"
-                style={{ fontFamily: "'Georgia', serif" }}
-              >
-                Artist
-              </h2>
-              <p className="text-slate-300 text-base leading-relaxed mb-6">
-                Bold and expressive neo-brutalism. Raw, authentic, and
-                unapologetically creative—a celebration of the craft.
-              </p>
-
-              {/* Features */}
-              <ul className="space-y-3 mb-8">
-                <li className="flex items-start gap-3 text-slate-200">
-                  <span className="text-orange-400 mt-1">→</span>
-                  <span>Experimental and innovative design</span>
-                </li>
-                <li className="flex items-start gap-3 text-slate-200">
-                  <span className="text-orange-400 mt-1">→</span>
-                  <span>Focus on creativity and impact</span>
-                </li>
-                <li className="flex items-start gap-3 text-slate-200">
-                  <span className="text-orange-400 mt-1">→</span>
-                  <span>Interactive and immersive experience</span>
-                </li>
-              </ul>
-
-              {/* CTA */}
-              <div
-                className={`pt-6 border-t transition-all duration-300 ${
-                  hoveredView === "artist"
-                    ? "border-orange-400"
-                    : "border-slate-700"
-                }`}
-              >
-                <p
-                  className={`text-sm font-medium tracking-wide ${
-                    hoveredView === "artist"
-                      ? "text-orange-400"
-                      : "text-orange-300"
-                  }`}
-                >
-                  EXPLORE ARTIST →
-                </p>
-              </div>
-            </div>
+              Explore →
+            </span>
           </div>
         </div>
 
-        {/* Footer */}
-        <div className="mt-20 text-center">
-          <p className="text-slate-500 text-sm">
-            You can switch views anytime from your portfolio
+        {/* Artist */}
+        <div
+          className={`relative bg-slate-900 rounded-2xl p-8 cursor-pointer border-2 transition-all duration-300 ${
+            hovered === "artist"
+              ? "border-white/20 -translate-y-1"
+              : "border-transparent"
+          }`}
+          onMouseEnter={() => setHovered("artist")}
+          onMouseLeave={() => setHovered(null)}
+          onClick={() => onSelectView("artist")}
+        >
+          <span className="absolute top-5 right-5 text-[10px] tracking-widest uppercase font-medium text-white/40 bg-white/10 px-2.5 py-1 rounded-full">
+            Bold
+          </span>
+          <div className="w-10 h-10 rounded-xl border border-white/15 bg-white/8 flex items-center justify-center mb-5">
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+              <circle cx="6" cy="6" r="3" fill="rgba(255,255,255,0.7)" />
+              <circle cx="12" cy="10" r="2" fill="rgba(255,255,255,0.4)" />
+              <circle cx="7" cy="13" r="1.5" fill="rgba(255,255,255,0.55)" />
+            </svg>
+          </div>
+          <h2
+            className="text-xl text-white mb-2"
+            style={{ fontFamily: "'DM Serif Display', serif", fontWeight: 400 }}
+          >
+            Artist
+          </h2>
+          <p className="text-xs font-light text-white/45 leading-relaxed mb-5">
+            Bold and expressive. Raw creative energy — an immersive space that
+            celebrates the work itself.
           </p>
+          <div className="border-t border-white/10 pt-4">
+            <span
+              className={`text-xs font-medium tracking-widest uppercase flex items-center gap-1.5 transition-all duration-200 ${
+                hovered === "artist" ? "text-white/85 gap-2.5" : "text-white/40"
+              }`}
+            >
+              Explore →
+            </span>
+          </div>
         </div>
       </div>
+
+      <p className="mt-7 text-xs text-slate-400 font-light">
+        Switch views anytime · No commitment
+      </p>
     </div>
   );
 }

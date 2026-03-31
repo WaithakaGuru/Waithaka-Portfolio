@@ -11,10 +11,13 @@ export function ProfessionalCTA() {
   ];
 
   return (
-    <section className="py-24 px-6 sm:px-8 lg:px-12">
+    <section
+      className="py-24 px-6 sm:px-8 lg:px-12 border-b border-gray-200"
+      style={{ backgroundColor: "#f5f5f5" }}
+    >
       <div
         ref={scrollRef()}
-        className="max-w-6xl mx-auto bg-gray-900 text-white rounded-2xl px-8 sm:px-12 py-16 sm:py-20 text-center"
+        className="max-w-6xl mx-auto bg-gray-900 text-white rounded-2xl px-8 sm:px-12 py-16 sm:py-20 text-left"
       >
         {/* Eyebrow */}
         <div className="inline-block text-xs font-semibold tracking-widest text-orange-400 uppercase mb-6">
@@ -22,13 +25,13 @@ export function ProfessionalCTA() {
         </div>
 
         {/* Headline */}
-        <h2 className="font-['Playfair_Display'] text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight mb-8">
+        <h2 className="font-['Playfair_Display'] text-2xl sm:text-5xl lg:text-6xl font-bold leading-tight mb-8 max-w-180">
           Let's build something <span className="text-orange-500">great</span>{" "}
           together.
         </h2>
 
         {/* Opportunity Pills */}
-        <div className="flex flex-wrap items-center justify-center gap-3 mb-10">
+        <div className="flex flex-wrap items-center justify-baseline gap-3 mb-10">
           {opportunities.map((opp) => (
             <div
               key={opp}

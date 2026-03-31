@@ -1,37 +1,14 @@
 import { useScrollReveal } from "../../hooks/useScrollReveal";
+import { experiences } from "../../data";
 
 export function ProfessionalExperience() {
   const scrollRef = useScrollReveal();
 
-  const experiences = [
-    {
-      logo: "A",
-      title: "Senior Full Stack Engineer",
-      company: "Anthropic",
-      period: "Contract · Jan 2026 — Present",
-      desc: "Building innovative features for Claude and developing tools that help developers integrate AI into their applications effectively.",
-      tags: ["React", "TypeScript", "Python", "AI Integration"],
-    },
-    {
-      logo: "D",
-      title: "Full Stack Developer",
-      company: "Diverse Tech Solutions",
-      period: "Full-Time · Jun 2023 — Dec 2025",
-      desc: "Led development of web applications and APIs serving thousands of users. Mentored junior developers and established best practices for code quality and performance.",
-      tags: ["Node.js", "React", "PostgreSQL", "AWS"],
-    },
-    {
-      logo: "S",
-      title: "Frontend Developer",
-      company: "StartupXYZ",
-      period: "Full-Time · Mar 2021 — May 2023",
-      desc: "Built responsive web interfaces and optimized performance. Collaborated with designers and backend teams to deliver seamless user experiences.",
-      tags: ["Vue.js", "CSS", "JavaScript", "Git"],
-    },
-  ];
-
   return (
-    <section className="py-20 px-6 sm:px-8 lg:px-12 bg-white border-b border-gray-200">
+    <section
+      className="py-20 px-6 sm:px-8 lg:px-12 border-b border-gray-200"
+      style={{ backgroundColor: "#ffffff" }}
+    >
       <div className="max-w-6xl mx-auto">
         {/* Section Header */}
         <div className="mb-16">
@@ -69,18 +46,18 @@ export function ProfessionalExperience() {
                   <div className="text-sm text-gray-600 font-semibold mb-1">
                     {exp.company}
                   </div>
-                  <div className="text-xs text-gray-500">{exp.period}</div>
+                  <div className="text-xs text-gray-500">{exp.date}</div>
                 </div>
               </div>
 
               <p className="text-sm text-gray-600 leading-relaxed mb-4">
-                {exp.desc}
+                {exp.description}
               </p>
 
               <div className="flex flex-wrap gap-2">
-                {exp.tags.map((tag) => (
+                {exp.learned.slice(0, 3).map((tag, idx) => (
                   <span
-                    key={tag}
+                    key={idx}
                     className="px-3 py-1 bg-gray-100 border border-gray-200 rounded-full text-xs text-gray-600 font-semibold"
                   >
                     {tag}

@@ -68,37 +68,17 @@ export default function App() {
   const { isDark: _isDark } = useTheme();
   const [selectedView, setSelectedView] = useState<
     "professional" | "artist" | null
-  >(null);
-  const [showApp, setShowApp] = useState(false);
-
-  // Check localStorage on mount
-  useEffect(() => {
-    const saved = localStorage.getItem("portfolioView") as
+  >(() => {
+    return localStorage.getItem("portfolioView") as
       | "professional"
       | "artist"
       | null;
-    if (saved) {
-      setSelectedView(saved);
-      if (saved === "artist") {
-        setShowApp(true);
-      } else if (saved === "professional") {
-        // Redirect to professional HTML
-        window.location.href = "/waithaka-portfolio.html";
-      }
-    }
-  }, []);
+  });
 
   // Handle view selection
   const handleSelectView = (view: "professional" | "artist") => {
     localStorage.setItem("portfolioView", view);
     setSelectedView(view);
-
-    if (view === "professional") {
-      // Redirect to professional HTML file
-      window.location.href = "/waithaka-portfolio.html";
-    } else if (view === "artist") {
-      setShowApp(true);
-    }
   };
 
   // Show view selector if no view selected
@@ -106,16 +86,15 @@ export default function App() {
     return <ViewSelector onSelectView={handleSelectView} />;
   }
 
-  // Show loading state while transitioning to professional view
-  if (selectedView === "professional" && !showApp) {
+  // Show professional portfolio
+  if (selectedView === "professional") {
     return (
-      <div className="fixed inset-0 flex items-center justify-center bg-white">
-        <div className="text-center">
-          <p className="font-mono-brand text-text">
-            Redirecting to Professional View...
-          </p>
-        </div>
-      </div>
+      <ProfessionalView
+        onSwitchView={() => {
+          localStorage.removeItem("portfolioView");
+          setSelectedView(null);
+        }}
+      />
     );
   }
 
@@ -134,7 +113,6 @@ export default function App() {
         onSwitchView={() => {
           localStorage.removeItem("portfolioView");
           setSelectedView(null);
-          setShowApp(false);
         }}
       />
 

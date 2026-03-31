@@ -40,7 +40,10 @@ export function ProfessionalAbout() {
   ];
 
   return (
-    <section className="py-20 px-6 sm:px-8 lg:px-12 bg-gray-50 border-b border-gray-200">
+    <section
+      className="py-20 px-6 sm:px-8 lg:px-12 border-b border-gray-200"
+      style={{ backgroundColor: "#f5f5f5" }}
+    >
       <div className="max-w-6xl mx-auto">
         {/* Section Header */}
         <div className="mb-16">
