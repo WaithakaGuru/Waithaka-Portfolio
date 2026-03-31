@@ -84,11 +84,11 @@ function applyTokens(theme: Theme) {
 }
 
 // Read system preference
-function getSystemTheme(): Theme {
-  return window.matchMedia("(prefers-color-scheme: dark)").matches
-    ? "dark"
-    : "light";
-}
+// function getSystemTheme(): Theme {
+//   return window.matchMedia("(prefers-color-scheme: dark)").matches
+//     ? "dark"
+//     : "light";
+// }
 
 // ── Provider ───────────────────────────────────────────────────────────────
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
@@ -99,19 +99,19 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
     return saved === "dark" || saved === "light" ? saved : null;
   });
 
-  const [systemTheme, setSystemTheme] = useState<Theme>(getSystemTheme);
+  // const [systemTheme, setSystemTheme] = useState<Theme>(getSystemTheme);
 
   // Resolved theme: user's explicit choice wins; otherwise default to dark
   const theme: Theme = userPicked ?? "dark";
 
   // Listen for OS-level theme changes — only matters when user hasn't picked
-  useEffect(() => {
-    const mq = window.matchMedia("(prefers-color-scheme: dark)");
-    const handler = (e: MediaQueryListEvent) =>
-      setSystemTheme(e.matches ? "dark" : "light");
-    mq.addEventListener("change", handler);
-    return () => mq.removeEventListener("change", handler);
-  }, []);
+  // useEffect(() => {
+  //   const mq = window.matchMedia("(prefers-color-scheme: dark)");
+  //   const handler = (e: MediaQueryListEvent) =>
+  //     setSystemTheme(e.matches ? "dark" : "light");
+  //   mq.addEventListener("change", handler);
+  //   return () => mq.removeEventListener("change", handler);
+  // }, []);
 
   // Apply tokens whenever resolved theme changes — NO React state for tokens,
   // just direct DOM mutation so card inline styles are never touched
