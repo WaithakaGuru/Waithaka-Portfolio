@@ -13,9 +13,32 @@ export function ProfessionalHero() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           {/* Left Column - Text Content */}
           <div ref={scrollRef()}>
-            {/* Eyebrow */}
-            <div className="inline-block text-xs font-semibold tracking-widest text-orange-500 uppercase mb-6">
-              OPEN TO OPPORTUNITIES
+            {/* Eyebrow with pulse dot */}
+            <div className="mb-6">
+              <div className="flex items-center gap-2">
+                <style>{`
+                  @keyframes pulse {
+                    0%, 100% {
+                      opacity: 1;
+                    }
+                    50% {
+                      opacity: 0.4;
+                    }
+                  }
+                  .pulse-dot {
+                    animation: pulse 2s ease-in-out infinite;
+                  }
+                `}</style>
+                <span className="inline-block w-2 h-2 bg-orange-500 rounded-full pulse-dot"></span>
+                <span className="text-xs font-semibold tracking-widest text-orange-500 uppercase">
+                  OPEN TO OPPORTUNITIES
+                </span>
+              </div>
+              <div className="mt-6 flex items-center gap-2 text-gray-600">
+                <span className="text-sm tracking-wide">
+                  ----- Software developer Nairobi, Kenya
+                </span>
+              </div>
             </div>
 
             {/* Hero Headline */}
