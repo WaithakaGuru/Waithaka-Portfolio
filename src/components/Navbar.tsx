@@ -3,9 +3,9 @@ import { useTheme } from "../contexts/ThemeContext";
 
 const NAV_LINKS = [
   { label: "/ABOUT", id: "about" },
-  { label: "/SKILLS", id: "stack" },
-  { label: "/LOGS", id: "logs" },
-  { label: "/WORK", id: "projects" },
+  { label: "/EXPERIENCE", id: "experience" },
+  { label: "/STACK", id: "stack" },
+  { label: "/PROJECTS", id: "projects" },
   { label: "/CONTACT", id: "contact" },
 ];
 
@@ -46,22 +46,20 @@ export function Navbar({ onSwitchView }: NavbarProps) {
     setMenuOpen(false);
   };
 
-  const shadowH =
-    "hover:shadow-[var(--shadow-h)] hover:-translate-x-0.5 hover:-translate-y-0.5";
-
   return (
     <>
       <nav
         style={{
-          background: "var(--nav-bg)",
+          background: "#ffffff",
           backdropFilter: "blur(12px) saturate(1.4)",
-          borderBottom: "2px solid var(--border)",
+          borderBottom: "1px solid #e0e0e0",
+          boxShadow: "0 1px 3px rgba(0, 0, 0, 0.05)",
         }}
         className={`fixed top-0 left-0 right-0 z-100 transition-transform duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] ${
           hidden ? "-translate-y-full" : "translate-y-0"
         }`}
       >
-        <div className="max-w-360 mx-auto px-8 h-15 flex items-center justify-between">
+        <div className="max-w-7xl mx-auto px-8 h-16 flex items-center justify-between">
           {/* Logo */}
           <a
             href="#hero"
@@ -70,19 +68,22 @@ export function Navbar({ onSwitchView }: NavbarProps) {
               scrollTo("hero");
             }}
             style={{
-              boxShadow: "var(--shadow)",
-              background: "var(--surface)",
-              color: "var(--text)",
-              border: "2px solid var(--border)",
+              boxShadow: "4px 4px 0 #0a0a0a",
+              background: "#ffffff",
+              color: "#0a0a0a",
+              border: "2px solid #0a0a0a",
+              fontFamily: "JetBrains Mono, monospace",
+              fontWeight: 800,
+              fontSize: "16px",
+              letterSpacing: "0.04em",
             }}
-            className={`font-['JetBrains_Mono'] font-extrabold text-[15px] tracking-[0.04em] 
-              px-3.5 py-1.5 no-underline transition-all duration-150 ${shadowH} whitespace-nowrap`}
+            className={`px-4 py-2 no-underline transition-all duration-150 hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[6px_6px_0_#0a0a0a] whitespace-nowrap`}
           >
-            WAITHAKA<span style={{ color: "var(--accent)" }}>.hack</span>
+            WAITHAKA<span style={{ color: "#f97316" }}>.dev</span>
           </a>
 
           {/* Desktop nav links */}
-          <ul className="hidden md:flex items-center gap-1.5 list-none">
+          <ul className="hidden md:flex items-center gap-0.5 list-none">
             {NAV_LINKS.map(({ label, id }) => (
               <li key={id}>
                 <a
@@ -92,10 +93,13 @@ export function Navbar({ onSwitchView }: NavbarProps) {
                     scrollTo(id);
                   }}
                   style={{
-                    color: "var(--text-sub)",
+                    color: "#555555",
+                    fontFamily: "JetBrains Mono, monospace",
+                    fontSize: "12px",
+                    fontWeight: 500,
+                    letterSpacing: "0.06em",
                   }}
-                  className="font-['JetBrains_Mono'] font-bold text-[12px] tracking-[0.07em] px-3.5 py-1.75
-                   no-underline transition-all duration-150  hover:bg-(--surface) hover:text-(--text) border-hover"
+                  className="px-3.5 py-2 no-underline transition-all duration-150 hover:color-[#0a0a0a] hover:background-[#f5f5f5]"
                 >
                   {label}
                 </a>
@@ -104,18 +108,21 @@ export function Navbar({ onSwitchView }: NavbarProps) {
           </ul>
 
           {/* Right controls */}
-          <div className="flex items-center gap-2.5">
+          <div className="flex items-center gap-3">
             {/* HIRE ME */}
             <a
               href="mailto:waithakaoffices@gmail.com"
               style={{
-                background: "var(--yellow)",
-                border: "2px solid var(--border)",
-                boxShadow: "var(--shadow)",
-                color: "#1A1A1A",
+                background: "#f97316",
+                border: "2px solid #f97316",
+                boxShadow: "4px 4px 0 #0a0a0a",
+                color: "#ffffff",
+                fontFamily: "JetBrains Mono, monospace",
+                fontSize: "12px",
+                fontWeight: 700,
+                letterSpacing: "0.04em",
               }}
-              className={`font-['JetBrains_Mono'] font-extrabold text-[12px] tracking-widest px-4.5 py-2
-                 no-underline transition-all duration-150 ${shadowH} whitespace-nowrap`}
+              className={`px-4 py-2 no-underline transition-all duration-150 hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[6px_6px_0_#0a0a0a] whitespace-nowrap`}
             >
               HIRE ME
             </a>
@@ -125,16 +132,20 @@ export function Navbar({ onSwitchView }: NavbarProps) {
               <button
                 onClick={onSwitchView}
                 style={{
-                  background: "var(--surface)",
-                  border: "2px solid var(--border)",
-                  boxShadow: "var(--shadow)",
-                  color: "var(--text)",
+                  background: "#ffffff",
+                  border: "2px solid #e0e0e0",
+                  boxShadow: "4px 4px 0 #0a0a0a",
+                  color: "#0a0a0a",
+                  fontFamily: "JetBrains Mono, monospace",
+                  fontSize: "11px",
+                  fontWeight: 600,
+                  letterSpacing: "0.06em",
                 }}
-                className={`hidden md:flex items-center gap-1.5 h-9.5 px-3.5 font-['JetBrains_Mono'] font-bold text-[11px] tracking-[0.08em] transition-all duration-150 ${shadowH} whitespace-nowrap cursor-pointer`}
+                className={`hidden md:flex items-center gap-1.5 px-3 py-2 transition-all duration-150 hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[6px_6px_0_#0a0a0a] whitespace-nowrap cursor-pointer`}
                 title="Switch to view selector"
               >
-                <span className="text-[15px]">🎨</span>
-                <span>SWITCH_VIEW</span>
+                <span className="text-lg">🎨</span>
+                <span>SWITCH</span>
               </button>
             )}
 
@@ -142,12 +153,15 @@ export function Navbar({ onSwitchView }: NavbarProps) {
             <button
               onClick={toggleTheme}
               style={{
-                background: "var(--surface)",
-                border: "2px solid var(--border)",
-                boxShadow: "var(--shadow)",
-                color: "var(--text)",
+                background: "#ffffff",
+                border: "2px solid #e0e0e0",
+                boxShadow: "4px 4px 0 #0a0a0a",
+                color: "#0a0a0a",
+                fontFamily: "JetBrains Mono, monospace",
+                fontSize: "11px",
+                fontWeight: 600,
               }}
-              className={`hidden md:flex items-center gap-1.5 h-9.5 px-3.5 font-['JetBrains_Mono'] font-bold text-[11px] tracking-[0.08em] transition-all duration-150 ${shadowH} whitespace-nowrap cursor-pointer`}
+              className={`hidden md:flex items-center gap-1.5 px-3 py-2 transition-all duration-150 hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[6px_6px_0_#0a0a0a] whitespace-nowrap cursor-pointer`}
               title="Toggle theme"
             >
               <span className="text-[15px]">{isDark ? "◐" : "☀"}</span>

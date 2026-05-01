@@ -11,86 +11,216 @@ export function ProfessionalContact() {
       'button[type="submit"]',
     ) as HTMLButtonElement;
     const original = btn.textContent;
-    btn.textContent = "Message sent! ✓";
+    btn.textContent = "Sent ✓";
+    btn.style.background = "#34d399";
     setTimeout(() => {
       btn.textContent = original;
+      btn.style.background = "";
       (e.target as HTMLFormElement).reset();
     }, 3000);
   };
 
   const contactLinks = [
     {
-      icon: "📧",
-      label: "Email",
+      icon: "@",
+      label: "EMAIL",
       value: "waithakaoffices@gmail.com",
       href: "mailto:waithakaoffices@gmail.com",
     },
     {
+      icon: "GH",
+      label: "GITHUB",
+      value: "@WaithakaGuru",
+      href: "https://github.com/WaithakaGuru",
+    },
+    {
       icon: "in",
-      label: "LinkedIn",
-      value: "@waithaka",
+      label: "LINKEDIN",
+      value: "linkedin.com/in/waithaka",
       href: "https://linkedin.com/in/waithaka",
     },
     {
       icon: "𝕏",
-      label: "Twitter",
-      value: "@waithaka",
-      href: "https://twitter.com/waithaka",
-    },
-    {
-      icon: "⌨",
-      label: "GitHub",
-      value: "@waithaka",
-      href: "https://github.com/waithaka",
+      label: "X / TWITTER",
+      value: "@waithakahack",
+      href: "https://twitter.com/waithakahack",
     },
   ];
 
   return (
     <section
       id="contact"
-      className="py-20 px-6 sm:px-8 lg:px-12 border-b border-gray-200"
-      style={{ backgroundColor: "#ffffff" }}
+      className="py-24 px-6 sm:px-8 lg:px-12"
+      style={{
+        backgroundColor: "#fafafa",
+        borderTop: "1px solid #e0e0e0",
+      }}
     >
+      <style>{`
+        .contact-link-item {
+          display: flex;
+          align-items: center;
+          gap: 14px;
+          font-size: 13px;
+          color: #555555;
+          padding: 14px 18px;
+          border: 1px solid #e0e0e0;
+          background: #efefef;
+          transition: all 0.15s;
+        }
+        .contact-link-item:hover {
+          border-color: #f97316;
+          color: #f97316;
+          transform: translate(-2px, -2px);
+          box-shadow: 3px 3px 0 #0a0a0a;
+        }
+        .contact-link-icon {
+          width: 36px;
+          height: 36px;
+          border: 1px solid #cccccc;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 14px;
+          flex-shrink: 0;
+          background: #fafafa;
+        }
+        .form-input,
+        .form-textarea {
+          background: #efefef;
+          border: 1px solid #e0e0e0;
+          color: #0a0a0a;
+          font-family: 'JetBrains Mono', monospace;
+          font-size: 12px;
+          padding: 12px 16px;
+          outline: none;
+          transition: border-color 0.15s;
+        }
+        .form-input:focus,
+        .form-textarea:focus {
+          border-color: #f97316;
+        }
+        .form-submit {
+          font-family: 'Syne', sans-serif;
+          font-weight: 700;
+          font-size: 13px;
+          letter-spacing: 0.08em;
+          text-transform: uppercase;
+          background: #f97316;
+          color: #ffffff;
+          border: 2px solid #f97316;
+          padding: 14px 32px;
+          box-shadow: 4px 4px 0 #0a0a0a;
+          display: inline-flex;
+          align-items: center;
+          gap: 10px;
+          transition: all 0.15s;
+          cursor: pointer;
+        }
+        .form-submit:hover {
+          transform: translate(-3px, -3px);
+          box-shadow: 7px 7px 0 #0a0a0a;
+        }
+      `}</style>
+
       <div className="max-w-6xl mx-auto">
-        {/* Section Header */}
-        <div className="mb-16">
-          <div className="text-xs font-bold tracking-widest text-gray-400 uppercase mb-4">
-            Get in Touch
-          </div>
-          <h2 className="font-['Playfair_Display'] text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 mb-4">
-            Contact
-          </h2>
-          <p className="text-base text-gray-600 leading-relaxed max-w-2xl">
-            Have a project in mind? Let's chat about how I can help.
-          </p>
+        {/* Section Label */}
+        <div
+          style={{
+            display: "inline-flex",
+            alignItems: "center",
+            gap: "10px",
+            fontSize: "11px",
+            fontWeight: 700,
+            letterSpacing: "0.18em",
+            color: "#f97316",
+            textTransform: "uppercase",
+            marginBottom: "20px",
+          }}
+        >
+          <span
+            style={{
+              display: "block",
+              width: "28px",
+              height: "2px",
+              backgroundColor: "#f97316",
+            }}
+          ></span>
+          Get in Touch
         </div>
 
-        {/* Contact Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16">
-          {/* Left Side - Contact Links */}
-          <div ref={scrollRef(0)}>
-            <h3 className="font-['Playfair_Display'] text-2xl sm:text-3xl font-bold text-gray-900 mb-8 animate-fade-in-left">
-              Let's connect and create something awesome.
-            </h3>
+        {/* Section Title */}
+        <h2
+          style={{
+            fontFamily: "'Syne', sans-serif",
+            fontSize: "clamp(36px, 4.5vw, 58px)",
+            fontWeight: 800,
+            lineHeight: 1.05,
+            letterSpacing: "-0.02em",
+            color: "#0a0a0a",
+            marginBottom: "60px",
+          }}
+        >
+          Contact
+        </h2>
 
-            <div className="space-y-4">
+        {/* Contact Grid */}
+        <div
+          ref={scrollRef()}
+          style={{
+            display: "grid",
+            gridTemplateColumns: "1fr 1fr",
+            gap: "80px",
+          }}
+        >
+          {/* Left Side - Contact Links */}
+          <div className="contact-left">
+            <p
+              style={{
+                fontSize: "14px",
+                color: "#555555",
+                maxWidth: "560px",
+                lineHeight: 1.8,
+                marginBottom: "32px",
+              }}
+            >
+              Have a project, role, or collaboration in mind? I'd love to hear
+              from you. Whether you're a startup, an agency, or a solo founder —
+              let's talk.
+            </p>
+
+            <div
+              style={{ display: "flex", flexDirection: "column", gap: "12px" }}
+            >
               {contactLinks.map((link, i) => (
                 <a
-                  key={link.label}
-                  ref={scrollRef(i)}
+                  key={i}
                   href={link.href}
-                  className="flex items-center gap-3 py-3 border-b border-gray-200 hover:border-orange-500 hover:text-orange-500 transition-all duration-300 group hover-lift"
+                  className="contact-link-item"
+                  target="_blank"
+                  rel="noopener noreferrer"
                 >
-                  <span className="text-lg text-gray-500 group-hover:text-orange-500 animate-bounce-in">
-                    {link.icon}
-                  </span>
-                  <div className="flex-1">
-                    <div className="text-xs font-bold text-gray-500 uppercase tracking-wide group-hover:text-orange-500">
+                  <div className="contact-link-icon">{link.icon}</div>
+                  <div>
+                    <span
+                      style={{
+                        fontSize: "10px",
+                        color: "#999999",
+                        letterSpacing: "0.08em",
+                        display: "block",
+                      }}
+                    >
                       {link.label}
-                    </div>
-                    <div className="text-sm font-semibold text-gray-900 group-hover:text-orange-500">
+                    </span>
+                    <span
+                      style={{
+                        fontSize: "12px",
+                        fontWeight: 600,
+                        color: "#0a0a0a",
+                      }}
+                    >
                       {link.value}
-                    </div>
+                    </span>
                   </div>
                 </a>
               ))}
@@ -101,69 +231,108 @@ export function ProfessionalContact() {
           <form
             ref={formRef}
             onSubmit={handleSubmit}
-            className="bg-white p-8 rounded-xl border border-gray-200 animate-fade-in-right hover:border-orange-500 transition-all duration-300"
+            className="contact-form"
+            style={{ display: "flex", flexDirection: "column", gap: "14px" }}
           >
-            <h3 className="text-base font-bold mb-6 text-gray-900">
-              Send me a message
-            </h3>
-
-            {/* Name & Email Row */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
-              <div>
-                <label className="text-xs font-bold text-gray-900 uppercase tracking-wide block mb-2">
-                  Name
+            <div
+              style={{
+                display: "grid",
+                gridTemplateColumns: "1fr 1fr",
+                gap: "14px",
+              }}
+            >
+              <div
+                style={{ display: "flex", flexDirection: "column", gap: "6px" }}
+              >
+                <label
+                  style={{
+                    fontSize: "10px",
+                    fontWeight: 700,
+                    letterSpacing: "0.1em",
+                    color: "#999999",
+                  }}
+                >
+                  NAME
                 </label>
                 <input
                   type="text"
                   placeholder="Your name"
                   required
-                  className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:border-orange-500 text-sm text-gray-500"
+                  className="form-input"
+                  style={{ borderRadius: "0" }}
                 />
               </div>
-              <div>
-                <label className="text-xs font-bold text-gray-900 uppercase tracking-wide block mb-2">
-                  Email
+              <div
+                style={{ display: "flex", flexDirection: "column", gap: "6px" }}
+              >
+                <label
+                  style={{
+                    fontSize: "10px",
+                    fontWeight: 700,
+                    letterSpacing: "0.1em",
+                    color: "#999999",
+                  }}
+                >
+                  EMAIL
                 </label>
                 <input
                   type="email"
-                  placeholder="you@example.com"
+                  placeholder="your@email.com"
                   required
-                  className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:border-orange-500 text-sm text-gray-500"
+                  className="form-input"
+                  style={{ borderRadius: "0" }}
                 />
               </div>
             </div>
 
-            {/* Subject */}
-            <div className="mb-4">
-              <label className="text-xs font-bold text-gray-900 uppercase tracking-wide block mb-2">
-                Subject
+            <div
+              style={{ display: "flex", flexDirection: "column", gap: "6px" }}
+            >
+              <label
+                style={{
+                  fontSize: "10px",
+                  fontWeight: 700,
+                  letterSpacing: "0.1em",
+                  color: "#999999",
+                }}
+              >
+                SUBJECT
               </label>
               <input
                 type="text"
-                placeholder="What's this about?"
+                placeholder="Project inquiry / Role / Collab"
                 required
-                className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:border-orange-500 text-sm text-gray-500"
+                className="form-input"
+                style={{ borderRadius: "0" }}
               />
             </div>
 
-            {/* Message */}
-            <div className="mb-6">
-              <label className="text-xs font-bold text-gray-900 uppercase tracking-wide block mb-2">
-                Message
+            <div
+              style={{ display: "flex", flexDirection: "column", gap: "6px" }}
+            >
+              <label
+                style={{
+                  fontSize: "10px",
+                  fontWeight: 700,
+                  letterSpacing: "0.1em",
+                  color: "#999999",
+                }}
+              >
+                MESSAGE
               </label>
               <textarea
-                placeholder="Tell me more..."
+                placeholder="Tell me what you're building..."
                 required
-                rows={5}
-                className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:border-orange-500 text-sm resize-none text-gray-500"
+                className="form-textarea"
+                style={{
+                  borderRadius: "0",
+                  minHeight: "120px",
+                  resize: "none",
+                }}
               />
             </div>
 
-            {/* Submit Button */}
-            <button
-              type="submit"
-              className="px-6 py-3 bg-orange-500 text-white rounded-full font-bold text-sm tracking-wide hover:bg-orange-600 transition-colors"
-            >
+            <button type="submit" className="form-submit">
               Send Message →
             </button>
           </form>

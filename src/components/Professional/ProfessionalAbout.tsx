@@ -5,102 +5,228 @@ export function ProfessionalAbout() {
 
   const pillars = [
     {
-      icon: "💻",
-      title: "Full Stack Developer",
-      desc: "Build production-ready applications from concept to deployment using modern technologies and best practices.",
-    },
-    {
-      icon: "🎨",
-      title: "Creative Engineer",
-      desc: "Combine design thinking with technical excellence to create meaningful user experiences.",
-    },
-    {
-      icon: "🚀",
-      title: "Builder Mindset",
-      desc: "Ship real code quickly. From idea to production, I deliver what matters most.",
+      icon: "🏗️",
+      title: "Systems Thinker",
+      desc: "I architect for scale first, then build. No spaghetti, no shortcuts.",
     },
     {
       icon: "🌍",
-      title: "Community First",
-      desc: "Mentor others, contribute to open source, and help developers grow their skills.",
+      title: "Africa-First",
+      desc: "Deep expertise in M-Pesa, Africa's Talking, and local fintech rails.",
+    },
+    {
+      icon: "⚡",
+      title: "Speed Obsessed",
+      desc: "87% API response time reduction on a live logistics platform. Speed is a feature.",
+    },
+    {
+      icon: "🤝",
+      title: "Community Builder",
+      desc: "Co-organiser of Nairobi JS meetup. 40+ devs mentored into their first jobs.",
     },
   ];
 
   const skills = [
-    "React",
-    "TypeScript",
-    "Node.js",
     "Python",
-    "AWS",
-    "PostgreSQL",
+    "Golang",
+    "TypeScript",
+    "React",
+    "HonoJS",
     "Next.js",
-    "Tailwind CSS",
-    "Git",
+    "Django",
+    "PostgreSQL",
+    "Redis",
     "Docker",
+    "M-Pesa API",
+    "AWS S3",
   ];
 
   return (
     <section
       id="about"
-      className="py-20 px-6 sm:px-8 lg:px-12 border-b border-gray-200"
-      style={{ backgroundColor: "#f5f5f5" }}
+      className="py-24 px-6 sm:px-8 lg:px-12"
+      style={{
+        backgroundColor: "#f5f5f5",
+        borderTop: "1px solid #e0e0e0",
+      }}
     >
+      <style>{`
+        .about-shadow {
+          box-shadow: 4px 4px 0 #0a0a0a;
+        }
+        .about-shadow:hover {
+          transform: translate(-2px, -2px);
+          border-color: #f97316;
+        }
+        .skill-pill {
+          border: 1px solid #cccccc;
+          background: #efefef;
+          color: #555555;
+          transition: all 0.15s;
+        }
+        .skill-pill:hover {
+          background: #f97316;
+          color: #0a0a0a;
+          border-color: #f97316;
+        }
+      `}</style>
+
       <div className="max-w-6xl mx-auto">
-        {/* Section Header */}
-        <div className="mb-16">
-          <div className="text-xs font-bold tracking-widest text-gray-400 uppercase mb-4">
-            Who I am
+        {/* Section Label */}
+        <div style={{ marginBottom: "20px" }}>
+          <div
+            style={{
+              display: "inline-flex",
+              alignItems: "center",
+              gap: "10px",
+              fontSize: "11px",
+              fontWeight: 700,
+              letterSpacing: "0.18em",
+              color: "#f97316",
+              textTransform: "uppercase",
+              marginBottom: "20px",
+            }}
+          >
+            <span
+              style={{
+                display: "block",
+                width: "28px",
+                height: "2px",
+                backgroundColor: "#f97316",
+              }}
+            ></span>
+            Who I Am
           </div>
-          <h2 className="font-['Playfair_Display'] text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 mb-4">
-            About Me
-          </h2>
-          <p className="text-base text-gray-600 leading-relaxed max-w-2xl">
-            Full-stack engineer passionate about creating beautiful, performant,
-            and accessible digital experiences
-          </p>
+        </div>
+
+        {/* Section Title */}
+        <h2
+          style={{
+            fontFamily: "'Syne', sans-serif",
+            fontSize: "clamp(36px, 4.5vw, 58px)",
+            fontWeight: 800,
+            lineHeight: 1.05,
+            letterSpacing: "-0.02em",
+            color: "#0a0a0a",
+            marginBottom: "16px",
+          }}
+        >
+          About <span style={{ color: "#f97316" }}>Me</span>
+        </h2>
+
+        {/* Section Description */}
+        <p
+          style={{
+            fontSize: "14px",
+            color: "#555555",
+            maxWidth: "560px",
+            lineHeight: 1.8,
+            marginBottom: "60px",
+          }}
+        >
+          I'm <strong>Waithaka Ndung'u</strong>, a Certified Full Stack Engineer
+          from Nairobi, Kenya. I specialize in building{" "}
+          <strong>performant, scalable web and mobile applications</strong> that
+          solve real business problems — from M-Pesa-integrated SaaS platforms
+          to
+          <strong> high-throughput Go microservices</strong> handling tens of
+          thousands of daily transactions.
+        </p>
+
+        <p
+          style={{
+            fontSize: "14px",
+            color: "#555555",
+            maxWidth: "560px",
+            lineHeight: 1.8,
+            marginBottom: "40px",
+          }}
+        >
+          I've collaborated with logistics companies, digital agencies, and
+          government bodies across East Africa, shipping products that{" "}
+          <strong>real users depend on every day</strong>. I care deeply about
+          clean architecture, developer experience, and code that the next
+          engineer can actually maintain.
+        </p>
+
+        {/* Skills Section */}
+        <div style={{ marginBottom: "60px" }}>
+          <div
+            style={{
+              fontSize: "10px",
+              fontWeight: 700,
+              letterSpacing: "0.16em",
+              color: "#999999",
+              textTransform: "uppercase",
+              marginBottom: "14px",
+            }}
+          >
+            Core Technologies
+          </div>
+          <div style={{ display: "flex", flexWrap: "wrap", gap: "8px" }}>
+            {skills.map((skill) => (
+              <span
+                key={skill}
+                className="skill-pill"
+                style={{
+                  fontSize: "11px",
+                  fontWeight: 700,
+                  padding: "6px 14px",
+                  borderRadius: "4px",
+                }}
+              >
+                {skill}
+              </span>
+            ))}
+          </div>
         </div>
 
         {/* Pillars Grid */}
         <div
           ref={scrollRef()}
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-16"
+          style={{
+            display: "grid",
+            gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
+            gap: "16px",
+          }}
         >
           {pillars.map((pillar, i) => (
             <div
               key={i}
-              // ref={pillarRefs[i]}
-              className={`p-8 rounded-xl border transition-all hover:shadow-lg ${
-                i === 0
-                  ? "border-orange-500 bg-white shadow-md"
-                  : "border-gray-200 bg-white hover:border-orange-500"
-              }`}
+              className="about-shadow"
+              style={{
+                backgroundColor: "#fafafa",
+                border: "1px solid #e0e0e0",
+                padding: "20px",
+                transition: "all 0.2s",
+                cursor: "pointer",
+              }}
             >
-              <div className="text-3xl mb-4">{pillar.icon}</div>
-              <h3 className="font-['Playfair_Display'] font-bold text-lg mb-3 text-gray-900">
+              <div style={{ fontSize: "22px", marginBottom: "10px" }}>
+                {pillar.icon}
+              </div>
+              <div
+                style={{
+                  fontFamily: "'Syne', sans-serif",
+                  fontSize: "13px",
+                  fontWeight: 700,
+                  color: "#0a0a0a",
+                  marginBottom: "6px",
+                }}
+              >
                 {pillar.title}
-              </h3>
-              <p className="text-sm text-gray-600 leading-relaxed">
+              </div>
+              <div
+                style={{
+                  fontSize: "11px",
+                  color: "#555555",
+                  lineHeight: 1.7,
+                }}
+              >
                 {pillar.desc}
-              </p>
+              </div>
             </div>
           ))}
-        </div>
-
-        {/* Skills Section */}
-        <div className="mt-16">
-          <div className="text-xs font-bold tracking-widest text-gray-400 uppercase mb-4">
-            Technical Skills
-          </div>
-          <div className="flex flex-wrap gap-3">
-            {skills.map((skill) => (
-              <div
-                key={skill}
-                className="px-4 py-2 bg-white border border-gray-200 rounded-full text-sm text-gray-600 hover:border-orange-500 hover:text-orange-500 transition-colors cursor-pointer"
-              >
-                {skill}
-              </div>
-            ))}
-          </div>
         </div>
       </div>
     </section>
