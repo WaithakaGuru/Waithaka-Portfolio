@@ -77,7 +77,7 @@ export function ProfessionalTestimonials() {
             marginBottom: "16px",
           }}
         >
-          Testimonials
+          Social <span style={{ color: "#f97316" }}>Proof</span>
         </h2>
 
         {/* Section Description */}

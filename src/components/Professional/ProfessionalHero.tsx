@@ -1,14 +1,19 @@
 import { useScrollReveal } from "../../hooks/useScrollReveal";
+import { TICKER_ITEMS } from "../../data";
 
 export function ProfessionalHero() {
   const scrollRef = useScrollReveal();
 
   return (
     <section
-      className="relative min-h-screen py-16 px-6 sm:px-8 lg:px-12 flex items-center"
+      className="relative px-6 sm:px-8 lg:px-12 flex flex-col"
       style={{
         backgroundColor: "#ffffff",
         borderBottom: "1px solid #e0e0e0",
+        minHeight: "100dvh",
+        paddingTop: "120px",
+        paddingBottom: "0",
+        overflow: "hidden",
       }}
     >
       <style>{`
@@ -56,6 +61,7 @@ export function ProfessionalHero() {
             gridTemplateColumns: "1fr 1fr",
             gap: "40px",
             alignItems: "start",
+            flex: 1,
           }}
         >
           {/* Left Column - Text Content */}
@@ -158,12 +164,9 @@ export function ProfessionalHero() {
               >
                 View Projects →
               </button>
-              <button
-                onClick={() =>
-                  document
-                    .getElementById("contact")
-                    ?.scrollIntoView({ behavior: "smooth" })
-                }
+              <a
+                href="/Waithaka Ndung'u.pdf"
+                download
                 className="font-bold text-xs uppercase inline-flex items-center gap-2 px-6 py-3 transition-all"
                 style={{
                   backgroundColor: "transparent",
@@ -172,6 +175,11 @@ export function ProfessionalHero() {
                   boxShadow: "4px 4px 0 #0a0a0a",
                   fontFamily: "'Syne', sans-serif",
                   letterSpacing: "0.08em",
+                  cursor: "pointer",
+                  display: "inline-flex",
+                  alignItems: "center",
+                  gap: "8px",
+                  textDecoration: "none",
                 }}
                 onMouseEnter={(e) => {
                   (e.currentTarget as HTMLElement).style.transform =
@@ -182,8 +190,8 @@ export function ProfessionalHero() {
                     "translate(0, 0)";
                 }}
               >
-                Get in Touch
-              </button>
+                Download CV
+              </a>
             </div>
           </div>
 
@@ -192,15 +200,16 @@ export function ProfessionalHero() {
             style={{
               display: "flex",
               flexDirection: "column",
-              gap: "20px",
-              alignItems: "center",
+              gap: "12px",
+              alignItems: "stretch",
             }}
           >
             {/* Hero Image */}
             <div
               style={{
                 width: "100%",
-                aspectRatio: "3/4",
+                maxWidth: "300px",
+                aspectRatio: "9/11",
                 border: "2px solid #e0e0e0",
                 backgroundColor: "#fafafa",
                 overflow: "hidden",
@@ -221,11 +230,11 @@ export function ProfessionalHero() {
               />
             </div>
 
-            {/* Stats - Compact Grid */}
+            {/* Stats - Full Width Grid */}
             <div
               style={{
                 display: "grid",
-                gridTemplateColumns: "1fr 1fr",
+                gridTemplateColumns: "repeat(4, 1fr)",
                 gap: "0",
                 border: "1px solid #e0e0e0",
                 backgroundColor: "#fafafa",
@@ -233,36 +242,35 @@ export function ProfessionalHero() {
               }}
             >
               {[
-                { num: "4+", label: "Years Exp" },
-                { num: "50+", label: "Projects" },
-                { num: "15+", label: "Clients" },
-                { num: "1240", label: "Hours" },
+                { num: "4+", label: "Yrs" },
+                { num: "50+", label: "Prj" },
+                { num: "15+", label: "Cls" },
+                { num: "1.2k", label: "Hrs" },
               ].map((stat, i) => (
                 <div
                   key={i}
                   style={{
-                    padding: "16px 12px",
-                    borderRight: i % 2 === 0 ? "1px solid #e0e0e0" : "none",
-                    borderBottom: i < 2 ? "1px solid #e0e0e0" : "none",
+                    padding: "12px 8px",
+                    borderRight: i < 3 ? "1px solid #e0e0e0" : "none",
                     textAlign: "center",
                   }}
                 >
                   <div
                     style={{
                       fontFamily: "'Syne', sans-serif",
-                      fontSize: "24px",
+                      fontSize: "18px",
                       fontWeight: 800,
                       color: "#f97316",
                       lineHeight: 1,
-                      marginBottom: "4px",
+                      marginBottom: "2px",
                     }}
                   >
                     {stat.num}
                   </div>
                   <div
                     style={{
-                      fontSize: "8px",
-                      letterSpacing: "0.12em",
+                      fontSize: "7px",
+                      letterSpacing: "0.1em",
                       color: "#999999",
                       textTransform: "uppercase",
                       fontWeight: 700,
@@ -279,6 +287,78 @@ export function ProfessionalHero() {
 
       <div className="hero-ghost" aria-hidden="true">
         CODE
+      </div>
+
+      {/* Marquee Section */}
+      <style>{`
+        @keyframes marquee {
+          0% { transform: translateX(0); }
+          100% { transform: translateX(-100%); }
+        }
+        .marquee-container {
+          overflow: hidden;
+          background: #0a0a0a;
+          border-top: 1px solid #e0e0e0;
+          border-bottom: 1px solid #e0e0e0;
+          padding: 16px 0;
+          margin-top: 40px;
+          width: 100vw;
+          position: relative;
+          left: 50%;
+          right: 50%;
+          margin-left: -50vw;
+          margin-right: -50vw;
+        }
+        .marquee-wrapper {
+          display: flex;
+          width: fit-content;
+          animation: marquee 60s linear infinite;
+        }
+        .marquee-content {
+          display: flex;
+          white-space: nowrap;
+          gap: 0;
+        }
+        .marquee-item {
+          display: inline-flex;
+          align-items: center;
+          padding: 0 24px;
+          font-size: 13px;
+          font-weight: 700;
+          letter-spacing: 0.1em;
+          text-transform: uppercase;
+          color: #ffffff;
+          flex-shrink: 0;
+        }
+        .marquee-divider {
+          color: #f97316;
+          margin: 0 8px;
+        }
+      `}</style>
+
+      <div className="marquee-container">
+        <div className="marquee-wrapper">
+          <div className="marquee-content">
+            {TICKER_ITEMS.map((item, idx) => (
+              <div key={`set1-${idx}`} className="marquee-item">
+                {item}
+                {idx < TICKER_ITEMS.length - 1 && (
+                  <span className="marquee-divider">◆</span>
+                )}
+              </div>
+            ))}
+          </div>
+          <div className="marquee-content">
+            {TICKER_ITEMS.map((item, idx) => (
+              <div key={`set2-${idx}`} className="marquee-item">
+                {item}
+                {idx < TICKER_ITEMS.length - 1 && (
+                  <span className="marquee-divider">◆</span>
+                )}
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
     </section>
   );

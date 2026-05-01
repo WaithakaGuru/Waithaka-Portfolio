@@ -4,64 +4,164 @@ export function TechStack() {
   return (
     <section
       id="stack"
-      className="relative bg-black/99 text-white py-24 px-6 md:px-10 mt-4"
+      style={{
+        background: "#ffffff",
+        borderTop: "1px solid #e0e0e0",
+        borderBottom: "1px solid #e0e0e0",
+        paddingTop: "80px",
+        paddingBottom: "80px",
+        paddingLeft: "32px",
+        paddingRight: "32px",
+        marginTop: "16px",
+      }}
     >
-      {/* Subtle grid background */}
-      <div className="absolute inset-0 bg-[linear-gradient(to_right,#333_1px,transparent_1px),linear-gradient(to_bottom,#2a2a2a_1px,transparent_1px)] bg-size-[40px_40px] opacity-30 pointer-events-none" />
-
-      <div className="relative max-w-full md:max-w-350 mx-auto px-2 sm:px-4">
+      <div className="max-w-7xl mx-auto">
         {/* Header */}
+        <div style={{ marginBottom: "48px" }}>
+          <div
+            style={{
+              display: "flex",
+              alignItems: "center",
+              gap: "12px",
+              marginBottom: "16px",
+              fontFamily: "JetBrains Mono, monospace",
+              fontSize: "11px",
+              fontWeight: 600,
+              letterSpacing: "0.12em",
+              color: "#f97316",
+            }}
+          >
+            <span
+              style={{ width: "28px", height: "2px", background: "#f97316" }}
+            />
+            TECHNICAL EXPERTISE
+          </div>
+          <h2
+            style={{
+              fontFamily: "Syne, sans-serif",
+              fontSize: "clamp(40px, 5vw, 64px)",
+              fontWeight: 800,
+              lineHeight: 1.1,
+              letterSpacing: "-0.01em",
+              color: "#0a0a0a",
+              marginBottom: "16px",
+            }}
+          >
+            Tech Stack
+          </h2>
+          <p
+            style={{
+              fontSize: "16px",
+              lineHeight: 1.7,
+              color: "#555555",
+              maxWidth: "520px",
+            }}
+          >
+            A curated selection of technologies I've mastered for building
+            scalable, performant applications.
+          </p>
+        </div>
+
+        {/* Skills Grid */}
         <div
-          className="flex items-center justify-between mb-10 w-full sticky top-0"
           style={{
-            backgroundColor: "var(--bg-primary)",
-            backdropFilter: "blur(4px)",
+            display: "grid",
+            gridTemplateColumns:
+              "repeat(auto-fit, minmax(min(100%, 200px), 1fr))",
+            gap: "16px",
           }}
         >
-          <h2
-            className="text-2xl sm:text-5xl md:text-7xl lg:text-8xl font-extrabold tracking-tight 
-          wrap-break-word leading-tight max-w-full"
-          >
-            TECH_<span className="text-green-500">STACK</span>
-          </h2>
-
-          <div className="flex items-center gap-2 text-green-500 font-mono text-xs md:text-sm">
-            <span className="w-2 h-2 sm:w-3 sm:h-3 bg-red-500 rounded-full animate-ping" />
-            /// OPTIMAL STRUCTURED CODE
-          </div>
-        </div>
-
-        <div className="border-t-4 border-white/70 mb-10" />
-
-        {/* Grid Container */}
-        <div className="border border-white/30">
-          <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8">
-            {stack.map((item, index) => (
+          {stack.map((item, index) => (
+            <div
+              key={index}
+              style={{
+                background: "#fafafa",
+                border: "2px solid #e0e0e0",
+                padding: "24px",
+                boxShadow: "4px 4px 0 #0a0a0a",
+                transition: "all 0.15s",
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.borderColor = "#f97316";
+                e.currentTarget.style.background = "#fff9f5";
+                e.currentTarget.style.boxShadow = "6px 6px 0 #0a0a0a";
+                e.currentTarget.style.transform = "translate(-2px, -2px)";
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.borderColor = "#e0e0e0";
+                e.currentTarget.style.background = "#fafafa";
+                e.currentTarget.style.boxShadow = "4px 4px 0 #0a0a0a";
+                e.currentTarget.style.transform = "translate(0, 0)";
+              }}
+            >
               <div
-                key={index}
-                className="border border-white/10 px-2 sm:px-6 py-4 sm:py-10 flex flex-col justify-center transition-all duration-200 transform hover:scale-105 hover:border-green-500 hover:bg-white/10 cursor-pointer rounded-lg max-w-full overflow-hidden"
+                style={{
+                  fontFamily: "JetBrains Mono, monospace",
+                  fontSize: "10px",
+                  fontWeight: 600,
+                  letterSpacing: "0.08em",
+                  color: "#f97316",
+                  marginBottom: "12px",
+                }}
               >
-                <span className="text-green-500 text-xs tracking-widest font-mono mb-4">
-                  {`>_ ${item.label}`}
-                </span>
-
-                <span
-                  className="text-base sm:text-xl font-extrabold tracking-wide wrap-break-word max-w-full"
-                  style={{ wordBreak: "break-word" }}
-                >
-                  {item.name}
-                </span>
+                {`// ${item.label}`}
               </div>
-            ))}
-          </div>
+              <div
+                style={{
+                  fontFamily: "Syne, sans-serif",
+                  fontSize: "18px",
+                  fontWeight: 700,
+                  color: "#0a0a0a",
+                }}
+              >
+                {item.name}
+              </div>
+            </div>
+          ))}
         </div>
 
-        <div className="border-b-4 border-white/70 mt-10 mb-6" />
-
-        {/* Footer Meta Info */}
-        <div className="flex justify-between text-xs font-mono text-white/60">
-          <span>TOTAL_VERTICES: 21</span>
-          <span>MEMORY_USAGE: 144</span>
+        {/* Stats */}
+        <div
+          style={{
+            marginTop: "64px",
+            paddingTop: "32px",
+            borderTop: "1px solid #e0e0e0",
+            display: "grid",
+            gridTemplateColumns: "repeat(auto-fit, minmax(140px, 1fr))",
+            gap: "24px",
+          }}
+        >
+          {[
+            { label: "Languages", value: "4+" },
+            { label: "Frameworks", value: "6+" },
+            { label: "Tools & DBs", value: "8+" },
+            { label: "Platforms", value: "5+" },
+          ].map((stat, idx) => (
+            <div key={idx} style={{ textAlign: "center" }}>
+              <div
+                style={{
+                  fontFamily: "Syne, sans-serif",
+                  fontSize: "32px",
+                  fontWeight: 800,
+                  color: "#f97316",
+                  marginBottom: "4px",
+                }}
+              >
+                {stat.value}
+              </div>
+              <div
+                style={{
+                  fontFamily: "JetBrains Mono, monospace",
+                  fontSize: "11px",
+                  fontWeight: 600,
+                  letterSpacing: "0.08em",
+                  color: "#999999",
+                }}
+              >
+                {stat.label}
+              </div>
+            </div>
+          ))}
         </div>
       </div>
     </section>

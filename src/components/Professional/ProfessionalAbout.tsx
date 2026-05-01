@@ -5,40 +5,25 @@ export function ProfessionalAbout() {
 
   const pillars = [
     {
-      icon: "🏗️",
-      title: "Systems Thinker",
-      desc: "I architect for scale first, then build. No spaghetti, no shortcuts.",
-    },
-    {
-      icon: "🌍",
-      title: "Africa-First",
-      desc: "Deep expertise in M-Pesa, Africa's Talking, and local fintech rails.",
-    },
-    {
       icon: "⚡",
-      title: "Speed Obsessed",
-      desc: "87% API response time reduction on a live logistics platform. Speed is a feature.",
+      title: "Performance First",
+      desc: "Obsessed with speed, efficiency, and scalable architectures.",
+    },
+    {
+      icon: "🤖",
+      title: "AI Integration",
+      desc: "Practical ML and LLM integration in real-world applications.",
     },
     {
       icon: "🤝",
       title: "Community Builder",
-      desc: "Co-organiser of Nairobi JS meetup. 40+ devs mentored into their first jobs.",
+      desc: "Mentor, workshop facilitator, GDSC volunteer.",
     },
-  ];
-
-  const skills = [
-    "Python",
-    "Golang",
-    "TypeScript",
-    "React",
-    "HonoJS",
-    "Next.js",
-    "Django",
-    "PostgreSQL",
-    "Redis",
-    "Docker",
-    "M-Pesa API",
-    "AWS S3",
+    {
+      icon: "🚀",
+      title: "Startup-Ready",
+      desc: "0→1 product development under real constraints.",
+    },
   ];
 
   return (
@@ -51,52 +36,56 @@ export function ProfessionalAbout() {
       }}
     >
       <style>{`
-        .about-shadow {
-          box-shadow: 4px 4px 0 #0a0a0a;
-        }
-        .about-shadow:hover {
-          transform: translate(-2px, -2px);
-          border-color: #f97316;
-        }
-        .skill-pill {
-          border: 1px solid #cccccc;
-          background: #efefef;
-          color: #555555;
+        .pillar-card {
+          background: #ffffff;
+          border: 1px solid #e0e0e0;
+          padding: 24px;
+          border-radius: "4px";
           transition: all 0.15s;
+          cursor: pointer;
         }
-        .skill-pill:hover {
-          background: #f97316;
-          color: #0a0a0a;
+        .pillar-card:hover {
           border-color: #f97316;
+          box-shadow: 4px 4px 0 #0a0a0a;
+          transform: translate(-2px, -2px);
+        }
+        .availability-banner {
+          background: rgba(16, 185, 129, 0.1);
+          border: 1px solid rgba(16, 185, 129, 0.3);
+          padding: 12px 16px;
+          border-radius: 4px;
+          color: #10B981;
+          font-size: 12px;
+          font-weight: 600;
+          text-align: center;
+          margin-top: 24px;
         }
       `}</style>
 
-      <div className="max-w-6xl mx-auto">
+      <div className="max-w-7xl mx-auto">
         {/* Section Label */}
-        <div style={{ marginBottom: "20px" }}>
-          <div
+        <div
+          style={{
+            display: "inline-flex",
+            alignItems: "center",
+            gap: "10px",
+            fontSize: "11px",
+            fontWeight: 700,
+            letterSpacing: "0.18em",
+            color: "#f97316",
+            textTransform: "uppercase",
+            marginBottom: "20px",
+          }}
+        >
+          <span
             style={{
-              display: "inline-flex",
-              alignItems: "center",
-              gap: "10px",
-              fontSize: "11px",
-              fontWeight: 700,
-              letterSpacing: "0.18em",
-              color: "#f97316",
-              textTransform: "uppercase",
-              marginBottom: "20px",
+              display: "block",
+              width: "28px",
+              height: "2px",
+              backgroundColor: "#f97316",
             }}
-          >
-            <span
-              style={{
-                display: "block",
-                width: "28px",
-                height: "2px",
-                backgroundColor: "#f97316",
-              }}
-            ></span>
-            Who I Am
-          </div>
+          ></span>
+          Who I Am
         </div>
 
         {/* Section Title */}
@@ -108,125 +97,142 @@ export function ProfessionalAbout() {
             lineHeight: 1.05,
             letterSpacing: "-0.02em",
             color: "#0a0a0a",
-            marginBottom: "16px",
+            marginBottom: "40px",
           }}
         >
-          About <span style={{ color: "#f97316" }}>Me</span>
+          A Developer who <span style={{ color: "#f97316" }}>Ships</span>
         </h2>
 
-        {/* Section Description */}
+        {/* Subtitle */}
         <p
           style={{
             fontSize: "14px",
             color: "#555555",
-            maxWidth: "560px",
-            lineHeight: 1.8,
-            marginBottom: "60px",
-          }}
-        >
-          I'm <strong>Waithaka Ndung'u</strong>, a Certified Full Stack Engineer
-          from Nairobi, Kenya. I specialize in building{" "}
-          <strong>performant, scalable web and mobile applications</strong> that
-          solve real business problems — from M-Pesa-integrated SaaS platforms
-          to
-          <strong> high-throughput Go microservices</strong> handling tens of
-          thousands of daily transactions.
-        </p>
-
-        <p
-          style={{
-            fontSize: "14px",
-            color: "#555555",
-            maxWidth: "560px",
+            maxWidth: "600px",
             lineHeight: 1.8,
             marginBottom: "40px",
           }}
         >
-          I've collaborated with logistics companies, digital agencies, and
-          government bodies across East Africa, shipping products that{" "}
-          <strong>real users depend on every day</strong>. I care deeply about
-          clean architecture, developer experience, and code that the next
-          engineer can actually maintain.
+          Not just code – outcomes. I build things that work, scale, and generate real value.
         </p>
 
-        {/* Skills Section */}
-        <div style={{ marginBottom: "60px" }}>
-          <div
-            style={{
-              fontSize: "10px",
-              fontWeight: 700,
-              letterSpacing: "0.16em",
-              color: "#999999",
-              textTransform: "uppercase",
-              marginBottom: "14px",
-            }}
-          >
-            Core Technologies
-          </div>
-          <div style={{ display: "flex", flexWrap: "wrap", gap: "8px" }}>
-            {skills.map((skill) => (
-              <span
-                key={skill}
-                className="skill-pill"
-                style={{
-                  fontSize: "11px",
-                  fontWeight: 700,
-                  padding: "6px 14px",
-                  borderRadius: "4px",
-                }}
-              >
-                {skill}
-              </span>
-            ))}
-          </div>
-        </div>
-
-        {/* Pillars Grid */}
+        {/* Two Column Layout */}
         <div
           ref={scrollRef()}
           style={{
             display: "grid",
-            gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
-            gap: "16px",
+            gridTemplateColumns: "1fr 1.2fr",
+            gap: "60px",
+            alignItems: "start",
           }}
         >
-          {pillars.map((pillar, i) => (
-            <div
-              key={i}
-              className="about-shadow"
+          {/* Left Column - Image */}
+          <div
+            style={{
+              width: "100%",
+              aspectRatio: "1/1.2",
+              backgroundColor: "#e8e4dd",
+              borderRadius: "8px",
+              overflow: "hidden",
+            }}
+          >
+            <img
+              src="/me.jpg"
+              alt="Waithaka Ndung'u"
               style={{
-                backgroundColor: "#fafafa",
-                border: "1px solid #e0e0e0",
-                padding: "20px",
-                transition: "all 0.2s",
-                cursor: "pointer",
+                width: "100%",
+                height: "100%",
+                objectFit: "cover",
+              }}
+              onError={(e) => {
+                (e.currentTarget as HTMLImageElement).style.display = "none";
+              }}
+            />
+          </div>
+
+          {/* Right Column - Content */}
+          <div>
+            {/* Main Quote */}
+            <p
+              style={{
+                fontFamily: "'Instrument Serif', serif",
+                fontSize: "22px",
+                fontStyle: "italic",
+                lineHeight: 1.5,
+                color: "#0a0a0a",
+                marginBottom: "24px",
               }}
             >
-              <div style={{ fontSize: "22px", marginBottom: "10px" }}>
-                {pillar.icon}
-              </div>
-              <div
-                style={{
-                  fontFamily: "'Syne', sans-serif",
-                  fontSize: "13px",
-                  fontWeight: 700,
-                  color: "#0a0a0a",
-                  marginBottom: "6px",
-                }}
-              >
-                {pillar.title}
-              </div>
-              <div
-                style={{
-                  fontSize: "11px",
-                  color: "#555555",
-                  lineHeight: 1.7,
-                }}
-              >
-                {pillar.desc}
-              </div>
+              I turn <span style={{ color: "#f97316" }}>complex problems</span>{" "}
+              into clean, maintainable solutions that teams love working with.
+            </p>
+
+            {/* Body Text */}
+            <p
+              style={{
+                fontSize: "14px",
+                color: "#555555",
+                lineHeight: 1.8,
+                marginBottom: "16px",
+              }}
+            >
+              I'm a Certified Full Stack Engineer from Kenya with 4+ years building digital products that make an impact. My work lives at the intersection of engineering rigor and product thinking — I don't just write code, I think about what the code needs to achieve.
+            </p>
+
+            <p
+              style={{
+                fontSize: "14px",
+                color: "#555555",
+                lineHeight: 1.8,
+                marginBottom: "32px",
+              }}
+            >
+              Currently pursuing a B.Sc in Software Engineering at Murang'a University of Technology while actively taking on client projects, mentoring peers, and contributing to open source.
+            </p>
+
+            {/* 2x2 Grid of Pillars */}
+            <div
+              style={{
+                display: "grid",
+                gridTemplateColumns: "1fr 1fr",
+                gap: "16px",
+                marginBottom: "24px",
+              }}
+            >
+              {pillars.map((pillar, i) => (
+                <div key={i} className="pillar-card">
+                  <div style={{ fontSize: "22px", marginBottom: "10px" }}>
+                    {pillar.icon}
+                  </div>
+                  <div
+                    style={{
+                      fontFamily: "'Syne', sans-serif",
+                      fontSize: "13px",
+                      fontWeight: 700,
+                      color: "#0a0a0a",
+                      marginBottom: "6px",
+                    }}
+                  >
+                    {pillar.title}
+                  </div>
+                  <div
+                    style={{
+                      fontSize: "12px",
+                      color: "#555555",
+                      lineHeight: 1.6,
+                    }}
+                  >
+                    {pillar.desc}
+                  </div>
+                </div>
+              ))}
             </div>
-          ))}
+
+            {/* Availability Banner */}
+            <div className="availability-banner">
+              ✓ Available for freelance projects, contracts, and full-time roles
+            </div>
+          </div>
         </div>
       </div>
     </section>

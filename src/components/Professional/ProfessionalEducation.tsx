@@ -7,52 +7,140 @@ export function ProfessionalEducation() {
   const [expandedIndex, setExpandedIndex] = useState<number | null>(null);
 
   return (
-    <section
-      className="py-20 px-6 sm:px-8 lg:px-12 border-b border-gray-200"
-      style={{ backgroundColor: "#f5f5f5" }}
-    >
+    <section className="py-20 px-8" style={{ backgroundColor: "#fafafa" }}>
       <div className="max-w-6xl mx-auto">
         {/* Section Header */}
-        <div className="mb-16">
-          <div className="text-xs font-bold tracking-widest text-gray-400 uppercase mb-4">
-            Learning & Growth
+        <div className="mb-20">
+          <div
+            style={{
+              display: "flex",
+              alignItems: "center",
+              gap: "12px",
+              marginBottom: "16px",
+              fontFamily: "JetBrains Mono, monospace",
+              fontSize: "11px",
+              fontWeight: 600,
+              letterSpacing: "0.12em",
+              color: "#f97316",
+            }}
+          >
+            <span
+              style={{ width: "28px", height: "2px", background: "#f97316" }}
+            />
+            LEARNING & GROWTH
           </div>
-          <h2 className="font-['Playfair_Display'] text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 mb-4">
-            Education
+          <h2
+            style={{
+              fontFamily: "Syne, sans-serif",
+              fontSize: "clamp(40px, 5vw, 64px)",
+              fontWeight: 800,
+              lineHeight: 1.1,
+              letterSpacing: "-0.01em",
+              color: "#0a0a0a",
+              marginBottom: "16px",
+            }}
+          >
+            Education & Certifications
           </h2>
-          <p className="text-base text-gray-600 leading-relaxed max-w-2xl">
+          <p
+            style={{
+              fontSize: "16px",
+              lineHeight: 1.7,
+              color: "#555555",
+              maxWidth: "520px",
+            }}
+          >
             Continuous learning through formal education and specialized
             certifications in software development and technology.
           </p>
         </div>
 
-        {/* Education Timeline */}
-        <div className="space-y-6">
+        {/* Education Grid */}
+        <div
+          style={{
+            display: "grid",
+            gridTemplateColumns:
+              "repeat(auto-fit, minmax(min(100%, 320px), 1fr))",
+            gap: "24px",
+          }}
+        >
           {education.map((edu, i) => (
             <div
               key={i}
               ref={scrollRef(i)}
-              className="p-8 rounded-xl border border-gray-200 bg-white hover:border-orange-500 transition-all hover-lift"
+              style={{
+                background: "#ffffff",
+                border: "2px solid #e0e0e0",
+                padding: "24px",
+                boxShadow: "none",
+                transition: "all 0.15s",
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.borderColor = "#f97316";
+                e.currentTarget.style.boxShadow = "6px 6px 0 #0a0a0a";
+                e.currentTarget.style.transform = "translate(-2px, -2px)";
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.borderColor = "#e0e0e0";
+                e.currentTarget.style.boxShadow = "none";
+                e.currentTarget.style.transform = "translate(0, 0)";
+              }}
             >
-              {/* Header with logo and dates */}
-              <div className="flex items-start gap-4 mb-4">
-                <div className="text-4xl animate-bounce-in">{edu.logo}</div>
-                <div className="flex-1">
-                  <h3 className="font-['Playfair_Display'] text-2xl sm:text-3xl font-bold text-gray-900 mb-1">
-                    {edu.title}
-                  </h3>
-                  <p className="text-sm text-orange-500 font-semibold mb-1">
-                    {edu.institution}
-                  </p>
-                  <p className="text-xs text-gray-500 font-medium">
+              {/* Header */}
+              <div style={{ marginBottom: "16px" }}>
+                <div
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    gap: "12px",
+                    marginBottom: "12px",
+                  }}
+                >
+                  <span style={{ fontSize: "24px" }}>{edu.logo}</span>
+                  <div
+                    style={{
+                      fontSize: "14px",
+                      fontWeight: 600,
+                      color: "#f97316",
+                    }}
+                  >
                     {edu.date}
-                  </p>
+                  </div>
                 </div>
+                <h3
+                  style={{
+                    fontFamily: "Syne, sans-serif",
+                    fontSize: "18px",
+                    fontWeight: 700,
+                    color: "#0a0a0a",
+                    marginBottom: "4px",
+                  }}
+                >
+                  {edu.title}
+                </h3>
+                <p
+                  style={{
+                    fontFamily: "JetBrains Mono, monospace",
+                    fontSize: "12px",
+                    fontWeight: 500,
+                    color: "#999999",
+                    letterSpacing: "0.04em",
+                  }}
+                >
+                  {edu.institution}
+                </p>
               </div>
 
               {/* Description */}
               {edu.description && (
-                <p className="text-base text-gray-600 leading-relaxed mb-4">
+                <p
+                  style={{
+                    fontSize: "14px",
+                    lineHeight: 1.6,
+                    color: "#555555",
+                    marginBottom: "16px",
+                  }}
+                >
                   {edu.description}
                 </p>
               )}
@@ -60,32 +148,64 @@ export function ProfessionalEducation() {
               {/* Show Proof Button */}
               <button
                 onClick={() => setExpandedIndex(expandedIndex === i ? null : i)}
-                className="inline-flex items-center gap-2 px-4 py-2 text-sm font-semibold text-orange-500 hover:text-orange-600 transition-colors mt-2"
+                style={{
+                  fontFamily: "JetBrains Mono, monospace",
+                  fontSize: "11px",
+                  fontWeight: 600,
+                  letterSpacing: "0.06em",
+                  background: "#f5f5f5",
+                  border: "1px solid #e0e0e0",
+                  color: "#f97316",
+                  padding: "8px 16px",
+                  cursor: "pointer",
+                  transition: "all 0.15s",
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.background = "#f97316";
+                  e.currentTarget.style.color = "#ffffff";
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.background = "#f5f5f5";
+                  e.currentTarget.style.color = "#f97316";
+                }}
               >
-                <span>{expandedIndex === i ? "Hide proof" : "Show proof"}</span>
-                <span className="text-lg">
-                  {expandedIndex === i ? "↑" : "↓"}
-                </span>
+                {expandedIndex === i ? "HIDE PROOF" : "SHOW PROOF"}
               </button>
 
               {/* Certificate Preview - Inline */}
               {expandedIndex === i && (
-                <div className="mt-6 pt-6 border-t border-gray-200">
-                  <div className="bg-gray-100 rounded-lg aspect-video flex items-center justify-center">
-                    <div className="text-center">
-                      <div className="text-6xl mb-4">📜</div>
-                      <p className="text-gray-600 font-medium">
-                        Certificate of {edu.title}
-                      </p>
-                      <p className="text-sm text-gray-500 mt-2">
-                        {edu.institution}
-                      </p>
-                      {edu.description?.includes("Proof:") && (
-                        <p className="text-xs text-gray-400 mt-4">
-                          {edu.description}
-                        </p>
-                      )}
+                <div
+                  style={{
+                    marginTop: "16px",
+                    paddingTop: "16px",
+                    borderTop: "1px solid #e0e0e0",
+                    background: "#f5f5f5",
+                    padding: "20px",
+                  }}
+                >
+                  <div style={{ textAlign: "center" }}>
+                    <div style={{ fontSize: "40px", marginBottom: "12px" }}>
+                      📜
                     </div>
+                    <p
+                      style={{
+                        fontFamily: "Syne, sans-serif",
+                        fontSize: "14px",
+                        fontWeight: 600,
+                        color: "#0a0a0a",
+                        marginBottom: "8px",
+                      }}
+                    >
+                      Certificate of {edu.title}
+                    </p>
+                    <p
+                      style={{
+                        fontSize: "12px",
+                        color: "#999999",
+                      }}
+                    >
+                      {edu.institution}
+                    </p>
                   </div>
                 </div>
               )}

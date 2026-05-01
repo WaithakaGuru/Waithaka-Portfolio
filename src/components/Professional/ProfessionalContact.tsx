@@ -1,5 +1,7 @@
 import { useRef } from "react";
 import { useScrollReveal } from "../../hooks/useScrollReveal";
+import { FaGithub, FaLinkedin, FaXTwitter, FaPhone } from "react-icons/fa6";
+import { MdEmail } from "react-icons/md";
 
 export function ProfessionalContact() {
   const formRef = useRef<HTMLFormElement>(null);
@@ -22,30 +24,55 @@ export function ProfessionalContact() {
 
   const contactLinks = [
     {
-      icon: "@",
+      icon: "email",
       label: "EMAIL",
       value: "waithakaoffices@gmail.com",
       href: "mailto:waithakaoffices@gmail.com",
     },
     {
-      icon: "GH",
+      icon: "phone",
+      label: "PHONE",
+      value: "0725676491",
+      href: "tel:+254725676491",
+    },
+    {
+      icon: "github",
       label: "GITHUB",
       value: "@WaithakaGuru",
       href: "https://github.com/WaithakaGuru",
     },
     {
-      icon: "in",
+      icon: "linkedin",
       label: "LINKEDIN",
       value: "linkedin.com/in/waithaka",
       href: "https://linkedin.com/in/waithaka",
     },
     {
-      icon: "𝕏",
+      icon: "twitter",
       label: "X / TWITTER",
       value: "@waithakahack",
       href: "https://twitter.com/waithakahack",
     },
   ];
+
+  const renderIcon = (iconType: string) => {
+    const iconSize = 18;
+    const iconColor = "#555555";
+    switch (iconType) {
+      case "email":
+        return <MdEmail size={iconSize} color={iconColor} />;
+      case "phone":
+        return <FaPhone size={iconSize} color={iconColor} />;
+      case "github":
+        return <FaGithub size={iconSize} color={iconColor} />;
+      case "linkedin":
+        return <FaLinkedin size={iconSize} color={iconColor} />;
+      case "twitter":
+        return <FaXTwitter size={iconSize} color={iconColor} />;
+      default:
+        return null;
+    }
+  };
 
   return (
     <section
@@ -200,7 +227,9 @@ export function ProfessionalContact() {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <div className="contact-link-icon">{link.icon}</div>
+                  <div className="contact-link-icon" style={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
+                    {renderIcon(link.icon)}
+                  </div>
                   <div>
                     <span
                       style={{

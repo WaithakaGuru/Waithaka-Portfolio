@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-import { useTheme } from "../contexts/ThemeContext";
+// import { useTheme } from "../contexts/ThemeContext";
 
 const NAV_LINKS = [
   { label: "/ABOUT", id: "about" },
@@ -14,9 +14,10 @@ interface NavbarProps {
 }
 
 export function Navbar({ onSwitchView }: NavbarProps) {
-  const { isDark, toggleTheme } = useTheme();
+  // const { isDark, toggleTheme } = useTheme();
   const [hidden, setHidden] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [activeLink, setActiveLink] = useState<string | null>(null);
   const lastY = useRef(0);
   const ticking = useRef(false);
 
@@ -40,6 +41,8 @@ export function Navbar({ onSwitchView }: NavbarProps) {
   }, []);
 
   const scrollTo = (id: string) => {
+    setActiveLink(id);
+    setTimeout(() => setActiveLink(null), 300);
     document
       .getElementById(id)
       ?.scrollIntoView({ behavior: "smooth", block: "start" });
@@ -48,6 +51,16 @@ export function Navbar({ onSwitchView }: NavbarProps) {
 
   return (
     <>
+      <style>{`
+        @keyframes navLinkPulse {
+          0% { transform: scale(1); }
+          50% { transform: scale(0.98); }
+          100% { transform: scale(1); }
+        }
+        .nav-link-active {
+          animation: navLinkPulse 0.3s ease-out;
+        }
+      `}</style>
       <nav
         style={{
           background: "#ffffff",
@@ -98,8 +111,31 @@ export function Navbar({ onSwitchView }: NavbarProps) {
                     fontSize: "12px",
                     fontWeight: 500,
                     letterSpacing: "0.06em",
+                    background: "transparent",
+                    padding: "8px 12px",
+                    borderRadius: "4px",
+                    position: "relative",
+                    overflow: "hidden",
+                    transition: "all 0.2s cubic-bezier(0.34, 1.56, 0.64, 1)",
+                    border: "1px solid transparent",
                   }}
-                  className="px-3.5 py-2 no-underline transition-all duration-150 hover:color-[#0a0a0a] hover:background-[#f5f5f5]"
+                  className={`no-underline cursor-pointer ${
+                    activeLink === id ? "nav-link-active" : ""
+                  }`}
+                  onMouseEnter={(e) => {
+                    const el = e.currentTarget as HTMLElement;
+                    el.style.color = "#f97316";
+                    el.style.borderColor = "#f97316";
+                    el.style.background = "#fff9f5";
+                    el.style.transform = "translateY(-2px)";
+                  }}
+                  onMouseLeave={(e) => {
+                    const el = e.currentTarget as HTMLElement;
+                    el.style.color = "#555555";
+                    el.style.borderColor = "transparent";
+                    el.style.background = "transparent";
+                    el.style.transform = "translateY(0)";
+                  }}
                 >
                   {label}
                 </a>
@@ -122,76 +158,77 @@ export function Navbar({ onSwitchView }: NavbarProps) {
                 fontWeight: 700,
                 letterSpacing: "0.04em",
               }}
-              className={`px-4 py-2 no-underline transition-all duration-150 hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[6px_6px_0_#0a0a0a] whitespace-nowrap`}
+              className={`px-4 py-2 no-underline transition-all duration-150 hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[6px_6px_0_#0a0a0a] whitespace-nowrap active:scale-95`}
+              onMouseDown={(e) => {
+                const el = e.currentTarget as HTMLElement;
+                el.style.transform = "scale(0.95) translate(-2px, -2px)";
+              }}
+              onMouseUp={(e) => {
+                const el = e.currentTarget as HTMLElement;
+                el.style.transform = "translate(-2px, -2px)";
+              }}
             >
               HIRE ME
             </a>
 
-            {/* Switch View */}
+            {/* Art View */}
             {onSwitchView && (
               <button
                 onClick={onSwitchView}
                 style={{
                   background: "#ffffff",
-                  border: "2px solid #e0e0e0",
+                  border: "2px solid #f97316",
                   boxShadow: "4px 4px 0 #0a0a0a",
-                  color: "#0a0a0a",
+                  color: "#f97316",
                   fontFamily: "JetBrains Mono, monospace",
                   fontSize: "11px",
-                  fontWeight: 600,
-                  letterSpacing: "0.06em",
+                  fontWeight: 700,
+                  letterSpacing: "0.04em",
+                  padding: "6px 12px",
                 }}
-                className={`hidden md:flex items-center gap-1.5 px-3 py-2 transition-all duration-150 hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[6px_6px_0_#0a0a0a] whitespace-nowrap cursor-pointer`}
-                title="Switch to view selector"
+                className={`hidden md:flex items-center gap-1.5 transition-all duration-150 hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[6px_6px_0_#0a0a0a] whitespace-nowrap cursor-pointer active:scale-95`}
+                title="Switch to art view"
+                onMouseDown={(e) => {
+                  const el = e.currentTarget as HTMLElement;
+                  el.style.transform = "scale(0.95) translate(-2px, -2px)";
+                }}
+                onMouseUp={(e) => {
+                  const el = e.currentTarget as HTMLElement;
+                  el.style.transform = "translate(-2px, -2px)";
+                }}
               >
-                <span className="text-lg">🎨</span>
-                <span>SWITCH</span>
+                <span>🎨</span>
+                <span>Art_view</span>
               </button>
             )}
-
-            {/* Theme toggle */}
-            <button
-              onClick={toggleTheme}
-              style={{
-                background: "#ffffff",
-                border: "2px solid #e0e0e0",
-                boxShadow: "4px 4px 0 #0a0a0a",
-                color: "#0a0a0a",
-                fontFamily: "JetBrains Mono, monospace",
-                fontSize: "11px",
-                fontWeight: 600,
-              }}
-              className={`hidden md:flex items-center gap-1.5 px-3 py-2 transition-all duration-150 hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[6px_6px_0_#0a0a0a] whitespace-nowrap cursor-pointer`}
-              title="Toggle theme"
-            >
-              <span className="text-[15px]">{isDark ? "◐" : "☀"}</span>
-              <span>{isDark ? "LIGHT_MODE" : "DARK_MODE"}</span>
-            </button>
 
             {/* Hamburger — mobile only */}
             <button
               onClick={() => setMenuOpen((p) => !p)}
               style={{
-                background: "var(--surface)",
-                border: "2px solid var(--border)",
-                boxShadow: "var(--shadow)",
-                color: "var(--text)",
+                background: "#ffffff",
+                border: "2px solid #e0e0e0",
+                boxShadow: "4px 4px 0 #0a0a0a",
+                color: "#0a0a0a",
               }}
-              className="flex md:hidden items-center justify-center w-10 h-10 cursor-pointer transition-all duration-150"
+              className="flex md:hidden items-center justify-center w-9 h-9 cursor-pointer transition-all duration-150 hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[6px_6px_0_#0a0a0a]"
               aria-label="Toggle menu"
             >
-              <span className="flex flex-col gap-1.25">
+              <span className="flex flex-col gap-1">
                 <span
-                  style={{ background: "var(--text)" }}
-                  className={`block w-5.5 h-0.5 transition-all duration-300 ${menuOpen ? "rotate-45 translate-y-1.75" : ""}`}
+                  className={`block w-4.5 h-0.5 bg-[#0a0a0a] transition-all duration-300 ${
+                    menuOpen ? "rotate-45 translate-y-2" : ""
+                  }`}
                 />
                 <span
-                  style={{ background: "var(--text)" }}
-                  className={`block w-5.5 h-0.5 transition-all duration-300 ${menuOpen ? "opacity-0" : ""}`}
+                  className={`block w-4.5 h-0.5 bg-[#0a0a0a] transition-all duration-300 ${
+                    menuOpen ? "opacity-0" : ""
+                  }`}
                 />
                 <span
-                  style={{ background: "var(--text)" }}
-                  className={`block w-5.5 h-0.5 transition-all duration-300 ${menuOpen ? "-rotate-45 -translate-y-2" : ""}`}
+                  className={`block w-4.5 h-0.5 bg-[#0a0a0a] transition-all duration-300 ${
+                    menuOpen ? "-rotate-45 -translate-y-2" : ""
+                  }`}
                 />
               </span>
             </button>
@@ -202,13 +239,12 @@ export function Navbar({ onSwitchView }: NavbarProps) {
       {/* Mobile dropdown menu */}
       <div
         style={{
-          background: "var(--nav-bg)",
-          backdropFilter: "blur(12px) saturate(1.4)",
-          borderBottom: "2px solid var(--border)",
+          background: "#ffffff",
+          borderBottom: "1px solid #e0e0e0",
           zIndex: 99,
         }}
-        className={`fixed top-15 left-0 right-0 md:hidden transition-all duration-300 overflow-hidden ${
-          menuOpen ? "max-h-100 opacity-100" : "max-h-0 opacity-0"
+        className={`fixed top-16 left-0 right-0 md:hidden transition-all duration-300 overflow-hidden ${
+          menuOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
         }`}
       >
         <div className="flex flex-col px-6 py-4 gap-1">
@@ -217,11 +253,39 @@ export function Navbar({ onSwitchView }: NavbarProps) {
               key={id}
               onClick={() => scrollTo(id)}
               style={{
-                color: "var(--text-sub)",
+                color: "#555555",
+                fontFamily: "JetBrains Mono, monospace",
+                fontSize: "13px",
+                fontWeight: 500,
+                padding: "12px 12px",
+                borderRadius: "4px",
+                background: "transparent",
                 border: "1px solid transparent",
+                textAlign: "left",
+                width: "100%",
+                cursor: "pointer",
+                transition: "all 0.2s cubic-bezier(0.34, 1.56, 0.64, 1)",
               }}
-              className="font-['JetBrains_Mono'] font-bold text-[13px] tracking-[0.07em] px-4 py-3 text-left transition-all duration-150
-               hover:border-(--border) hover:bg-(--surface) hover:text-(--text) cursor-pointer w-full"
+              onMouseEnter={(e) => {
+                const el = e.currentTarget as HTMLElement;
+                el.style.color = "#f97316";
+                el.style.borderColor = "#f97316";
+                el.style.background = "#fff9f5";
+              }}
+              onMouseLeave={(e) => {
+                const el = e.currentTarget as HTMLElement;
+                el.style.color = "#555555";
+                el.style.borderColor = "transparent";
+                el.style.background = "transparent";
+              }}
+              onMouseDown={(e) => {
+                const el = e.currentTarget as HTMLElement;
+                el.style.transform = "scale(0.98)";
+              }}
+              onMouseUp={(e) => {
+                const el = e.currentTarget as HTMLElement;
+                el.style.transform = "scale(1)";
+              }}
             >
               {label}
             </button>
@@ -234,31 +298,43 @@ export function Navbar({ onSwitchView }: NavbarProps) {
                 setMenuOpen(false);
               }}
               style={{
-                background: "var(--surface)",
-                border: "2px solid var(--border)",
-                boxShadow: "var(--shadow)",
-                color: "var(--text)",
+                background: "#f5f5f5",
+                border: "1px solid #e0e0e0",
+                color: "#0a0a0a",
+                fontFamily: "JetBrains Mono, monospace",
+                fontSize: "12px",
+                fontWeight: 600,
+                padding: "12px 12px",
+                marginTop: "8px",
+                borderRadius: "4px",
+                transition: "all 0.2s cubic-bezier(0.34, 1.56, 0.64, 1)",
+                cursor: "pointer",
               }}
-              className="font-['JetBrains_Mono'] font-bold text-[12px] tracking-[0.08em] px-4 py-3 mt-2 text-left flex items-center gap-2 cursor-pointer w-full transition-all duration-150"
+              onMouseEnter={(e) => {
+                const el = e.currentTarget as HTMLElement;
+                el.style.borderColor = "#f97316";
+                el.style.background = "#fff9f5";
+              }}
+              onMouseLeave={(e) => {
+                const el = e.currentTarget as HTMLElement;
+                el.style.borderColor = "#e0e0e0";
+                el.style.background = "#f5f5f5";
+              }}
+              onMouseDown={(e) => {
+                const el = e.currentTarget as HTMLElement;
+                el.style.transform = "scale(0.98)";
+              }}
+              onMouseUp={(e) => {
+                const el = e.currentTarget as HTMLElement;
+                el.style.transform = "scale(1)";
+              }}
             >
-              <span>🎨</span>
-              <span>SWITCH_VIEW</span>
+              <span className="flex items-center gap-2">
+                <span>🎨</span>
+                <span>SWITCH</span>
+              </span>
             </button>
           )}
-          {/* Theme toggle in mobile menu */}
-          <button
-            onClick={toggleTheme}
-            style={{
-              background: "var(--surface)",
-              border: "2px solid var(--border)",
-              boxShadow: "var(--shadow)",
-              color: "var(--text)",
-            }}
-            className="font-['JetBrains_Mono'] font-bold text-[12px] tracking-[0.08em] px-4 py-3 mt-2 text-left flex items-center gap-2 cursor-pointer w-full transition-all duration-150"
-          >
-            <span>{isDark ? "◐" : "☀"}</span>
-            <span>{isDark ? "LIGHT_MODE" : "DARK_MODE"}</span>
-          </button>
         </div>
       </div>
     </>

@@ -46,10 +46,10 @@ export function ProfessionalView({ onSwitchView }: ProfessionalViewProps) {
         <ProfessionalExperience />
         <ProfessionalEducation />
         <ProfessionalTechStack />
-        <ProfessionalTestimonials />
         <ProfessionalProjects />
-        <ProfessionalWriting />
         <ProfessionalCTA />
+        <ProfessionalTestimonials />
+        <ProfessionalWriting />
         <ProfessionalContact />
       </main>
       <Footer />
