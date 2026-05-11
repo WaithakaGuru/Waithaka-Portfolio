@@ -113,7 +113,8 @@ export function ProfessionalAbout() {
             marginBottom: "40px",
           }}
         >
-          Not just code – outcomes. I build things that work, scale, and generate real value.
+          Not just code – outcomes. I build things that work, scale, and
+          generate real value.
         </p>
 
         {/* Two Column Layout */}
@@ -176,7 +177,11 @@ export function ProfessionalAbout() {
                 marginBottom: "16px",
               }}
             >
-              I'm a Certified Full Stack Engineer from Kenya with 4+ years building digital products that make an impact. My work lives at the intersection of engineering rigor and product thinking — I don't just write code, I think about what the code needs to achieve.
+              I'm a Certified Full Stack Engineer from Kenya with 4+ years
+              building digital products that make an impact. My work lives at
+              the intersection of engineering rigor and product thinking — I
+              don't just write code, I think about what the code needs to
+              achieve.
             </p>
 
             <p
@@ -187,7 +192,9 @@ export function ProfessionalAbout() {
                 marginBottom: "32px",
               }}
             >
-              Currently pursuing a B.Sc in Software Engineering at Murang'a University of Technology while actively taking on client projects, mentoring peers, and contributing to open source.
+              Currently pursuing a B.Sc in Software Engineering at Murang'a
+              University of Technology while actively taking on client projects,
+              mentoring peers, and contributing to open source.
             </p>
 
             {/* 2x2 Grid of Pillars */}

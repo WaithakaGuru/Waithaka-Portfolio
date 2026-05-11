@@ -148,7 +148,14 @@ export function Footer() {
                     e.currentTarget.style.transform = "translate(0, 0)";
                   }}
                 >
-                  <span style={{ fontSize: "20px", display: "flex", alignItems: "center", justifyContent: "center" }}>
+                  <span
+                    style={{
+                      fontSize: "20px",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                    }}
+                  >
                     {renderIcon(link.icon)}
                   </span>
                   <div>

@@ -227,7 +227,14 @@ export function ProfessionalContact() {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <div className="contact-link-icon" style={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
+                  <div
+                    className="contact-link-icon"
+                    style={{
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                    }}
+                  >
                     {renderIcon(link.icon)}
                   </div>
                   <div>

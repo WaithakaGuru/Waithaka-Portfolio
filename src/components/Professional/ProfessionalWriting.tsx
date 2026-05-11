@@ -149,13 +149,22 @@ export function ProfessionalWriting() {
         e.currentTarget.style.transform = "translate(-2px, -2px)";
       }}
       onMouseLeave={(e) => {
-        e.currentTarget.style.borderColor = article.featured ? "#f97316" : "#e0e0e0";
+        e.currentTarget.style.borderColor = article.featured
+          ? "#f97316"
+          : "#e0e0e0";
         e.currentTarget.style.boxShadow = "none";
         e.currentTarget.style.transform = "translate(0, 0)";
       }}
     >
       {/* Platform & Date */}
-      <div style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "12px" }}>
+      <div
+        style={{
+          display: "flex",
+          alignItems: "center",
+          gap: "12px",
+          marginBottom: "12px",
+        }}
+      >
         <span
           style={{
             fontSize: "10px",
@@ -209,7 +218,14 @@ export function ProfessionalWriting() {
       </p>
 
       {/* Tags */}
-      <div style={{ display: "flex", flexWrap: "wrap", gap: "6px", marginBottom: "12px" }}>
+      <div
+        style={{
+          display: "flex",
+          flexWrap: "wrap",
+          gap: "6px",
+          marginBottom: "12px",
+        }}
+      >
         {article.tags.slice(0, 2).map((tag, idx) => (
           <span
             key={idx}
@@ -243,7 +259,10 @@ export function ProfessionalWriting() {
         }}
       >
         {article.stats.map((stat, idx) => (
-          <div key={idx} style={{ display: "flex", alignItems: "center", gap: "4px" }}>
+          <div
+            key={idx}
+            style={{ display: "flex", alignItems: "center", gap: "4px" }}
+          >
             <span style={{ color: "#f97316", fontSize: "10px" }}>◆</span>
             <span>{stat}</span>
           </div>
@@ -253,7 +272,13 @@ export function ProfessionalWriting() {
   );
 
   return (
-    <section style={{ backgroundColor: "#fafafa", borderTop: "1px solid #e0e0e0", borderBottom: "1px solid #e0e0e0" }}>
+    <section
+      style={{
+        backgroundColor: "#fafafa",
+        borderTop: "1px solid #e0e0e0",
+        borderBottom: "1px solid #e0e0e0",
+      }}
+    >
       <style>{`
         @keyframes marquee {
           from { transform: translateX(0); }
@@ -328,7 +353,10 @@ export function ProfessionalWriting() {
               marginBottom: "60px",
             }}
           >
-            Technical writing is part of my toolkit. I document architecture decisions, share learnings, and contribute to the developer community through in-depth articles on platforms like DEV.to, Medium, and Hashnode.
+            Technical writing is part of my toolkit. I document architecture
+            decisions, share learnings, and contribute to the developer
+            community through in-depth articles on platforms like DEV.to,
+            Medium, and Hashnode.
           </p>
         </div>
       </div>
@@ -336,7 +364,13 @@ export function ProfessionalWriting() {
       {/* Marquee Rows */}
       <div style={{ borderTop: "1px solid #e0e0e0" }}>
         {/* Row 1 - Forward */}
-        <div style={{ display: "flex", overflow: "hidden", borderBottom: "1px solid #e0e0e0" }}>
+        <div
+          style={{
+            display: "flex",
+            overflow: "hidden",
+            borderBottom: "1px solid #e0e0e0",
+          }}
+        >
           <div className="writing-marquee-track forward">
             {[...row1, ...row1].map((article, i) => (
               <ArticleCard key={`${article.id}-${i}`} article={article} />
@@ -345,7 +379,13 @@ export function ProfessionalWriting() {
         </div>
 
         {/* Row 2 - Reverse */}
-        <div style={{ display: "flex", overflow: "hidden", borderBottom: "1px solid #e0e0e0" }}>
+        <div
+          style={{
+            display: "flex",
+            overflow: "hidden",
+            borderBottom: "1px solid #e0e0e0",
+          }}
+        >
           <div className="writing-marquee-track reverse">
             {[...row2, ...row2].map((article, i) => (
               <ArticleCard key={`${article.id}-${i}`} article={article} />

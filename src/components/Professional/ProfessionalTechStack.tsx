@@ -177,14 +177,27 @@ export function ProfessionalTechStack() {
             marginBottom: "60px",
           }}
         >
-          A comprehensive toolkit spanning languages, frameworks, databases, and cloud infrastructure. I stay current with emerging technologies while maintaining expertise in battle-tested solutions.
+          A comprehensive toolkit spanning languages, frameworks, databases, and
+          cloud infrastructure. I stay current with emerging technologies while
+          maintaining expertise in battle-tested solutions.
         </p>
       </div>
 
       {/* Marquee Rows */}
-      <div style={{ borderTop: "1px solid #e0e0e0", borderBottom: "1px solid #e0e0e0" }}>
+      <div
+        style={{
+          borderTop: "1px solid #e0e0e0",
+          borderBottom: "1px solid #e0e0e0",
+        }}
+      >
         {/* Row 1 - Forward */}
-        <div style={{ display: "flex", overflow: "hidden", borderBottom: "1px solid #e0e0e0" }}>
+        <div
+          style={{
+            display: "flex",
+            overflow: "hidden",
+            borderBottom: "1px solid #e0e0e0",
+          }}
+        >
           <div className="marquee-track forward">
             {[...marqueeItems1, ...marqueeItems1].map((item, i) => (
               <div
@@ -228,7 +241,13 @@ export function ProfessionalTechStack() {
         </div>
 
         {/* Row 2 - Reverse */}
-        <div style={{ display: "flex", overflow: "hidden", borderBottom: "1px solid #e0e0e0" }}>
+        <div
+          style={{
+            display: "flex",
+            overflow: "hidden",
+            borderBottom: "1px solid #e0e0e0",
+          }}
+        >
           <div className="marquee-track reverse">
             {[...marqueeItems2, ...marqueeItems2].map((item, i) => (
               <div
@@ -272,7 +291,13 @@ export function ProfessionalTechStack() {
         </div>
 
         {/* Row 3 - Forward */}
-        <div style={{ display: "flex", overflow: "hidden", borderBottom: "1px solid #e0e0e0" }}>
+        <div
+          style={{
+            display: "flex",
+            overflow: "hidden",
+            borderBottom: "1px solid #e0e0e0",
+          }}
+        >
           <div className="marquee-track forward">
             {[...marqueeItems3, ...marqueeItems3].map((item, i) => (
               <div
@@ -316,7 +341,13 @@ export function ProfessionalTechStack() {
         </div>
 
         {/* Row 4 - Reverse */}
-        <div style={{ display: "flex", overflow: "hidden", borderBottom: "1px solid #e0e0e0" }}>
+        <div
+          style={{
+            display: "flex",
+            overflow: "hidden",
+            borderBottom: "1px solid #e0e0e0",
+          }}
+        >
           <div className="marquee-track reverse">
             {[...marqueeItems4, ...marqueeItems4].map((item, i) => (
               <div
@@ -360,7 +391,13 @@ export function ProfessionalTechStack() {
         </div>
 
         {/* Row 5 - Forward */}
-        <div style={{ display: "flex", overflow: "hidden", borderBottom: "1px solid #e0e0e0" }}>
+        <div
+          style={{
+            display: "flex",
+            overflow: "hidden",
+            borderBottom: "1px solid #e0e0e0",
+          }}
+        >
           <div className="marquee-track forward">
             {[...marqueeItems5, ...marqueeItems5].map((item, i) => (
               <div
