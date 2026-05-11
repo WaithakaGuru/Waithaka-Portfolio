@@ -1,98 +1,20 @@
 import { useScrollReveal } from "../../hooks/useScrollReveal";
+import { techStack } from "../../data";
 
 export function ProfessionalTechStack() {
   const scrollRef = useScrollReveal();
 
-  // Tech stack marquee items - expanded
-  const marqueeItems1 = [
-    "Python",
-    "Golang",
-    "TypeScript",
-    "JavaScript",
-    "Rust",
-    "SQL",
-    "GraphQL",
-    "REST APIs",
-    "gRPC",
-    "WebSockets",
-    "HTML5",
-    "CSS3",
-  ];
-
-  const marqueeItems2 = [
-    "React",
-    "Next.js",
-    "React Native",
-    "Vue.js",
-    "Angular",
-    "Svelte",
-    "htmx",
-    "Alpine.js",
-    "Astro",
-    "Remix",
-    "Nuxt",
-    "Qwik",
-  ];
-
-  const marqueeItems3 = [
-    "Node.js",
-    "HonoJS",
-    "Django",
-    "FastAPI",
-    "Express.js",
-    "NestJS",
-    "Rails",
-    "Phoenix",
-    "Spring Boot",
-    "ASP.NET",
-    "Laravel",
-    "Gin",
-  ];
-
-  const marqueeItems4 = [
-    "PostgreSQL",
-    "MongoDB",
-    "Redis",
-    "Firebase",
-    "Supabase",
-    "DynamoDB",
-    "Elasticsearch",
-    "MySQL",
-    "MariaDB",
-    "SQLite",
-    "Cassandra",
-    "Neo4j",
-  ];
-
-  const marqueeItems5 = [
-    "Docker",
-    "Kubernetes",
-    "Docker Compose",
-    "GitHub Actions",
-    "GitLab CI",
-    "Jenkins",
-    "CircleCI",
-    "Travis CI",
-    "AWS",
-    "Google Cloud",
-    "Azure",
-    "DigitalOcean",
-  ];
-
-  const marqueeItems6 = [
-    "AWS S3",
-    "AWS Lambda",
-    "AWS RDS",
-    "Cloudflare",
-    "Railway",
-    "Vercel",
-    "Netlify",
-    "Heroku",
-    "Render",
-    "PlanetScale",
-    "Supabase Hosting",
-    "Fly.io",
-  ];
+  // Split techStack into 3 marquees
+  const itemsPerRow = Math.ceil(techStack.length / 3);
+  const marqueeItems1 = techStack
+    .slice(0, itemsPerRow)
+    .map((item) => item.name);
+  const marqueeItems2 = techStack
+    .slice(itemsPerRow, itemsPerRow * 2)
+    .map((item) => item.name);
+  const marqueeItems3 = techStack
+    .slice(itemsPerRow * 2)
+    .map((item) => item.name);
 
   return (
     <section
@@ -291,159 +213,9 @@ export function ProfessionalTechStack() {
         </div>
 
         {/* Row 3 - Forward */}
-        <div
-          style={{
-            display: "flex",
-            overflow: "hidden",
-            borderBottom: "1px solid #e0e0e0",
-          }}
-        >
+        <div style={{ display: "flex", overflow: "hidden" }}>
           <div className="marquee-track forward">
             {[...marqueeItems3, ...marqueeItems3].map((item, i) => (
-              <div
-                key={i}
-                style={{
-                  fontFamily: "'Syne', sans-serif",
-                  fontSize: "12px",
-                  fontWeight: 700,
-                  letterSpacing: "0.1em",
-                  textTransform: "uppercase",
-                  color: "#999999",
-                  padding: "16px 28px",
-                  borderRight: "1px solid #e0e0e0",
-                  whiteSpace: "nowrap",
-                  transition: "color 0.15s",
-                  display: "flex",
-                  alignItems: "center",
-                  gap: "10px",
-                  cursor: "pointer",
-                }}
-                onMouseEnter={(e) => {
-                  (e.currentTarget as HTMLElement).style.color = "#f97316";
-                }}
-                onMouseLeave={(e) => {
-                  (e.currentTarget as HTMLElement).style.color = "#999999";
-                }}
-              >
-                <span
-                  style={{
-                    width: "5px",
-                    height: "5px",
-                    borderRadius: "50%",
-                    backgroundColor: "#f97316",
-                    flexShrink: 0,
-                  }}
-                />
-                {item}
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* Row 4 - Reverse */}
-        <div
-          style={{
-            display: "flex",
-            overflow: "hidden",
-            borderBottom: "1px solid #e0e0e0",
-          }}
-        >
-          <div className="marquee-track reverse">
-            {[...marqueeItems4, ...marqueeItems4].map((item, i) => (
-              <div
-                key={i}
-                style={{
-                  fontFamily: "'Syne', sans-serif",
-                  fontSize: "12px",
-                  fontWeight: 700,
-                  letterSpacing: "0.1em",
-                  textTransform: "uppercase",
-                  color: "#999999",
-                  padding: "16px 28px",
-                  borderRight: "1px solid #e0e0e0",
-                  whiteSpace: "nowrap",
-                  transition: "color 0.15s",
-                  display: "flex",
-                  alignItems: "center",
-                  gap: "10px",
-                  cursor: "pointer",
-                }}
-                onMouseEnter={(e) => {
-                  (e.currentTarget as HTMLElement).style.color = "#f97316";
-                }}
-                onMouseLeave={(e) => {
-                  (e.currentTarget as HTMLElement).style.color = "#999999";
-                }}
-              >
-                <span
-                  style={{
-                    width: "5px",
-                    height: "5px",
-                    borderRadius: "50%",
-                    backgroundColor: "#f97316",
-                    flexShrink: 0,
-                  }}
-                />
-                {item}
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* Row 5 - Forward */}
-        <div
-          style={{
-            display: "flex",
-            overflow: "hidden",
-            borderBottom: "1px solid #e0e0e0",
-          }}
-        >
-          <div className="marquee-track forward">
-            {[...marqueeItems5, ...marqueeItems5].map((item, i) => (
-              <div
-                key={i}
-                style={{
-                  fontFamily: "'Syne', sans-serif",
-                  fontSize: "12px",
-                  fontWeight: 700,
-                  letterSpacing: "0.1em",
-                  textTransform: "uppercase",
-                  color: "#999999",
-                  padding: "16px 28px",
-                  borderRight: "1px solid #e0e0e0",
-                  whiteSpace: "nowrap",
-                  transition: "color 0.15s",
-                  display: "flex",
-                  alignItems: "center",
-                  gap: "10px",
-                  cursor: "pointer",
-                }}
-                onMouseEnter={(e) => {
-                  (e.currentTarget as HTMLElement).style.color = "#f97316";
-                }}
-                onMouseLeave={(e) => {
-                  (e.currentTarget as HTMLElement).style.color = "#999999";
-                }}
-              >
-                <span
-                  style={{
-                    width: "5px",
-                    height: "5px",
-                    borderRadius: "50%",
-                    backgroundColor: "#f97316",
-                    flexShrink: 0,
-                  }}
-                />
-                {item}
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* Row 6 - Reverse */}
-        <div style={{ display: "flex", overflow: "hidden" }}>
-          <div className="marquee-track reverse">
-            {[...marqueeItems6, ...marqueeItems6].map((item, i) => (
               <div
                 key={i}
                 style={{

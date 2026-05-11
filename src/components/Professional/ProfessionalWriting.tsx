@@ -1,129 +1,10 @@
 import { useScrollReveal } from "../../hooks/useScrollReveal";
-
-interface Article {
-  id: string;
-  platform: string;
-  date: string;
-  title: string;
-  description: string;
-  tags: string[];
-  stats: string[];
-  link: string;
-  featured?: boolean;
-}
+import { writings } from "../../data";
 
 export function ProfessionalWriting() {
   const scrollRef = useScrollReveal();
 
-  const articles: Article[] = [
-    {
-      id: "1",
-      platform: "DEV.TO",
-      date: "SEP 2021",
-      title: "Build a Pixel Perfect Skeleton Loader Using CSS",
-      description:
-        "A step-by-step tutorial on creating pixel-perfect skeleton loading screens using pure CSS, covering layout matching, background placeholders, and the shining animation effect with keyframes.",
-      tags: ["CSS", "HTML", "JavaScript"],
-      stats: ["30+ Comments", "Went Viral"],
-      link: "https://dev.to",
-      featured: true,
-    },
-    {
-      id: "2",
-      platform: "MEDIUM",
-      date: "MAR 2022",
-      title: "React Performance Optimization Techniques",
-      description:
-        "Deep dive into performance optimization strategies for React applications, including memoization, code splitting, and lazy loading patterns.",
-      tags: ["React", "Performance", "JavaScript"],
-      stats: ["500+ Views", "15 Claps"],
-      link: "https://medium.com",
-    },
-    {
-      id: "3",
-      platform: "HASHNODE",
-      date: "JUL 2022",
-      title: "Understanding Async/Await in Modern JavaScript",
-      description:
-        "Comprehensive guide to async/await in JavaScript, comparing it with promises and callbacks, with practical examples and common pitfalls to avoid.",
-      tags: ["JavaScript", "Async", "Tutorial"],
-      stats: ["300+ Views", "8 Replies"],
-      link: "https://hashnode.com",
-    },
-    {
-      id: "4",
-      platform: "DEV.TO",
-      date: "NOV 2022",
-      title: "Building Real-time Apps with WebSockets",
-      description:
-        "Learn how to build scalable real-time applications using WebSocket technology, including connection management, error handling, and deployment strategies.",
-      tags: ["WebSockets", "Node.js", "Real-time"],
-      stats: ["200+ Views", "12 Reactions"],
-      link: "https://dev.to",
-    },
-    {
-      id: "5",
-      platform: "MEDIUM",
-      date: "FEB 2023",
-      title: "TypeScript Best Practices for Production Code",
-      description:
-        "Essential TypeScript patterns and practices for writing maintainable, type-safe code at scale. Covers generics, utility types, and common pitfalls.",
-      tags: ["TypeScript", "Best Practices", "Production"],
-      stats: ["600+ Views", "20 Claps"],
-      link: "https://medium.com",
-    },
-    {
-      id: "6",
-      platform: "HASHNODE",
-      date: "MAY 2023",
-      title: "Docker for Full-Stack Developers",
-      description:
-        "Complete guide to containerizing full-stack applications with Docker, including compose setup, multi-stage builds, and CI/CD integration.",
-      tags: ["Docker", "DevOps", "Containerization"],
-      stats: ["450+ Views", "25 Comments"],
-      link: "https://hashnode.com",
-    },
-    {
-      id: "7",
-      platform: "DEV.TO",
-      date: "AUG 2023",
-      title: "PostgreSQL Optimization for High Traffic Apps",
-      description:
-        "Advanced PostgreSQL optimization techniques including indexing strategies, query optimization, and connection pooling for production systems.",
-      tags: ["PostgreSQL", "Database", "Performance"],
-      stats: ["350+ Views", "18 Reactions"],
-      link: "https://dev.to",
-    },
-    {
-      id: "8",
-      platform: "MEDIUM",
-      date: "OCT 2023",
-      title: "Building Scalable APIs with Hono",
-      description:
-        "Explore the modern Hono framework for building lightweight, fast APIs. Includes middleware patterns, validation, and deployment examples.",
-      tags: ["Hono", "APIs", "Backend"],
-      stats: ["280+ Views", "14 Claps"],
-      link: "https://medium.com",
-    },
-    {
-      id: "9",
-      platform: "HASHNODE",
-      date: "DEC 2023",
-      title: "Next.js 14: The Future of React Development",
-      description:
-        "Comprehensive review of Next.js 14 features including App Router, Server Components, and new performance optimizations for modern web development.",
-      tags: ["Next.js", "React", "Frontend"],
-      stats: ["550+ Views", "30 Replies"],
-      link: "https://hashnode.com",
-    },
-  ];
-
-  // Split articles into 3 rows
-  const row1 = articles.slice(0, 3);
-  const row2 = articles.slice(3, 6);
-  const row3 = articles.slice(6, 9);
-
-  const ArticleCard = ({ article }: { article: Article }) => (
+  const ArticleCard = ({ article }: { article: (typeof writings)[0] }) => (
     <a
       href={article.link}
       target="_blank"
@@ -131,8 +12,6 @@ export function ProfessionalWriting() {
       style={{
         display: "flex",
         flexDirection: "column",
-        minWidth: "380px",
-        maxWidth: "380px",
         background: "#ffffff",
         border: "2px solid #e0e0e0",
         padding: "20px",
@@ -141,7 +20,7 @@ export function ProfessionalWriting() {
         borderColor: article.featured ? "#f97316" : "#e0e0e0",
         textDecoration: "none",
         cursor: "pointer",
-        flexShrink: 0,
+        height: "100%",
       }}
       onMouseEnter={(e) => {
         e.currentTarget.style.borderColor = "#f97316";
@@ -279,27 +158,6 @@ export function ProfessionalWriting() {
         borderBottom: "1px solid #e0e0e0",
       }}
     >
-      <style>{`
-        @keyframes marquee {
-          from { transform: translateX(0); }
-          to { transform: translateX(-50%); }
-        }
-        @keyframes marquee-rev {
-          from { transform: translateX(-50%); }
-          to { transform: translateX(0); }
-        }
-        .writing-marquee-track {
-          display: flex;
-          width: max-content;
-        }
-        .writing-marquee-track.forward {
-          animation: marquee 60s linear infinite;
-        }
-        .writing-marquee-track.reverse {
-          animation: marquee-rev 60s linear infinite;
-        }
-      `}</style>
-
       <div className="py-20 px-6 sm:px-8 lg:px-12">
         <div className="max-w-6xl mx-auto mb-20">
           {/* Section Header */}
@@ -359,47 +217,20 @@ export function ProfessionalWriting() {
             Medium, and Hashnode.
           </p>
         </div>
-      </div>
 
-      {/* Marquee Rows */}
-      <div style={{ borderTop: "1px solid #e0e0e0" }}>
-        {/* Row 1 - Forward */}
+        {/* Masonry Grid */}
         <div
           style={{
-            display: "flex",
-            overflow: "hidden",
-            borderBottom: "1px solid #e0e0e0",
+            display: "grid",
+            gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
+            gap: "20px",
+            maxWidth: "1200px",
+            margin: "0 auto",
           }}
         >
-          <div className="writing-marquee-track forward">
-            {[...row1, ...row1].map((article, i) => (
-              <ArticleCard key={`${article.id}-${i}`} article={article} />
-            ))}
-          </div>
-        </div>
-
-        {/* Row 2 - Reverse */}
-        <div
-          style={{
-            display: "flex",
-            overflow: "hidden",
-            borderBottom: "1px solid #e0e0e0",
-          }}
-        >
-          <div className="writing-marquee-track reverse">
-            {[...row2, ...row2].map((article, i) => (
-              <ArticleCard key={`${article.id}-${i}`} article={article} />
-            ))}
-          </div>
-        </div>
-
-        {/* Row 3 - Forward */}
-        <div style={{ display: "flex", overflow: "hidden" }}>
-          <div className="writing-marquee-track forward">
-            {[...row3, ...row3].map((article, i) => (
-              <ArticleCard key={`${article.id}-${i}`} article={article} />
-            ))}
-          </div>
+          {writings.map((article) => (
+            <ArticleCard key={article.id} article={article} />
+          ))}
         </div>
       </div>
     </section>
