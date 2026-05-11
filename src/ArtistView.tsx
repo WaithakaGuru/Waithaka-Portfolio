@@ -7,6 +7,7 @@ import {
   userReports,
   stats,
 } from "./data";
+import { getTechIcon } from "./utils/techIcons";
 
 // ─── GLITCH TEXT ────────────────────────────────────────────
 function GlitchText({
@@ -790,23 +791,41 @@ export function ArtistView({ onSwitchView }: ArtistViewProps) {
         <SectionHeader num="02" label="TECH_STACK" accent="#3B82F6" />
 
         <div className="flex flex-wrap gap-4 max-w-5xl">
-          {techStack.map((item, i) => (
-            <div
-              key={i}
-              className="tech-pill group relative font-mono text-[14px] tracking-[0.12em] uppercase px-5 py-3"
-              style={{
-                border: "1px solid rgba(255,255,255,0.1)",
-                background: "rgba(255,255,255,0.03)",
-                color: "rgba(255,255,255,0.5)",
-                animationDelay: `${i * 0.03}s`,
-              }}
-            >
-              <span className="absolute top-0 left-0 text-[10px] leading-none px-1 text-[#3B82F6] opacity-50">
-                {item.label}
-              </span>
-              <span className="mt-1 block">{item.name}</span>
-            </div>
-          ))}
+          {techStack.map((item, i) => {
+            const iconConfig = getTechIcon(item.name);
+            return (
+              <div
+                key={i}
+                className="tech-pill group relative font-mono text-[14px] tracking-[0.12em] uppercase px-5 py-3 transition-all hover:bg-blue-500/20 hover:border-[#3B82F6] hover:scale-105"
+                style={{
+                  border: "1px solid rgba(255,255,255,0.1)",
+                  background: "rgba(255,255,255,0.03)",
+                  color: "rgba(255,255,255,0.5)",
+                  animationDelay: `${i * 0.03}s`,
+                  display: "flex",
+                  alignItems: "center",
+                  gap: "6px",
+                }}
+              >
+                {iconConfig && (
+                  <div
+                    style={{
+                      fontSize: "16px",
+                      display: "flex",
+                      alignItems: "center",
+                      color: iconConfig.color,
+                    }}
+                  >
+                    {iconConfig.icon}
+                  </div>
+                )}
+                <span>{item.name}</span>
+                <span className="absolute top-0 right-0 text-[9px] leading-none px-1 py-0.5 text-[#3B82F6]/50 opacity-0 group-hover:opacity-100 transition-opacity">
+                  {item.label}
+                </span>
+              </div>
+            );
+          })}
         </div>
 
         {/* Coding stats strip */}

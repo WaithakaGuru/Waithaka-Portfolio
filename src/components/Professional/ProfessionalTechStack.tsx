@@ -1,5 +1,6 @@
 import { useScrollReveal } from "../../hooks/useScrollReveal";
 import { techStack } from "../../data";
+import { getTechIcon } from "../../utils/techIcons";
 
 export function ProfessionalTechStack() {
   const scrollRef = useScrollReveal();
@@ -121,44 +122,55 @@ export function ProfessionalTechStack() {
           }}
         >
           <div className="marquee-track forward">
-            {[...marqueeItems1, ...marqueeItems1].map((item, i) => (
-              <div
-                key={i}
-                style={{
-                  fontFamily: "'Syne', sans-serif",
-                  fontSize: "12px",
-                  fontWeight: 700,
-                  letterSpacing: "0.1em",
-                  textTransform: "uppercase",
-                  color: "#999999",
-                  padding: "16px 28px",
-                  borderRight: "1px solid #e0e0e0",
-                  whiteSpace: "nowrap",
-                  transition: "color 0.15s",
-                  display: "flex",
-                  alignItems: "center",
-                  gap: "10px",
-                  cursor: "pointer",
-                }}
-                onMouseEnter={(e) => {
-                  (e.currentTarget as HTMLElement).style.color = "#f97316";
-                }}
-                onMouseLeave={(e) => {
-                  (e.currentTarget as HTMLElement).style.color = "#999999";
-                }}
-              >
-                <span
+            {[...marqueeItems1, ...marqueeItems1].map((item, i) => {
+              const iconConfig = getTechIcon(item);
+              return (
+                <div
+                  key={i}
                   style={{
-                    width: "5px",
-                    height: "5px",
-                    borderRadius: "50%",
-                    backgroundColor: "#f97316",
-                    flexShrink: 0,
+                    fontFamily: "'Syne', sans-serif",
+                    fontSize: "12px",
+                    fontWeight: 700,
+                    letterSpacing: "0.1em",
+                    textTransform: "uppercase",
+                    color: "#999999",
+                    padding: "16px 28px",
+                    borderRight: "1px solid #e0e0e0",
+                    whiteSpace: "nowrap",
+                    transition: "all 0.3s ease",
+                    display: "flex",
+                    alignItems: "center",
+                    gap: "12px",
+                    cursor: "pointer",
                   }}
-                />
-                {item}
-              </div>
-            ))}
+                  onMouseEnter={(e) => {
+                    (e.currentTarget as HTMLElement).style.color = "#f97316";
+                    (e.currentTarget as HTMLElement).style.transform =
+                      "scale(1.1)";
+                  }}
+                  onMouseLeave={(e) => {
+                    (e.currentTarget as HTMLElement).style.color = "#999999";
+                    (e.currentTarget as HTMLElement).style.transform =
+                      "scale(1)";
+                  }}
+                >
+                  {iconConfig && (
+                    <span
+                      style={{
+                        fontSize: "18px",
+                        display: "flex",
+                        alignItems: "center",
+                        color: iconConfig.color,
+                        flexShrink: 0,
+                      }}
+                    >
+                      {iconConfig.icon}
+                    </span>
+                  )}
+                  {item}
+                </div>
+              );
+            })}
           </div>
         </div>
 
@@ -171,88 +183,110 @@ export function ProfessionalTechStack() {
           }}
         >
           <div className="marquee-track reverse">
-            {[...marqueeItems2, ...marqueeItems2].map((item, i) => (
-              <div
-                key={i}
-                style={{
-                  fontFamily: "'Syne', sans-serif",
-                  fontSize: "12px",
-                  fontWeight: 700,
-                  letterSpacing: "0.1em",
-                  textTransform: "uppercase",
-                  color: "#999999",
-                  padding: "16px 28px",
-                  borderRight: "1px solid #e0e0e0",
-                  whiteSpace: "nowrap",
-                  transition: "color 0.15s",
-                  display: "flex",
-                  alignItems: "center",
-                  gap: "10px",
-                  cursor: "pointer",
-                }}
-                onMouseEnter={(e) => {
-                  (e.currentTarget as HTMLElement).style.color = "#f97316";
-                }}
-                onMouseLeave={(e) => {
-                  (e.currentTarget as HTMLElement).style.color = "#999999";
-                }}
-              >
-                <span
+            {[...marqueeItems2, ...marqueeItems2].map((item, i) => {
+              const iconConfig = getTechIcon(item);
+              return (
+                <div
+                  key={i}
                   style={{
-                    width: "5px",
-                    height: "5px",
-                    borderRadius: "50%",
-                    backgroundColor: "#f97316",
-                    flexShrink: 0,
+                    fontFamily: "'Syne', sans-serif",
+                    fontSize: "12px",
+                    fontWeight: 700,
+                    letterSpacing: "0.1em",
+                    textTransform: "uppercase",
+                    color: "#999999",
+                    padding: "16px 28px",
+                    borderRight: "1px solid #e0e0e0",
+                    whiteSpace: "nowrap",
+                    transition: "all 0.3s ease",
+                    display: "flex",
+                    alignItems: "center",
+                    gap: "12px",
+                    cursor: "pointer",
                   }}
-                />
-                {item}
-              </div>
-            ))}
+                  onMouseEnter={(e) => {
+                    (e.currentTarget as HTMLElement).style.color = "#f97316";
+                    (e.currentTarget as HTMLElement).style.transform =
+                      "scale(1.1)";
+                  }}
+                  onMouseLeave={(e) => {
+                    (e.currentTarget as HTMLElement).style.color = "#999999";
+                    (e.currentTarget as HTMLElement).style.transform =
+                      "scale(1)";
+                  }}
+                >
+                  {iconConfig && (
+                    <span
+                      style={{
+                        fontSize: "18px",
+                        display: "flex",
+                        alignItems: "center",
+                        color: iconConfig.color,
+                        flexShrink: 0,
+                      }}
+                    >
+                      {iconConfig.icon}
+                    </span>
+                  )}
+                  {item}
+                </div>
+              );
+            })}
           </div>
         </div>
 
         {/* Row 3 - Forward */}
         <div style={{ display: "flex", overflow: "hidden" }}>
           <div className="marquee-track forward">
-            {[...marqueeItems3, ...marqueeItems3].map((item, i) => (
-              <div
-                key={i}
-                style={{
-                  fontFamily: "'Syne', sans-serif",
-                  fontSize: "12px",
-                  fontWeight: 700,
-                  letterSpacing: "0.1em",
-                  textTransform: "uppercase",
-                  color: "#999999",
-                  padding: "16px 28px",
-                  borderRight: "1px solid #e0e0e0",
-                  whiteSpace: "nowrap",
-                  transition: "color 0.15s",
-                  display: "flex",
-                  alignItems: "center",
-                  gap: "10px",
-                  cursor: "pointer",
-                }}
-                onMouseEnter={(e) => {
-                  (e.currentTarget as HTMLElement).style.color = "#f97316";
-                }}
-                onMouseLeave={(e) => {
-                  (e.currentTarget as HTMLElement).style.color = "#999999";
-                }}
-              >
-                <span
+            {[...marqueeItems3, ...marqueeItems3].map((item, i) => {
+              const iconConfig = getTechIcon(item);
+              return (
+                <div
+                  key={i}
                   style={{
-                    width: "5px",
-                    height: "5px",
-                    borderRadius: "50%",
-                    backgroundColor: "#f97316",
-                    flexShrink: 0,
+                    fontFamily: "'Syne', sans-serif",
+                    fontSize: "12px",
+                    fontWeight: 700,
+                    letterSpacing: "0.1em",
+                    textTransform: "uppercase",
+                    color: "#999999",
+                    padding: "16px 28px",
+                    borderRight: "1px solid #e0e0e0",
+                    whiteSpace: "nowrap",
+                    transition: "all 0.3s ease",
+                    display: "flex",
+                    alignItems: "center",
+                    gap: "12px",
+                    cursor: "pointer",
                   }}
-                />
-                {item}
-              </div>
-            ))}
+                  onMouseEnter={(e) => {
+                    (e.currentTarget as HTMLElement).style.color = "#f97316";
+                    (e.currentTarget as HTMLElement).style.transform =
+                      "scale(1.1)";
+                  }}
+                  onMouseLeave={(e) => {
+                    (e.currentTarget as HTMLElement).style.color = "#999999";
+                    (e.currentTarget as HTMLElement).style.transform =
+                      "scale(1)";
+                  }}
+                >
+                  {iconConfig && (
+                    <span
+                      style={{
+                        fontSize: "18px",
+                        display: "flex",
+                        alignItems: "center",
+                        color: iconConfig.color,
+                        flexShrink: 0,
+                      }}
+                    >
+                      {iconConfig.icon}
+                    </span>
+                  )}
+                  {item}
+                </div>
+              );
+            })}
           </div>
         </div>
       </div>

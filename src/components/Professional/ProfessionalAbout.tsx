@@ -1,4 +1,5 @@
 import { useScrollReveal } from "../../hooks/useScrollReveal";
+import { SectionBackground, SECTION_WORDS } from "./SectionBackground";
 
 export function ProfessionalAbout() {
   const scrollRef = useScrollReveal();
@@ -29,12 +30,13 @@ export function ProfessionalAbout() {
   return (
     <section
       id="about"
-      className="py-24 px-6 sm:px-8 lg:px-12"
+      className="py-24 px-6 sm:px-8 lg:px-12 relative"
       style={{
         backgroundColor: "#f5f5f5",
         borderTop: "1px solid #e0e0e0",
       }}
     >
+      <SectionBackground words={SECTION_WORDS.about} opacity={0.03} />
       <style>{`
         .pillar-card {
           background: #ffffff;
@@ -62,7 +64,7 @@ export function ProfessionalAbout() {
         }
       `}</style>
 
-      <div className="max-w-7xl mx-auto">
+      <div className="max-w-7xl mx-auto relative z-10">
         {/* Section Label */}
         <div
           style={{
