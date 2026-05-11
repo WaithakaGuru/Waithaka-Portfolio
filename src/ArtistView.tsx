@@ -65,11 +65,11 @@ function CustomCursor() {
     <>
       <div
         ref={cursorRef}
-        className="fixed top-0 left-0 w-3 h-3 bg-[#F97316] rounded-full pointer-events-none z-[99999] mix-blend-difference"
+        className="fixed top-0 left-0 w-3 h-3 bg-[#F97316] rounded-full pointer-events-none z-99999 mix-blend-difference"
       />
       <div
         ref={trailRef}
-        className="fixed top-0 left-0 w-10 h-10 border border-[#F97316]/50 rounded-full pointer-events-none z-[99998]"
+        className="fixed top-0 left-0 w-10 h-10 border border-[#F97316]/50 rounded-full pointer-events-none z-99998"
         style={{ transition: "none" }}
       />
     </>
@@ -80,7 +80,7 @@ function CustomCursor() {
 function NoiseOverlay() {
   return (
     <div
-      className="fixed inset-0 pointer-events-none z-[9999] opacity-[0.035]"
+      className="fixed inset-0 pointer-events-none z-9999 opacity-[0.035]"
       style={{
         backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E")`,
         backgroundRepeat: "repeat",
@@ -94,7 +94,7 @@ function NoiseOverlay() {
 function Scanlines() {
   return (
     <div
-      className="fixed inset-0 pointer-events-none z-[9998] opacity-[0.04]"
+      className="fixed inset-0 pointer-events-none z-9998 opacity-[0.04]"
       style={{
         backgroundImage:
           "repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,0,0,1) 2px, rgba(0,0,0,1) 4px)",
@@ -384,7 +384,7 @@ export function ArtistView({ onSwitchView }: ArtistViewProps) {
 
       {/* ─── SCROLL PROGRESS ─── */}
       <div
-        className="fixed top-0 left-0 h-[3px] bg-[#F97316] z-[99997] transition-none"
+        className="fixed top-0 left-0 h-0.75 bg-[#F97316] z-99997 transition-none"
         style={{
           width: `${(scrollY / (document.documentElement.scrollHeight - window.innerHeight || 1)) * 100}%`,
           boxShadow: "0 0 8px #F97316, 0 0 16px #F97316",
@@ -393,7 +393,7 @@ export function ArtistView({ onSwitchView }: ArtistViewProps) {
 
       {/* ─── NAVBAR ─── */}
       <nav
-        className="fixed top-0 left-0 right-0 z-[9000] mix-blend-normal"
+        className="fixed top-0 left-0 right-0 z-9000 mix-blend-normal"
         style={{ backdropFilter: "blur(8px)" }}
       >
         <div
@@ -504,7 +504,7 @@ export function ArtistView({ onSwitchView }: ArtistViewProps) {
 
         {/* Radial glow */}
         <div
-          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full pointer-events-none"
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-150 h-150 rounded-full pointer-events-none"
           style={{
             background:
               "radial-gradient(circle, rgba(249,115,22,0.08) 0%, transparent 70%)",
@@ -571,7 +571,7 @@ export function ArtistView({ onSwitchView }: ArtistViewProps) {
             {/* Photo */}
             <div className="relative shrink-0">
               <div
-                className="w-[200px] h-[260px] relative overflow-hidden"
+                className="w-50 h-65 relative overflow-hidden"
                 style={{
                   border: "2px solid rgba(249,115,22,0.4)",
                   boxShadow: "12px 12px 0 #F97316",
@@ -855,7 +855,7 @@ export function ArtistView({ onSwitchView }: ArtistViewProps) {
               </span>
             </div>
             <div className="relative">
-              <div className="absolute left-0 top-0 bottom-0 w-px bg-gradient-to-b from-[#10B981] to-transparent" />
+              <div className="absolute left-0 top-0 bottom-0 w-px bg-linear-to-b from-[#10B981] to-transparent" />
               <div className="pl-8 flex flex-col gap-8">
                 {experiences.map((exp, i) => (
                   <div
@@ -879,7 +879,7 @@ export function ArtistView({ onSwitchView }: ArtistViewProps) {
                           {exp.company}
                         </div>
                       </div>
-                      <div className="font-mono text-[10px] tracking-[0.1em] text-[#10B981] shrink-0">
+                      <div className="font-mono text-[10px] tracking-widest text-[#10B981] shrink-0">
                         {exp.dateShort || exp.date}
                       </div>
                     </div>
@@ -890,7 +890,7 @@ export function ArtistView({ onSwitchView }: ArtistViewProps) {
                       {exp.worked.slice(0, 2).map((w, wi) => (
                         <span
                           key={wi}
-                          className="font-mono text-[9px] tracking-[0.1em] px-2 py-0.5 text-[#10B981]/60 border border-[#10B981]/15"
+                          className="font-mono text-[9px] tracking-widest px-2 py-0.5 text-[#10B981]/60 border border-[#10B981]/15"
                         >
                           #{w.split(" ")[0]}
                         </span>
@@ -1114,7 +1114,7 @@ export function ArtistView({ onSwitchView }: ArtistViewProps) {
                 >
                   <div className="flex items-center justify-between mb-4">
                     <span
-                      className="font-mono text-[10px] tracking-[0.1em]"
+                      className="font-mono text-[10px] tracking-widest"
                       style={{ color }}
                     >
                       {report.log}
@@ -1164,7 +1164,7 @@ export function ArtistView({ onSwitchView }: ArtistViewProps) {
               LET'S BUILD SOMETHING{" "}
               <span className="text-[#F97316]">GREAT</span> TOGETHER
             </h3>
-            <p className="font-mono text-[13px] leading-[2] text-white/40 mb-10">
+            <p className="font-mono text-[13px] leading-loose text-white/40 mb-10">
               Have a project in mind? Let's work together to create something
               that generates results.
             </p>

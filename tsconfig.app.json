@@ -22,14 +22,5 @@
     "noFallthroughCasesInSwitch": true,
     "noUncheckedSideEffectImports": true
   },
-  "include": [
-    "src",
-    "vary/AboutMe.tsx",
-    "vary/CodingStats.tsx",
-    "vary/CommunityImpact.tsx",
-    "vary/Contact.tsx",
-    "vary/Education.tsx",
-    "vary/Experience.tsx",
-    "vary/ThemeContext.tsx"
-  ]
+  "include": ["src"]
 }

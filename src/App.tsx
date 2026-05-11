@@ -134,7 +134,7 @@ import { ArtistView } from "./ArtistView";
 import { ProfessionalView } from "./components/ProfessionalView";
 import { ViewSelector } from "./components/ViewSelector";
 import { useTheme } from "./contexts/ThemeContext";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 export default function App() {
   const { isDark: _isDark } = useTheme();

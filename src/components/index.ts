@@ -1,15 +1,4 @@
 export { Navbar } from "./Navbar";
 export { Hero } from "./Hero";
-export { CommunityImpact } from "./CommunityImpact";
-export { TechStack } from "./TechStack";
-export { ExperienceSection } from "./Experience";
-export { EducationSection } from "./Education";
-export { CodingStats } from "./CodingStats";
-export { SelectedWorks } from "./SelectedWorks";
-export { ProjectModal } from "./ProjectModal";
-export { AboutMe } from "./AboutMe";
-export { Contact } from "./Contact";
 export { Footer } from "./Footer";
-export { UserReports } from "./UserReports";
-export { CareerLedger } from "./CareerLedger";
 export { ViewSelector } from "./ViewSelector";
