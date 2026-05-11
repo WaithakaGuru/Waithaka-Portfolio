@@ -1,5 +1,3 @@
-import React, { useEffect, useState } from "react";
-
 interface SectionBackgroundProps {
   words: string[];
   opacity?: number;
