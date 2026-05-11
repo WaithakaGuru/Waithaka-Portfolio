@@ -1,8 +1,8 @@
-import { useScrollReveal } from "../../hooks/useScrollReveal";
+import { useScrollAnimations } from "../../hooks/useScrollReveal";
 import { experiences } from "../../data";
 
 export function ProfessionalExperience() {
-  const scrollRef = useScrollReveal();
+  const scrollRef = useScrollAnimations();
 
   return (
     <section

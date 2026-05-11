@@ -1,8 +1,8 @@
-import { useScrollReveal } from "../../hooks/useScrollReveal";
 import { SectionBackground, SECTION_WORDS } from "./SectionBackground";
+import { useScrollAnimations } from "../../hooks/useScrollReveal";
 
 export function ProfessionalAbout() {
-  const scrollRef = useScrollReveal();
+  const scrollRef = useScrollAnimations();
 
   const pillars = [
     {

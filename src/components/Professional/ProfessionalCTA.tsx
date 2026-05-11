@@ -1,7 +1,7 @@
-import { useScrollReveal } from "../../hooks/useScrollReveal";
+import { useScrollAnimations } from "../../hooks/useScrollReveal";
 
 export function ProfessionalCTA() {
-  const scrollRef = useScrollReveal();
+  const scrollRef = useScrollAnimations();
 
   const tags = [
     "Full Stack Engineering",

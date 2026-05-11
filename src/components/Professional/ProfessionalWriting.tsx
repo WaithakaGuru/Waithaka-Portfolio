@@ -1,8 +1,8 @@
-import { useScrollReveal } from "../../hooks/useScrollReveal";
+import { useScrollAnimations } from "../../hooks/useScrollReveal";
 import { writings } from "../../data";
 
 export function ProfessionalWriting() {
-  const scrollRef = useScrollReveal();
+  const scrollRef = useScrollAnimations();
 
   const ArticleCard = ({ article }: { article: (typeof writings)[0] }) => (
     <a

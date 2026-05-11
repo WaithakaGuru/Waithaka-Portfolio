@@ -1,9 +1,9 @@
-import { useScrollReveal } from "../../hooks/useScrollReveal";
+import { useScrollAnimations } from "../../hooks/useScrollReveal";
 import { techStack } from "../../data";
 import { getTechIcon } from "../../utils/techIcons";
 
 export function ProfessionalTechStack() {
-  const scrollRef = useScrollReveal();
+  const scrollRef = useScrollAnimations();
 
   // Split techStack into 3 marquees
   const itemsPerRow = Math.ceil(techStack.length / 3);
