@@ -125,7 +125,7 @@ function Marquee({
         {doubled.map((item, i) => (
           <span
             key={i}
-            className="font-mono text-[11px] tracking-[0.2em] uppercase text-[#F97316]/60 px-8 border-r border-[#F97316]/20 whitespace-nowrap"
+            className="font-mono text-[14px] tracking-[0.2em] uppercase text-[#F97316]/60 px-10 border-r border-[#F97316]/20 whitespace-nowrap"
           >
             {item}
           </span>
@@ -146,13 +146,13 @@ function SectionHeader({
   accent: string;
 }) {
   return (
-    <div className="flex items-end gap-6 mb-16">
-      <span className="font-['Bebas_Neue'] text-[120px] leading-none text-white/5 select-none tabular-nums">
+    <div className="flex items-end gap-8 mb-20">
+      <span className="font-['Bebas_Neue'] text-[150px] leading-none text-white/5 select-none tabular-nums">
         {num}
       </span>
-      <div className="pb-4">
-        <div className="h-0.5 w-16 mb-3" style={{ background: accent }} />
-        <h2 className="font-['Bebas_Neue'] text-[clamp(40px,5vw,72px)] leading-none tracking-[0.04em] text-white">
+      <div className="pb-5">
+        <div className="h-0.5 w-20 mb-4" style={{ background: accent }} />
+        <h2 className="font-['Bebas_Neue'] text-[clamp(50px,6.25vw,90px)] leading-none tracking-[0.04em] text-white">
           {label.split("_").map((part, i) => (
             <span key={i}>
               {i > 0 && <span style={{ color: accent }}>_</span>}
@@ -514,7 +514,7 @@ export function ArtistView({ onSwitchView }: ArtistViewProps) {
         <div className="relative z-10 px-8 md:px-16 pt-12 pb-8">
           {/* Location + status row */}
           <div
-            className="flex items-center gap-4 mb-10 overflow-hidden"
+            className="flex items-center gap-5 mb-13 overflow-hidden"
             style={{
               animation: loaded
                 ? "float-in 0.7s cubic-bezier(0.16,1,0.3,1) 0.1s both"
@@ -522,11 +522,11 @@ export function ArtistView({ onSwitchView }: ArtistViewProps) {
             }}
           >
             <span className="w-2 h-2 rounded-full bg-[#10B981] animate-pulse" />
-            <span className="font-mono text-[11px] tracking-[0.25em] uppercase text-white/40">
+            <span className="font-mono text-[14px] tracking-[0.25em] uppercase text-white/40">
               NAIROBI, KENYA &nbsp;·&nbsp; AVAILABLE FOR PROJECTS
             </span>
             <div className="flex-1 h-px bg-white/5" />
-            <span className="font-mono text-[11px] text-white/20">
+            <span className="font-mono text-[14px] text-white/20">
               WFH / REMOTE
             </span>
           </div>
@@ -536,7 +536,7 @@ export function ArtistView({ onSwitchView }: ArtistViewProps) {
             <h1
               className="font-['Bebas_Neue'] leading-[0.85] tracking-[0.02em] select-none"
               style={{
-                fontSize: "clamp(80px, 14vw, 200px)",
+                fontSize: "clamp(100px, 17.5vw, 250px)",
                 animation: loaded
                   ? "float-in 0.8s cubic-bezier(0.16,1,0.3,1) 0.2s both"
                   : "none",
@@ -561,7 +561,7 @@ export function ArtistView({ onSwitchView }: ArtistViewProps) {
 
           {/* Photo + description row */}
           <div
-            className="flex flex-col md:flex-row gap-12 items-start"
+            className="flex flex-col md:flex-row gap-15 items-start"
             style={{
               animation: loaded
                 ? "float-in 0.8s cubic-bezier(0.16,1,0.3,1) 0.35s both"
@@ -571,7 +571,7 @@ export function ArtistView({ onSwitchView }: ArtistViewProps) {
             {/* Photo */}
             <div className="relative shrink-0">
               <div
-                className="w-50 h-65 relative overflow-hidden"
+                className="w-63 h-81 relative overflow-hidden"
                 style={{
                   border: "2px solid rgba(249,115,22,0.4)",
                   boxShadow: "12px 12px 0 #F97316",
@@ -595,7 +595,7 @@ export function ArtistView({ onSwitchView }: ArtistViewProps) {
                 />
               </div>
               <div
-                className="absolute -bottom-4 -left-4 font-mono text-[10px] tracking-[0.15em] uppercase px-3 py-1.5 font-bold"
+                className="absolute -bottom-5 -left-5 font-mono text-[13px] tracking-[0.15em] uppercase px-4 py-2 font-bold"
                 style={{ background: "#F97316", color: "#000" }}
               >
                 OPEN TO WORK ↗
@@ -627,10 +627,10 @@ export function ArtistView({ onSwitchView }: ArtistViewProps) {
               </div>
 
               {/* CTA */}
-              <div className="flex flex-wrap gap-4 items-center">
+              <div className="flex flex-wrap gap-5 items-center">
                 <button
                   onClick={() => scrollTo("projects")}
-                  className="font-mono font-bold text-[12px] tracking-[0.15em] uppercase px-8 py-4 bg-white text-black hover:bg-[#F97316] transition-colors"
+                  className="font-mono font-bold text-[15px] tracking-[0.15em] uppercase px-10 py-5 bg-white text-black hover:bg-[#F97316] transition-colors"
                   style={{ boxShadow: "4px 4px 0 #F97316" }}
                 >
                   VIEW PROJECTS →
@@ -638,7 +638,7 @@ export function ArtistView({ onSwitchView }: ArtistViewProps) {
                 <a
                   href="/Waithaka_Ndung'u.pdf"
                   download
-                  className="font-mono text-[12px] tracking-[0.15em] uppercase px-8 py-4 border border-white/20 text-white/60 hover:border-[#F97316] hover:text-[#F97316] transition-colors"
+                  className="font-mono text-[15px] tracking-[0.15em] uppercase px-10 py-5 border border-white/20 text-white/60 hover:border-[#F97316] hover:text-[#F97316] transition-colors"
                 >
                   DOWNLOAD CV ↓
                 </a>
@@ -646,17 +646,17 @@ export function ArtistView({ onSwitchView }: ArtistViewProps) {
             </div>
 
             {/* Floating stats */}
-            <div className="hidden lg:flex flex-col gap-5 ml-auto">
+            <div className="hidden lg:flex flex-col gap-6 ml-auto">
               {[
                 { num: "4+", label: "YRS EXP" },
                 { num: "11", label: "SHIPPED" },
                 { num: "5", label: "CERTS" },
               ].map(({ num, label }) => (
                 <div key={label} className="text-right">
-                  <div className="font-['Bebas_Neue'] text-[52px] leading-none text-[#F97316] stat-num-art">
+                  <div className="font-['Bebas_Neue'] text-[65px] leading-none text-[#F97316] stat-num-art">
                     {num}
                   </div>
-                  <div className="font-mono text-[9px] tracking-[0.2em] text-white/30 uppercase">
+                  <div className="font-mono text-[11px] tracking-[0.2em] text-white/30 uppercase">
                     {label}
                   </div>
                 </div>
@@ -666,7 +666,7 @@ export function ArtistView({ onSwitchView }: ArtistViewProps) {
         </div>
 
         {/* Marquee band */}
-        <div className="mt-16 border-y border-white/5 py-3 overflow-hidden">
+        <div className="mt-20 border-y border-white/5 py-4 overflow-hidden">
           <Marquee
             items={[
               "FULL STACK DEVELOPMENT",
@@ -690,7 +690,7 @@ export function ArtistView({ onSwitchView }: ArtistViewProps) {
       {/* ══════════════════════════════════════════════════
           SECTION 02 — ABOUT
       ══════════════════════════════════════════════════ */}
-      <section id="about" className="py-32 px-8 md:px-16 relative">
+      <section id="about" className="py-40 px-10 md:px-20 relative">
         <div
           className="absolute top-0 right-0 w-64 h-64 opacity-5 pointer-events-none"
           style={{
@@ -700,9 +700,9 @@ export function ArtistView({ onSwitchView }: ArtistViewProps) {
 
         <SectionHeader num="01" label="ABOUT_ME" accent="#F97316" />
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-start max-w-5xl">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-25 items-start max-w-5xl">
           <div>
-            <p className="font-mono text-[14px] leading-[2.1] text-white/55 mb-8">
+            <p className="font-mono text-[18px] leading-[2.1] text-white/55 mb-10">
               I am{" "}
               <span className="text-[#F97316] font-bold not-italic">
                 Waithaka Ndung'u
@@ -713,7 +713,7 @@ export function ArtistView({ onSwitchView }: ArtistViewProps) {
               specialize in creating performant, scalable, and optimal web and
               mobile applications.
             </p>
-            <p className="font-mono text-[14px] leading-[2.1] text-white/55 mb-10">
+            <p className="font-mono text-[18px] leading-[2.1] text-white/55 mb-13">
               I'm obsessed with{" "}
               <span className="text-white">Data Structures</span>,{" "}
               <span className="text-white">Optimization</span>, and{" "}
@@ -721,15 +721,15 @@ export function ArtistView({ onSwitchView }: ArtistViewProps) {
               of shipping apps that sell and scale.
             </p>
 
-            <div className="flex flex-col gap-3">
+            <div className="flex flex-col gap-4">
               {[
                 "Web Development & AI Integration",
                 "Data Structures & Optimization",
                 "3+ Years Shipping Scalable Apps",
               ].map((item, i) => (
-                <div key={i} className="flex items-center gap-4 group">
+                <div key={i} className="flex items-center gap-5 group">
                   <span className="w-6 h-px bg-[#F97316] group-hover:w-10 transition-all duration-300 shrink-0" />
-                  <span className="font-mono text-[12px] tracking-[0.05em] text-white/50 group-hover:text-white transition-colors">
+                  <span className="font-mono text-[15px] tracking-[0.05em] text-white/50 group-hover:text-white transition-colors">
                     {item}
                   </span>
                 </div>
@@ -738,7 +738,7 @@ export function ArtistView({ onSwitchView }: ArtistViewProps) {
           </div>
 
           {/* Stats block */}
-          <div className="grid grid-cols-3 lg:grid-cols-1 gap-4">
+          <div className="grid grid-cols-3 lg:grid-cols-1 gap-5">
             {[
               { num: "4+", label: "Years of Experience", color: "#F97316" },
               { num: "50+", label: "Projects Completed", color: "#3B82F6" },
@@ -746,7 +746,7 @@ export function ArtistView({ onSwitchView }: ArtistViewProps) {
             ].map(({ num, label, color }) => (
               <div
                 key={label}
-                className="p-6 relative overflow-hidden"
+                className="p-8 relative overflow-hidden"
                 style={{
                   border: "1px solid rgba(255,255,255,0.06)",
                   background: "rgba(255,255,255,0.02)",
@@ -757,7 +757,7 @@ export function ArtistView({ onSwitchView }: ArtistViewProps) {
                   style={{ background: color, opacity: 0.4 }}
                 />
                 <div
-                  className="font-['Bebas_Neue'] text-[56px] leading-none mb-1 stat-num-art"
+                  className="font-['Bebas_Neue'] text-[70px] leading-none mb-1 stat-num-art"
                   style={{ color }}
                 >
                   {num}
@@ -776,24 +776,24 @@ export function ArtistView({ onSwitchView }: ArtistViewProps) {
       ══════════════════════════════════════════════════ */}
       <section
         id="stack"
-        className="py-32 px-8 md:px-16 relative overflow-hidden"
+        className="py-40 px-10 md:px-20 relative overflow-hidden"
       >
         <div
           className="absolute inset-0 pointer-events-none opacity-[0.03]"
           style={{
             backgroundImage:
               "linear-gradient(rgba(59,130,246,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(59,130,246,0.5) 1px, transparent 1px)",
-            backgroundSize: "40px 40px",
+            backgroundSize: "50px 50px",
           }}
         />
 
         <SectionHeader num="02" label="TECH_STACK" accent="#3B82F6" />
 
-        <div className="flex flex-wrap gap-3 max-w-5xl">
+        <div className="flex flex-wrap gap-4 max-w-5xl">
           {techStack.map((item, i) => (
             <div
               key={i}
-              className="tech-pill group relative font-mono text-[11px] tracking-[0.12em] uppercase px-4 py-2.5"
+              className="tech-pill group relative font-mono text-[14px] tracking-[0.12em] uppercase px-5 py-3"
               style={{
                 border: "1px solid rgba(255,255,255,0.1)",
                 background: "rgba(255,255,255,0.03)",
@@ -801,7 +801,7 @@ export function ArtistView({ onSwitchView }: ArtistViewProps) {
                 animationDelay: `${i * 0.03}s`,
               }}
             >
-              <span className="absolute top-0 left-0 text-[8px] leading-none px-1 text-[#3B82F6] opacity-50">
+              <span className="absolute top-0 left-0 text-[10px] leading-none px-1 text-[#3B82F6] opacity-50">
                 {item.label}
               </span>
               <span className="mt-1 block">{item.name}</span>
@@ -811,7 +811,7 @@ export function ArtistView({ onSwitchView }: ArtistViewProps) {
 
         {/* Coding stats strip */}
         <div
-          className="mt-20 grid grid-cols-2 md:grid-cols-4 gap-px"
+          className="mt-25 grid grid-cols-2 md:grid-cols-4 gap-px"
           style={{ border: "1px solid rgba(255,255,255,0.05)" }}
         >
           {[
@@ -825,13 +825,13 @@ export function ArtistView({ onSwitchView }: ArtistViewProps) {
           ].map(({ val, label }) => (
             <div
               key={label}
-              className="py-8 px-6 text-center"
+              className="py-10 px-8 text-center"
               style={{ background: "rgba(255,255,255,0.015)" }}
             >
-              <div className="font-['Bebas_Neue'] text-[42px] text-[#3B82F6] leading-none mb-2 stat-num-art">
+              <div className="font-['Bebas_Neue'] text-[53px] text-[#3B82F6] leading-none mb-3 stat-num-art">
                 {val}
               </div>
-              <div className="font-mono text-[9px] tracking-[0.2em] uppercase text-white/25">
+              <div className="font-mono text-[11px] tracking-[0.2em] uppercase text-white/25">
                 {label}
               </div>
             </div>
@@ -842,55 +842,55 @@ export function ArtistView({ onSwitchView }: ArtistViewProps) {
       {/* ══════════════════════════════════════════════════
           SECTION 04 — CAREER LEDGER
       ══════════════════════════════════════════════════ */}
-      <section id="logs" className="py-32 px-8 md:px-16">
+      <section id="logs" className="py-40 px-10 md:px-20">
         <SectionHeader num="03" label="CAREER_LOGS" accent="#10B981" />
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 max-w-6xl">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-25 max-w-6xl">
           {/* Experience */}
           <div>
-            <div className="flex items-center gap-3 mb-10">
-              <div className="w-3 h-3 bg-[#10B981]" />
-              <span className="font-mono text-[11px] tracking-[0.2em] uppercase text-white/40">
+            <div className="flex items-center gap-4 mb-13">
+              <div className="w-4 h-4 bg-[#10B981]" />
+              <span className="font-mono text-[14px] tracking-[0.2em] uppercase text-white/40">
                 EXPERIENCE_LOG
               </span>
             </div>
             <div className="relative">
               <div className="absolute left-0 top-0 bottom-0 w-px bg-linear-to-b from-[#10B981] to-transparent" />
-              <div className="pl-8 flex flex-col gap-8">
+              <div className="pl-10 flex flex-col gap-10">
                 {experiences.map((exp, i) => (
                   <div
                     key={i}
                     className="exp-card-art relative"
                     style={{
                       borderLeft: "1px solid rgba(255,255,255,0.06)",
-                      paddingLeft: "24px",
+                      paddingLeft: "30px",
                     }}
                   >
                     <div
-                      className="absolute -left-1 top-2 w-2 h-2 rounded-full bg-[#10B981]"
-                      style={{ boxShadow: "0 0 8px #10B981" }}
+                      className="absolute -left-1.5 top-2.5 w-3 h-3 rounded-full bg-[#10B981]"
+                      style={{ boxShadow: "0 0 10px #10B981" }}
                     />
-                    <div className="flex items-start justify-between gap-4 mb-2">
+                    <div className="flex items-start justify-between gap-4 mb-3">
                       <div>
-                        <div className="font-mono font-bold text-[14px] text-white">
+                        <div className="font-mono font-bold text-[18px] text-white">
                           {exp.title}
                         </div>
-                        <div className="font-mono text-[12px] text-white/40 mt-0.5">
+                        <div className="font-mono text-[15px] text-white/40 mt-1">
                           {exp.company}
                         </div>
                       </div>
-                      <div className="font-mono text-[10px] tracking-widest text-[#10B981] shrink-0">
+                      <div className="font-mono text-[13px] tracking-widest text-[#10B981] shrink-0">
                         {exp.dateShort || exp.date}
                       </div>
                     </div>
-                    <p className="font-mono text-[12px] leading-[1.8] text-white/35">
+                    <p className="font-mono text-[15px] leading-[1.8] text-white/35">
                       {exp.description}
                     </p>
-                    <div className="flex flex-wrap gap-1.5 mt-3">
+                    <div className="flex flex-wrap gap-2 mt-4">
                       {exp.worked.slice(0, 2).map((w, wi) => (
                         <span
                           key={wi}
-                          className="font-mono text-[9px] tracking-widest px-2 py-0.5 text-[#10B981]/60 border border-[#10B981]/15"
+                          className="font-mono text-[11px] tracking-widest px-2.5 py-1 text-[#10B981]/60 border border-[#10B981]/15"
                         >
                           #{w.split(" ")[0]}
                         </span>
@@ -904,17 +904,17 @@ export function ArtistView({ onSwitchView }: ArtistViewProps) {
 
           {/* Education */}
           <div>
-            <div className="flex items-center gap-3 mb-10">
-              <div className="w-3 h-3 bg-[#3B82F6]" />
-              <span className="font-mono text-[11px] tracking-[0.2em] uppercase text-white/40">
+            <div className="flex items-center gap-4 mb-13">
+              <div className="w-4 h-4 bg-[#3B82F6]" />
+              <span className="font-mono text-[14px] tracking-[0.2em] uppercase text-white/40">
                 EDUCATION_LOG
               </span>
             </div>
-            <div className="flex flex-col gap-5">
+            <div className="flex flex-col gap-8">
               {education.map((edu, i) => (
                 <div
                   key={i}
-                  className="p-5 relative overflow-hidden group"
+                  className="p-7 relative overflow-hidden group"
                   style={{
                     border: "1px solid rgba(255,255,255,0.06)",
                     background: "rgba(255,255,255,0.02)",
@@ -933,16 +933,16 @@ export function ArtistView({ onSwitchView }: ArtistViewProps) {
                       "rgba(255,255,255,0.02)";
                   }}
                 >
-                  <div className="flex items-start gap-4">
-                    <span className="text-[28px] shrink-0">{edu.logo}</span>
+                  <div className="flex items-start gap-5">
+                    <span className="text-[35px] shrink-0">{edu.logo}</span>
                     <div>
-                      <div className="font-mono font-bold text-[13px] text-white mb-0.5">
+                      <div className="font-mono font-bold text-[16px] text-white mb-1">
                         {edu.title}
                       </div>
-                      <div className="font-mono text-[11px] text-[#3B82F6]/70">
+                      <div className="font-mono text-[14px] text-[#3B82F6]/70">
                         {edu.institution}
                       </div>
-                      <div className="font-mono text-[10px] text-white/25 mt-1">
+                      <div className="font-mono text-[13px] text-white/25 mt-1.5">
                         {edu.date}
                       </div>
                     </div>
@@ -950,9 +950,9 @@ export function ArtistView({ onSwitchView }: ArtistViewProps) {
                 </div>
               ))}
 
-              <div className="flex items-center gap-3 mt-4">
+              <div className="flex items-center gap-4 mt-5">
                 <span className="w-2 h-2 rounded-full bg-[#10B981] animate-pulse shrink-0" />
-                <span className="font-mono text-[10px] tracking-[0.15em] uppercase text-white/25">
+                <span className="font-mono text-[13px] tracking-[0.15em] uppercase text-white/25">
                   ALWAYS_LEARNING → Actively pursuing new certifications
                 </span>
               </div>
@@ -964,7 +964,7 @@ export function ArtistView({ onSwitchView }: ArtistViewProps) {
       {/* ══════════════════════════════════════════════════
           SECTION 05 — PROJECTS
       ══════════════════════════════════════════════════ */}
-      <section id="projects" className="py-32 px-8 md:px-16 relative">
+      <section id="projects" className="py-40 px-10 md:px-20 relative">
         <div
           className="absolute inset-0 pointer-events-none"
           style={{
@@ -975,7 +975,7 @@ export function ArtistView({ onSwitchView }: ArtistViewProps) {
 
         <SectionHeader num="04" label="SELECTED_WORKS" accent="#F97316" />
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl">
           {projects.map((project, i) => {
             const colors = ["#F97316", "#3B82F6", "#10B981", "#8B5CF6"];
             const accent = colors[i % colors.length];
@@ -993,12 +993,12 @@ export function ArtistView({ onSwitchView }: ArtistViewProps) {
               >
                 {/* Preview area */}
                 <div
-                  className="w-full h-44 relative overflow-hidden flex items-center justify-center"
+                  className="w-full h-56 relative overflow-hidden flex items-center justify-center"
                   style={{
                     background: `linear-gradient(135deg, ${accent}08, ${accent}02)`,
                   }}
                 >
-                  <span className="font-['Bebas_Neue'] text-[80px] tracking-widest opacity-5 select-none">
+                  <span className="font-['Bebas_Neue'] text-[100px] tracking-widest opacity-5 select-none">
                     {project.title.charAt(0)}
                   </span>
                   <div
@@ -1012,7 +1012,7 @@ export function ArtistView({ onSwitchView }: ArtistViewProps) {
                     style={{ background: `${accent}15` }}
                   >
                     <span
-                      className="font-mono text-[11px] tracking-[0.2em] uppercase"
+                      className="font-mono text-[14px] tracking-[0.2em] uppercase"
                       style={{ color: accent }}
                     >
                       [{project.title} PREVIEW]
@@ -1020,18 +1020,18 @@ export function ArtistView({ onSwitchView }: ArtistViewProps) {
                   </div>
                 </div>
 
-                <div className="p-6">
-                  <h3 className="font-['Bebas_Neue'] text-[28px] tracking-[0.04em] text-white mb-2">
+                <div className="p-8">
+                  <h3 className="font-['Bebas_Neue'] text-[35px] tracking-[0.04em] text-white mb-3">
                     {project.title}
                   </h3>
-                  <p className="font-mono text-[12px] leading-[1.8] text-white/40 mb-4">
+                  <p className="font-mono text-[15px] leading-[1.8] text-white/40 mb-5">
                     {project.shortDesc}
                   </p>
-                  <div className="flex flex-wrap gap-1.5 mb-5">
+                  <div className="flex flex-wrap gap-2 mb-6">
                     {project.tags.slice(0, 3).map((tag) => (
                       <span
                         key={tag}
-                        className="font-mono text-[9px] tracking-[0.12em] uppercase px-2.5 py-1"
+                        className="font-mono text-[11px] tracking-[0.12em] uppercase px-3 py-1.5"
                         style={{
                           background: `${accent}15`,
                           color: accent,
@@ -1042,12 +1042,12 @@ export function ArtistView({ onSwitchView }: ArtistViewProps) {
                       </span>
                     ))}
                   </div>
-                  <div className="flex gap-3">
+                  <div className="flex gap-4">
                     <a
                       href={project.github}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="font-mono font-bold text-[10px] tracking-[0.15em] uppercase px-4 py-2 transition-all hover:bg-white hover:text-black"
+                      className="font-mono font-bold text-[13px] tracking-[0.15em] uppercase px-5 py-3 transition-all hover:bg-white hover:text-black"
                       style={{
                         border: "1px solid rgba(255,255,255,0.15)",
                         color: "rgba(255,255,255,0.5)",
@@ -1059,7 +1059,7 @@ export function ArtistView({ onSwitchView }: ArtistViewProps) {
                       href={project.live}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="font-mono font-bold text-[10px] tracking-[0.15em] uppercase px-4 py-2 transition-all"
+                      className="font-mono font-bold text-[13px] tracking-[0.15em] uppercase px-5 py-3 transition-all"
                       style={{ background: accent, color: "#000" }}
                     >
                       LIVE ↗
@@ -1076,13 +1076,13 @@ export function ArtistView({ onSwitchView }: ArtistViewProps) {
           SECTION 06 — USER REPORTS
       ══════════════════════════════════════════════════ */}
       <section
-        className="py-32 overflow-hidden"
+        className="py-40 overflow-hidden"
         style={{ background: "rgba(255,255,255,0.01)" }}
       >
-        <div className="px-8 md:px-16 mb-16">
+        <div className="px-10 md:px-20 mb-20">
           <SectionHeader num="05" label="USER_REPORTS" accent="#8B5CF6" />
-          <div className="flex items-center gap-3">
-            <span className="font-mono text-[10px] text-[#8B5CF6]/60 tracking-[0.2em] uppercase">
+          <div className="flex items-center gap-4">
+            <span className="font-mono text-[13px] text-[#8B5CF6]/60 tracking-[0.2em] uppercase">
               LIVE_FEED
             </span>
             <span className="w-2 h-2 rounded-full bg-[#8B5CF6] animate-pulse" />
@@ -1091,7 +1091,7 @@ export function ArtistView({ onSwitchView }: ArtistViewProps) {
 
         <div className="relative w-full overflow-hidden">
           <div
-            className="flex gap-5"
+            className="flex gap-7"
             style={{ animation: "marquee-scroll 40s linear infinite" }}
           >
             {[...userReports, ...userReports].map((report, idx) => {
@@ -1105,28 +1105,28 @@ export function ArtistView({ onSwitchView }: ArtistViewProps) {
               return (
                 <div
                   key={idx}
-                  className="review-card shrink-0 w-80 p-6 relative overflow-hidden"
+                  className="review-card shrink-0 w-100 p-8 relative overflow-hidden"
                   style={{
                     border: "1px solid rgba(255,255,255,0.06)",
                     background: "rgba(255,255,255,0.03)",
                     borderTop: `3px solid ${color}`,
                   }}
                 >
-                  <div className="flex items-center justify-between mb-4">
+                  <div className="flex items-center justify-between mb-5">
                     <span
-                      className="font-mono text-[10px] tracking-widest"
+                      className="font-mono text-[13px] tracking-widest"
                       style={{ color }}
                     >
                       {report.log}
                     </span>
-                    <span className="font-mono text-[9px] text-white/20">
+                    <span className="font-mono text-[11px] text-white/20">
                       {report.file}
                     </span>
                   </div>
-                  <div className="font-mono text-[9px] text-white/25 mb-3 tracking-[0.08em]">
+                  <div className="font-mono text-[11px] text-white/25 mb-4 tracking-[0.08em]">
                     FROM: {report.from}
                   </div>
-                  <p className="font-mono text-[13px] font-bold text-white leading-[1.6] mb-4">
+                  <p className="font-mono text-[16px] font-bold text-white leading-[1.6] mb-5">
                     "{report.report}"
                   </p>
                   <div className="flex gap-0.5">
@@ -1146,7 +1146,7 @@ export function ArtistView({ onSwitchView }: ArtistViewProps) {
       {/* ══════════════════════════════════════════════════
           SECTION 07 — CONTACT
       ══════════════════════════════════════════════════ */}
-      <section id="contact" className="py-32 px-8 md:px-16 relative">
+      <section id="contact" className="py-40 px-10 md:px-20 relative">
         <div
           className="absolute inset-0 pointer-events-none"
           style={{
@@ -1157,19 +1157,19 @@ export function ArtistView({ onSwitchView }: ArtistViewProps) {
 
         <SectionHeader num="06" label="GET_IN_TOUCH" accent="#F97316" />
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 max-w-5xl">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-25 max-w-5xl">
           {/* Left */}
           <div>
             <h3 className="font-['Bebas_Neue'] text-[clamp(32px,4vw,52px)] leading-[1.1] text-white mb-8">
               LET'S BUILD SOMETHING{" "}
               <span className="text-[#F97316]">GREAT</span> TOGETHER
             </h3>
-            <p className="font-mono text-[13px] leading-loose text-white/40 mb-10">
+            <p className="font-mono text-[17px] leading-loose text-white/40 mb-13">
               Have a project in mind? Let's work together to create something
               that generates results.
             </p>
 
-            <div className="flex flex-col gap-4">
+            <div className="flex flex-col gap-5">
               {[
                 {
                   icon: "@",
@@ -1198,20 +1198,20 @@ export function ArtistView({ onSwitchView }: ArtistViewProps) {
                   href={href}
                   target={href.startsWith("mailto") ? undefined : "_blank"}
                   rel="noopener noreferrer"
-                  className="flex items-center gap-4 group no-underline py-3"
+                  className="flex items-center gap-5 group no-underline py-4"
                   style={{ borderBottom: "1px solid rgba(255,255,255,0.05)" }}
                 >
                   <div
-                    className="w-10 h-10 shrink-0 flex items-center justify-center font-mono font-bold text-[11px] transition-all duration-200 group-hover:-translate-y-0.5"
+                    className="w-13 h-13 shrink-0 flex items-center justify-center font-mono font-bold text-[13px] transition-all duration-200 group-hover:-translate-y-0.5"
                     style={{ background: color, color: "#000" }}
                   >
                     {icon}
                   </div>
                   <div>
-                    <div className="font-mono text-[9px] tracking-[0.2em] uppercase text-white/25">
+                    <div className="font-mono text-[11px] tracking-[0.2em] uppercase text-white/25">
                       {label}
                     </div>
-                    <div className="font-mono text-[12px] text-white/60 group-hover:text-[#F97316] transition-colors">
+                    <div className="font-mono text-[15px] text-white/60 group-hover:text-[#F97316] transition-colors">
                       {val}
                     </div>
                   </div>
@@ -1230,20 +1230,20 @@ export function ArtistView({ onSwitchView }: ArtistViewProps) {
 
       {/* ─── FOOTER ─── */}
       <footer
-        className="border-t py-8 px-8 md:px-16 flex flex-col md:flex-row items-center justify-between gap-4"
+        className="border-t py-10 px-10 md:px-20 flex flex-col md:flex-row items-center justify-between gap-5"
         style={{ borderColor: "rgba(255,255,255,0.06)" }}
       >
-        <span className="font-['Bebas_Neue'] text-xl tracking-widest text-white/20">
+        <span className="font-['Bebas_Neue'] text-2xl tracking-widest text-white/20">
           WAITHAKA<span className="text-[#F97316]">.HACK</span>
         </span>
-        <span className="font-mono text-[10px] tracking-[0.15em] text-white/15">
+        <span className="font-mono text-[13px] tracking-[0.15em] text-white/15">
           © {new Date().getFullYear()} &nbsp;·&nbsp; ALL RIGHTS RESERVED
           &nbsp;·&nbsp; BUILT FOR DEVS
         </span>
         {onSwitchView && (
           <button
             onClick={onSwitchView}
-            className="font-mono text-[10px] tracking-[0.15em] uppercase text-white/20 hover:text-[#F97316] transition-colors"
+            className="font-mono text-[13px] tracking-[0.15em] uppercase text-white/20 hover:text-[#F97316] transition-colors"
           >
             SWITCH TO PRO VIEW ⇄
           </button>
@@ -1273,18 +1273,18 @@ function ContactForm() {
     color: "white",
     outline: "none",
     fontFamily: "'JetBrains Mono', monospace",
-    fontSize: "13px",
+    fontSize: "16px",
   } as React.CSSProperties;
 
   return (
-    <form onSubmit={handleSubmit} className="flex flex-col gap-5">
-      <h3 className="font-['Bebas_Neue'] text-[22px] tracking-[0.08em] text-white/40 mb-2">
+    <form onSubmit={handleSubmit} className="flex flex-col gap-6">
+      <h3 className="font-['Bebas_Neue'] text-[28px] tracking-[0.08em] text-white/40 mb-3">
         SEND A MESSAGE
       </h3>
 
       {(["name", "email", "message"] as const).map((field) => (
         <div key={field}>
-          <label className="block font-mono text-[9px] tracking-[0.2em] uppercase text-white/25 mb-2">
+          <label className="block font-mono text-[11px] tracking-[0.2em] uppercase text-white/25 mb-3">
             {field}
           </label>
           {field === "message" ? (
@@ -1292,9 +1292,9 @@ function ContactForm() {
               value={form[field]}
               onChange={(e) => setForm({ ...form, [field]: e.target.value })}
               required
-              rows={5}
+              rows={6}
               placeholder="Tell me about your project..."
-              className="w-full px-4 py-3 resize-none transition-all duration-150"
+              className="w-full px-5 py-4 resize-none transition-all duration-150"
               style={inputBase}
               onFocus={(e) => {
                 e.target.style.borderColor = "rgba(249,115,22,0.4)";
@@ -1312,7 +1312,7 @@ function ContactForm() {
               onChange={(e) => setForm({ ...form, [field]: e.target.value })}
               required
               placeholder={field === "email" ? "your@email.com" : "Your name"}
-              className="w-full px-4 py-3 transition-all duration-150"
+              className="w-full px-5 py-4 transition-all duration-150"
               style={inputBase}
               onFocus={(e) => {
                 e.target.style.borderColor = "rgba(249,115,22,0.4)";
@@ -1329,13 +1329,13 @@ function ContactForm() {
 
       <button
         type="submit"
-        className="w-full font-mono font-bold text-[12px] tracking-[0.2em] uppercase py-4 transition-all duration-150"
+        className="w-full font-mono font-bold text-[15px] tracking-[0.2em] uppercase py-5 transition-all duration-150"
         style={{
           background: sent ? "#10B981" : "#F97316",
           color: "#000",
           boxShadow: sent
             ? "0 0 20px rgba(16,185,129,0.3)"
-            : "4px 4px 0 rgba(249,115,22,0.3)",
+            : "5px 5px 0 rgba(249,115,22,0.3)",
         }}
       >
         {sent ? "✓ MESSAGE SENT!" : "SEND MESSAGE →"}
