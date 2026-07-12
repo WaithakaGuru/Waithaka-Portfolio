@@ -130,9 +130,9 @@
 //   );
 // }
 
-import { ArtistView } from "./ArtistView";
-import { ProfessionalView } from "./components/ProfessionalView";
-import { ViewSelector } from "./components/ViewSelector";
+import { ArtistView } from "../Past-Outlook/ArtistView";
+import { ProfessionalView } from "../Past-Outlook/components/ProfessionalView";
+import { ViewSelector } from "../Past-Outlook/components/ViewSelector";
 import { useTheme } from "./contexts/ThemeContext";
 import { useState } from "react";
 
