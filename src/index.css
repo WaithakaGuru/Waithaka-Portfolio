@@ -1,14 +1,16 @@
-@import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,500;0,700;0,800;1,400&family=Bebas+Neue&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,700;1,6..72,400&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,500;0,700;0,800;1,400&family=Space+Grotesk:wght@500;700&family=Caveat:wght@600;700&display=swap");
 @import "tailwindcss";
 
 /* ── TAILWIND THEME TOKENS ── */
 @theme {
-  --color-accent: #f97316;
+  --color-accent: #2f9be0;
+  --color-accent-soft: #cfebfb;
+  --color-pink: #ec4899;
   --color-yellow: #f5e642;
   --color-green: #10b981;
-  --color-blue: #3b82f6;
-  --color-black: #1a1a1a;
-  --color-white: #fdfaf4;
+  --color-blue: #2f9be0;
+  --color-black: #12181f;
+  --color-white: #eaf4fb;
 }
 
 /* ── BASE ── */
@@ -36,8 +38,9 @@
   }
 
   body {
-    font-family: "JetBrains Mono", monospace;
-    background-color: var(--bg, #f4efe6);
+    font-family:
+      -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, Roboto, sans-serif;
+    background-color: var(--bg, #eaf4fb);
     color: var(--text, #1a1a1a);
     transition:
       background-color 0.35s ease,
@@ -85,12 +88,12 @@
     box-shadow: var(--shadow-h, 7px 7px 0 #1a1a1a);
   }
 
-  /* Bebas headline helpers */
-  .font-bebas {
-    font-family: "Bebas Neue", sans-serif;
+  /* Headline / accent font helpers */
+  .font-display {
+    font-family: "Space Grotesk", sans-serif;
   }
-  .font-newsreader {
-    font-family: "Newsreader", Georgia, serif;
+  .font-hand {
+    font-family: "Caveat", cursive;
   }
   .font-mono-brand {
     font-family: "JetBrains Mono", monospace;
