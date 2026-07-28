@@ -1,5 +1,5 @@
 import { useScrollReveal } from "../../hooks/useScrollReveal";
-import { userReports } from "../../data";
+import { userReports } from "../../../src/data";
 
 export function ProfessionalTestimonials() {
   const scrollRef = useScrollReveal();

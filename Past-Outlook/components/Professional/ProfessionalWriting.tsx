@@ -1,5 +1,5 @@
 import { useScrollAnimations } from "../../hooks/useScrollReveal";
-import { writings } from "../../data";
+import { writings } from "../../../src/data";
 
 export function ProfessionalWriting() {
   const scrollRef = useScrollAnimations();

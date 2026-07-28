@@ -6,7 +6,7 @@ import {
   techStack,
   userReports,
   stats,
-} from "./data";
+} from "../src/data";
 import { getTechIcon } from "./utils/techIcons";
 
 // ─── GLITCH TEXT ────────────────────────────────────────────

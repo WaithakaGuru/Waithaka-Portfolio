@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useScrollReveal } from "../../hooks/useScrollReveal";
-import { education } from "../../data";
+import { education } from "../../../src/data";
 
 export function ProfessionalEducation() {
   const scrollRef = useScrollReveal();

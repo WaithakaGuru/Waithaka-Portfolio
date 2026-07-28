@@ -1,5 +1,5 @@
 import { useScrollReveal } from "../../hooks/useScrollReveal";
-import { TICKER_ITEMS } from "../../data";
+import { TICKER_ITEMS } from "../../../src/data";
 
 export function ProfessionalHero() {
   const scrollRef = useScrollReveal();

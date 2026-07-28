@@ -1,5 +1,5 @@
 import { useScrollReveal } from "../../hooks/useScrollReveal";
-import { projects } from "../../data";
+import { projects } from "../../../src/data";
 
 export function ProfessionalProjects() {
   const scrollRef = useScrollReveal();

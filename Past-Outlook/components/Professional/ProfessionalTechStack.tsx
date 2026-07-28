@@ -1,5 +1,5 @@
 import { useScrollAnimations } from "../../hooks/useScrollReveal";
-import { techStack } from "../../data";
+import { techStack } from "../../../src/data";
 import { getTechIcon } from "../../utils/techIcons";
 
 export function ProfessionalTechStack() {
