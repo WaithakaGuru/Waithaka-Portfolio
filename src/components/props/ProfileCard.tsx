@@ -13,7 +13,7 @@ export function ProfileCard() {
 
   return (
     <SpotlightCard
-      className="w-72 rounded-[48px] lg:border-12! border-8! overflow-hidden xl:h-130 h-68"
+      className="w-68 rounded-[48px] lg:border-12! border-8! overflow-hidden xl:h-120 h-60"
       spotlightColor="rgba(47, 155, 224, 0.28)"
     >
       <img
@@ -26,12 +26,12 @@ export function ProfileCard() {
 
       <div className="absolute bottom-0 left-0 right-0 z-10 p-7">
         <div className="flex items-center gap-1.5">
-          <span className="font-display font-bold text-lg text-stone-50">
+          <span className="font-display font-bold text-[1rem] text-stone-50">
             Waithaka Ndung'u
           </span>
           <VerifiedBadge />
         </div>
-        <p className="mt-1.5 text-[0.92rem] leading-snug hidden xl:flex text-stone-50 text-shadow-stone-900 text-shadow-xs">
+        <p className="mt-1 text-[0.8rem] leading-snug hidden xl:flex text-stone-50 text-shadow-stone-900 text-shadow-xs">
           Full stack engineer who ships fast and digs deep into systems.
         </p>
 

@@ -65,7 +65,11 @@ export function getTechIcon(techName: string) {
   return techIconMap[tech] || null;
 }
 
-export function renderTechWithIcon(techName: string, size: number = 24) {
+export function renderTechWithIcon(
+  techName: string,
+  size: number = 24,
+  fontSize: string,
+) {
   const config = getTechIcon(techName);
   if (!config) return techName;
 
@@ -88,7 +92,7 @@ export function renderTechWithIcon(techName: string, size: number = 24) {
       >
         {config.icon}
       </div>
-      <span>{techName}</span>
+      <span style={{ fontSize: `${fontSize}px` }}>{techName}</span>
     </div>
   );
 }

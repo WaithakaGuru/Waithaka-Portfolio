@@ -10,12 +10,18 @@ import { experiences, education } from "../data";
 import { HeaderNav } from "./global/HeaderNav";
 import { SiWhatsapp } from "react-icons/si";
 import { useContact } from "../contexts";
+import { renderTechWithIcon } from "../utils/techIcons";
 
 const EMAIL = "waithakaoffices@gmail.com";
 const RESUME_PDF = "/docs/Waithaka Ndung'u Resume.pdf";
 
 interface ResumePageProps {
   onBack: () => void;
+}
+
+function isImagePath(value: string): boolean {
+  const imageExtensions = /\.(jpg|jpeg|png|gif|webp|svg|avif)$/i;
+  return imageExtensions.test(value);
 }
 
 export function ResumePage({ onBack }: ResumePageProps) {
@@ -185,7 +191,19 @@ export function ResumePage({ onBack }: ResumePageProps) {
               <div className="flex flex-col gap-6">
                 {education.map((ed) => (
                   <div key={ed.title} className="flex items-start gap-3">
-                    <span className="text-lg mt-0.5 shrink-0">{ed.logo}</span>
+                    {isImagePath(ed.logo) ? (
+                      <div className="w-40 h-30 border border-(--text-muted) flex items-center justify-center overflow-hidden">
+                        <img
+                          src={new URL(ed.logo, import.meta.url).href}
+                          alt=""
+                        />
+                      </div>
+                    ) : (
+                      <span className="text-lg mt-0.5 shrink-0 w-40 h-30 border border-(--text-muted) flex items-center justify-center">
+                        {ed.logo}
+                      </span>
+                    )}
+
                     <div>
                       <div
                         className="font-display font-bold"
@@ -207,6 +225,64 @@ export function ResumePage({ onBack }: ResumePageProps) {
                       </div>
                     </div>
                   </div>
+                ))}
+              </div>
+            </div>
+            {/*  TechStack Icons and names  */}
+            <div>
+              <h3
+                className="font-mono-brand text-xs tracking-[0.18em] uppercase mb-6"
+                style={{ color: "var(--text-sub)" }}
+              >
+                Techstack
+              </h3>
+              <div className="flex gap-3 flex-wrap">
+                {[
+                  "React",
+                  "typescript",
+                  "python",
+                  "golang",
+                  "docker",
+                  "kubernetes",
+                  "prisma",
+                  "git",
+                  "postgres",
+                  "node.js",
+                  "stripe",
+                ].map((iconName, i) => (
+                  <span
+                    key={i}
+                    className="font-mono-brand text-xs px-3 py-1.5 rounded-full"
+                    style={{
+                      border: "1px solid var(--border-lt)",
+                      color: "var(--text-sub)",
+                    }}
+                  >
+                    {renderTechWithIcon(iconName, "14")}
+                  </span>
+                ))}
+              </div>
+            </div>
+            {/* Languages I speak  */}
+            <div>
+              <h3
+                className="font-mono-brand text-xs tracking-[0.18em] uppercase mb-6"
+                style={{ color: "var(--text-sub)" }}
+              >
+                Languages
+              </h3>
+              <div className="flex gap-3 flex-wrap">
+                {["English", "Swahili", "Kikuyu"].map((iconName, i) => (
+                  <span
+                    key={i}
+                    className="font-mono-brand text-xs px-3 py-1.5 rounded-full"
+                    style={{
+                      border: "1px solid var(--border-lt)",
+                      color: "var(--text-sub)",
+                    }}
+                  >
+                    {renderTechWithIcon(iconName, "14")}
+                  </span>
                 ))}
               </div>
             </div>
