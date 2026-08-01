@@ -15,14 +15,16 @@ export function ClipboardNote() {
         />
       </div>
       <div
-        className="px-3 pt-4 pb-4 font-hand text-[1rem] leading-snug"
+        className="px-3 pt-4 pb-4 font-hand text-[1.1rem] leading-snug"
         style={{ color: "var(--text)" }}
       >
         Ship it. <br />
         Ask why twice. <br />
         Fewer moving parts.
         <br />
-        <strong className="text-orange-500">3+ Years of experience</strong>
+        <strong className="text-orange-500">
+          {new Date().getFullYear() - 2022}+ Years of experience
+        </strong>
       </div>
     </div>
   );

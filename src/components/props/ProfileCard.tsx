@@ -56,7 +56,7 @@ export function ProfileCard() {
           <button
             data-cursor="pointer"
             onClick={scrollToContact}
-            className="flex-1 inline-flex items-center justify-center gap-1.5 px-4 py-3.5 rounded-2xl font-mono-brand text-xs font-bold uppercase tracking-widest transition-transform hover:-translate-y-0.5"
+            className="flex-1 inline-flex items-center justify-center gap-1.25 px-4 py-3.5 rounded-2xl font-mono-brand text-xs font-bold uppercase tracking-wider transition-transform hover:-translate-y-0.5"
             style={{
               color: isDark ? "#12181F" : "#f5f5f4",
               backgroundColor: isDark ? "#f5f5f4" : "#12181F",
