@@ -13,7 +13,7 @@ export function ProfileCard() {
 
   return (
     <SpotlightCard
-      className="w-68 rounded-[48px] lg:border-12! border-8! overflow-hidden xl:h-120 h-60"
+      className="w-66 rounded-[48px] lg:border-10! border-8! overflow-hidden xl:h-118 h-60"
       spotlightColor="rgba(47, 155, 224, 0.28)"
     >
       <img
@@ -36,22 +36,22 @@ export function ProfileCard() {
         </p>
 
         <div className="mt-4 items-center justify-between hidden xl:flex">
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-2">
             <span
-              className="inline-flex items-center gap-1.5 text-xs font-mono-brand"
+              className="inline-flex items-center gap-1 text-xs font-mono-brand"
               style={{ color: "#f1f1f4" }}
             >
               <FiBriefcase size={13} /> 15+ shipped
             </span>
             <span
-              className="inline-flex items-center gap-1.5 text-xs font-mono-brand"
+              className="inline-flex items-center gap-1 text-xs font-mono-brand"
               style={{ color: "#f1f1f4" }}
             >
               <FiGithub size={13} /> 40+ repos
             </span>
           </div>
         </div>
-        <div className="xl:my-6 mt-1 flex items-center gap-2 w-full">
+        <div className="xl:my-4 flex items-center gap-2 w-full">
           {/* Existing Primary Button */}
           <button
             data-cursor="pointer"

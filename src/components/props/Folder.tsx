@@ -141,7 +141,7 @@ const Folder: React.FC<FolderProps> = ({
         aria-label={triggers?.open ? "Close folder" : "Open folder"}
       >
         <div
-          className="relative w-25 h-20 rounded-tl-0 rounded-tr-[10px] rounded-br-[10px] rounded-bl-[10px]"
+          className="relative w-22 h-18 rounded-tl-0 rounded-tr-[10px] rounded-br-[10px] rounded-bl-[10px]"
           style={{ backgroundColor: folderBackColor }}
         >
           {/* The papers in the Folder  */}

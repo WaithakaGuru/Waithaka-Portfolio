@@ -7,7 +7,7 @@ const CoffeeMugVisual = () => (
     src={coffee}
     alt="Coffee Mug"
     draggable={false}
-    className="h-30 w-20 scale-125 dancing-mug select-none"
+    className="h-26 w-18 scale-125 dancing-mug select-none"
   />
 );
 const LampVisual = () => (
@@ -16,7 +16,7 @@ const LampVisual = () => (
       src={lamp}
       alt="Lamp"
       draggable={false}
-      className="lamp-image select-none lg:w-45 sm:w-35 w-25"
+      className="lamp-image select-none lg:w-40 sm:w-31 w-21"
     />
   </div>
 );
@@ -25,7 +25,7 @@ const PhoneVisual = () => (
     src={phone}
     alt="Phone"
     draggable={false}
-    className="object-center object-cover h-30 w-30 scale-180 ringing-phone select-none"
+    className="object-center object-cover h-25 w-25 scale-180 ringing-phone select-none"
   />
 );
 

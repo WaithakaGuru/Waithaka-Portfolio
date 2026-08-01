@@ -19,13 +19,13 @@ interface NavItem {
 }
 
 const SCROLL_ITEMS: NavItem[] = [
-  { id: "home", label: "Home", icon: <FiHome size={18} /> },
-  { id: "works", label: "Selected Work", icon: <FiBriefcase size={18} /> },
-  { id: "community", label: "Community Impact", icon: <FiUsers size={18} /> },
-  { id: "about", label: "About Me", icon: <FiUser size={18} /> },
-  { id: "play", label: "Play With Me", icon: <FiZap size={18} /> },
-  { id: "write", label: "I Can Write", icon: <FiEdit3 size={18} /> },
-  { id: "contact", label: "Contact", icon: <FiPhone size={18} /> },
+  { id: "home", label: "Home", icon: <FiHome size={16} /> },
+  { id: "works", label: "Selected Work", icon: <FiBriefcase size={16} /> },
+  { id: "community", label: "Community Impact", icon: <FiUsers size={16} /> },
+  { id: "about", label: "About Me", icon: <FiUser size={16} /> },
+  { id: "play", label: "Play With Me", icon: <FiZap size={16} /> },
+  { id: "write", label: "I Can Write", icon: <FiEdit3 size={16} /> },
+  { id: "contact", label: "Contact", icon: <FiPhone size={16} /> },
 ];
 
 const goTo = (id: string) =>
@@ -93,7 +93,7 @@ function DesktopNav({
       transition={{ type: "spring", stiffness: 320, damping: 32 }}
       className="fixed top-1/2 -translate-y-1/2 z-50 hidden md:flex flex-col gap-1 p-2 rounded-2xl backdrop-blur-md overflow-hidden"
       style={{
-        left: "max(1rem, calc(var(--page-margin) + 2rem - var(--nav-width-collapsed)))",
+        left: "max(1rem, calc(var(--page-margin) + 1rem - var(--nav-width-collapsed)))",
         background: "var(--nav-bg)",
         border: "1px solid var(--border-lt)",
         boxShadow: "var(--shadow-h)",
@@ -106,7 +106,7 @@ function DesktopNav({
             key={item.id}
             data-cursor="pointer"
             onClick={() => goTo(item.id)}
-            className="flex items-center gap-3 h-10 px-2.5 rounded-xl transition-colors shrink-0"
+            className="flex items-center gap-2 h-10 px-2.25 rounded-xl transition-colors shrink-0"
             style={{
               color: isActive ? "var(--accent)" : "var(--text)",
               background: isActive ? "var(--accent-soft)" : "transparent",
@@ -124,13 +124,13 @@ function DesktopNav({
               {isActive && (
                 <motion.span
                   layoutId="nav-active-dot"
-                  className="absolute -right-1 -top-1 w-1.5 h-1.5 rounded-full"
+                  className="absolute -right-1 -top-1 w-1.5 h-1.25 rounded-full"
                   style={{ background: "var(--accent)" }}
                 />
               )}
             </span>
             <span
-              className="font-mono-brand text-[13px] whitespace-nowrap transition-opacity duration-150"
+              className="font-mono-brand text-[12px] whitespace-nowrap transition-opacity duration-150"
               style={{ opacity: expanded ? 1 : 0 }}
             >
               {item.label}

@@ -67,8 +67,8 @@ export function getTechIcon(techName: string) {
 
 export function renderTechWithIcon(
   techName: string,
-  size: number = 24,
   fontSize: string,
+  size: number = 24,
 ) {
   const config = getTechIcon(techName);
   if (!config) return techName;

@@ -38,7 +38,7 @@ export function HomeHero() {
         <Lamp />
       </DraggableItem>
 
-      <div className="lg:block xl:top-10 absolute z-10 lg:ml-35 -ml-8 top-0">
+      <div className="lg:block xl:top-10 absolute z-10 lg:ml-32 -ml-8 top-0">
         <ProfileCard />
       </div>
 
@@ -48,7 +48,7 @@ export function HomeHero() {
         tooltipPos="bottom"
         initialRotate={3}
         className="hidden md:block animate-slide-down"
-        style={{ top: "4%", left: "6%" }}
+        style={{ top: "1%", left: "6%" }}
       >
         <CoffeeMug />
       </DraggableItem>
@@ -59,7 +59,7 @@ export function HomeHero() {
         tooltipPos="bottom"
         initialRotate={-3}
         className="hidden md:block"
-        style={{ top: "5%", right: "35%" }}
+        style={{ top: "4%", right: "32%" }}
       >
         <ClipboardNote />
       </DraggableItem>
@@ -82,7 +82,7 @@ export function HomeHero() {
         tooltipPos="bottom"
         initialRotate={-2}
         className="hidden md:block"
-        style={{ bottom: "6%", left: "8%" }}
+        style={{ bottom: "4%", left: "8%" }}
       >
         <Phone />
       </DraggableItem>
@@ -92,7 +92,7 @@ export function HomeHero() {
         tooltip="My Tech Stack"
         tooltipPos="bottom"
         className="hidden md:block"
-        style={{ bottom: "4.4%", left: "45%" }}
+        style={{ bottom: "4%", left: "45%" }}
       >
         <Folder />
       </DraggableItem>
@@ -114,8 +114,8 @@ export function HomeHero() {
         </div>
 
         <h1
-          className="font-display font-semibold tracking-tighter text-center text-2xl xl:text-3xl leading-8 
-          xl:leading-normal  max-w-90 xl:max-w-[35dvw]"
+          className="font-display font-semibold tracking-tighter text-center text-2xl xl:text-[1.8rem] leading-4
+          xl:leading-11  max-w-90 xl:max-w-[34dvw]"
           style={{
             color: "var(--text)",
           }}
@@ -135,7 +135,7 @@ export function HomeHero() {
           </span>
         </h1>
 
-        <div className="mt-8 flex flex-wrap items-center gap-3">
+        <div className="mt-6 flex flex-wrap items-center gap-3">
           <button
             data-cursor="pointer"
             onClick={() =>
@@ -160,7 +160,7 @@ export function HomeHero() {
         </div>
 
         <p
-          className="mt-10 font-mono-brand text-[11px] hidden md:block text-center"
+          className="mt-6 font-mono-brand text-[11px] hidden md:block text-center"
           style={{ color: "var(--text-muted)" }}
         >
           try <strong>dragging</strong> items around.
