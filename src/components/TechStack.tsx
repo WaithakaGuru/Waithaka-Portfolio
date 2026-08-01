@@ -24,7 +24,7 @@ export default function TechMarquee() {
               className="font-display font-bold text-lg flex justify-center items-center"
               style={{ color: "var(--text-sub)" }}
             >
-              {renderTechWithIcon(name.name, 22)}
+              {renderTechWithIcon(name.name, "22", 21)}
             </span>
           ))}
         </div>
