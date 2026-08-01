@@ -1,0 +1,44 @@
+{
+  "name": "trialfolio",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "lint": "eslint .",
+    "preview": "vite preview",
+    "optimize:images": "bun run scripts/optimize-images.mjs"
+  },
+  "dependencies": {
+    "@react-three/drei": "^10.7.7",
+    "@react-three/fiber": "^9.6.1",
+    "@react-three/rapier": "^2.2.0",
+    "@tailwindcss/vite": "^4.3.2",
+    "@types/three": "^0.185.1",
+    "framer-motion": "^12.42.2",
+    "meshline": "^3.3.1",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "react-icons": "^5.7.0",
+    "react-three": "^0.9.7",
+    "tailwindcss": "^4.3.2",
+    "three": "^0.185.1"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.19.0",
+    "@types/bun": "^1.3.14",
+    "@types/react": "^19.0.8",
+    "@types/react-dom": "^19.0.3",
+    "@vitejs/plugin-react": "^4.3.4",
+    "eslint": "^9.19.0",
+    "eslint-plugin-react-hooks": "^5.0.0",
+    "eslint-plugin-react-refresh": "^0.4.18",
+    "globals": "^15.14.0",
+    "sharp": "^0.35.3",
+    "typescript": "~5.7.2",
+    "typescript-eslint": "^8.22.0",
+    "vite": "^6.1.0",
+    "vite-imagetools": "^10.0.1"
+  }
+}
