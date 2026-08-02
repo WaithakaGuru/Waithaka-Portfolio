@@ -114,7 +114,7 @@ export function HomeHero() {
         </div>
 
         <h1
-          className="font-display font-semibold tracking-tighter text-center text-2xl xl:text-[1.8rem] leading-4
+          className="font-display font-semibold tracking-tighter text-center text-2xl xl:text-[1.8rem] leading-8
           xl:leading-11  max-w-90 xl:max-w-[34dvw]"
           style={{
             color: "var(--text)",

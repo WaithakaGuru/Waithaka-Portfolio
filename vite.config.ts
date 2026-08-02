@@ -14,7 +14,7 @@ export default defineConfig({
         url.searchParams.has("responsive")
           ? new URLSearchParams({
               format: "avif;webp;jpg",
-              w: "480;800;1200;1600",
+              w: "320;480;800;1200;1600",
               as: "picture",
             })
           : new URLSearchParams(),
