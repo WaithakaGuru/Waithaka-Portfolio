@@ -194,6 +194,7 @@ export function ResumePage({ onBack }: ResumePageProps) {
                     {isImagePath(ed.logo) ? (
                       <div className="w-40 h-30 border border-(--text-muted) flex items-center justify-center overflow-hidden">
                         <img
+                          className="w-full"
                           src={new URL(ed.logo, import.meta.url).href}
                           alt=""
                         />

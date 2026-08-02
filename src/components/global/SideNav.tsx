@@ -106,7 +106,7 @@ function DesktopNav({
             key={item.id}
             data-cursor="pointer"
             onClick={() => goTo(item.id)}
-            className="flex items-center gap-2 h-10 px-2.25 rounded-xl transition-colors shrink-0"
+            className="flex items-center gap-2 h-10 px-3 rounded-xl transition-colors shrink-0"
             style={{
               color: isActive ? "var(--accent)" : "var(--text)",
               background: isActive ? "var(--accent-soft)" : "transparent",

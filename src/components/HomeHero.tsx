@@ -82,7 +82,7 @@ export function HomeHero() {
         tooltipPos="bottom"
         initialRotate={-2}
         className="hidden md:block"
-        style={{ bottom: "4%", left: "8%" }}
+        style={{ bottom: "5%", left: "8%" }}
       >
         <Phone />
       </DraggableItem>
