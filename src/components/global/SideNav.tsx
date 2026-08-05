@@ -91,7 +91,7 @@ function DesktopNav({
       onMouseLeave={() => setExpanded(false)}
       animate={{ width: expanded ? 210 : 56 }}
       transition={{ type: "spring", stiffness: 320, damping: 32 }}
-      className="fixed top-1/2 -translate-y-1/2 z-50 hidden md:flex flex-col gap-1 p-2 rounded-2xl backdrop-blur-md overflow-hidden"
+      className="fixed top-1/2 -translate-y-1/2 z-70 hidden md:flex flex-col gap-1 p-2 rounded-2xl backdrop-blur-md overflow-hidden"
       style={{
         left: "max(1rem, calc(var(--page-margin) + 1rem - var(--nav-width-collapsed)))",
         background: "var(--nav-bg)",

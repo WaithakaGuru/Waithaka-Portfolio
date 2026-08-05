@@ -9,7 +9,6 @@ export default defineConfig({
     tailwindcss(),
     imagetools({
       // Shorthand: `import x from "./img.jpg?responsive"` instead of
-      // repeating the full directive string everywhere it's used.
       defaultDirectives: (url: URL) =>
         url.searchParams.has("responsive")
           ? new URLSearchParams({
@@ -20,5 +19,5 @@ export default defineConfig({
           : new URLSearchParams(),
     }),
   ],
-  server: { host: true },
+  server: { host: "192.100.0.0" },
 });
