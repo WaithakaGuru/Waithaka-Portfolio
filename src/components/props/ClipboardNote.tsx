@@ -1,7 +1,7 @@
 export function ClipboardNote() {
   return (
     <div
-      className="w-45 rounded-lg overflow-hidden"
+      className="w-45 rounded-lg overflow-hidden min-h-30"
       style={{
         background: "var(--surface)",
         border: "1px solid var(--border-lt)",
@@ -15,7 +15,7 @@ export function ClipboardNote() {
         />
       </div>
       <div
-        className="px-3 pt-4 pb-4 font-hand text-[1.1rem] leading-snug"
+        className="px-3 pt-4 pb-4 font-hand text-sm leading-snug"
         style={{ color: "var(--text)" }}
       >
         Ship it. <br />
