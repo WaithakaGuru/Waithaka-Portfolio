@@ -15,7 +15,7 @@ export function ClipboardNote() {
         />
       </div>
       <div
-        className="px-3 pt-4 pb-4 font-hand text-sm leading-snug"
+        className="px-3 pt-4 pb-4 font-hand text-[1.1rem] leading-snug"
         style={{ color: "var(--text)" }}
       >
         Ship it. <br />
