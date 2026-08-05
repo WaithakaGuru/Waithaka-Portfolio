@@ -19,5 +19,5 @@ export default defineConfig({
           : new URLSearchParams(),
     }),
   ],
-  server: { host: "192.100.0.0" },
+  server: { host: true },
 });
