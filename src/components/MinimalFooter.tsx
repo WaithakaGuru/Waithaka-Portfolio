@@ -32,7 +32,7 @@ export function MinimalFooter({ snap = true }) {
             },
             {
               icon: <SiWhatsapp size={16} />,
-              href: wa.label,
+              href: wa.link,
             },
             {
               icon: <FiMail size={16} />,
