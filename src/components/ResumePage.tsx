@@ -5,6 +5,7 @@ import {
   FiGithub,
   FiInstagram,
   FiLinkedin,
+  FiMail,
 } from "react-icons/fi";
 import { experiences, education } from "../data";
 import { HeaderNav } from "./global/HeaderNav";
@@ -26,7 +27,7 @@ function isImagePath(value: string): boolean {
 
 export function ResumePage({ onBack }: ResumePageProps) {
   const [copied, setCopied] = useState(false);
-  const { wa, ig, li, gh } = useContact();
+  const { wa, ig, li, gh, em } = useContact();
 
   const copyEmail = () => {
     navigator.clipboard.writeText(EMAIL);
@@ -64,6 +65,7 @@ export function ResumePage({ onBack }: ResumePageProps) {
               </div>
               <button
                 data-cursor="pointer"
+                title="Copy My Email"
                 onClick={copyEmail}
                 className="mt-1 inline-flex items-center gap-1.5 font-mono-brand text-xs transition-opacity hover:opacity-70"
                 style={{ color: "var(--text-sub)" }}
@@ -90,7 +92,10 @@ export function ResumePage({ onBack }: ResumePageProps) {
               <FiDownload size={14} /> Download Resume
             </a>
 
-            <div className="flex items-center gap-4 mt-2">
+            <span className="text-(--text-sub) text-xs font-bold">
+              Contact me on{" "}
+            </span>
+            <div className="flex items-center gap-2 mt-2">
               {[
                 {
                   icon: <FiGithub size={16} />,
@@ -107,6 +112,10 @@ export function ResumePage({ onBack }: ResumePageProps) {
                 {
                   icon: <FiInstagram size={16} />,
                   href: ig.link,
+                },
+                {
+                  icon: <FiMail size={16} />,
+                  href: em.link,
                 },
               ].map((s, i) => (
                 <a
