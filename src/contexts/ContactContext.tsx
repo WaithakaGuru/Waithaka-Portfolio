@@ -5,7 +5,13 @@ interface ContactLink {
   link: string;
 }
 
-type linkLabel = "whatsapp" | "github" | "instagram" | "linkedin" | "email";
+type linkLabel =
+  | "whatsapp"
+  | "github"
+  | "instagram"
+  | "linkedin"
+  | "email"
+  | "phone";
 
 const ContactContext = createContext<Record<string, ContactLink> | undefined>(
   undefined,
@@ -28,6 +34,7 @@ export function ContactProvider({ children }: { children: React.ReactNode }) {
       link: "https://www.linkedin.com/in/waithaka-amos-b2b80a255/",
     },
     em: { label: "email", link: "waithakaoffices@gmail.com" },
+    ph: { label: "phone", link: "+254725676491" },
   };
   return (
     <ContactContext.Provider value={{ wa, em, li, gh, ig }}>

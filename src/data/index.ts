@@ -203,7 +203,7 @@ export interface Education {
 
 export const education: Education[] = [
   {
-    logo: "🎓",
+    logo: "/images/education/Waithaka BSC SE CERT.jpeg",
     category: "DEGREE",
     title: "Bachelor of Science in Software Engineering",
     institution: "Murang’a University of Technology",
