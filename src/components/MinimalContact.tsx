@@ -1,14 +1,6 @@
-import { useState } from "react";
-import {
-  FiCopy,
-  FiCheck,
-  FiMail,
-  FiLinkedin,
-  FiGithub,
-  FiInstagram,
-} from "react-icons/fi";
-import { SiWhatsapp } from "react-icons/si";
+import { FiMail, FiLinkedin, FiGithub, FiInstagram } from "react-icons/fi";
 import { useContact } from "../contexts";
+import ContactButtonGroup from "./work/ContactBTNGRP";
 
 const services = [
   "Full Stack Engineering",
@@ -19,20 +11,11 @@ const services = [
 ];
 
 export function MinimalContact() {
-  const [copied, setCopied] = useState(false);
-  const { wa, em, gh, li, ig } = useContact();
-
-  const copy = () => {
-    navigator.clipboard.writeText(em.link);
-    setCopied(true);
-    setTimeout(() => setCopied(false), 1500);
-  };
-
+  const { em, gh, li, ig } = useContact();
   const socials = [
     { label: "LinkedIn", icon: <FiLinkedin size={16} />, href: li.link },
     { label: "GitHub", icon: <FiGithub size={16} />, href: gh.link },
     { label: "Instagram", icon: <FiInstagram size={16} />, href: ig.link },
-    { label: "WhatsApp", icon: <SiWhatsapp size={15} />, href: wa.link },
   ];
 
   return (
@@ -105,7 +88,7 @@ export function MinimalContact() {
       </h2>
       {/* Action CTAs */}
       <div className="flex flex-wrap items-center justify-center gap-4 mb-16 z-10">
-        <button
+        {/* <button
           data-cursor="pointer"
           onClick={copy}
           aria-label="Copy email address to clipboard"
@@ -140,8 +123,8 @@ export function MinimalContact() {
           >
             Copied!
           </span>
-        </button>
-
+        </button> */}
+        <ContactButtonGroup />
         <a
           data-cursor="pointer"
           href={`mailto:${em.link}`}

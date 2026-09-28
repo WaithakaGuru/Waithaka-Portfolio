@@ -18,7 +18,7 @@ const ContactContext = createContext<Record<string, ContactLink> | undefined>(
 );
 
 export function ContactProvider({ children }: { children: React.ReactNode }) {
-  const { wa, ig, gh, li, em }: Record<string, ContactLink> = {
+  const { wa, ig, gh, li, em, ph }: Record<string, ContactLink> = {
     wa: {
       label: "whatsapp",
       link: `https://wa.me/254725676491?text=${encodeURIComponent("Hello Waithaka, From your portfolio, Let's talk business")}`,
@@ -37,7 +37,7 @@ export function ContactProvider({ children }: { children: React.ReactNode }) {
     ph: { label: "phone", link: "+254725676491" },
   };
   return (
-    <ContactContext.Provider value={{ wa, em, li, gh, ig }}>
+    <ContactContext.Provider value={{ wa, em, li, gh, ig, ph }}>
       {children}
     </ContactContext.Provider>
   );

@@ -5,13 +5,12 @@ import {
   FiGithub,
   FiInstagram,
   FiLinkedin,
-  FiMail,
 } from "react-icons/fi";
 import { experiences, education } from "../data";
 import { HeaderNav } from "./global/HeaderNav";
-import { SiWhatsapp } from "react-icons/si";
 import { useContact } from "../contexts";
 import { renderTechWithIcon } from "../utils/techIcons";
+import ContactButtonGroup from "./work/ContactBTNGRP";
 
 const EMAIL = "waithakaoffices@gmail.com";
 const RESUME_PDF = "/docs/Waithaka Ndung'u Resume.pdf";
@@ -27,7 +26,7 @@ function isImagePath(value: string): boolean {
 
 export function ResumePage({ onBack }: ResumePageProps) {
   const [copied, setCopied] = useState(false);
-  const { wa, ig, li, gh, em } = useContact();
+  const { ig, li, gh } = useContact();
 
   const copyEmail = () => {
     navigator.clipboard.writeText(EMAIL);
@@ -95,6 +94,10 @@ export function ResumePage({ onBack }: ResumePageProps) {
             <span className="text-(--text-sub) text-xs font-bold">
               Contact me on{" "}
             </span>
+            <ContactButtonGroup />
+            <span className="text-(--text-sub) text-xs font-bold">
+              Follow me on
+            </span>
             <div className="flex items-center gap-2 mt-2">
               {[
                 {
@@ -106,16 +109,8 @@ export function ResumePage({ onBack }: ResumePageProps) {
                   href: li.link,
                 },
                 {
-                  icon: <SiWhatsapp size={16} />,
-                  href: wa.link,
-                },
-                {
                   icon: <FiInstagram size={16} />,
                   href: ig.link,
-                },
-                {
-                  icon: <FiMail size={16} />,
-                  href: em.link,
                 },
               ].map((s, i) => (
                 <a

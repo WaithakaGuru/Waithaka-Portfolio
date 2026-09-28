@@ -7,7 +7,6 @@ import { ClipboardNote } from "./props/ClipboardNote";
 import { TerminalCard } from "./props/TerminalCard";
 import Folder from "./props/Folder";
 import { ProfileCard } from "./props/ProfileCard";
-import ContactButtonGroup from "./work/ContactBTNGRP";
 
 export function HomeHero() {
   const heroRef = useRef<HTMLDivElement>(null);
@@ -165,7 +164,6 @@ export function HomeHero() {
           style={{ color: "var(--text-muted)" }}
         >
           try <strong>dragging</strong> items around.
-          <ContactButtonGroup />
         </p>
       </div>
     </section>
