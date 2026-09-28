@@ -150,7 +150,7 @@ export function HomeHero() {
           </button>
           <a
             data-cursor="pointer"
-            href="/docs/Waithaka Ndung'u Resume.pdf"
+            href="/docs/Waithaka_Ndung'u_Resume.pdf"
             download
             className="inline-flex items-center gap-2 px-6 py-3 rounded-full font-mono-brand text-xs font-bold uppercase tracking-widest border transition-transform hover:-translate-y-0.5"
             style={{ borderColor: "var(--border-lt)", color: "var(--text)" }}
