@@ -207,7 +207,7 @@ export const education: Education[] = [
     category: "DEGREE",
     title: "Bachelor of Science in Software Engineering",
     institution: "Murang’a University of Technology",
-    date: "September 2022 – April 2026 (Graduation: August 2026)",
+    date: "September 2022 – April 2026 (SECOND CLASS UPPER DIVISION  -> 68.67)",
     description:
       "Comprehensive training in software engineering principles, systems design, and fullstack development.",
   },
