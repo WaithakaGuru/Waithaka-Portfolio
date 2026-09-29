@@ -212,30 +212,13 @@ export const education: Education[] = [
       "Comprehensive training in software engineering principles, systems design, and fullstack development.",
   },
   {
-    logo: "/images/education/teach2give-bootcamp.png",
-    category: "BOOTCAMP",
-    title: "Fullstack Software Development",
-    institution: "Teach2Give, The Jitu",
-    date: "May 2025 – August 2025",
+    logo: "/images/education/teach2give-cert.png",
+    category: "CERTIFICATION",
+    title: "Teach2Give Certified Software Developer",
+    institution: "Teach2Give",
+    date: "Issued August 2025",
     description:
-      "Intensive hands-on training in modern web development using React, Node.js, PostgreSQL, and cloud deployment tools.",
-  },
-  {
-    logo: "/images/education/KCSE results.jpg",
-    category: "CERTIFICATE",
-    title: "Kenya Certificate of Secondary Education (KCSE)",
-    institution: "Njiiri School",
-    date: "January 2018 – April 2022",
-    description: "Achieved grade B+ in national examinations.",
-  },
-  {
-    logo: "/images/education/ML CERT.png",
-    category: "COURSE",
-    title: "A Quick Introduction to Machine Learning",
-    institution: "Cognitive Class",
-    date: "Issued March 2026",
-    description:
-      "Credential ID: 05e9d2b8dfba4e949d619791c58b106f | Proof: /certs/ml-intro.png",
+      "Certificate of Achievement in Software Development | Proof: /certs/t2g-fullstack.png",
   },
   {
     logo: "/images/education/CISCO SECURITY.png",
@@ -255,13 +238,13 @@ export const education: Education[] = [
     description: "Proof: /certs/network-devices-config.png",
   },
   {
-    logo: "/images/education/teach2give-cert.png",
-    category: "CERTIFICATION",
-    title: "Teach2Give Certified Software Developer",
-    institution: "Teach2Give",
-    date: "Issued August 2025",
+    logo: "/images/education/teach2give-bootcamp.png",
+    category: "BOOTCAMP",
+    title: "Fullstack Software Development",
+    institution: "Teach2Give, The Jitu",
+    date: "May 2025 – August 2025",
     description:
-      "Certificate of Achievement in Software Development | Proof: /certs/t2g-fullstack.png",
+      "Intensive hands-on training in modern web development using React, Node.js, PostgreSQL, and cloud deployment tools.",
   },
   {
     logo: "/images/education/AWS Security best practices.png",
@@ -278,6 +261,23 @@ export const education: Education[] = [
     institution: "AWS",
     date: "Issued August 2025",
     description: "Certificate of Achievement in Security Fundamentals",
+  },
+  {
+    logo: "/images/education/ML CERT.png",
+    category: "COURSE",
+    title: "A Quick Introduction to Machine Learning",
+    institution: "Cognitive Class",
+    date: "Issued March 2026",
+    description:
+      "Credential ID: 05e9d2b8dfba4e949d619791c58b106f | Proof: /certs/ml-intro.png",
+  },
+  {
+    logo: "/images/education/KCSE results.jpg",
+    category: "CERTIFICATE",
+    title: "Kenya Certificate of Secondary Education (KCSE)",
+    institution: "Njiiri School",
+    date: "January 2018 – April 2022",
+    description: "Achieved grade B+ in national examinations.",
   },
 ];
 
