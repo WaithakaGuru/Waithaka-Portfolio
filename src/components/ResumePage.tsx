@@ -13,8 +13,7 @@ import { renderTechWithIcon } from "../utils/techIcons";
 import ContactButtonGroup from "./work/ContactBTNGRP";
 
 const EMAIL = "waithakaoffices@gmail.com";
-const RESUME_PDF = "/docs/Waithaka Ndung'u Resume.pdf";
-
+const RESUME_PDF = "/docs/Waithaka_Ndung'u_Resume.pdf";
 interface ResumePageProps {
   onBack: () => void;
 }
