@@ -1,9 +1,9 @@
-import { FiGithub, FiLinkedin, FiInstagram, FiMail } from "react-icons/fi";
+import { FiGithub, FiLinkedin, FiInstagram } from "react-icons/fi";
 import { useContact } from "../contexts";
-import { SiWhatsapp } from "react-icons/si";
+import ContactButtonGroup from "./work/ContactBTNGRP";
 
 export function MinimalFooter({ snap = true }) {
-  const { wa, li, gh, ig, em } = useContact();
+  const { li, gh, ig } = useContact();
   return (
     <footer
       className={`section-bg-a page-margin pt-10 pb-24 border-t ${snap ? "snap-section" : ""}`}
@@ -17,6 +17,7 @@ export function MinimalFooter({ snap = true }) {
           © {new Date().getFullYear()} Waithaka Ndung'u · Kiru Tech
         </span>
         <div className="flex items-center gap-4">
+          <ContactButtonGroup />
           {[
             {
               icon: <FiGithub size={16} />,
@@ -29,14 +30,6 @@ export function MinimalFooter({ snap = true }) {
             {
               icon: <FiInstagram size={16} />,
               href: ig.link,
-            },
-            {
-              icon: <SiWhatsapp size={16} />,
-              href: wa.link,
-            },
-            {
-              icon: <FiMail size={16} />,
-              href: `mailto:${em.link}`,
             },
           ].map((s, i) => (
             <a
